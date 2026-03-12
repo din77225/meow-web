@@ -5,6 +5,25 @@
 
 import React from 'react';
 import { Youtube, Instagram, Play, ChevronLeft, ChevronRight, PlayCircle } from 'lucide-react';
+import { Gravity, MatterBody } from './components/ui/gravity';
+import { WavePath } from './components/ui/wave-path';
+import videosData from './data/videos.json';
+import featuredData from './data/featured.json';
+
+// Physics tags — singular "I am a ___" concept
+const gravityTags = [
+  { label: 'AI Educator',   bg: '#f4d00a', color: '#1a1625', x: '10%', y: '4%',  angle: -4 },
+  { label: 'Meowgic Maker', bg: '#7b54b3', color: '#ffffff', x: '50%', y: '3%',  angle: 3  },
+  { label: 'AI Tinkerer',   bg: '#00c4cc', color: '#ffffff', x: '26%', y: '9%',  angle: -6 },
+  { label: 'Marketer',      bg: '#1a1625', color: '#ffffff', x: '68%', y: '7%',  angle: 5  },
+  { label: 'Designer',      bg: '#ffffff', color: '#7b54b3', x: '15%', y: '17%', angle: -3 },
+  { label: 'Dreamer',       bg: '#ede8f5', color: '#7b54b3', x: '58%', y: '14%', angle: 7  },
+  { label: 'Builder',       bg: '#ff8c5a', color: '#ffffff', x: '37%', y: '6%',  angle: -5 },
+  { label: 'Entrepreneur',  bg: '#1a1625', color: '#f4d00a', x: '76%', y: '18%', angle: 4  },
+  { label: 'Storyteller',        bg: '#fef9c3', color: '#1a1625', x: '33%', y: '20%', angle: -2 },
+  { label: 'Creative Director',  bg: '#7b54b3', color: '#f4d00a', x: '65%', y: '30%', angle: -3 },
+  { label: 'Brand Strategist',   bg: '#e8e4f0', color: '#1a1625', x: '12%', y: '33%', angle: 5  },
+];
 
 // TikTok SVG icon (not in lucide-react)
 const TikTokIcon = () => (
@@ -13,34 +32,29 @@ const TikTokIcon = () => (
   </svg>
 );
 
-// Recent video data
-const recentVideos = [
-  {
-    id: '5ifJk-UwCWI',
-    duration: '8:55',
-    tag: 'Review',
-    title: 'The World Wasn\'t Ready for Seedance 2.0',
-  },
-  {
-    id: 'X1oE_vBHnt0',
-    duration: '20:04',
-    tag: 'Tutorial',
-    title: 'Create AI Music Videos for Multiple Singers',
-  },
-  {
-    id: 'HMWFvxeNMVo',
-    duration: '9:29',
-    tag: 'Guide',
-    title: 'Make AI Characters Actually Dance (Kling 2.6)',
-  },
-];
+// Videos loaded from src/data/*.json — auto-updated by scripts/fetch-videos.mjs
+const featuredVideo = featuredData as { id: string; title: string; tag: string };
+const recentVideos  = videosData   as { id: string; title: string; tag: string; duration?: string }[];
 
 export default function App() {
   const scrollRef = React.useRef<HTMLDivElement>(null);
+  const [profileHover, setProfileHover] = React.useState(false);
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 1024);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   const scroll = (direction: 'left' | 'right') => {
-    if (!scrollRef.current) return;
-    scrollRef.current.scrollBy({ left: direction === 'left' ? -480 : 480, behavior: 'smooth' });
+    const el = scrollRef.current;
+    if (!el) return;
+    // Measure the first card's width + gap to scroll exactly one card at a time
+    const card = el.firstElementChild as HTMLElement | null;
+    const cardWidth = card ? card.offsetWidth + 24 : 284; // 24 = gap-6
+    el.scrollBy({ left: direction === 'left' ? -cardWidth : cardWidth, behavior: 'smooth' });
   };
 
   return (
@@ -57,7 +71,7 @@ export default function App() {
           <a className="hover:text-[#7b54b3] transition-colors duration-200" href="https://mia-meow.kit.com/0988b3b4b8" target="_blank" rel="noreferrer">newsletter</a>
         </nav>
         <a
-          href="https://www.youtube.com/@miameowai"
+          href="https://www.youtube.com/@miameowai?sub_confirmation=1"
           target="_blank"
           rel="noreferrer"
           className="bg-[#7b54b3] text-white px-6 py-2.5 text-sm font-semibold rounded-full hover:bg-[#6a46a0] transition-colors duration-200 cursor-pointer"
@@ -71,33 +85,109 @@ export default function App() {
         {/* ── Hero ── */}
         <section className="relative grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-65px)] bg-[#f8f6f3] border-b border-black/8 overflow-hidden">
 
-          {/* Left: Profile image with B&W / colour hover */}
-          <div className="relative flex items-center justify-center p-8 lg:p-12 border-r border-black/8 min-h-[50vh] lg:min-h-auto">
-            <div className="relative w-full max-w-[360px] aspect-[3/4]">
-              {/* Blob container — acts as the hover group */}
-              <div
-                className="group relative w-full h-full overflow-hidden shadow-2xl cursor-pointer"
-                style={{ borderRadius: '42% 58% 52% 48% / 46% 48% 52% 54%' }}
-              >
-                {/* Color image — always present underneath */}
-                <img
-                  alt="Mia Meow — colour"
-                  src="/profile-color.jpg"
-                  className="absolute inset-0 w-full h-full object-cover object-top"
-                />
-                {/* B&W image — sits on top, fades out on hover */}
-                <img
-                  alt="Mia Meow"
-                  src="/profile-bw.jpg"
-                  className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500 group-hover:opacity-0"
-                />
-              </div>
+          {/* Left: gravity zone on desktop, static on mobile */}
+          <div className="relative border-r border-black/8 min-h-[70vh] lg:min-h-auto overflow-hidden">
 
-              {/* Yellow badge */}
-              <div className="absolute bottom-4 -right-2 lg:right-0 bg-[#f4d00a] text-[#1a1625] font-bold text-xs px-5 py-2 rounded-full -rotate-2 shadow-md select-none">
-                AI EDUCATOR
+            {isMobile ? (
+              /* ── Mobile: static profile + pill tags ── */
+              <div className="flex flex-col items-center justify-center h-full py-10 px-8 gap-6">
+                {/* Profile image */}
+                <div className="relative w-full max-w-[240px] aspect-[3/4]">
+                  <div
+                    className="relative w-full h-full overflow-hidden shadow-2xl"
+                    style={{ borderRadius: '42% 58% 52% 48% / 46% 48% 52% 54%' }}
+                  >
+                    <img
+                      alt="Mia Meow — colour"
+                      src="/profile-color.jpg"
+                      className="absolute inset-0 w-full h-full object-cover object-top"
+                    />
+                    <img
+                      alt="Mia Meow"
+                      src="/profile-bw.jpg"
+                      className="absolute inset-0 w-full h-full object-cover object-top"
+                    />
+                  </div>
+                </div>
+                {/* Static pill tags — staggered fade-in */}
+                <div className="flex flex-wrap gap-2 justify-center">
+                  {gravityTags.map((tag, i) => (
+                    <div
+                      key={tag.label}
+                      className="px-4 py-2 rounded-full text-sm font-bold whitespace-nowrap shadow-md border border-black/5 animate-pill-in"
+                      style={{ background: tag.bg, color: tag.color, animationDelay: `${i * 0.06}s` }}
+                    >
+                      {tag.label}
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            ) : (
+              /* ── Desktop: physics / gravity ── */
+              <Gravity gravity={{ x: 0, y: 1.1 }} grabCursor className="w-full h-full">
+
+                {/* Profile image — non-physics child, centred in the panel */}
+                <div
+                  className="absolute inset-0 flex items-center justify-center p-10 pointer-events-none"
+                  style={{ zIndex: 5 }}
+                >
+                  <div className="relative w-full max-w-[300px] lg:max-w-[340px] aspect-[3/4]">
+                    <div
+                      className="relative w-full h-full overflow-hidden shadow-2xl"
+                      style={{
+                        borderRadius: '42% 58% 52% 48% / 46% 48% 52% 54%',
+                        pointerEvents: 'auto',
+                        cursor: 'pointer',
+                      }}
+                      onMouseEnter={() => setProfileHover(true)}
+                      onMouseLeave={() => setProfileHover(false)}
+                    >
+                      <img
+                        alt="Mia Meow — colour"
+                        src="/profile-color.jpg"
+                        className="absolute inset-0 w-full h-full object-cover object-top"
+                      />
+                      <img
+                        alt="Mia Meow"
+                        src="/profile-bw.jpg"
+                        className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500"
+                        style={{ opacity: profileHover ? 0 : 1 }}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Ghost "i am a" text */}
+                <div
+                  className="absolute inset-0 flex items-end justify-center pb-10 pointer-events-none select-none overflow-hidden"
+                  style={{ zIndex: 1 }}
+                  aria-hidden="true"
+                >
+                  <span className="text-[4.5rem] lg:text-[6rem] font-black text-black/[0.04] leading-none tracking-tighter lowercase">
+                    i am a
+                  </span>
+                </div>
+
+                {/* Physics tags */}
+                {gravityTags.map((tag) => (
+                  <MatterBody
+                    key={tag.label}
+                    x={tag.x}
+                    y={tag.y}
+                    angle={tag.angle}
+                    matterBodyOptions={{ friction: 0.45, restitution: 0.3, density: 0.002 }}
+                  >
+                    <div
+                      className="px-5 py-2.5 rounded-full text-sm font-bold whitespace-nowrap shadow-md border border-black/5 select-none"
+                      style={{ background: tag.bg, color: tag.color }}
+                    >
+                      {tag.label}
+                    </div>
+                  </MatterBody>
+                ))}
+
+              </Gravity>
+            )}
           </div>
 
           {/* Right: Typography + CTAs */}
@@ -112,12 +202,12 @@ export default function App() {
               <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#7b54b3] mb-4">@miameowai</p>
 
               <h1 className="text-[3.5rem] lg:text-[5.5rem] font-black leading-[0.88] tracking-tighter mb-6">
-                <span className="block text-[#1a1625]">workflows</span>
-                <span className="block text-[#7b54b3]">that ship.</span>
+                <span className="block text-[#1a1625]">AI in</span>
+                <span className="block text-[#7b54b3]">practice.</span>
               </h1>
 
               <p className="text-base lg:text-lg text-slate-600 font-medium mb-8 leading-relaxed max-w-md">
-                AI workflows and creative systems for creators who want results, not hype. New tutorials every week on YouTube.
+                AI workflows and creative systems for creators who want to put things into practical use. New videos when there is something worth sharing.
               </p>
 
               <div className="flex flex-wrap gap-4">
@@ -151,7 +241,7 @@ export default function App() {
                   <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mt-0.5">community</p>
                 </div>
                 <div>
-                  <p className="text-2xl font-black text-[#1a1625]">160K+</p>
+                  <p className="text-2xl font-black text-[#1a1625]">1M+</p>
                   <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mt-0.5">total views</p>
                 </div>
               </div>
@@ -160,19 +250,20 @@ export default function App() {
         </section>
 
         {/* ── Featured Video ── */}
-        <section className="px-6 py-12 lg:px-20 lg:py-16" id="videos">
+        <section className="px-6 py-10 lg:px-20 lg:py-12" id="videos">
+          <div className="max-w-2xl mx-auto">
           <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#7b54b3] mb-4">latest release</p>
           <a
-            href="https://www.youtube.com/watch?v=ZMHIY15k3MY"
+            href={`https://www.youtube.com/watch?v=${featuredVideo.id}`}
             target="_blank"
             rel="noreferrer"
             className="block relative overflow-hidden rounded-2xl shadow-xl bg-[#18151d] aspect-video group cursor-pointer"
-            aria-label="Watch: AI That Transfers Your Real Motion to Any Avatar"
+            aria-label={`Watch: ${featuredVideo.title}`}
           >
             <img
-              alt="AI That Transfers Your Real Motion to Any Avatar"
+              alt={featuredVideo.title}
               className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-[1.02] transition-transform duration-700"
-              src="https://i.ytimg.com/vi/ZMHIY15k3MY/maxresdefault.jpg"
+              src={`https://i.ytimg.com/vi/${featuredVideo.id}/maxresdefault.jpg`}
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -184,21 +275,26 @@ export default function App() {
                 <Play className="w-7 h-7 lg:w-10 lg:h-10 fill-current ml-1" />
               </div>
               <h3 className="text-2xl lg:text-5xl font-black text-white tracking-tighter max-w-3xl leading-tight">
-                AI That Transfers Your Real Motion to Any Avatar
+                {featuredVideo.title}
               </h3>
-              <p className="text-white/60 text-sm mt-3 font-medium">9:04 min</p>
             </div>
           </a>
+          </div>
         </section>
 
+        {/* ── Wave divider ── */}
+        <div className="flex justify-center px-6 lg:px-20 py-4">
+          <WavePath />
+        </div>
+
         {/* ── Recent Uploads ── */}
-        <section className="py-12 lg:py-20 overflow-hidden border-t border-black/5">
+        <section className="py-12 lg:py-20 overflow-hidden">
           <div className="px-6 lg:px-20 mb-10 flex items-end justify-between">
             <div>
               <h2 className="chunky-text text-4xl lg:text-7xl uppercase text-[#1a1625]">uploads</h2>
               <p className="font-serif italic text-lg text-slate-500 mt-2">recent tutorials and experiments</p>
             </div>
-            <div className="flex gap-3">
+            <div className="flex gap-3 lg:hidden">
               <button
                 onClick={() => scroll('left')}
                 className="w-11 h-11 rounded-full border border-[#7b54b3]/30 flex items-center justify-center hover:bg-[#7b54b3] hover:text-white hover:border-[#7b54b3] transition-all duration-200 cursor-pointer"
@@ -216,9 +312,11 @@ export default function App() {
             </div>
           </div>
 
+          {/* Horizontal scroll on mobile, 2-column grid on desktop */}
           <div
             ref={scrollRef}
-            className="flex gap-6 px-6 lg:px-20 overflow-x-auto pb-6 no-scrollbar snap-x snap-mandatory"
+            className="flex gap-6 px-6 lg:px-20 overflow-x-auto pb-6 no-scrollbar snap-x snap-proximity
+                       lg:grid lg:grid-cols-4 lg:overflow-visible lg:snap-none"
           >
             {recentVideos.map((v) => (
               <a
@@ -226,79 +324,97 @@ export default function App() {
                 href={`https://www.youtube.com/watch?v=${v.id}`}
                 target="_blank"
                 rel="noreferrer"
-                className="min-w-[280px] lg:min-w-[420px] snap-start group cursor-pointer block shrink-0"
+                className="min-w-[260px] lg:min-w-0 snap-start group cursor-pointer block shrink-0 lg:shrink"
               >
-                <div className="aspect-video bg-neutral-200 rounded-xl overflow-hidden mb-4 relative">
+                <div className="aspect-video bg-neutral-200 rounded-xl overflow-hidden mb-3 relative">
                   <img
                     alt={v.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`}
                     loading="lazy"
                   />
-                  <div className="absolute bottom-3 right-3 bg-black/80 text-white text-[10px] px-2 py-0.5 font-bold rounded">{v.duration}</div>
+                  {v.duration && <div className="absolute bottom-2 right-2 bg-black/80 text-white text-[10px] px-2 py-0.5 font-bold rounded">{v.duration}</div>}
                 </div>
-                <span className="text-xs font-bold tracking-wider text-[#7b54b3] uppercase">{v.tag}</span>
-                <h4 className="text-base lg:text-lg font-black mt-1.5 leading-tight uppercase group-hover:text-[#7b54b3] transition-colors duration-200">{v.title}</h4>
+                <span className="text-[10px] font-bold tracking-wider text-[#7b54b3] uppercase">{v.tag}</span>
+                <h4 className="text-sm font-black mt-1 leading-tight uppercase group-hover:text-[#7b54b3] transition-colors duration-200">{v.title}</h4>
               </a>
             ))}
           </div>
         </section>
 
         {/* ── About / The Method ── */}
-        <section className="px-6 py-20 lg:px-20 lg:py-32 bg-[#18151d] text-slate-100 relative overflow-hidden">
+        <section className="px-6 py-20 lg:px-20 lg:py-32 bg-[#00c4cc] text-[#032b2e] relative overflow-hidden">
           <div className="absolute top-0 right-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
-            <span className="block text-[20vw] font-black text-white/[0.03] leading-none tracking-tighter p-8">MEOW</span>
+            <span
+              className="block text-[20vw] font-black leading-none tracking-tighter p-8"
+              style={{
+                backgroundImage: 'radial-gradient(circle, rgba(3,43,46,0.18) 40%, transparent 40%)',
+                backgroundSize: '10px 10px',
+                WebkitBackgroundClip: 'text',
+                backgroundClip: 'text',
+                color: 'transparent',
+              }}
+            >MEOW</span>
           </div>
 
           <div className="relative z-10 grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
             {/* Text */}
             <div className="space-y-8">
-              <h2 className="chunky-text text-5xl lg:text-8xl uppercase leading-none">the<br />method</h2>
-              <div className="space-y-5 font-serif text-lg lg:text-xl leading-relaxed text-slate-300">
+              <h2 className="chunky-text text-5xl lg:text-8xl uppercase leading-none text-[#032b2e]">the<br />method</h2>
+              <div className="space-y-5 font-serif text-lg lg:text-xl leading-relaxed text-[#032b2e]/80">
                 <p>
-                  I build AI workflows that actually work, and share every mistake along the way.
+                  I share the AI workflows you can put into practice, including the mistakes along the way.
                 </p>
                 <p>
-                  My videos explore how creators can use tools like Midjourney, HeyGen, and Kling without getting overwhelmed, focusing on the process, not the hype.
+                  My videos explore how creators can work with AI without getting overwhelmed, one step at a time.
                 </p>
               </div>
-              <div className="flex flex-wrap gap-8 pt-8 border-t border-white/10">
+              <div className="flex flex-wrap gap-8 pt-8 border-t border-[#032b2e]/15">
                 <div>
-                  <p className="text-3xl font-black">21K</p>
-                  <p className="text-xs uppercase tracking-widest text-[#00c4cc] font-bold mt-1">subscribers</p>
+                  <p className="text-3xl font-black text-[#032b2e]">21K</p>
+                  <p className="text-xs uppercase tracking-widest text-[#7b54b3] font-bold mt-1">subscribers</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-black">600+</p>
-                  <p className="text-xs uppercase tracking-widest text-[#00c4cc] font-bold mt-1">skool members</p>
+                  <p className="text-3xl font-black text-[#032b2e]">600+</p>
+                  <p className="text-xs uppercase tracking-widest text-[#7b54b3] font-bold mt-1">skool members</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-black">160K+</p>
-                  <p className="text-xs uppercase tracking-widest text-[#00c4cc] font-bold mt-1">total views</p>
+                  <p className="text-3xl font-black text-[#032b2e]">1M+</p>
+                  <p className="text-xs uppercase tracking-widest text-[#7b54b3] font-bold mt-1">total views</p>
                 </div>
               </div>
             </div>
 
             {/* Portrait with hover effect */}
             <div className="relative max-w-sm mx-auto lg:ml-auto lg:mr-0">
-              <div className="aspect-square rounded-full border border-[#7b54b3]/40 p-3">
+              <div className="aspect-square rounded-full border-2 border-[#032b2e]/20 p-3">
                 <div className="group relative w-full h-full rounded-full overflow-hidden cursor-pointer">
-                  {/* Color image underneath */}
                   <img
                     alt="Mia Meow — colour"
                     src="/profile-color.jpg"
                     className="absolute inset-0 w-full h-full object-cover object-top"
                   />
-                  {/* B&W image on top, fades on hover */}
                   <img
                     alt="Mia Meow"
                     src="/profile-bw.jpg"
-                    className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500 group-hover:opacity-0"
+                    className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500 lg:group-hover:opacity-0"
                   />
                 </div>
               </div>
               {/* Yellow badge */}
               <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-[#f4d00a] rounded-full flex items-center justify-center text-[#1a1625] font-black text-center text-xs p-4 rotate-12 select-none leading-tight">
-                EST.<br />2023
+                Always<br />in beta.
+              </div>
+            </div>
+
+            {/* Floating fun image — appears below the portrait */}
+            <div className="flex justify-center lg:justify-start mt-16 lg:mt-0 lg:absolute lg:-bottom-16 lg:right-0">
+              <div className="animate-bubble">
+                <img
+                  src="/profile-fun.jpg"
+                  alt="Mia Meow — excited"
+                  className="w-48 h-48 rounded-full object-cover object-top border-4 border-[#f4d00a] shadow-xl"
+                />
               </div>
             </div>
           </div>
@@ -350,8 +466,18 @@ export default function App() {
           <div className="lg:col-span-2 space-y-5">
             <h2 className="text-2xl font-black uppercase tracking-tighter text-[#1a1625]">Mia Meow</h2>
             <p className="max-w-xs font-serif italic text-slate-500 leading-relaxed text-sm">
-              AI workflows and creative systems for creators. New tutorials every week on YouTube.
+              AI workflows and creative systems for creators who want to put things into practical use.
             </p>
+            <a
+              href="mailto:mia@miameow.ai"
+              className="inline-flex items-center gap-2 text-sm font-medium text-[#7b54b3] hover:text-[#6a46a0] transition-colors duration-200 cursor-pointer"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4" aria-hidden="true">
+                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+              mia@miameow.ai
+            </a>
             <div className="flex gap-3">
               <a
                 href="https://www.youtube.com/@miameowai"
@@ -442,7 +568,7 @@ export default function App() {
         </div>
 
         <div className="mt-16 pt-8 border-t border-black/8 max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] font-semibold uppercase tracking-widest text-slate-400">
-          <p>© 2025 Mia Meow. All rights reserved.</p>
+          <p>© 2026 Mia Meow. All rights reserved.</p>
           <p>AI workflows for creators.</p>
         </div>
       </footer>

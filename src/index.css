@@ -13,6 +13,26 @@
   --font-serif: "Playfair Display", serif;
 }
 
+/* Keyframes must live outside @layer */
+@keyframes pill-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bubble-float {
+  0%   { transform: translate(0px,   0px)  scale(1);    opacity: 0.15; }
+  20%  { transform: translate(22px, -28px) scale(1.04); opacity: 0.7;  }
+  40%  { transform: translate(8px,  -56px) scale(1.02); opacity: 0.9;  }
+  60%  { transform: translate(-20px,-48px) scale(0.97); opacity: 0.75; }
+  80%  { transform: translate(-26px,-18px) scale(0.98); opacity: 0.5;  }
+  100% { transform: translate(0px,   0px)  scale(1);    opacity: 0.15; }
+}
+
+@keyframes bubble-pop {
+  from { opacity: 0; transform: scale(0.75); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
 @layer utilities {
   .chunky-text {
     font-weight: 900;
@@ -25,6 +45,20 @@
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+  /* Registered as utilities so lg: prefix works */
+  .animate-pill-in {
+    animation: pill-in 0.35s ease-out both;
+  }
+  .animate-bubble {
+    animation: bubble-float 8s ease-in-out infinite;
+  }
+}
+
+/* Mobile: replace continuous float with a one-time pop-in */
+@media (max-width: 1023px) {
+  .animate-bubble {
+    animation: bubble-pop 0.5s ease-out both;
   }
 }
 
