@@ -13,67 +13,61 @@ import { Sparkles, Video, ArrowRight, Play, ChevronLeft, ChevronRight, Globe, Ca
 
 export default function App() {
   return (
-    <div className="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 overflow-x-hidden min-h-screen flex flex-col">
-      {/* Abstract Background Blobs */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-primary/10 blur-blob"></div>
-        <div className="absolute top-[20%] left-[-10%] w-[400px] h-[400px] rounded-full bg-accent-teal/10 blur-blob"></div>
-        <div className="absolute bottom-[10%] right-[10%] w-[600px] h-[600px] rounded-full bg-accent-yellow/10 blur-blob"></div>
-      </div>
-
+    <div className="bg-[#f8f9fa] font-display text-slate-900 overflow-x-hidden min-h-screen flex flex-col">
       {/* Navigation */}
-      <header className="flex items-center justify-between px-6 py-6 lg:px-20 border-b border-primary/10 backdrop-blur-md sticky top-0 z-50">
-        <div className="flex items-center gap-3">
-          <div className="size-8 bg-primary flex items-center justify-center rounded-full text-white">
+      <header className="flex items-center justify-between px-6 py-6 lg:px-12 border-b border-black/5 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+        <div className="flex items-center gap-2">
+          <div className="size-8 bg-[#7d56b3] flex items-center justify-center rounded-full text-white">
             <Sparkles className="w-4 h-4" />
           </div>
-          <h2 className="text-xl font-black uppercase tracking-tighter">Mia Meow</h2>
+          <h2 className="text-xl font-black tracking-tight">mia meow</h2>
         </div>
-        <nav className="hidden md:flex items-center gap-12 font-medium text-sm uppercase tracking-widest">
-          <a className="hover:text-primary transition-colors" href="#">Portfolio</a>
-          <a className="hover:text-primary transition-colors" href="#">Journal</a>
-          <a className="hover:text-primary transition-colors" href="#">Shop</a>
-          <a className="hover:text-primary transition-colors" href="#">Contact</a>
+        <nav className="hidden md:flex items-center gap-8 font-bold text-sm">
+          <a className="hover:text-[#7d56b3] transition-colors" href="#">videos</a>
+          <a className="hover:text-[#7d56b3] transition-colors" href="#">tools</a>
+          <a className="border border-dashed border-blue-400 px-3 py-1 hover:bg-blue-50 transition-colors text-slate-800" href="#">community</a>
         </nav>
-        <div className="flex items-center gap-4">
-          <a className="p-2 hover:bg-primary/10 rounded-full transition-colors" href="#">
-            <Video className="w-5 h-5" />
-          </a>
-          <button className="bg-primary text-white px-6 py-2 text-xs font-bold uppercase tracking-widest rounded-full hover:shadow-lg transition-all">
-            Subscribe
-          </button>
-        </div>
+        <button className="bg-[#7d56b3] text-white px-6 py-2 text-sm font-bold rounded-lg hover:opacity-90 transition-all">
+          subscribe
+        </button>
       </header>
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative px-6 py-12 lg:px-20 lg:py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-[80vh]">
-          <div className="lg:col-span-7 flex flex-col gap-8 order-2 lg:order-1">
-            <div className="space-y-2">
-              <span className="font-serif italic text-2xl lg:text-3xl text-primary block">AI Content Creator</span>
-              <h1 className="chunky-text text-[15vw] lg:text-[8rem] uppercase leading-none">
-                MIA MEOW
-              </h1>
-            </div>
-            <p className="text-lg lg:text-xl max-w-2xl leading-relaxed font-serif opacity-80">
-              Leveraging the newest AI tools for content creation, marketing, and business. Sharing experiments, wins, and lessons learned in the AI world.
-            </p>
-            <div className="flex flex-wrap gap-4 pt-4">
-              <a href="https://www.youtube.com/@miameowai" target="_blank" rel="noreferrer" className="flex items-center gap-2 bg-primary text-white px-8 py-4 text-sm font-bold uppercase tracking-widest rounded-full hover:scale-105 transition-transform">
-                Explore Channel <ArrowRight className="w-4 h-4" />
-              </a>
-              <a href="https://www.youtube.com/watch?v=ZMHIY15k3MY" target="_blank" rel="noreferrer" className="flex items-center gap-2 border-2 border-primary text-primary px-8 py-4 text-sm font-bold uppercase tracking-widest rounded-full hover:bg-primary/5 transition-colors">
-                Latest Video
-              </a>
+        <section className="relative grid grid-cols-1 lg:grid-cols-2 min-h-[85vh] bg-[#f8f9fa] border-b border-black/5">
+          {/* Left Side - Image */}
+          <div className="relative flex items-center justify-center p-12 lg:p-24 bg-gradient-to-br from-[#fdfbfb] to-[#ebedee] border-r border-black/5">
+            <div className="relative w-full max-w-md aspect-square">
+              <img alt="Mia Meow Profile" className="w-full h-full object-cover grayscale rounded-xl shadow-2xl" src="/profile.jpg" />
+              {/* Yellow Badge */}
+              <div className="absolute -bottom-4 -right-4 bg-[#fbbf24] text-black font-black text-sm leading-tight px-6 py-4 rounded-xl -rotate-[10deg] shadow-xl border-4 border-white">
+                CREATIVE<br/>DIRECTOR
+              </div>
             </div>
           </div>
-          
-          <div className="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end">
-            <div className="relative group w-full max-w-sm lg:max-w-md">
-              <div className="absolute -inset-4 bg-gradient-to-tr from-accent-teal/30 to-primary/30 rounded-full blur-xl group-hover:blur-2xl transition-all"></div>
-              <div className="relative aspect-square bg-neutral-200 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl">
-                {/* Image of a woman looking to the side with pencil effect */}
-                <img alt="Mia Meow Profile" className="w-full h-full object-cover theme-filter transition-all duration-700" src="/profile.jpg" />
+
+          {/* Right Side - Typography */}
+          <div className="relative flex flex-col justify-center p-12 lg:p-24 overflow-hidden bg-[#f8f9fa]">
+            {/* Background Text */}
+            <div className="absolute top-12 left-0 right-0 text-center pointer-events-none select-none overflow-hidden">
+              <span className="text-[20vw] lg:text-[14rem] font-black text-black/[0.04] leading-none tracking-tighter">MEOW</span>
+            </div>
+
+            <div className="relative z-10 max-w-xl">
+              <h1 className="text-[5rem] lg:text-[8rem] font-black leading-[0.85] tracking-tighter mb-8">
+                <span className="text-[#0f172a] block">digital</span>
+                <span className="text-[#7d56b3] block italic">magic</span>
+              </h1>
+              <p className="text-xl text-slate-600 font-medium mb-10 leading-relaxed max-w-md">
+                Curating experiences at the intersection of avant-garde design and digital storytelling.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <button className="flex items-center gap-2 bg-[#2dd4bf] text-[#0f172a] px-8 py-4 font-bold rounded-lg hover:bg-teal-300 transition-colors uppercase tracking-wide">
+                  <PlayCircle className="w-5 h-5" /> WATCH NOW
+                </button>
+                <button className="border-2 border-[#7d56b3] text-[#7d56b3] px-8 py-4 font-bold rounded-lg hover:bg-purple-50 transition-colors uppercase tracking-wide bg-transparent">
+                  VIEW PROJECTS
+                </button>
               </div>
             </div>
           </div>
