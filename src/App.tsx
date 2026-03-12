@@ -3,282 +3,450 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import React from 'react';
-import { Sparkles, Video, ArrowRight, Play, ChevronLeft, ChevronRight, Globe, Camera, PlayCircle } from 'lucide-react';
+import { Youtube, Instagram, Play, ChevronLeft, ChevronRight, PlayCircle } from 'lucide-react';
+
+// TikTok SVG icon (not in lucide-react)
+const TikTokIcon = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5" aria-hidden="true">
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.28 8.28 0 0 0 4.84 1.55V6.79a4.85 4.85 0 0 1-1.07-.1z" />
+  </svg>
+);
+
+// Recent video data
+const recentVideos = [
+  {
+    id: '5ifJk-UwCWI',
+    duration: '8:55',
+    tag: 'Review',
+    title: 'The World Wasn\'t Ready for Seedance 2.0',
+  },
+  {
+    id: 'X1oE_vBHnt0',
+    duration: '20:04',
+    tag: 'Tutorial',
+    title: 'Create AI Music Videos for Multiple Singers',
+  },
+  {
+    id: 'HMWFvxeNMVo',
+    duration: '9:29',
+    tag: 'Guide',
+    title: 'Make AI Characters Actually Dance (Kling 2.6)',
+  },
+];
 
 export default function App() {
+  const scrollRef = React.useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (!scrollRef.current) return;
+    scrollRef.current.scrollBy({ left: direction === 'left' ? -480 : 480, behavior: 'smooth' });
+  };
+
   return (
-    <div className="bg-[#f6f7f2] font-display text-slate-900 overflow-x-hidden min-h-screen flex flex-col">
-      {/* Navigation */}
-      <header className="flex items-center justify-between px-6 py-4 lg:px-12 border-b border-black/5 bg-[#f6f7f2] sticky top-0 z-50">
-        <div className="flex items-center gap-2">
-          <h2 className="text-2xl font-black tracking-tight text-[#1e293b]">mia meow</h2>
-        </div>
-        <nav className="hidden md:flex items-center gap-8 font-medium text-slate-700">
-          <a className="hover:text-[#7c3aed] transition-colors" href="#">videos</a>
-          <a className="hover:text-[#7c3aed] transition-colors" href="#">tools</a>
-          <a className="hover:text-[#7c3aed] transition-colors" href="#">community</a>
+    <div className="bg-[#f8f6f3] font-display text-[#1a1625] overflow-x-hidden min-h-screen flex flex-col">
+
+      {/* ── Navigation ── */}
+      <header className="flex items-center justify-between px-6 py-4 lg:px-12 border-b border-black/8 bg-[#f8f6f3]/90 backdrop-blur-sm sticky top-0 z-50">
+        <a href="#" className="text-2xl font-black tracking-tight text-[#1a1625] hover:text-[#7b54b3] transition-colors duration-200">
+          mia meow
+        </a>
+        <nav className="hidden md:flex items-center gap-8 font-medium text-slate-600" aria-label="Main navigation">
+          <a className="hover:text-[#7b54b3] transition-colors duration-200" href="#videos">videos</a>
+          <a className="hover:text-[#7b54b3] transition-colors duration-200" href="https://www.skool.com/ai-creator-labs" target="_blank" rel="noreferrer">community</a>
+          <a className="hover:text-[#7b54b3] transition-colors duration-200" href="https://mia-meow.kit.com/0988b3b4b8" target="_blank" rel="noreferrer">newsletter</a>
         </nav>
-        <button className="bg-[#7c3aed] text-white px-6 py-2.5 text-sm font-medium rounded-full hover:opacity-90 transition-all">
+        <a
+          href="https://www.youtube.com/@miameowai"
+          target="_blank"
+          rel="noreferrer"
+          className="bg-[#7b54b3] text-white px-6 py-2.5 text-sm font-semibold rounded-full hover:bg-[#6a46a0] transition-colors duration-200 cursor-pointer"
+        >
           subscribe
-        </button>
+        </a>
       </header>
 
       <main className="flex-grow">
-        {/* Hero Section */}
-        <section className="relative grid grid-cols-1 lg:grid-cols-2 h-[calc(100vh-73px)] bg-[#f6f7f2] border-b border-black/5 overflow-hidden">
-          {/* Left Side - Image */}
-          <div className="relative flex items-center justify-center p-8 lg:p-12 border-r border-black/5 h-full">
-            <div className="relative w-full max-w-[380px] aspect-[3/4]">
-              {/* Blob Image */}
-              <div 
-                className="w-full h-full overflow-hidden shadow-xl bg-neutral-200"
-                style={{ borderRadius: '40% 60% 50% 50% / 45% 50% 50% 55%' }}
+
+        {/* ── Hero ── */}
+        <section className="relative grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-65px)] bg-[#f8f6f3] border-b border-black/8 overflow-hidden">
+
+          {/* Left: Profile image with B&W / colour hover */}
+          <div className="relative flex items-center justify-center p-8 lg:p-12 border-r border-black/8 min-h-[50vh] lg:min-h-auto">
+            <div className="relative w-full max-w-[360px] aspect-[3/4]">
+              {/* Blob container — acts as the hover group */}
+              <div
+                className="group relative w-full h-full overflow-hidden shadow-2xl cursor-pointer"
+                style={{ borderRadius: '42% 58% 52% 48% / 46% 48% 52% 54%' }}
               >
-                <img alt="Mia Meow Profile" className="w-full h-full object-cover" src="/profile.jpg" />
+                {/* Color image — always present underneath */}
+                <img
+                  alt="Mia Meow — colour"
+                  src="/profile-color.jpg"
+                  className="absolute inset-0 w-full h-full object-cover object-top"
+                />
+                {/* B&W image — sits on top, fades out on hover */}
+                <img
+                  alt="Mia Meow"
+                  src="/profile-bw.jpg"
+                  className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500 group-hover:opacity-0"
+                />
               </div>
-              {/* Yellow Badge */}
-              <div className="absolute bottom-6 right-0 bg-[#fcd34d] text-black font-medium text-sm px-6 py-2 rounded-full -rotate-3 shadow-lg border border-yellow-300">
-                CREATIVE DIRECTOR
+
+              {/* Yellow badge */}
+              <div className="absolute bottom-4 -right-2 lg:right-0 bg-[#f4d00a] text-[#1a1625] font-bold text-xs px-5 py-2 rounded-full -rotate-2 shadow-md select-none">
+                AI EDUCATOR
               </div>
             </div>
           </div>
 
-          {/* Right Side - Typography */}
-          <div className="relative flex flex-col justify-center p-8 lg:p-16 h-full">
-            {/* Background Text */}
-            <div className="absolute top-[15%] left-0 right-0 text-center pointer-events-none select-none overflow-hidden">
-              <span className="text-[18vw] lg:text-[14rem] font-black text-black/[0.03] leading-none tracking-tighter">MEOW</span>
+          {/* Right: Typography + CTAs */}
+          <div className="relative flex flex-col justify-center p-8 lg:p-16">
+            {/* Ghost background word */}
+            <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 overflow-hidden pointer-events-none select-none" aria-hidden="true">
+              <span className="block text-[22vw] lg:text-[13rem] font-black text-black/[0.03] leading-none tracking-tighter text-center">MEOW</span>
             </div>
 
             <div className="relative z-10 max-w-xl">
-              <h1 className="text-[4.5rem] lg:text-[6.5rem] font-black leading-[0.85] tracking-tighter mb-6">
-                <span className="text-[#1e293b] block">digital</span>
-                <span className="text-[#7c3aed] block">magic</span>
+              {/* Eyebrow */}
+              <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#7b54b3] mb-4">@miameowai</p>
+
+              <h1 className="text-[3.5rem] lg:text-[5.5rem] font-black leading-[0.88] tracking-tighter mb-6">
+                <span className="block text-[#1a1625]">workflows</span>
+                <span className="block text-[#7b54b3]">that ship.</span>
               </h1>
-              <p className="text-lg lg:text-xl text-slate-700 font-medium mb-8 leading-relaxed max-w-md">
-                Curating experiences at the intersection of avant-garde design and digital storytelling.
+
+              <p className="text-base lg:text-lg text-slate-600 font-medium mb-8 leading-relaxed max-w-md">
+                AI workflows and creative systems for creators who want results, not hype. New tutorials every week on YouTube.
               </p>
+
               <div className="flex flex-wrap gap-4">
-                <button className="flex items-center gap-2 bg-[#059669] text-white px-6 py-3 font-medium rounded-full hover:bg-[#047857] transition-colors text-sm tracking-wide">
-                  WATCH NOW <PlayCircle className="w-5 h-5 fill-white text-[#059669]" />
-                </button>
-                <button className="border border-[#7c3aed] text-[#7c3aed] px-6 py-3 font-medium rounded-full hover:bg-purple-50 transition-colors text-sm tracking-wide bg-transparent">
-                  VIEW PROJECTS
-                </button>
+                <a
+                  href="https://www.youtube.com/@miameowai"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 bg-[#7b54b3] text-white px-6 py-3 font-semibold rounded-full hover:bg-[#6a46a0] transition-colors duration-200 text-sm cursor-pointer"
+                >
+                  <PlayCircle className="w-5 h-5" aria-hidden="true" />
+                  watch on youtube
+                </a>
+                <a
+                  href="https://www.skool.com/ai-creator-labs"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 border border-[#7b54b3] text-[#7b54b3] px-6 py-3 font-semibold rounded-full hover:bg-purple-50 transition-colors duration-200 text-sm cursor-pointer"
+                >
+                  join community
+                </a>
+              </div>
+
+              {/* Inline stats */}
+              <div className="flex gap-8 mt-10 pt-8 border-t border-black/8">
+                <div>
+                  <p className="text-2xl font-black text-[#1a1625]">21K</p>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mt-0.5">subscribers</p>
+                </div>
+                <div>
+                  <p className="text-2xl font-black text-[#1a1625]">600+</p>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mt-0.5">community</p>
+                </div>
+                <div>
+                  <p className="text-2xl font-black text-[#1a1625]">160K+</p>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mt-0.5">total views</p>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Featured Video Hero */}
-        <section className="px-6 py-12 lg:px-20">
-          <a href="https://www.youtube.com/watch?v=ZMHIY15k3MY" target="_blank" rel="noreferrer" className="block relative overflow-hidden rounded-xl shadow-2xl bg-neutral-900 aspect-video group">
-            <img alt="Featured Video Thumbnail" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-1000" src="https://i.ytimg.com/vi/ZMHIY15k3MY/maxresdefault.jpg" />
+        {/* ── Featured Video ── */}
+        <section className="px-6 py-12 lg:px-20 lg:py-16" id="videos">
+          <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#7b54b3] mb-4">latest release</p>
+          <a
+            href="https://www.youtube.com/watch?v=ZMHIY15k3MY"
+            target="_blank"
+            rel="noreferrer"
+            className="block relative overflow-hidden rounded-2xl shadow-xl bg-[#18151d] aspect-video group cursor-pointer"
+            aria-label="Watch: AI That Transfers Your Real Motion to Any Avatar"
+          >
+            <img
+              alt="AI That Transfers Your Real Motion to Any Avatar"
+              className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-[1.02] transition-transform duration-700"
+              src="https://i.ytimg.com/vi/ZMHIY15k3MY/maxresdefault.jpg"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
-              <div className="mb-6">
-                <div className="w-20 h-20 lg:w-32 lg:h-32 rounded-full bg-white/10 backdrop-blur-sm border border-white/30 flex items-center justify-center text-white group-hover:bg-primary transition-all duration-300">
-                  <Play className="w-10 h-10 lg:w-16 lg:h-16 fill-current ml-2" />
-                </div>
+              <div
+                className="mb-5 w-16 h-16 lg:w-24 lg:h-24 rounded-full bg-white/10 backdrop-blur-sm border border-white/30 flex items-center justify-center text-white group-hover:bg-[#7b54b3]/80 transition-colors duration-300"
+                aria-hidden="true"
+              >
+                <Play className="w-7 h-7 lg:w-10 lg:h-10 fill-current ml-1" />
               </div>
-              <span className="font-serif italic text-white/80 text-lg lg:text-2xl mb-2">Latest Release</span>
-              <h3 className="text-3xl lg:text-6xl font-black text-white uppercase tracking-tighter max-w-4xl leading-none">
+              <h3 className="text-2xl lg:text-5xl font-black text-white tracking-tighter max-w-3xl leading-tight">
                 AI That Transfers Your Real Motion to Any Avatar
               </h3>
-            </div>
-            <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-10 flex items-end justify-between text-white/70">
-              <div className="flex gap-4 items-center">
-                <span className="text-xs font-bold tracking-widest uppercase bg-white/10 px-3 py-1 rounded">9:04 MIN</span>
-                <span className="text-xs font-bold tracking-widest uppercase">5 Use Cases</span>
-              </div>
-              <div className="flex gap-2">
-                <div className="h-1 w-24 bg-white/20 rounded-full overflow-hidden">
-                  <div className="h-full bg-primary w-1/3"></div>
-                </div>
-              </div>
+              <p className="text-white/60 text-sm mt-3 font-medium">9:04 min</p>
             </div>
           </a>
         </section>
 
-        {/* Horizontal Scroll Recent Content */}
-        <section className="py-12 lg:py-24 overflow-hidden">
-          <div className="px-6 lg:px-20 mb-12 flex items-end justify-between">
-            <div className="space-y-2">
-              <h2 className="chunky-text text-5xl lg:text-8xl uppercase">UPLOADS</h2>
-              <p className="font-serif italic text-xl opacity-60">The latest tutorials and experiments</p>
+        {/* ── Recent Uploads ── */}
+        <section className="py-12 lg:py-20 overflow-hidden border-t border-black/5">
+          <div className="px-6 lg:px-20 mb-10 flex items-end justify-between">
+            <div>
+              <h2 className="chunky-text text-4xl lg:text-7xl uppercase text-[#1a1625]">uploads</h2>
+              <p className="font-serif italic text-lg text-slate-500 mt-2">recent tutorials and experiments</p>
             </div>
-            <div className="flex gap-4">
-              <button className="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center hover:bg-primary hover:text-white transition-all">
-                <ChevronLeft className="w-6 h-6" />
+            <div className="flex gap-3">
+              <button
+                onClick={() => scroll('left')}
+                className="w-11 h-11 rounded-full border border-[#7b54b3]/30 flex items-center justify-center hover:bg-[#7b54b3] hover:text-white hover:border-[#7b54b3] transition-all duration-200 cursor-pointer"
+                aria-label="Scroll left"
+              >
+                <ChevronLeft className="w-5 h-5" />
               </button>
-              <button className="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center hover:bg-primary hover:text-white transition-all">
-                <ChevronRight className="w-6 h-6" />
+              <button
+                onClick={() => scroll('right')}
+                className="w-11 h-11 rounded-full border border-[#7b54b3]/30 flex items-center justify-center hover:bg-[#7b54b3] hover:text-white hover:border-[#7b54b3] transition-all duration-200 cursor-pointer"
+                aria-label="Scroll right"
+              >
+                <ChevronRight className="w-5 h-5" />
               </button>
             </div>
           </div>
-          <div className="flex gap-8 px-6 lg:px-20 overflow-x-auto pb-8 no-scrollbar snap-x">
-            {/* Video Card 1 */}
-            <a href="https://www.youtube.com/watch?v=5ifJk-UwCWI" target="_blank" rel="noreferrer" className="min-w-[300px] lg:min-w-[450px] snap-start group cursor-pointer block">
-              <div className="aspect-[16/10] bg-neutral-100 rounded-lg overflow-hidden mb-6 relative">
-                <img alt="Video 1" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://i.ytimg.com/vi/5ifJk-UwCWI/hqdefault.jpg" />
-                <div className="absolute bottom-4 right-4 bg-black/80 text-white text-[10px] px-2 py-1 font-bold rounded uppercase">8:55</div>
-              </div>
-              <span className="text-xs font-bold tracking-tighter text-primary uppercase">Review</span>
-              <h4 className="text-xl font-black mt-2 leading-tight uppercase group-hover:text-primary transition-colors">The World Wasn’t Ready for Seedance 2.0</h4>
-            </a>
-            {/* Video Card 2 */}
-            <a href="https://www.youtube.com/watch?v=X1oE_vBHnt0" target="_blank" rel="noreferrer" className="min-w-[300px] lg:min-w-[450px] snap-start group cursor-pointer block">
-              <div className="aspect-[16/10] bg-neutral-100 rounded-lg overflow-hidden mb-6 relative">
-                <img alt="Video 2" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://i.ytimg.com/vi/X1oE_vBHnt0/hqdefault.jpg" />
-                <div className="absolute bottom-4 right-4 bg-black/80 text-white text-[10px] px-2 py-1 font-bold rounded uppercase">20:04</div>
-              </div>
-              <span className="text-xs font-bold tracking-tighter text-primary uppercase">Tutorial</span>
-              <h4 className="text-xl font-black mt-2 leading-tight uppercase group-hover:text-primary transition-colors">Create AI Music Videos for Multiple Singers</h4>
-            </a>
-            {/* Video Card 3 */}
-            <a href="https://www.youtube.com/watch?v=HMWFvxeNMVo" target="_blank" rel="noreferrer" className="min-w-[300px] lg:min-w-[450px] snap-start group cursor-pointer block">
-              <div className="aspect-[16/10] bg-neutral-100 rounded-lg overflow-hidden mb-6 relative">
-                <img alt="Video 3" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://i.ytimg.com/vi/HMWFvxeNMVo/hqdefault.jpg" />
-                <div className="absolute bottom-4 right-4 bg-black/80 text-white text-[10px] px-2 py-1 font-bold rounded uppercase">9:29</div>
-              </div>
-              <span className="text-xs font-bold tracking-tighter text-primary uppercase">Guide</span>
-              <h4 className="text-xl font-black mt-2 leading-tight uppercase group-hover:text-primary transition-colors">Make AI Characters Actually Dance (Kling 2.6)</h4>
-            </a>
+
+          <div
+            ref={scrollRef}
+            className="flex gap-6 px-6 lg:px-20 overflow-x-auto pb-6 no-scrollbar snap-x snap-mandatory"
+          >
+            {recentVideos.map((v) => (
+              <a
+                key={v.id}
+                href={`https://www.youtube.com/watch?v=${v.id}`}
+                target="_blank"
+                rel="noreferrer"
+                className="min-w-[280px] lg:min-w-[420px] snap-start group cursor-pointer block shrink-0"
+              >
+                <div className="aspect-video bg-neutral-200 rounded-xl overflow-hidden mb-4 relative">
+                  <img
+                    alt={v.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`}
+                    loading="lazy"
+                  />
+                  <div className="absolute bottom-3 right-3 bg-black/80 text-white text-[10px] px-2 py-0.5 font-bold rounded">{v.duration}</div>
+                </div>
+                <span className="text-xs font-bold tracking-wider text-[#7b54b3] uppercase">{v.tag}</span>
+                <h4 className="text-base lg:text-lg font-black mt-1.5 leading-tight uppercase group-hover:text-[#7b54b3] transition-colors duration-200">{v.title}</h4>
+              </a>
+            ))}
           </div>
         </section>
 
-        {/* About Section */}
-        <section className="px-6 py-20 lg:px-20 lg:py-40 bg-background-dark text-slate-100 relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-20 opacity-10">
-            <span className="chunky-text text-[25vw] leading-none uppercase">MEOW</span>
+        {/* ── About / The Method ── */}
+        <section className="px-6 py-20 lg:px-20 lg:py-32 bg-[#18151d] text-slate-100 relative overflow-hidden">
+          <div className="absolute top-0 right-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
+            <span className="block text-[20vw] font-black text-white/[0.03] leading-none tracking-tighter p-8">MEOW</span>
           </div>
-          <div className="relative z-10 grid lg:grid-cols-2 gap-20 items-center">
+
+          <div className="relative z-10 grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+            {/* Text */}
             <div className="space-y-8">
-              <h2 className="chunky-text text-6xl lg:text-9xl uppercase leading-none">THE<br />METHOD</h2>
-              <div className="space-y-6 font-serif text-xl lg:text-2xl leading-relaxed opacity-80">
-                <p>I'm obsessed with pushing pixels and making AI do backflips. It's not just about the prompt; it's about the vibe.</p>
-                <p>My work explores the wild intersection of cutting-edge tech and raw, unfiltered creativity. Let's make some magic and break the internet while we're at it!</p>
+              <h2 className="chunky-text text-5xl lg:text-8xl uppercase leading-none">the<br />method</h2>
+              <div className="space-y-5 font-serif text-lg lg:text-xl leading-relaxed text-slate-300">
+                <p>
+                  I build AI workflows that actually work, and share every mistake along the way.
+                </p>
+                <p>
+                  My videos explore how creators can use tools like Midjourney, HeyGen, and Kling without getting overwhelmed, focusing on the process, not the hype.
+                </p>
               </div>
-              <div className="flex flex-wrap items-center gap-8 lg:gap-12 pt-8 border-t border-white/10">
+              <div className="flex flex-wrap gap-8 pt-8 border-t border-white/10">
                 <div>
                   <p className="text-3xl font-black">21K</p>
-                  <p className="text-xs uppercase tracking-widest text-primary font-bold">Subscribers</p>
+                  <p className="text-xs uppercase tracking-widest text-[#00c4cc] font-bold mt-1">subscribers</p>
                 </div>
                 <div>
                   <p className="text-3xl font-black">600+</p>
-                  <p className="text-xs uppercase tracking-widest text-primary font-bold">Skool Members</p>
+                  <p className="text-xs uppercase tracking-widest text-[#00c4cc] font-bold mt-1">skool members</p>
                 </div>
                 <div>
                   <p className="text-3xl font-black">160K+</p>
-                  <p className="text-xs uppercase tracking-widest text-primary font-bold">Total Views</p>
+                  <p className="text-xs uppercase tracking-widest text-[#00c4cc] font-bold mt-1">total views</p>
                 </div>
               </div>
             </div>
-            <div className="aspect-square rounded-full border border-primary/30 p-4 relative max-w-md mx-auto lg:ml-auto lg:mr-0">
-              <div className="w-full h-full rounded-full overflow-hidden">
-                <img alt="Mia Profile Dark" className="w-full h-full object-cover" src="/profile.jpg" />
+
+            {/* Portrait with hover effect */}
+            <div className="relative max-w-sm mx-auto lg:ml-auto lg:mr-0">
+              <div className="aspect-square rounded-full border border-[#7b54b3]/40 p-3">
+                <div className="group relative w-full h-full rounded-full overflow-hidden cursor-pointer">
+                  {/* Color image underneath */}
+                  <img
+                    alt="Mia Meow — colour"
+                    src="/profile-color.jpg"
+                    className="absolute inset-0 w-full h-full object-cover object-top"
+                  />
+                  {/* B&W image on top, fades on hover */}
+                  <img
+                    alt="Mia Meow"
+                    src="/profile-bw.jpg"
+                    className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500 group-hover:opacity-0"
+                  />
+                </div>
               </div>
-              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-accent-yellow rounded-full flex items-center justify-center text-slate-900 font-black text-center text-xs p-4 rotate-12">
-                ESTABLISHED <br /> MMXXIII
+              {/* Yellow badge */}
+              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-[#f4d00a] rounded-full flex items-center justify-center text-[#1a1625] font-black text-center text-xs p-4 rotate-12 select-none leading-tight">
+                EST.<br />2023
               </div>
             </div>
           </div>
         </section>
 
-        {/* Community & Newsletter Section */}
+        {/* ── Community + Newsletter ── */}
         <section className="grid grid-cols-1 md:grid-cols-2">
-          {/* Community Side */}
-          <div className="bg-white text-slate-900 px-6 py-20 lg:px-20 lg:py-32 flex flex-col justify-center">
-            <h2 className="chunky-text text-5xl lg:text-7xl mb-6 tracking-tight">the community</h2>
-            <p className="text-lg lg:text-xl font-serif opacity-80 max-w-md mb-10">
-              Join over 600+ creators sharing magic, resources, and feedback every single day.
+          {/* Community */}
+          <div className="bg-white text-[#1a1625] px-6 py-20 lg:px-16 lg:py-28 flex flex-col justify-center border-r border-black/5">
+            <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#7b54b3] mb-3">skool community</p>
+            <h2 className="chunky-text text-4xl lg:text-6xl mb-6 tracking-tight">the<br/>community</h2>
+            <p className="text-base lg:text-lg font-serif text-slate-500 italic max-w-sm mb-8 leading-relaxed">
+              600+ creators sharing workflows, resources, and feedback every day. Come build in public.
             </p>
-            
-            <div className="flex items-center mb-10">
-              <div className="flex -space-x-4">
-                <img className="w-12 h-12 rounded-full border-2 border-white object-cover" src="https://i.pravatar.cc/100?img=1" alt="Member" />
-                <img className="w-12 h-12 rounded-full border-2 border-white object-cover" src="https://i.pravatar.cc/100?img=2" alt="Member" />
-                <img className="w-12 h-12 rounded-full border-2 border-white object-cover" src="https://i.pravatar.cc/100?img=3" alt="Member" />
-                <img className="w-12 h-12 rounded-full border-2 border-white object-cover" src="https://i.pravatar.cc/100?img=4" alt="Member" />
-                <div className="w-12 h-12 rounded-full border-2 border-white bg-primary text-white flex items-center justify-center text-xs font-bold">
-                  +600
-                </div>
-              </div>
-            </div>
-
-            <a href="https://www.skool.com/ai-creator-labs-2150" target="_blank" rel="noreferrer" className="bg-slate-900 text-white px-8 py-4 text-sm font-bold uppercase tracking-widest rounded-lg hover:bg-slate-800 transition-colors w-fit">
-              JOIN THE SKOOL
+            <a
+              href="https://www.skool.com/ai-creator-labs"
+              target="_blank"
+              rel="noreferrer"
+              className="bg-[#1a1625] text-white px-8 py-4 text-sm font-bold uppercase tracking-widest rounded-lg hover:bg-[#2d2540] transition-colors duration-200 w-fit cursor-pointer"
+            >
+              join on skool
             </a>
           </div>
 
-          {/* Newsletter Side */}
-          <div className="bg-[#facc15] text-slate-900 px-6 py-20 lg:px-20 lg:py-32 flex flex-col justify-center">
-            <h2 className="chunky-text text-5xl lg:text-7xl mb-6 tracking-tight">newsletter</h2>
-            <p className="text-lg lg:text-xl font-serif opacity-90 max-w-md mb-10">
-              Weekly design inspiration, tool recommendations, and behind-the-scenes magic delivered straight to your inbox.
+          {/* Newsletter */}
+          <div className="bg-[#f4d00a] text-[#1a1625] px-6 py-20 lg:px-16 lg:py-28 flex flex-col justify-center">
+            <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#1a1625]/60 mb-3">weekly</p>
+            <h2 className="chunky-text text-4xl lg:text-6xl mb-6 tracking-tight">newsletter</h2>
+            <p className="text-base lg:text-lg font-serif text-[#1a1625]/70 italic max-w-sm mb-8 leading-relaxed">
+              Workflow breakdowns, tool notes, and behind-the-scenes experiments delivered to your inbox.
             </p>
-            
-            <form className="flex flex-col sm:flex-row gap-4 mb-4" action="https://miameow.ai#newsletter" method="GET" target="_blank">
-              <input 
-                type="email" 
-                placeholder="your@email.com" 
-                className="flex-1 bg-white/50 border-none rounded-lg px-6 py-4 text-slate-900 placeholder:text-slate-600 focus:ring-2 focus:ring-slate-900 outline-none"
-              />
-              <button type="submit" className="bg-slate-900 text-white px-8 py-4 text-sm font-bold uppercase tracking-widest rounded-lg hover:bg-slate-800 transition-colors whitespace-nowrap">
-                SEND MAGIC
-              </button>
-            </form>
-            <p className="text-xs font-medium opacity-70">No spam, just pure creativity. Unsubscribe anytime.</p>
+            <a
+              href="https://mia-meow.kit.com/0988b3b4b8"
+              target="_blank"
+              rel="noreferrer"
+              className="bg-[#1a1625] text-white px-8 py-4 text-sm font-bold uppercase tracking-widest rounded-lg hover:bg-[#2d2540] transition-colors duration-200 w-fit cursor-pointer"
+            >
+              subscribe free
+            </a>
+            <p className="text-xs font-medium text-[#1a1625]/50 mt-4">No spam. Unsubscribe anytime.</p>
           </div>
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="px-6 py-12 lg:px-20 lg:py-24 border-t border-primary/10">
-        <div className="grid lg:grid-cols-4 gap-12">
-          <div className="lg:col-span-2 space-y-6">
-            <h2 className="text-3xl font-black uppercase tracking-tighter">Mia Meow</h2>
-            <p className="max-w-xs font-serif opacity-60">Pushing the boundaries of what editorial content can be in the age of rapid media consumption.</p>
-            <div className="flex gap-4">
-              <a className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#">
-                <Globe className="w-5 h-5" />
+      {/* ── Footer ── */}
+      <footer className="bg-[#f8f6f3] px-6 py-12 lg:px-20 lg:py-20 border-t border-black/8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+          {/* Brand */}
+          <div className="lg:col-span-2 space-y-5">
+            <h2 className="text-2xl font-black uppercase tracking-tighter text-[#1a1625]">Mia Meow</h2>
+            <p className="max-w-xs font-serif italic text-slate-500 leading-relaxed text-sm">
+              AI workflows and creative systems for creators. New tutorials every week on YouTube.
+            </p>
+            <div className="flex gap-3">
+              <a
+                href="https://www.youtube.com/@miameowai"
+                target="_blank"
+                rel="noreferrer"
+                className="w-10 h-10 rounded-full bg-[#7b54b3]/10 flex items-center justify-center text-[#7b54b3] hover:bg-[#7b54b3] hover:text-white transition-all duration-200 cursor-pointer"
+                aria-label="YouTube"
+              >
+                <Youtube className="w-4 h-4" />
               </a>
-              <a className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#">
-                <Camera className="w-5 h-5" />
+              <a
+                href="https://www.instagram.com/miameowai/"
+                target="_blank"
+                rel="noreferrer"
+                className="w-10 h-10 rounded-full bg-[#7b54b3]/10 flex items-center justify-center text-[#7b54b3] hover:bg-[#7b54b3] hover:text-white transition-all duration-200 cursor-pointer"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-4 h-4" />
               </a>
-              <a className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#">
-                <PlayCircle className="w-5 h-5" />
+              <a
+                href="https://www.tiktok.com/@miameowai"
+                target="_blank"
+                rel="noreferrer"
+                className="w-10 h-10 rounded-full bg-[#7b54b3]/10 flex items-center justify-center text-[#7b54b3] hover:bg-[#7b54b3] hover:text-white transition-all duration-200 cursor-pointer"
+                aria-label="TikTok"
+              >
+                <TikTokIcon />
               </a>
             </div>
           </div>
-          <div className="space-y-6">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-primary">Links</h4>
-            <ul className="space-y-4 text-sm font-medium uppercase tracking-tighter">
-              <li><a className="hover:underline" href="#">Collaborations</a></li>
-              <li><a className="hover:underline" href="#">Press Kit</a></li>
-              <li><a className="hover:underline" href="#">Equipment</a></li>
-              <li><a className="hover:underline" href="#">Privacy</a></li>
+
+          {/* Links */}
+          <div className="space-y-5">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-[#7b54b3]">explore</h4>
+            <ul className="space-y-3 text-sm font-medium text-slate-600">
+              <li>
+                <a
+                  href="https://www.youtube.com/@miameowai"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-[#7b54b3] transition-colors duration-200 cursor-pointer"
+                >
+                  YouTube Channel
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.skool.com/ai-creator-labs"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-[#7b54b3] transition-colors duration-200 cursor-pointer"
+                >
+                  Skool Community
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://mia-meow.kit.com/0988b3b4b8"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-[#7b54b3] transition-colors duration-200 cursor-pointer"
+                >
+                  Newsletter
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/miameowai/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-[#7b54b3] transition-colors duration-200 cursor-pointer"
+                >
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.tiktok.com/@miameowai"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-[#7b54b3] transition-colors duration-200 cursor-pointer"
+                >
+                  TikTok
+                </a>
+              </li>
             </ul>
           </div>
-          <div className="space-y-6">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-primary">Newsletter</h4>
-            <form className="flex flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
-              <input className="bg-primary/5 border-none rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary outline-none" placeholder="Your email address" type="email" />
-              <button className="bg-primary text-white py-3 rounded-lg text-xs font-bold uppercase tracking-widest hover:shadow-lg transition-all cursor-pointer">Join the circle</button>
-            </form>
-          </div>
         </div>
-        <div className="mt-20 pt-8 border-t border-primary/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-bold uppercase tracking-widest opacity-40">
-          <p>© 2024 Mia Meow Creative Studio. All rights reserved.</p>
-          <p>Designed for the digital avant-garde.</p>
+
+        <div className="mt-16 pt-8 border-t border-black/8 max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] font-semibold uppercase tracking-widest text-slate-400">
+          <p>© 2025 Mia Meow. All rights reserved.</p>
+          <p>AI workflows for creators.</p>
         </div>
       </footer>
+
     </div>
   );
 }
-
