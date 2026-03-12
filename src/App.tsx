@@ -13,59 +13,62 @@ import { Sparkles, Video, ArrowRight, Play, ChevronLeft, ChevronRight, Globe, Ca
 
 export default function App() {
   return (
-    <div className="bg-[#f8f9fa] font-display text-slate-900 overflow-x-hidden min-h-screen flex flex-col">
+    <div className="bg-[#f6f7f2] font-display text-slate-900 overflow-x-hidden min-h-screen flex flex-col">
       {/* Navigation */}
-      <header className="flex items-center justify-between px-6 py-6 lg:px-12 border-b border-black/5 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+      <header className="flex items-center justify-between px-6 py-4 lg:px-12 border-b border-black/5 bg-[#f6f7f2] sticky top-0 z-50">
         <div className="flex items-center gap-2">
-          <div className="size-8 bg-[#7d56b3] flex items-center justify-center rounded-full text-white">
-            <Sparkles className="w-4 h-4" />
-          </div>
-          <h2 className="text-xl font-black tracking-tight">mia meow</h2>
+          <h2 className="text-2xl font-black tracking-tight text-[#1e293b]">mia meow</h2>
         </div>
-        <nav className="hidden md:flex items-center gap-8 font-bold text-sm">
-          <a className="hover:text-[#7d56b3] transition-colors" href="#">videos</a>
-          <a className="hover:text-[#7d56b3] transition-colors" href="#">tools</a>
-          <a className="border border-dashed border-blue-400 px-3 py-1 hover:bg-blue-50 transition-colors text-slate-800" href="#">community</a>
+        <nav className="hidden md:flex items-center gap-8 font-medium text-slate-700">
+          <a className="hover:text-[#7c3aed] transition-colors" href="#">videos</a>
+          <a className="hover:text-[#7c3aed] transition-colors" href="#">tools</a>
+          <a className="hover:text-[#7c3aed] transition-colors" href="#">community</a>
         </nav>
-        <button className="bg-[#7d56b3] text-white px-6 py-2 text-sm font-bold rounded-lg hover:opacity-90 transition-all">
+        <button className="bg-[#7c3aed] text-white px-6 py-2.5 text-sm font-medium rounded-full hover:opacity-90 transition-all">
           subscribe
         </button>
       </header>
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative grid grid-cols-1 lg:grid-cols-2 min-h-[85vh] bg-[#f8f9fa] border-b border-black/5">
+        <section className="relative grid grid-cols-1 lg:grid-cols-2 h-[calc(100vh-73px)] bg-[#f6f7f2] border-b border-black/5 overflow-hidden">
           {/* Left Side - Image */}
-          <div className="relative flex items-center justify-center p-12 lg:p-24 bg-gradient-to-br from-[#fdfbfb] to-[#ebedee] border-r border-black/5">
-            <div className="relative w-full max-w-md aspect-square">
-              <img alt="Mia Meow Profile" className="w-full h-full object-cover grayscale rounded-xl shadow-2xl" src="/profile.jpg" />
+          <div className="relative flex items-center justify-center p-8 lg:p-12 border-r border-black/5 h-full">
+            <div className="relative w-full max-w-[380px] aspect-[3/4]">
+              {/* Blob Image */}
+              <div 
+                className="w-full h-full overflow-hidden shadow-xl bg-neutral-200"
+                style={{ borderRadius: '40% 60% 50% 50% / 45% 50% 50% 55%' }}
+              >
+                <img alt="Mia Meow Profile" className="w-full h-full object-cover" src="/profile.jpg" />
+              </div>
               {/* Yellow Badge */}
-              <div className="absolute -bottom-4 -right-4 bg-[#fbbf24] text-black font-black text-sm leading-tight px-6 py-4 rounded-xl -rotate-[10deg] shadow-xl border-4 border-white">
-                CREATIVE<br/>DIRECTOR
+              <div className="absolute bottom-6 right-0 bg-[#fcd34d] text-black font-medium text-sm px-6 py-2 rounded-full -rotate-3 shadow-lg border border-yellow-300">
+                CREATIVE DIRECTOR
               </div>
             </div>
           </div>
 
           {/* Right Side - Typography */}
-          <div className="relative flex flex-col justify-center p-12 lg:p-24 overflow-hidden bg-[#f8f9fa]">
+          <div className="relative flex flex-col justify-center p-8 lg:p-16 h-full">
             {/* Background Text */}
-            <div className="absolute top-12 left-0 right-0 text-center pointer-events-none select-none overflow-hidden">
-              <span className="text-[20vw] lg:text-[14rem] font-black text-black/[0.04] leading-none tracking-tighter">MEOW</span>
+            <div className="absolute top-[15%] left-0 right-0 text-center pointer-events-none select-none overflow-hidden">
+              <span className="text-[18vw] lg:text-[14rem] font-black text-black/[0.03] leading-none tracking-tighter">MEOW</span>
             </div>
 
             <div className="relative z-10 max-w-xl">
-              <h1 className="text-[5rem] lg:text-[8rem] font-black leading-[0.85] tracking-tighter mb-8">
-                <span className="text-[#0f172a] block">digital</span>
-                <span className="text-[#7d56b3] block italic">magic</span>
+              <h1 className="text-[4.5rem] lg:text-[6.5rem] font-black leading-[0.85] tracking-tighter mb-6">
+                <span className="text-[#1e293b] block">digital</span>
+                <span className="text-[#7c3aed] block">magic</span>
               </h1>
-              <p className="text-xl text-slate-600 font-medium mb-10 leading-relaxed max-w-md">
+              <p className="text-lg lg:text-xl text-slate-700 font-medium mb-8 leading-relaxed max-w-md">
                 Curating experiences at the intersection of avant-garde design and digital storytelling.
               </p>
               <div className="flex flex-wrap gap-4">
-                <button className="flex items-center gap-2 bg-[#2dd4bf] text-[#0f172a] px-8 py-4 font-bold rounded-lg hover:bg-teal-300 transition-colors uppercase tracking-wide">
-                  <PlayCircle className="w-5 h-5" /> WATCH NOW
+                <button className="flex items-center gap-2 bg-[#059669] text-white px-6 py-3 font-medium rounded-full hover:bg-[#047857] transition-colors text-sm tracking-wide">
+                  WATCH NOW <PlayCircle className="w-5 h-5 fill-white text-[#059669]" />
                 </button>
-                <button className="border-2 border-[#7d56b3] text-[#7d56b3] px-8 py-4 font-bold rounded-lg hover:bg-purple-50 transition-colors uppercase tracking-wide bg-transparent">
+                <button className="border border-[#7c3aed] text-[#7c3aed] px-6 py-3 font-medium rounded-full hover:bg-purple-50 transition-colors text-sm tracking-wide bg-transparent">
                   VIEW PROJECTS
                 </button>
               </div>
