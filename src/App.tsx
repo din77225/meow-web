@@ -553,7 +553,7 @@ export default function App() {
         </div>
 
         <div className="mt-16 pt-8 border-t border-black/8 max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] font-semibold uppercase tracking-widest text-slate-400">
-          <p>© 2026 Mia Meow. All rights reserved.</p>
+          <p>© 2026 Mia Meow. All rights reserved. <a href="/privacy.html" className="ml-4 hover:text-[#7b54b3] transition-colors">Privacy Policy</a></p>
           <p>AI workflows for creators.</p>
         </div>
       </footer>
