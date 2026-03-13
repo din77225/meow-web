@@ -230,28 +230,13 @@ export default function App() {
                 </a>
               </div>
 
-              {/* Inline stats */}
-              <div className="flex gap-8 mt-10 pt-8 border-t border-black/8">
-                <div>
-                  <p className="text-2xl font-black text-[#1a1625]">21K</p>
-                  <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mt-0.5">subscribers</p>
-                </div>
-                <div>
-                  <p className="text-2xl font-black text-[#1a1625]">600+</p>
-                  <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mt-0.5">community</p>
-                </div>
-                <div>
-                  <p className="text-2xl font-black text-[#1a1625]">1M+</p>
-                  <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mt-0.5">total views</p>
-                </div>
-              </div>
             </div>
           </div>
         </section>
 
         {/* ── Featured Video ── */}
         <section className="px-6 py-10 lg:px-20 lg:py-12" id="videos">
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-4xl mx-auto">
           <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#7b54b3] mb-4">latest release</p>
           <a
             href={`https://www.youtube.com/watch?v=${featuredVideo.id}`}
@@ -343,7 +328,7 @@ export default function App() {
         </section>
 
         {/* ── About / The Method ── */}
-        <section className="px-6 py-20 lg:px-20 lg:py-32 bg-[#00c4cc] text-[#032b2e] relative overflow-hidden">
+        <section id="about" className="px-6 py-16 lg:px-20 lg:py-24 bg-[#00c4cc] text-[#032b2e] relative overflow-hidden">
           <div className="absolute top-0 right-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
             <span
               className="block text-[20vw] font-black leading-none tracking-tighter p-8"
@@ -423,7 +408,7 @@ export default function App() {
         {/* ── Community + Newsletter ── */}
         <section className="grid grid-cols-1 md:grid-cols-2">
           {/* Community */}
-          <div className="bg-white text-[#1a1625] px-6 py-20 lg:px-16 lg:py-28 flex flex-col justify-center border-r border-black/5">
+          <div id="community" className="bg-white text-[#1a1625] px-6 py-14 lg:px-16 lg:py-20 flex flex-col justify-center border-r border-black/5">
             <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#7b54b3] mb-3">skool community</p>
             <h2 className="chunky-text text-4xl lg:text-6xl mb-6 tracking-tight">the<br/>community</h2>
             <p className="text-base lg:text-lg font-serif text-slate-500 italic max-w-sm mb-8 leading-relaxed">
@@ -440,7 +425,7 @@ export default function App() {
           </div>
 
           {/* Newsletter */}
-          <div className="bg-[#f4d00a] text-[#1a1625] px-6 py-20 lg:px-16 lg:py-28 flex flex-col justify-center">
+          <div id="newsletter" className="bg-[#f4d00a] text-[#1a1625] px-6 py-14 lg:px-16 lg:py-20 flex flex-col justify-center">
             <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#1a1625]/60 mb-3">weekly</p>
             <h2 className="chunky-text text-4xl lg:text-6xl mb-6 tracking-tight">newsletter</h2>
             <p className="text-base lg:text-lg font-serif text-[#1a1625]/70 italic max-w-sm mb-8 leading-relaxed">
@@ -460,7 +445,7 @@ export default function App() {
       </main>
 
       {/* ── Footer ── */}
-      <footer className="bg-[#f8f6f3] px-6 py-12 lg:px-20 lg:py-20 border-t border-black/8">
+      <footer className="bg-[#f8f6f3] px-6 py-10 lg:px-20 lg:py-16 border-t border-black/8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
           {/* Brand */}
           <div className="lg:col-span-2 space-y-5">
