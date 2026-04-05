@@ -9,6 +9,7 @@ import { Gravity, MatterBody } from './components/ui/gravity';
 import { WavePath } from './components/ui/wave-path';
 import videosData from './data/videos.json';
 import featuredData from './data/featured.json';
+import collabsData from './data/collabs.json';
 
 // Physics tags — singular "I am a ___" concept
 const gravityTags = [
@@ -34,7 +35,23 @@ const TikTokIcon = () => (
 
 // Videos loaded from src/data/*.json — auto-updated by scripts/fetch-videos.mjs
 const featuredVideo = featuredData as { id: string; title: string; tag: string };
-const recentVideos  = videosData   as { id: string; title: string; tag: string; duration?: string }[];
+const collabIds = new Set((collabsData as { id: string }[]).map(v => v.id));
+
+type Video = { id: string; title: string; tag: string; publishedAt?: string; duration?: string };
+
+// Option A: always 4 newest uploads + 4 newest collabs, sorted by date desc
+const top4Uploads = (videosData as Video[])
+  .filter(v => !collabIds.has(v.id))                                        // exclude any overlap
+  .sort((a, b) => (b.publishedAt ?? '').localeCompare(a.publishedAt ?? ''))
+  .slice(0, 4);
+
+const top4Collabs = (collabsData as Video[])
+  .sort((a, b) => (b.publishedAt ?? '').localeCompare(a.publishedAt ?? ''))
+  .slice(0, 4)
+  .map(v => ({ ...v, tag: 'Collab' }));
+
+const allVideos = [...top4Uploads, ...top4Collabs]
+  .sort((a, b) => (b.publishedAt ?? '').localeCompare(a.publishedAt ?? ''));
 
 export default function App() {
   const scrollRef = React.useRef<HTMLDivElement>(null);
@@ -303,7 +320,7 @@ export default function App() {
             className="flex gap-6 px-6 lg:px-20 overflow-x-auto pb-6 no-scrollbar snap-x snap-proximity
                        lg:grid lg:grid-cols-4 lg:overflow-visible lg:snap-none"
           >
-            {recentVideos.map((v) => (
+            {allVideos.map((v) => (
               <a
                 key={v.id}
                 href={`https://www.youtube.com/watch?v=${v.id}`}

@@ -107,11 +107,12 @@ async function run() {
     const entries = [...xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)];
     const candidates = entries
       .map(([, entry]) => {
-        const id    = entry.match(/<yt:videoId>([^<]+)<\/yt:videoId>/)?.[1];
-        const title = entry.match(/<title>([^<]+)<\/title>/)?.[1];
-        const desc  = entry.match(/<media:description>([\s\S]*?)<\/media:description>/)?.[1] ?? '';
+        const id          = entry.match(/<yt:videoId>([^<]+)<\/yt:videoId>/)?.[1];
+        const title       = entry.match(/<title>([^<]+)<\/title>/)?.[1];
+        const desc        = entry.match(/<media:description>([\s\S]*?)<\/media:description>/)?.[1] ?? '';
+        const published   = entry.match(/<published>([^<]+)<\/published>/)?.[1]?.slice(0, 10) ?? '';
         if (!id || !title) return null;
-        return { id, title: decodeHtml(title), tag: getTag(id, title, desc) };
+        return { id, title: decodeHtml(title), tag: getTag(id, title, desc), publishedAt: published };
       })
       .filter(Boolean);
 
