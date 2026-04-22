@@ -84,6 +84,7 @@ export default function App() {
         </a>
         <nav className="hidden md:flex items-center gap-8 font-medium text-slate-600" aria-label="Main navigation">
           <a className="hover:text-[#7b54b3] transition-colors duration-200" href="#videos">videos</a>
+          <a className="hover:text-[#7b54b3] transition-colors duration-200" href="#playbook">playbook</a>
           <a className="hover:text-[#7b54b3] transition-colors duration-200" href="https://www.skool.com/ai-creator-labs" target="_blank" rel="noreferrer">community</a>
           <a className="hover:text-[#7b54b3] transition-colors duration-200" href="https://mia-meow.kit.com/0988b3b4b8" target="_blank" rel="noreferrer">newsletter</a>
         </nav>
@@ -344,6 +345,117 @@ export default function App() {
           </div>
         </section>
 
+        {/* ── Seedance Playbook CTA ── */}
+        <section
+          id="playbook"
+          className="relative overflow-hidden bg-[#1a1625] text-white px-6 py-16 lg:px-20 lg:py-24"
+        >
+          {/* Ghost background word */}
+          <div
+            className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
+            aria-hidden="true"
+          >
+            <span className="block text-[26vw] lg:text-[18rem] font-black text-white/[0.03] leading-none tracking-tighter lowercase">
+              seedance
+            </span>
+          </div>
+
+          <div className="relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
+
+            {/* Left: cover mockup */}
+            <div className="flex justify-center lg:justify-start order-2 lg:order-1">
+              <a
+                href="https://linkly.link/2hkMq"
+                target="_blank"
+                rel="noreferrer"
+                className="group relative block w-full max-w-[420px] cursor-pointer"
+                aria-label="Buy the Seedance 2.0 Prompt Playbook on Gumroad"
+              >
+                {/* Yellow backdrop */}
+                <div
+                  className="absolute -top-4 -left-4 w-full h-full bg-[#f4d00a] rounded-xl -rotate-3 transition-transform duration-500 group-hover:-rotate-6"
+                  aria-hidden="true"
+                />
+                {/* Purple backdrop */}
+                <div
+                  className="absolute -bottom-4 -right-4 w-full h-full bg-[#7b54b3] rounded-xl rotate-2 transition-transform duration-500 group-hover:rotate-4"
+                  aria-hidden="true"
+                />
+                {/* Cover */}
+                <img
+                  src="/seedance-playbook-cover.png"
+                  alt="The Seedance 2.0 Prompt Playbook — cover"
+                  className="relative w-full h-auto rounded-xl shadow-2xl transition-transform duration-500 group-hover:-translate-y-1"
+                  loading="lazy"
+                />
+                {/* Version badge */}
+                <div className="absolute top-4 right-4 bg-[#1a1625] text-[#f4d00a] text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-[#f4d00a]/40 z-10">
+                  v1.1 · 48 pages
+                </div>
+              </a>
+            </div>
+
+            {/* Right: copy */}
+            <div className="order-1 lg:order-2 space-y-6">
+              <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#f4d00a]">
+                new · prompt playbook
+              </p>
+              <h2 className="chunky-text text-4xl lg:text-6xl uppercase leading-[0.9] tracking-tighter">
+                the seedance 2.0<br />
+                <span className="text-[#f4d00a]">prompt playbook.</span>
+              </h2>
+              <p className="font-serif italic text-lg lg:text-xl text-white/70 leading-relaxed max-w-lg">
+                The complete framework for controlling Seedance 2.0. The exact patterns I use for camera work, beat-synced music videos, dialogue directing, and multi-reference scenes.
+              </p>
+
+              {/* Feature bullets */}
+              <ul className="space-y-2.5 text-sm lg:text-base text-white/80 max-w-lg">
+                <li className="flex gap-3">
+                  <span className="text-[#f4d00a] font-black shrink-0">→</span>
+                  <span>The @Tag system and the golden rule that fixes half your output problems</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-[#f4d00a] font-black shrink-0">→</span>
+                  <span>16 camera terms with Chinese and English translations</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-[#f4d00a] font-black shrink-0">→</span>
+                  <span>The audio-locked MV workaround and the single-take formula</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-[#f4d00a] font-black shrink-0">→</span>
+                  <span>Access to the live Prompt Library with 65+ curated examples</span>
+                </li>
+              </ul>
+
+              <div className="flex flex-wrap gap-4 pt-2">
+                <a
+                  href="https://linkly.link/2hkMq"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#f4d00a] text-[#1a1625] px-7 py-3.5 font-bold rounded-full hover:bg-[#ffd93d] transition-colors duration-200 text-sm uppercase tracking-wider cursor-pointer"
+                >
+                  get the playbook
+                  <ChevronRight className="w-4 h-4" aria-hidden="true" />
+                </a>
+                <a
+                  href="https://linkly.link/2hkMq"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 border border-white/30 text-white px-7 py-3.5 font-semibold rounded-full hover:bg-white/10 transition-colors duration-200 text-sm cursor-pointer"
+                >
+                  preview on gumroad
+                </a>
+              </div>
+
+              <p className="text-xs text-white/50 pt-1">
+                Use code <span className="font-mono font-bold text-[#f4d00a]">EARLY</span> for 35% off at checkout.
+              </p>
+            </div>
+
+          </div>
+        </section>
+
         {/* ── About / The Method ── */}
         <section id="about" className="px-6 py-16 lg:px-20 lg:py-24 bg-[#00c4cc] text-[#032b2e] relative overflow-hidden">
           <div className="absolute top-0 right-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
@@ -373,15 +485,15 @@ export default function App() {
               </div>
               <div className="flex flex-wrap gap-8 pt-8 border-t border-[#032b2e]/15">
                 <div>
-                  <p className="text-3xl font-black text-[#032b2e]">21K</p>
+                  <p className="text-3xl font-black text-[#032b2e]">22K</p>
                   <p className="text-xs uppercase tracking-widest text-[#7b54b3] font-bold mt-1">subscribers</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-black text-[#032b2e]">600+</p>
+                  <p className="text-3xl font-black text-[#032b2e]">700+</p>
                   <p className="text-xs uppercase tracking-widest text-[#7b54b3] font-bold mt-1">skool members</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-black text-[#032b2e]">1M+</p>
+                  <p className="text-3xl font-black text-[#032b2e]">1.1M+</p>
                   <p className="text-xs uppercase tracking-widest text-[#7b54b3] font-bold mt-1">total views</p>
                 </div>
               </div>
@@ -429,7 +541,7 @@ export default function App() {
             <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#7b54b3] mb-3">skool community</p>
             <h2 className="chunky-text text-4xl lg:text-6xl mb-6 tracking-tight">the<br/>community</h2>
             <p className="text-base lg:text-lg font-serif text-slate-500 italic max-w-sm mb-8 leading-relaxed">
-              600+ creators sharing workflows, resources, and feedback every day. Come build in public.
+              700+ creators sharing workflows, resources, and feedback every day. Come build in public.
             </p>
             <a
               href="https://www.skool.com/ai-creator-labs"
@@ -523,6 +635,16 @@ export default function App() {
                   className="hover:text-[#7b54b3] transition-colors duration-200 cursor-pointer"
                 >
                   YouTube Channel
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://linkly.link/2hkMq"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-[#7b54b3] transition-colors duration-200 cursor-pointer"
+                >
+                  Seedance Playbook
                 </a>
               </li>
               <li>
