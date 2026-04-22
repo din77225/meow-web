@@ -390,7 +390,7 @@ export default function App() {
                 />
                 {/* Version badge */}
                 <div className="absolute top-4 right-4 bg-[#1a1625] text-[#f4d00a] text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-[#f4d00a]/40 z-10">
-                  v1.1 · 48 pages
+                  new drop
                 </div>
               </a>
             </div>
