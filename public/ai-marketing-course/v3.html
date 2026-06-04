@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative AI for Marketing Teams | Mia Meow</title>
+  <meta name="description" content="A 24-hour hands-on training programme teaching marketing teams how to produce agency-quality content with AI. Brand design, image generation, video production, competitive research. Online via Zoom over 6 weeks.">
+  <link rel="canonical" href="https://miameow.ai/ai-marketing-course/v3.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Creative AI for Marketing Teams | Mia Meow">
+  <meta property="og:description" content="24 hours of live AI creative training for marketing teams. Brand design, image generation, video production, and more. Limited to 16 participants per cohort.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://miameow.ai/ai-marketing-course/v3.html">
+  <meta property="og:image" content="https://miameow.ai/ai-marketing-course/assets/hero-banner.png">
+  <meta property="og:site_name" content="Mia Meow">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Creative AI for Marketing Teams | Mia Meow">
+  <meta name="twitter:description" content="24 hours of live AI creative training for marketing teams. Online via Zoom. No coding required.">
+  <meta name="twitter:image" content="https://miameow.ai/ai-marketing-course/assets/hero-banner.png">
+
+  <!-- Structured Data: Course -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Creative AI for Marketing Teams",
+    "description": "A 24-hour hands-on training programme teaching marketing professionals how to produce agency-quality content with AI tools.",
+    "provider": {
+      "@type": "Person",
+      "name": "Mia Liao",
+      "url": "https://miameow.ai"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "4150",
+      "priceCurrency": "CAD",
+      "availability": "https://schema.org/LimitedAvailability"
+    },
+    "hasCourseInstance": {
+      "@type": "CourseInstance",
+      "courseMode": "online",
+      "duration": "PT24H",
+      "instructor": {
+        "@type": "Person",
+        "name": "Mia Liao"
+      }
+    }
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --purple: #7b54b3;
+      --purple-hover: #6a47a0;
+      --teal: #00c4cc;
+      --bg-white: #ffffff;
+      --bg-warm: #f8f6f3;
+      --text-heading: #1a1625;
+      --text-body: #4a4a5a;
+      --text-muted: #6e6e7e;
+      --border-light: #e8e5e0;
+      --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text-body);
+      background: var(--bg-white);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* NAV */
+    .nav {
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border-light);
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-heading);
+      text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-body);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+    }
+    .nav-links a:hover {
+      color: var(--purple);
+    }
+    .nav-cta {
+      background: var(--purple);
+      color: #fff !important;
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-size: 14px !important;
+      font-weight: 600 !important;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover {
+      background: var(--purple-hover) !important;
+    }
+
+    /* MOBILE NAV */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text-heading);
+      margin: 5px 0;
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 72px 24px;
+    }
+    .section-warm {
+      background: var(--bg-warm);
+    }
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--purple);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+    .section-desc {
+      font-size: 17px;
+      color: var(--text-body);
+      max-width: 680px;
+      line-height: 1.7;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 80px 24px 72px;
+    }
+    .hero-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 18px;
+      color: var(--text-body);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: var(--purple);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .hero-cta:hover {
+      background: var(--purple-hover);
+    }
+    .hero-image {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+    }
+
+    /* PROGRAMME OVERVIEW */
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+      margin-top: 32px;
+    }
+    .overview-text {
+      font-size: 17px;
+      line-height: 1.8;
+    }
+    .overview-text p + p {
+      margin-top: 16px;
+    }
+
+    /* WHAT'S INCLUDED */
+    .included-list {
+      list-style: none;
+      padding: 0;
+      margin: 32px 0;
+    }
+    .included-list li {
+      padding: 12px 0 12px 32px;
+      position: relative;
+      font-size: 16px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .included-list li:last-child {
+      border-bottom: none;
+    }
+    .included-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 18px;
+      width: 8px;
+      height: 8px;
+      background: var(--purple);
+      border-radius: 50%;
+    }
+
+    /* PRICE BOX */
+    .price-box {
+      background: var(--bg-white);
+      border: 2px solid var(--purple);
+      border-radius: 12px;
+      padding: 40px;
+      text-align: center;
+      margin-top: 40px;
+      max-width: 480px;
+    }
+    .price-amount {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 4px;
+    }
+    .price-note {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .price-cta {
+      display: inline-block;
+      background: var(--purple);
+      color: #fff;
+      padding: 14px 36px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .price-cta:hover {
+      background: var(--purple-hover);
+    }
+
+    /* MODULES */
+    .modules-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 32px;
+    }
+    .modules-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 16px;
+    }
+    .modules-list li:first-child {
+      border-top: 1px solid var(--border-light);
+    }
+    .module-name {
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+    .module-hours {
+      font-size: 14px;
+      color: var(--text-muted);
+      white-space: nowrap;
+      margin-left: 16px;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .testimonial-card {
+      background: var(--bg-white);
+      border-left: 4px solid var(--purple);
+      padding: 28px 28px 28px 24px;
+      box-shadow: var(--shadow-card);
+      border-radius: 0 8px 8px 0;
+    }
+    .testimonial-quote {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-body);
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+    .testimonial-author {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+    .testimonial-source {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ETG */
+    .etg-box {
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 32px;
+      max-width: 720px;
+      margin-top: 24px;
+    }
+    .etg-box p {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .etg-box a {
+      color: var(--purple);
+      text-decoration: underline;
+    }
+
+    /* INSTRUCTOR */
+    .instructor-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 48px;
+      align-items: start;
+      margin-top: 32px;
+    }
+    .instructor-photo {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+    }
+    .instructor-bio h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 16px;
+    }
+    .instructor-bio p {
+      font-size: 16px;
+      line-height: 1.8;
+    }
+    .instructor-bio p + p {
+      margin-top: 12px;
+    }
+
+    /* FINAL CTA */
+    .final-cta {
+      text-align: center;
+      padding: 80px 24px;
+    }
+    .final-cta h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 16px;
+    }
+    .final-cta p {
+      font-size: 17px;
+      color: var(--text-body);
+      margin-bottom: 28px;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: var(--text-heading);
+      color: #ccc;
+      padding: 40px 24px;
+    }
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-copy {
+      font-size: 14px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .footer-links a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    /* DIVIDER */
+    hr.divider {
+      border: none;
+      height: 1px;
+      background: var(--border-light);
+      margin: 0;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .hero h1 {
+        font-size: 30px;
+      }
+      .hero-image {
+        order: -1;
+        max-width: 400px;
+      }
+      .overview-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+      .instructor-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .instructor-photo {
+        max-width: 240px;
+      }
+      .price-box {
+        padding: 28px;
+      }
+      .price-amount {
+        font-size: 28px;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--bg-white);
+        border-bottom: 1px solid var(--border-light);
+        padding: 16px 24px;
+        gap: 16px;
+      }
+      .nav-links.open {
+        display: flex;
+      }
+      .nav-toggle {
+        display: block;
+      }
+      .section {
+        padding: 48px 24px;
+      }
+      .section-title {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="https://miameow.ai" class="nav-logo">mia meow</a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="https://miameow.ai">Home</a></li>
+        <li><a href="#programme">Training</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="mailto:miadigitalstudio@gmail.com" class="nav-cta">Book a Call</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <h1>Creative AI Training for Marketing Teams</h1>
+        <p>A 24-hour live training programme that teaches your marketing team how to produce agency-quality content using AI tools. Brand design, image generation, video production, competitive research, and campaign execution. No coding required.</p>
+        <a href="mailto:miadigitalstudio@gmail.com" class="hero-cta">Book a Discovery Call</a>
+      </div>
+      <div>
+        <img src="assets/mia-stage.png" alt="Mia Liao presenting on stage" class="hero-image">
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- PROGRAMME OVERVIEW -->
+  <section class="section section-warm" id="programme">
+    <div class="container">
+      <p class="section-label">Programme Overview</p>
+      <h2 class="section-title">24-Hour Training Programme</h2>
+      <div class="overview-grid">
+        <div class="overview-text">
+          <p>Receive a complete AI creative training programme for your marketing team. Perfect for businesses looking to bring creative production in-house using AI tools.</p>
+          <p>We will train your team on brand design, image generation, video production, competitive research, and campaign execution using industry-leading AI tools. Participants receive training sessions on 7 Learning Modules covering all aspects of AI-powered creative marketing.</p>
+        </div>
+        <div class="overview-text">
+          <p>The programme runs over 6 weeks with two sessions per week: Tuesday live classes and Thursday implementation labs. This structure gives your team time to practice and apply what they learn between sessions.</p>
+          <p>Class size is limited to 16 participants per cohort to ensure personalized attention and hands-on support during live sessions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">What You Get</p>
+      <h2 class="section-title">What's Included</h2>
+      <ul class="included-list">
+        <li>7 Learning Modules over 6 weeks (24 hours total)</li>
+        <li>Tuesday live classes (2 hours each, 3-5pm PT)</li>
+        <li>Thursday implementation labs and Q&amp;A (2 hours each, 3-5pm PT)</li>
+        <li>All course materials, prompt libraries, and templates</li>
+        <li>Certificate of Completion with hours documented</li>
+        <li>Small group setting (maximum 16 participants)</li>
+        <li>Course delivery is online via Zoom</li>
+        <li>Course start dates are flexible</li>
+      </ul>
+
+      <div class="price-box">
+        <div class="price-amount">$4,150 CAD</div>
+        <div class="price-note">+GST for Canadians / approximately $2,997 USD</div>
+        <a href="mailto:miadigitalstudio@gmail.com" class="price-cta">Book a Discovery Call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COURSE OUTLINE -->
+  <section class="section section-warm">
+    <div class="container">
+      <p class="section-label">Curriculum</p>
+      <h2 class="section-title">Course Outline</h2>
+      <p class="section-desc">7 modules delivered across 12 sessions over 6 weeks. Each module includes live instruction, hands-on exercises, and take-home practice assignments.</p>
+      <ul class="modules-list">
+        <li><span class="module-name">Module 0: Getting Started</span><span class="module-hours">2 hours</span></li>
+        <li><span class="module-name">Module 1: Brand Foundation</span><span class="module-hours">4 hours</span></li>
+        <li><span class="module-name">Module 2: Image Generation</span><span class="module-hours">4 hours</span></li>
+        <li><span class="module-name">Module 3: Design Applications</span><span class="module-hours">4 hours</span></li>
+        <li><span class="module-name">Module 4: Video Generation</span><span class="module-hours">4 hours</span></li>
+        <li><span class="module-name">Module 5: Research and Competitive Intel</span><span class="module-hours">2 hours</span></li>
+        <li><span class="module-name">Module 6: Final Project</span><span class="module-hours">4 hours</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">What People Are Saying</p>
+      <h2 class="section-title">Testimonials</h2>
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"Your tutorials are great. I've learned a lot easier since I found you."</p>
+          <p class="testimonial-author">@KingdomMindedCafe</p>
+          <p class="testimonial-source">via YouTube</p>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"Have watched many great Mia videos and this latest one is the best to date. Your YouTube channel is loaded with excellent content."</p>
+          <p class="testimonial-author">Mark MacLeod</p>
+          <p class="testimonial-source">via YouTube</p>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"Who else watched Mia Meow today? WOWSERS! I found every tool as we went along, DID NOT open them, must finish Modules, can't wait to create some more AI stuff, to me it's really fun. Thanks to Mia, a must watch IMO!"</p>
+          <p class="testimonial-author">Previous Student</p>
+          <p class="testimonial-source">via Live Zoom Session</p>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"Thank you for the GREAT presentation. I appreciate how you cover a lot of ground, are honest about the challenges, and don't gloss over the frustrations of these experiments."</p>
+          <p class="testimonial-author">@Art_in_MT</p>
+          <p class="testimonial-source">via YouTube</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ETG / HELPFUL NOTES -->
+  <section class="section section-warm">
+    <div class="container">
+      <h2 class="section-title">Helpful Notes</h2>
+      <div class="etg-box">
+        <p>Our training programme may qualify for the <a href="https://www.workbc.ca/find-loans-and-grants/industry-and-employers/bc-employer-training-grant" target="_blank" rel="noopener">BC Employer Training Grant</a>. Please email us at <a href="mailto:miadigitalstudio@gmail.com">miadigitalstudio@gmail.com</a> or book a discovery call for more information. Eligibility is determined by the BC government.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT THE INSTRUCTOR -->
+  <section class="section" id="instructor">
+    <div class="container">
+      <p class="section-label">Your Instructor</p>
+      <h2 class="section-title">About the Instructor</h2>
+      <div class="instructor-grid">
+        <img src="assets/mia-stage.png" alt="Mia Liao, AI Creative Strategist" class="instructor-photo">
+        <div class="instructor-bio">
+          <h3>Mia Liao</h3>
+          <p>Mia Liao is an AI Creative Strategist with 10+ years in digital marketing, brand strategy, and creative production. She teaches 23,000+ YouTube subscribers how to use AI for creative work through her channel @miameowai and has partnered with leading AI creative platforms including OpenArt.</p>
+          <p>Her training focuses on practical, hands-on application of AI tools for real marketing workflows. Participants leave each session with work they can use immediately.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta" id="contact">
+    <h2>Ready to get started?</h2>
+    <p>Book a discovery call to discuss your team's training needs.</p>
+    <a href="mailto:miadigitalstudio@gmail.com" class="hero-cta">Book a Discovery Call</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-copy">&copy; 2026 Mia Meow. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="https://miameow.ai/privacy">Privacy</a></li>
+        <li><a href="https://miameow.ai/terms">Terms</a></li>
+        <li><a href="https://youtube.com/@miameowai" target="_blank" rel="noopener">YouTube</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>

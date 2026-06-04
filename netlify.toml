@@ -16,6 +16,11 @@
   status = 200
 
 [[redirects]]
+  from   = "/ai-marketing-course/v3.html"
+  to     = "/ai-marketing-course/v3.html"
+  status = 200
+
+[[redirects]]
   from   = "/ai-marketing-course/"
   to     = "/ai-marketing-course/index.html"
   status = 200
