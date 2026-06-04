@@ -1341,10 +1341,24 @@
       75%  { background-position: 50% 0%; }
       100% { background-position: 0% 50%; }
     }
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .hero-video-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: rgba(10, 10, 15, 0.7);
+    }
     .hero-animated-bg {
       position: absolute;
       inset: 0;
-      z-index: 0;
+      z-index: -1;
       background: linear-gradient(135deg, #7b54b3, #0a0a0f, #00c4cc, #0a0a0f, #7b54b3);
       background-size: 400% 400%;
       animation: heroGradientShift 16s ease infinite;
@@ -1835,7 +1849,12 @@
        1. HERO
        ==================================================== -->
   <section class="hero" id="hero">
-    <!-- Animated gradient background -->
+    <!-- Background video reel -->
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="assets/hero-reel.mp4" type="video/mp4">
+    </video>
+    <div class="hero-video-overlay"></div>
+    <!-- Animated gradient background (behind video as fallback) -->
     <div class="hero-animated-bg"></div>
     <!-- Mouse-tracking glow -->
     <div class="hero-mouse-glow" id="heroMouseGlow"></div>
@@ -2274,7 +2293,7 @@
         <div class="about-content fade-in fade-in-delay-1">
           <span class="section-label">Your Instructor</span>
           <h2 class="about-name">Mia Liao</h2>
-          <p class="about-title">AI Creative Strategist / MBA, University of British Columbia</p>
+          <p class="about-title">AI Creative Strategist</p>
           <div class="about-bio">
             <p>
               I've spent 10+ years in digital marketing, helping brands figure out how to stand out in crowded spaces. When generative AI hit, I didn't just dabble. I went all in: testing every model, breaking every workflow, and building systems that actually produce usable marketing assets.
@@ -2402,7 +2421,7 @@
           <li><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00c4cc" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Small cohort (16 max) for personalized feedback</li>
           <li><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00c4cc" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> All course materials, templates, and prompt libraries</li>
           <li><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00c4cc" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Certificate of Completion</li>
-          <li><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00c4cc" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Thursday live classes + Tuesday implementation labs</li>
+          <li><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00c4cc" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Tuesday live classes + Thursday implementation labs</li>
           <li><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00c4cc" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Session recordings for review (available during cohort)</li>
           <li><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00c4cc" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> May qualify for BC Employer Training Grant (up to 80% back)</li>
         </ul>
@@ -2466,7 +2485,7 @@
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              Absolutely. This course requires zero coding or technical background. If you can use email and social media, you can do this. Module 0 starts with a guided setup session where we walk through every tool together. And the Tuesday implementation labs exist specifically so you can get hands-on help when you get stuck.
+              Absolutely. This course requires zero coding or technical background. If you can use email and social media, you can do this. Module 0 starts with a guided setup session where we walk through every tool together. And the Thursday implementation labs exist specifically so you can get hands-on help when you get stuck.
             </div>
           </div>
         </div>
@@ -2514,7 +2533,7 @@
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              You'll need subscriptions to Claude Pro (~$20 USD/month) and Canva Pro (~$15 CAD/month). There are many ways to access AI image and video tools, but we've selected the best options that balance credits, quality, and ease of use. OpenArt starts at $12 USD/month. NotebookLM is free. Seedance 2.0 and GPT Image 2 are pay-per-use and typically come out to $5-$15 for the entire course. Total additional cost: roughly $50-$65/month during the 6 weeks.
+              You'll need subscriptions to Claude Pro (~$20 USD/month) and Canva Pro (~$15 CAD/month). For AI image and video generation, we use OpenArt, which starts at $14 USD/month and includes access to Seedance 2.0, GPT Image 2, and other models. Plans range from $14 to $240/month depending on how much you generate. NotebookLM is free. How much you spend on AI credits depends on your usage, but for the scope of this course, the lowest tier is enough to complete all assignments. Total additional cost: roughly $50-$70/month during the 6 weeks.
             </div>
           </div>
         </div>
