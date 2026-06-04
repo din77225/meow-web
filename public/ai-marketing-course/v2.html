@@ -1,0 +1,2784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative AI for Marketing Teams | Mia Meow</title>
+  <meta name="description" content="A 24-hour hands-on course teaching marketing teams how to produce agency-quality content with AI. Brand design, image generation, video production, content strategy. No coding required.">
+  <link rel="canonical" href="https://miameow.ai/ai-marketing-course/v2.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Creative AI for Marketing Teams | Mia Meow">
+  <meta property="og:description" content="Produce agency-quality marketing content using AI. 24 hours of live training over 6 weeks. Limited to 16 seats per cohort.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://miameow.ai/ai-marketing-course/v2.html">
+  <meta property="og:image" content="https://miameow.ai/ai-marketing-course/assets/hero-banner.png">
+  <meta property="og:site_name" content="Mia Meow">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Creative AI for Marketing Teams | Mia Meow">
+  <meta name="twitter:description" content="Produce agency-quality marketing content using AI. 24 hours of live training. No coding required.">
+  <meta name="twitter:image" content="https://miameow.ai/ai-marketing-course/assets/hero-banner.png">
+
+  <!-- Structured Data: Course -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Creative AI for Marketing Teams",
+    "description": "A 24-hour hands-on course teaching marketing professionals how to produce agency-quality content with AI.",
+    "provider": {
+      "@type": "Person",
+      "name": "Mia Liao",
+      "url": "https://miameow.ai"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "4150",
+      "priceCurrency": "CAD",
+      "availability": "https://schema.org/LimitedAvailability"
+    },
+    "hasCourseInstance": {
+      "@type": "CourseInstance",
+      "courseMode": "online",
+      "duration": "PT24H",
+      "instructor": {
+        "@type": "Person",
+        "name": "Mia Liao"
+      }
+    }
+  }
+  </script>
+
+  <style>
+    /* ====================================================
+       CSS CUSTOM PROPERTIES
+       ==================================================== */
+    :root {
+      --purple: #7b54b3;
+      --purple-light: #9b7acc;
+      --purple-dark: #5a3d8a;
+      --teal: #00c4cc;
+      --teal-light: #33d6dc;
+      --teal-dark: #009ea5;
+      --yellow: #f4d00a;
+      --yellow-soft: #f4d00a33;
+
+      --bg-darkest: #0a0a0f;
+      --bg-dark: #0e0e15;
+      --bg-section: #111118;
+      --bg-card: #1a1a24;
+      --bg-card-hover: #22222f;
+      --bg-elevated: #242430;
+
+      --text-primary: #ffffff;
+      --text-secondary: #e0e0e0;
+      --text-muted: #9a9ab0;
+      --text-dim: #6a6a80;
+
+      --border-subtle: rgba(255, 255, 255, 0.06);
+      --border-light: rgba(255, 255, 255, 0.10);
+      --border-medium: rgba(255, 255, 255, 0.15);
+
+      --gradient-primary: linear-gradient(135deg, var(--purple), var(--teal));
+      --gradient-hero: linear-gradient(180deg, rgba(123, 84, 179, 0.15) 0%, rgba(0, 196, 204, 0.05) 50%, transparent 100%);
+      --gradient-card: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 100%);
+
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
+      --shadow-glow-purple: 0 0 40px rgba(123, 84, 179, 0.2);
+      --shadow-glow-teal: 0 0 40px rgba(0, 196, 204, 0.15);
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+
+      --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+      --max-width: 1200px;
+      --section-pad: 120px;
+      --section-pad-mobile: 64px;
+    }
+
+    /* ====================================================
+       RESET & BASE
+       ==================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg-darkest);
+      color: var(--text-secondary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: var(--teal); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--teal-light); }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ====================================================
+       SCROLL ANIMATIONS
+       ==================================================== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in-delay-1 { transition-delay: 0.1s; }
+    .fade-in-delay-2 { transition-delay: 0.2s; }
+    .fade-in-delay-3 { transition-delay: 0.3s; }
+    .fade-in-delay-4 { transition-delay: 0.4s; }
+
+    /* ====================================================
+       NAVBAR
+       ==================================================== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 16px 0;
+      transition: background 0.3s, backdrop-filter 0.3s, box-shadow 0.3s;
+    }
+    .navbar.scrolled {
+      background: rgba(10, 10, 15, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 var(--border-subtle);
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .navbar-brand {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .navbar-brand span {
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .navbar-cta {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 24px;
+      background: var(--gradient-primary);
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 0.875rem;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+    }
+    .navbar-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-glow-purple);
+      color: var(--text-primary);
+    }
+
+    /* ====================================================
+       BUTTONS (shared)
+       ==================================================== */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px 40px;
+      background: var(--gradient-primary);
+      color: var(--text-primary);
+      font-weight: 700;
+      font-size: 1.0625rem;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.25s, box-shadow 0.25s;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(123, 84, 179, 0.35), 0 0 0 1px rgba(255,255,255,0.1);
+      color: var(--text-primary);
+    }
+    .btn-primary:active { transform: translateY(0); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 32px;
+      background: transparent;
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 100px;
+      border: 1px solid var(--border-medium);
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+      text-decoration: none;
+    }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.25);
+      transform: translateY(-1px);
+      color: var(--text-primary);
+    }
+
+    /* ====================================================
+       SECTION HEADINGS (shared)
+       ==================================================== */
+    .section-label {
+      display: inline-block;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--teal);
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .section-subtitle {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      max-width: 640px;
+      line-height: 1.7;
+    }
+    .section-subtitle.centered { margin-left: auto; margin-right: auto; text-align: center; }
+
+    .hero-label {
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+    .urgency-badge {
+      display: inline-block;
+      padding: 8px 20px;
+      background: rgba(244, 208, 10, 0.1);
+      border: 1px solid var(--yellow);
+      color: var(--yellow);
+      border-radius: 100px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      margin-top: 24px;
+      animation: urgencyPulse 2s ease-in-out infinite;
+    }
+    @keyframes urgencyPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    /* ====================================================
+       1. HERO SECTION
+       ==================================================== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: calc(var(--section-pad) + 60px) 0 var(--section-pad);
+      background: var(--bg-darkest);
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gradient-hero);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(123,84,179,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    /* Hero animated elements are layered via z-index:
+       0 = animated gradient bg
+       1 = mouse glow, particles, shapes
+       2 = content container
+       3 = scroll indicator
+    */
+
+    .hero .container { position: relative; z-index: 2; text-align: center; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px 6px 8px;
+      background: rgba(123, 84, 179, 0.15);
+      border: 1px solid rgba(123, 84, 179, 0.3);
+      border-radius: 100px;
+      font-size: 0.8125rem;
+      color: var(--purple-light);
+      font-weight: 500;
+      margin-bottom: 32px;
+    }
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.08;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 .gradient-text {
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-built-by {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .hero-avatar {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      object-fit: cover;
+      display: inline-block;
+      border: 2px solid var(--teal);
+      box-shadow: 0 0 12px rgba(0, 196, 204, 0.3);
+    }
+    .hero-built-by strong {
+      color: var(--text-primary);
+    }
+    .hero-built-by .yt-play-icon {
+      display: inline-flex;
+      align-items: center;
+      margin-right: 2px;
+    }
+    .hero-sub {
+      font-size: clamp(1.0625rem, 2vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 48px;
+      line-height: 1.7;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 64px;
+    }
+
+    /* Stats bar */
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .stat-item {
+      flex: 1;
+      min-width: 140px;
+      padding: 24px 20px;
+      text-align: center;
+      position: relative;
+    }
+    .stat-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 20%;
+      height: 60%;
+      width: 1px;
+      background: var(--border-subtle);
+    }
+    .stat-number {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-size: 0.8125rem;
+      color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 500;
+    }
+    .stat-plus {
+      color: var(--yellow);
+    }
+
+    /* ====================================================
+       2. WORK SHOWCASE
+       ==================================================== */
+    .showcase {
+      padding: var(--section-pad) 0;
+      background: var(--bg-dark);
+    }
+    .showcase-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .showcase-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .showcase-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(123, 84, 179, 0.15);
+    }
+    .showcase-card-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+    }
+    .showcase-card-body {
+      padding: 1.25rem;
+    }
+    .showcase-card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+    .showcase-card-desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ====================================================
+       4. PAIN POINTS
+       ==================================================== */
+    .pain {
+      padding: var(--section-pad) 0;
+      background: var(--bg-darkest);
+    }
+    .pain-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .pain-card {
+      padding: 28px 28px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .pain-card:hover {
+      border-color: rgba(123, 84, 179, 0.3);
+      background: var(--bg-card-hover);
+    }
+    .pain-icon {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(244, 208, 10, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.125rem;
+    }
+    .pain-text {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ====================================================
+       5. CURRICULUM
+       ==================================================== */
+    .curriculum {
+      padding: var(--section-pad) 0;
+      background: var(--bg-dark);
+    }
+    .curriculum-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .curriculum-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .module-card {
+      padding: 32px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .module-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gradient-primary);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .module-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-card);
+      border-color: var(--border-medium);
+    }
+    .module-card:hover::before { opacity: 1; }
+    .module-card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .module-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    .module-icon.purple { background: rgba(123, 84, 179, 0.15); }
+    .module-icon.teal { background: rgba(0, 196, 204, 0.15); }
+    .module-icon.yellow { background: rgba(244, 208, 10, 0.12); }
+    .module-meta {
+      display: flex;
+      flex-direction: column;
+    }
+    .module-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+    }
+    .module-name {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .module-hours {
+      display: inline-flex;
+      padding: 2px 10px;
+      background: rgba(0, 196, 204, 0.1);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--teal);
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    .module-outcomes {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .module-outcomes li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .module-outcomes li::before {
+      content: '>';
+      color: var(--teal);
+      font-weight: 700;
+      font-family: var(--font-mono);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .module-card.final-project {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, rgba(123,84,179,0.08), rgba(0,196,204,0.05));
+      border-color: rgba(123, 84, 179, 0.2);
+    }
+
+    /* Curriculum tools row */
+    .curriculum-tools {
+      margin-top: 64px;
+      text-align: center;
+    }
+    .curriculum-tools-label {
+      font-size: 0.8125rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+    }
+    .curriculum-tools-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .curriculum-tool {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .curriculum-tool img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+    .curriculum-tool span {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+
+    .tool-logo-dark {
+      filter: invert(1);
+    }
+
+    /* ====================================================
+       8. ABOUT MIA
+       ==================================================== */
+    .about {
+      padding: var(--section-pad) 0;
+      background: var(--bg-dark);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .about-photo-wrapper {
+      position: relative;
+    }
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      background: var(--bg-card);
+      position: relative;
+    }
+    /* <!-- PLACEHOLDER: Replace with actual instructor photo --> */
+    .about-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-dim);
+      font-size: 0.875rem;
+      background: linear-gradient(135deg, rgba(123,84,179,0.08), rgba(0,196,204,0.05));
+    }
+    .about-photo-wrapper::after {
+      content: '';
+      position: absolute;
+      bottom: -16px;
+      right: -16px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,196,204,0.15), transparent);
+      pointer-events: none;
+    }
+    .about-content .section-label { margin-bottom: 12px; }
+    .about-name {
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+    .about-title {
+      font-size: 1rem;
+      color: var(--purple-light);
+      font-weight: 500;
+      margin-bottom: 28px;
+    }
+    .about-bio {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+    .about-bio p + p { margin-top: 16px; }
+    .about-credentials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .credential-tag {
+      padding: 8px 16px;
+      background: rgba(123, 84, 179, 0.1);
+      border: 1px solid rgba(123, 84, 179, 0.2);
+      border-radius: 100px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--purple-light);
+    }
+
+    /* ====================================================
+       9. TESTIMONIALS
+       ==================================================== */
+    .testimonials {
+      padding: var(--section-pad) 0;
+      background: var(--bg-section);
+    }
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .testimonials-carousel {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .testimonials-track {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 4px 0;
+    }
+    .testimonials-track::-webkit-scrollbar {
+      display: none;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .testimonial-card {
+      padding: 28px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-medium);
+    }
+    .testimonial-stars {
+      margin-bottom: 16px;
+      color: var(--yellow);
+      font-size: 0.875rem;
+      letter-spacing: 2px;
+    }
+    .testimonial-text {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .testimonial-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(123, 84, 179, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.875rem;
+      color: var(--purple-light);
+      font-weight: 700;
+    }
+    .testimonial-name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .testimonial-role {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+    .testimonial-via {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.6875rem;
+      color: var(--text-dim);
+      margin-top: 2px;
+    }
+    .testimonial-reply {
+      margin-top: 12px;
+      padding: 12px;
+      background: rgba(255,255,255,0.03);
+      border-left: 2px solid var(--purple);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .testimonial-reply strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+    .testimonial-card-scroll {
+      min-width: 320px;
+      max-width: 360px;
+      flex-shrink: 0;
+      padding: 28px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .testimonial-card-scroll:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-medium);
+      box-shadow: 0 4px 20px rgba(123,84,179,0.1);
+    }
+
+    /* ====================================================
+       10. SOCIAL EMBED
+       ==================================================== */
+    .social-embed {
+      padding: 80px 0;
+      background: var(--bg-darkest);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .social-embed-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    /* <!-- PLACEHOLDER: Embed Instagram Reels or YouTube Shorts showing AI workflow demos --> */
+    .social-placeholder {
+      max-width: 800px;
+      margin: 0 auto;
+      min-height: 300px;
+      border: 2px dashed var(--border-light);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-dim);
+      font-size: 0.875rem;
+      text-align: center;
+      padding: 40px;
+      line-height: 1.8;
+    }
+
+    /* ====================================================
+       11. ETG SECTION
+       ==================================================== */
+    .etg {
+      padding: var(--section-pad) 0;
+      background: var(--bg-dark);
+    }
+    .etg-card {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 56px;
+      background: linear-gradient(135deg, rgba(0,196,204,0.06), rgba(123,84,179,0.06));
+      border: 1px solid rgba(0,196,204,0.2);
+      border-radius: var(--radius-xl);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .etg-card::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,196,204,0.08), transparent);
+      pointer-events: none;
+    }
+    .etg-card .section-title { margin-bottom: 12px; }
+    .etg-highlight {
+      font-size: 1.125rem;
+      color: var(--teal);
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    .etg-body {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 36px;
+      line-height: 1.8;
+    }
+    .etg-savings {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: rgba(0, 196, 204, 0.1);
+      border: 1px solid rgba(0, 196, 204, 0.2);
+      border-radius: var(--radius-md);
+      margin-bottom: 36px;
+    }
+    .etg-savings-label {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+    .etg-savings-amount {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--teal);
+    }
+    .etg-ctas {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ====================================================
+       12. PRICING
+       ==================================================== */
+    .pricing {
+      padding: var(--section-pad) 0;
+      background: var(--bg-darkest);
+    }
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .pricing-card {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 48px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      text-align: center;
+      position: relative;
+      overflow: visible;
+    }
+    .pricing-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-primary);
+    }
+    .pricing-tag {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(244, 208, 10, 0.1);
+      border: 1px solid rgba(244, 208, 10, 0.2);
+      border-radius: 100px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--yellow);
+      margin-bottom: 28px;
+    }
+    .pricing-amount {
+      margin-bottom: 8px;
+    }
+    .pricing-currency {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      vertical-align: super;
+    }
+    .pricing-number {
+      font-size: 4rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .pricing-cad {
+      font-size: 1rem;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+    .pricing-usd {
+      font-size: 0.875rem;
+      color: var(--teal);
+      margin-bottom: 32px;
+    }
+    .pricing-divider {
+      height: 1px;
+      background: var(--border-subtle);
+      margin: 0 -16px 32px;
+    }
+    .pricing-features {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .pricing-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+    }
+    .pricing-features li .check {
+      color: var(--teal);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .pricing-cta-area { margin-bottom: 20px; }
+    .pricing-cta-area .btn-primary { width: 100%; }
+    .pricing-note {
+      font-size: 0.8125rem;
+      color: var(--text-dim);
+    }
+
+    /* ====================================================
+       13. GUARANTEE (merged into pricing)
+       ==================================================== */
+    .guarantee-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .guarantee-card {
+      padding: 40px 36px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .guarantee-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-medium);
+    }
+    .guarantee-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(0, 196, 204, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin: 0 auto 20px;
+    }
+    .guarantee-name {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+    .guarantee-desc {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ====================================================
+       14. FAQ
+       ==================================================== */
+    .faq {
+      padding: var(--section-pad) 0;
+      background: var(--bg-section);
+    }
+    .faq-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .faq-item {
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .faq-item:hover { border-color: var(--border-medium); }
+    .faq-question {
+      width: 100%;
+      background: var(--bg-card);
+      border: none;
+      padding: 22px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      text-align: left;
+      color: var(--text-primary);
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: var(--font-sans);
+      transition: background 0.2s;
+    }
+    .faq-question:hover { background: var(--bg-card-hover); }
+    .faq-chevron {
+      font-size: 1.25rem;
+      transition: transform 0.3s;
+      color: var(--text-dim);
+      flex-shrink: 0;
+      margin-left: 16px;
+    }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out;
+    }
+    .faq-answer-inner {
+      padding: 0 28px 24px;
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      background: var(--bg-card);
+    }
+
+    /* ====================================================
+       15. FINAL CTA
+       ==================================================== */
+    .final-cta {
+      padding: var(--section-pad) 0;
+      background: var(--bg-darkest);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(123,84,179,0.1), transparent 70%);
+      pointer-events: none;
+    }
+    .final-cta .container { position: relative; z-index: 1; }
+    .final-cta .section-title {
+      margin-bottom: 16px;
+    }
+    .final-cta-sub {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .final-cta-urgency {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 20px;
+      background: rgba(244, 208, 10, 0.08);
+      border: 1px solid rgba(244, 208, 10, 0.15);
+      border-radius: 100px;
+      font-size: 0.875rem;
+      color: var(--yellow);
+      font-weight: 600;
+      margin-bottom: 40px;
+    }
+
+    /* ====================================================
+       16. FOOTER
+       ==================================================== */
+    .footer {
+      padding: 48px 0;
+      background: var(--bg-darkest);
+      border-top: 1px solid var(--border-subtle);
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .footer-brand {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+    .footer-brand span {
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 0.8125rem;
+      color: var(--text-dim);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--text-muted); }
+    .footer-copy {
+      width: 100%;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      margin-top: 16px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    /* ====================================================
+       HERO ANIMATED BACKGROUND
+       ==================================================== */
+    @keyframes heroGradientShift {
+      0%   { background-position: 0% 50%; }
+      25%  { background-position: 50% 100%; }
+      50%  { background-position: 100% 50%; }
+      75%  { background-position: 50% 0%; }
+      100% { background-position: 0% 50%; }
+    }
+    .hero-animated-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: linear-gradient(135deg, #7b54b3, #0a0a0f, #00c4cc, #0a0a0f, #7b54b3);
+      background-size: 400% 400%;
+      animation: heroGradientShift 16s ease infinite;
+      opacity: 0.45;
+    }
+    .hero-mouse-glow {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(123,84,179,0.15), transparent 60%);
+      transition: background 0.15s ease;
+    }
+
+    /* Floating particles */
+    .hero-particles {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .hero-particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: rgba(123, 84, 179, 0.6);
+      box-shadow: 0 0 6px rgba(123, 84, 179, 0.4);
+      animation: particleFloat linear infinite;
+    }
+    .hero-particle:nth-child(even) {
+      background: rgba(0, 196, 204, 0.5);
+      box-shadow: 0 0 6px rgba(0, 196, 204, 0.3);
+      width: 2px;
+      height: 2px;
+    }
+    @keyframes particleFloat {
+      0%   { transform: translateY(0) translateX(0); opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: 1; }
+      100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
+    }
+
+    /* Floating geometric shapes */
+    .hero-shapes {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .hero-shape {
+      position: absolute;
+      border: 1px solid rgba(123, 84, 179, 0.12);
+      border-radius: 50%;
+      animation: shapeDrift 20s ease-in-out infinite;
+    }
+    .hero-shape:nth-child(1) {
+      width: 200px; height: 200px;
+      top: 15%; left: 5%;
+      animation-duration: 25s;
+    }
+    .hero-shape:nth-child(2) {
+      width: 120px; height: 120px;
+      top: 60%; right: 10%;
+      border-color: rgba(0, 196, 204, 0.1);
+      animation-duration: 18s;
+      animation-delay: -5s;
+    }
+    .hero-shape:nth-child(3) {
+      width: 80px; height: 80px;
+      top: 30%; right: 20%;
+      border-radius: 12px;
+      transform: rotate(45deg);
+      border-color: rgba(123, 84, 179, 0.08);
+      animation-duration: 22s;
+      animation-delay: -8s;
+    }
+    .hero-shape:nth-child(4) {
+      width: 160px; height: 160px;
+      bottom: 20%; left: 15%;
+      border-color: rgba(0, 196, 204, 0.08);
+      animation-duration: 30s;
+      animation-delay: -12s;
+    }
+    @keyframes shapeDrift {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      25%      { transform: translate(15px, -20px) rotate(5deg); }
+      50%      { transform: translate(-10px, 15px) rotate(-3deg); }
+      75%      { transform: translate(20px, 10px) rotate(4deg); }
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-dim);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      animation: scrollBounce 2s ease-in-out infinite;
+    }
+    .scroll-indicator svg {
+      opacity: 0.5;
+    }
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ====================================================
+       ANIMATED PRICING BORDER
+       ==================================================== */
+    @keyframes pricingBorderShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .pricing-card::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      z-index: -1;
+      border-radius: calc(var(--radius-xl) + 2px);
+      background: linear-gradient(90deg, var(--purple), var(--teal), var(--purple), var(--teal));
+      background-size: 300% 100%;
+      animation: pricingBorderShift 4s ease infinite;
+      opacity: 0.5;
+      transition: opacity 0.3s;
+    }
+    .pricing-card:hover::after {
+      opacity: 0.85;
+    }
+
+    /* ====================================================
+       ENHANCED CARD HOVER GLOW
+       ==================================================== */
+    .module-card:hover {
+      box-shadow: 0 4px 24px rgba(0,0,0,0.3), 0 0 20px rgba(123,84,179,0.12);
+    }
+    .pain-card:hover {
+      box-shadow: 0 4px 16px rgba(123,84,179,0.1);
+    }
+    .guarantee-card:hover {
+      box-shadow: 0 4px 20px rgba(0,196,204,0.1);
+    }
+    .testimonial-card:hover {
+      box-shadow: 0 4px 20px rgba(123,84,179,0.1);
+    }
+    /* ====================================================
+       BACKGROUND NOISE / PATTERN ON ALTERNATE SECTIONS
+       ==================================================== */
+    .pain::after,
+    .pricing::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 150px;
+    }
+    .pain, .pricing {
+      position: relative;
+    }
+
+    /* ====================================================
+       SMOOTHER FAQ ACCORDION
+       ==================================================== */
+    .faq-answer {
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .faq-item {
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .faq-item.open {
+      border-color: rgba(123, 84, 179, 0.3);
+      box-shadow: 0 0 16px rgba(123, 84, 179, 0.08);
+    }
+
+    /* ====================================================
+       ABOUT PHOTO - PREMIUM STYLE
+       ==================================================== */
+    .about-photo {
+      box-shadow: 0 0 40px rgba(123, 84, 179, 0.2), 0 0 80px rgba(123, 84, 179, 0.08);
+      border: 2px solid rgba(123, 84, 179, 0.3);
+    }
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ====================================================
+       INSTAGRAM POST CARDS (CAROUSEL)
+       ==================================================== */
+    .ig-carousel-wrapper {
+      position: relative;
+      max-width: 960px;
+      margin: 0 auto 32px;
+    }
+    .ig-grid {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 4px 0;
+    }
+    .ig-grid::-webkit-scrollbar {
+      display: none;
+    }
+    .ig-carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.15);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .ig-carousel-btn:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-50%) scale(1.05);
+    }
+    .ig-carousel-btn.prev { left: -22px; }
+    .ig-carousel-btn.next { right: -22px; }
+    .ig-card {
+      background: #1a1a24;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      transition: transform 0.3s, box-shadow 0.3s;
+      min-width: calc((100% - 48px) / 3);
+      flex-shrink: 0;
+    }
+    .ig-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    }
+    .ig-card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+    }
+    .ig-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid rgba(123,84,179,0.4);
+      flex-shrink: 0;
+    }
+    .ig-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .ig-username {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .ig-image-area {
+      width: 100%;
+      aspect-ratio: 1;
+      background: var(--bg-elevated);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-dim);
+      font-size: 0.8125rem;
+      text-align: center;
+      padding: 16px;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .ig-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 14px;
+    }
+    .ig-actions svg {
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .ig-actions svg:hover {
+      opacity: 1;
+    }
+    .ig-likes {
+      padding: 0 14px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .ig-caption {
+      padding: 4px 14px 14px;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .ig-caption strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+    .ig-follow-link {
+      text-align: center;
+      margin-top: 8px;
+    }
+    .ig-follow-link a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--teal);
+      transition: color 0.2s;
+    }
+    .ig-follow-link a:hover {
+      color: var(--teal-light);
+    }
+
+    /* Real Instagram embed carousel */
+    .ig-embed-carousel {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto 32px;
+    }
+    .ig-embed-track {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 4px 0;
+    }
+    .ig-embed-track::-webkit-scrollbar {
+      display: none;
+    }
+    .ig-embed-item {
+      min-width: 320px;
+      max-width: 350px;
+      flex-shrink: 0;
+    }
+    .ig-embed-item .instagram-media {
+      margin: 0 !important;
+    }
+
+    /* stat count-up */
+    .stat-number[data-target] {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ====================================================
+       RESPONSIVE
+       ==================================================== */
+    @media (max-width: 1024px) {
+      .curriculum-grid { grid-template-columns: 1fr; }
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .about-photo-wrapper {
+        max-width: 320px;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --section-pad: var(--section-pad-mobile);
+      }
+
+      .stats-bar {
+        flex-direction: column;
+        border-radius: var(--radius-md);
+      }
+      .stat-item:not(:last-child)::after {
+        right: 20%;
+        top: auto;
+        bottom: 0;
+        height: 1px;
+        width: 60%;
+      }
+
+      .showcase-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .pain-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .guarantee-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-card {
+        padding: 36px 28px;
+      }
+      .pricing-number {
+        font-size: 3rem;
+      }
+
+      .etg-card {
+        padding: 36px 24px;
+      }
+
+      .hero h1 { font-size: 2.25rem; }
+
+      .ig-embed-item {
+        min-width: 280px;
+        max-width: 300px;
+      }
+      .ig-embed-carousel {
+        max-width: 360px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .ig-carousel-btn.prev { left: -8px; }
+      .ig-carousel-btn.next { right: -8px; }
+      .testimonial-card-scroll {
+        min-width: 280px;
+        max-width: 300px;
+      }
+
+      .scroll-indicator { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .showcase-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-ctas {
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero-ctas .btn-primary,
+      .hero-ctas .btn-secondary {
+        width: 100%;
+        max-width: 320px;
+      }
+      .etg-ctas { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====================================================
+       NAVBAR
+       ==================================================== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="https://miameow.ai" class="navbar-brand">
+        <span>mia meow</span>
+      </a>
+      <a href="mailto:miadigitalstudio@gmail.com" class="navbar-cta">Apply Now</a>
+    </div>
+  </nav>
+
+  <!-- ====================================================
+       1. HERO
+       ==================================================== -->
+  <section class="hero" id="hero">
+    <!-- Animated gradient background -->
+    <div class="hero-animated-bg"></div>
+    <!-- Mouse-tracking glow -->
+    <div class="hero-mouse-glow" id="heroMouseGlow"></div>
+    <!-- Floating particles -->
+    <div class="hero-particles" id="heroParticles"></div>
+    <!-- Floating geometric shapes -->
+    <div class="hero-shapes">
+      <div class="hero-shape"></div>
+      <div class="hero-shape"></div>
+      <div class="hero-shape"></div>
+      <div class="hero-shape"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero-badge fade-in">
+        <span class="hero-badge-dot"></span>
+        Next cohort: September 2026
+      </div>
+      <div class="hero-label fade-in">LIVE 6-WEEK COHORT COURSE</div>
+      <h1 class="fade-in">
+        Produce Agency-Quality<br>
+        Marketing Content Using <span class="gradient-text">AI</span>
+      </h1>
+      <div class="hero-built-by fade-in"><img src="assets/mia-thumbnail.png" alt="Mia Meow" class="hero-avatar"> Built by <strong>Mia Meow</strong> · <span class="yt-play-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="#ff0000" stroke="none"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></span> <span style="color: var(--teal)">23K<span style="color: var(--yellow)">+</span></span> YouTube subscribers · <span style="color: var(--teal)">900<span style="color: var(--yellow)">+</span></span> Skool community members</div>
+      <p class="hero-sub fade-in">
+        In 6 weeks, your team will go from 'how do I even start with AI' to producing brand books, product ads, video content, and competitive research independently. No coding. No design background. Just workflows that work.
+      </p>
+      <div class="hero-ctas fade-in">
+        <a href="mailto:miadigitalstudio@gmail.com" class="btn-primary">Apply Now &rarr;</a>
+        <a href="#curriculum" class="btn-secondary">See the Curriculum</a>
+      </div>
+      <div class="urgency-badge fade-in">Only 16 seats per cohort</div>
+      <div class="stats-bar fade-in" style="margin-top: 40px;">
+        <div class="stat-item">
+          <div class="stat-number" data-target="24">0</div>
+          <div class="stat-label">Hours Live Training</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="16">0</div>
+          <div class="stat-label">Seats Per Cohort</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="6">0</div>
+          <div class="stat-label">Weeks to Launch-Ready</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       WORK SHOWCASE
+       ==================================================== -->
+  <section class="showcase" id="showcase">
+    <div class="container">
+      <div class="showcase-header fade-in">
+        <span class="section-label">Student Work</span>
+        <h2 class="section-title">What You'll Be Able to Create</h2>
+        <p class="section-subtitle centered">
+          By week 6, you'll have built all of these for your own business or clients.
+        </p>
+      </div>
+      <div class="showcase-grid">
+        <div class="showcase-card fade-in">
+          <img class="showcase-card-img" src="assets/showcase-brand-book.png" alt="AI Brand Book">
+          <div class="showcase-card-body">
+            <h3 class="showcase-card-title">AI Brand Book</h3>
+            <p class="showcase-card-desc">Build a complete brand identity system from scratch using AI. Voice, visuals, and copy that actually sounds like you.</p>
+          </div>
+        </div>
+        <div class="showcase-card fade-in fade-in-delay-1">
+          <img class="showcase-card-img" src="assets/showcase-product-ads.png" alt="AI Product Ads">
+          <div class="showcase-card-body">
+            <h3 class="showcase-card-title">AI Product Ads</h3>
+            <p class="showcase-card-desc">Generate scroll-stopping product ads and marketing visuals without a designer or a $5,000 agency bill.</p>
+          </div>
+        </div>
+        <div class="showcase-card fade-in fade-in-delay-2">
+          <img class="showcase-card-img" src="assets/showcase-social-content.png" alt="Social Media Content">
+          <div class="showcase-card-body">
+            <h3 class="showcase-card-title">Social Media Content</h3>
+            <p class="showcase-card-desc">Create a month of on-brand social content in an afternoon. Posts, stories, carousels, all production-ready.</p>
+          </div>
+        </div>
+        <div class="showcase-card fade-in">
+          <img class="showcase-card-img" src="assets/showcase-poster-design.png" alt="Poster &amp; Slide Design">
+          <div class="showcase-card-body">
+            <h3 class="showcase-card-title">Poster &amp; Slide Design</h3>
+            <p class="showcase-card-desc">Design professional posters, pitch decks, and presentation slides that look like a design team made them.</p>
+          </div>
+        </div>
+        <div class="showcase-card fade-in fade-in-delay-1">
+          <img class="showcase-card-img" src="assets/showcase-video-ads.png" alt="AI Video Ads">
+          <div class="showcase-card-body">
+            <h3 class="showcase-card-title">AI Video Ads</h3>
+            <p class="showcase-card-desc">Produce short-form video ads with AI video models. From concept to finished clip, no footage needed.</p>
+          </div>
+        </div>
+        <div class="showcase-card fade-in fade-in-delay-2">
+          <img class="showcase-card-img" src="assets/showcase-research.png" alt="Competitive Research">
+          <div class="showcase-card-body">
+            <h3 class="showcase-card-title">Competitive Research</h3>
+            <p class="showcase-card-desc">Reverse-engineer what your competitors are doing and turn those insights into your own content strategy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       4. PAIN POINTS
+       ==================================================== -->
+  <section class="pain" id="pain">
+    <div class="container">
+      <div class="pain-header fade-in">
+        <span class="section-label">The Problem</span>
+        <h2 class="section-title">Sound Familiar?</h2>
+      </div>
+      <div class="pain-grid">
+        <div class="pain-card fade-in">
+          <div class="pain-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f4d00a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <p class="pain-text">Your team spends hours on content that AI could produce in minutes.</p>
+        </div>
+        <div class="pain-card fade-in fade-in-delay-1">
+          <div class="pain-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f4d00a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/><circle cx="7.5" cy="10" r="1"/><circle cx="12" cy="7.5" r="1"/><circle cx="16.5" cy="10" r="1"/></svg></div>
+          <p class="pain-text">You've tried AI tools but the output looks generic and off-brand.</p>
+        </div>
+        <div class="pain-card fade-in fade-in-delay-2">
+          <div class="pain-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f4d00a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v7"/><path d="M14 2v6h6"/><path d="M10 20.5a1 1 0 1 0-2 0"/><path d="M16 20.5a1 1 0 1 0-2 0"/><path d="M6 14h12l-1.5 6H7.5L6 14z"/></svg></div>
+          <p class="pain-text">Every week there's a new AI tool and you don't know which ones actually matter.</p>
+        </div>
+        <div class="pain-card fade-in fade-in-delay-3">
+          <div class="pain-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f4d00a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <p class="pain-text">You can't justify the cost of an agency but need agency-quality creative.</p>
+        </div>
+        <div class="pain-card fade-in fade-in-delay-4">
+          <div class="pain-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f4d00a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <p class="pain-text">Your competitors are already using AI and you're falling behind.</p>
+        </div>
+        <div class="pain-card fade-in fade-in-delay-4">
+          <div class="pain-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f4d00a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
+          <p class="pain-text">You don't have time to figure this out from scattered YouTube tutorials.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       TESTIMONIALS
+       ==================================================== -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="testimonials-header fade-in">
+        <span class="section-label">Social Proof</span>
+        <h2 class="section-title">What Students & Viewers Say</h2>
+      </div>
+      <div class="testimonials-carousel fade-in">
+        <button class="ig-carousel-btn prev" id="testPrev" aria-label="Previous testimonial">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="ig-carousel-btn next" id="testNext" aria-label="Next testimonial">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+        </button>
+        <div class="testimonials-track" id="testTrack">
+
+          <!-- Testimonial 1 (Previous Student) -->
+          <div class="testimonial-card-scroll">
+            <div class="testimonial-stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <p class="testimonial-text">
+              "Who else watched Mia Meow today? WOWSERS! I found every tool as we went along, DID NOT open them, must finish Modules, can't wait to create some more AI stuff, to me it's really fun. Thanks to Mia, a must watch IMO!"
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" style="background: var(--teal);">S</div>
+              <div>
+                <div class="testimonial-name">Previous Student</div>
+                <div class="testimonial-via"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h12.5"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> via Live Zoom Session</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card-scroll">
+            <div class="testimonial-stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <p class="testimonial-text">
+              "Thank you for the GREAT presentation. I appreciate how you cover a lot of ground, are honest about the challenges, and don't gloss over the frustrations of these experiments."
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">A</div>
+              <div>
+                <div class="testimonial-name">@Art_in_MT</div>
+                <div class="testimonial-via"><svg width="12" height="12" viewBox="0 0 24 24" fill="#ff0000" stroke="none"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/><polygon fill="#fff" points="9.545 15.568 15.818 12 9.545 8.432"/></svg> via YouTube</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card-scroll">
+            <div class="testimonial-stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <p class="testimonial-text">
+              "Your tutorials are great. I've learned a lot easier since I found you."
+            </p>
+            <div class="testimonial-reply">
+              <strong>@FindingGod365</strong> "Yes. She is awesome!!"
+            </div>
+            <div class="testimonial-author" style="margin-top: 16px;">
+              <div class="testimonial-avatar">K</div>
+              <div>
+                <div class="testimonial-name">@KingdomMindedCafe</div>
+                <div class="testimonial-via"><svg width="12" height="12" viewBox="0 0 24 24" fill="#ff0000" stroke="none"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/><polygon fill="#fff" points="9.545 15.568 15.818 12 9.545 8.432"/></svg> via YouTube</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card-scroll">
+            <div class="testimonial-stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <p class="testimonial-text">
+              "Have watched many great Mia videos and this latest one is the best to date. Your YouTube channel is loaded with excellent content."
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">M</div>
+              <div>
+                <div class="testimonial-name">@markmacleod2145</div>
+                <div class="testimonial-via"><svg width="12" height="12" viewBox="0 0 24 24" fill="#ff0000" stroke="none"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/><polygon fill="#fff" points="9.545 15.568 15.818 12 9.545 8.432"/></svg> via YouTube</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 4 -->
+          <div class="testimonial-card-scroll">
+            <div class="testimonial-stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <p class="testimonial-text">
+              "Why did I just find your video? Very detailed explanation, I love it."
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">N</div>
+              <div>
+                <div class="testimonial-name">@Nevri_dwii</div>
+                <div class="testimonial-via"><svg width="12" height="12" viewBox="0 0 24 24" fill="#ff0000" stroke="none"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/><polygon fill="#fff" points="9.545 15.568 15.818 12 9.545 8.432"/></svg> via YouTube</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 5 -->
+          <div class="testimonial-card-scroll">
+            <div class="testimonial-stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#f4d00a" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <p class="testimonial-text">
+              "This is amazingly helpful and really sheds some light on some stuff I've always been confused about!"
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">S</div>
+              <div>
+                <div class="testimonial-name">@thisisshawnsemail</div>
+                <div class="testimonial-via"><svg width="12" height="12" viewBox="0 0 24 24" fill="#ff0000" stroke="none"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/><polygon fill="#fff" points="9.545 15.568 15.818 12 9.545 8.432"/></svg> via YouTube</div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       5. CURRICULUM
+       ==================================================== -->
+  <section class="curriculum" id="curriculum">
+    <div class="container">
+      <div class="curriculum-header fade-in">
+        <span class="section-label">The Curriculum</span>
+        <h2 class="section-title">What You'll Master in 6 Weeks</h2>
+        <p class="section-subtitle centered">
+          Every module is outcome-focused. You won't just learn about AI tools. You'll walk out with finished assets for your business.
+        </p>
+      </div>
+      <div class="curriculum-grid">
+
+        <!-- Module 0 -->
+        <div class="module-card fade-in">
+          <div class="module-card-header">
+            <div class="module-icon teal"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00c4cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 4 0 4 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-4 0-4"/></svg></div>
+            <div class="module-meta">
+              <span class="module-label">Module 0</span>
+              <span class="module-name">Getting Started</span>
+            </div>
+            <span class="module-hours">2h</span>
+          </div>
+          <ul class="module-outcomes">
+            <li>Set up your full AI workspace (Claude, Canva, OpenArt) in one session</li>
+            <li>Create all tool accounts and configure them for your brand</li>
+            <li>Generate your first AI asset before the end of class</li>
+          </ul>
+        </div>
+
+        <!-- Module 1 -->
+        <div class="module-card fade-in fade-in-delay-1">
+          <div class="module-card-header">
+            <div class="module-icon purple"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7b54b3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 13L2 9z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg></div>
+            <div class="module-meta">
+              <span class="module-label">Module 1</span>
+              <span class="module-name">Brand Foundation</span>
+            </div>
+            <span class="module-hours">4h</span>
+          </div>
+          <ul class="module-outcomes">
+            <li>Extract your brand voice into a system AI can replicate consistently</li>
+            <li>Build a complete AI brand book with colors, typography, and guidelines</li>
+            <li>Generate on-brand copy across email, social, and ads</li>
+            <li>Create a reusable prompt library customized for your brand</li>
+          </ul>
+        </div>
+
+        <!-- Module 2 -->
+        <div class="module-card fade-in">
+          <div class="module-card-header">
+            <div class="module-icon teal"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00c4cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div>
+            <div class="module-meta">
+              <span class="module-label">Module 2</span>
+              <span class="module-name">Image Generation</span>
+            </div>
+            <span class="module-hours">4h</span>
+          </div>
+          <ul class="module-outcomes">
+            <li>Master the top AI image models and know when to use each one</li>
+            <li>Write prompts that produce usable marketing images on the first try</li>
+            <li>Use reference images to maintain visual consistency</li>
+            <li>Build a batch generation workflow for high-volume content</li>
+          </ul>
+        </div>
+
+        <!-- Module 3 -->
+        <div class="module-card fade-in fade-in-delay-1">
+          <div class="module-card-header">
+            <div class="module-icon purple"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7b54b3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+            <div class="module-meta">
+              <span class="module-label">Module 3</span>
+              <span class="module-name">Design Applications</span>
+            </div>
+            <span class="module-hours">4h</span>
+          </div>
+          <ul class="module-outcomes">
+            <li>Design professional marketing posters without a graphic designer</li>
+            <li>Create polished slide decks for pitches and presentations</li>
+            <li>Produce website and landing page mockups for client review</li>
+            <li>Apply your brand book to every design asset automatically</li>
+          </ul>
+        </div>
+
+        <!-- Module 4 -->
+        <div class="module-card fade-in">
+          <div class="module-card-header">
+            <div class="module-icon yellow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f4d00a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/><rect x="2" y="2" width="20" height="20" rx="3" stroke-opacity="0.3"/></svg></div>
+            <div class="module-meta">
+              <span class="module-label">Module 4</span>
+              <span class="module-name">Video Generation</span>
+            </div>
+            <span class="module-hours">4h</span>
+          </div>
+          <ul class="module-outcomes">
+            <li>Understand how AI video models work and what they can (and can't) do</li>
+            <li>Write motion prompts that produce smooth, usable video clips</li>
+            <li>Produce a short-form video ad from concept to export</li>
+            <li>Build a repeatable pipeline for social video content</li>
+          </ul>
+        </div>
+
+        <!-- Module 5 -->
+        <div class="module-card fade-in fade-in-delay-1">
+          <div class="module-card-header">
+            <div class="module-icon teal"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00c4cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+            <div class="module-meta">
+              <span class="module-label">Module 5</span>
+              <span class="module-name">Research & Competitive Intel</span>
+            </div>
+            <span class="module-hours">2h</span>
+          </div>
+          <ul class="module-outcomes">
+            <li>Run AI-powered competitor research in minutes, not days</li>
+            <li>Analyze competitor video and content strategies automatically</li>
+            <li>Gather market data and organize it for strategic decisions</li>
+          </ul>
+        </div>
+
+        <!-- Module 6: Final Project -->
+        <div class="module-card final-project fade-in">
+          <div class="module-card-header">
+            <div class="module-icon purple"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7b54b3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 9 7 12 7s5-3 7.5-3a2.5 2.5 0 0 1 0 5H18"/><path d="M18 15h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M6 15H4.5a2.5 2.5 0 0 1 0-5H6"/><line x1="12" y1="17" x2="12" y2="22"/><path d="M8 22h8"/><path d="M12 7v5"/><path d="m8 12 4 5 4-5"/></svg></div>
+            <div class="module-meta">
+              <span class="module-label">Module 6</span>
+              <span class="module-name">Final Project: Your Marketing Campaign</span>
+            </div>
+            <span class="module-hours">4h</span>
+          </div>
+          <ul class="module-outcomes">
+            <li>Produce a complete, multi-channel marketing campaign for your own business</li>
+            <li>Walk away with a portfolio of AI-generated assets you can use immediately</li>
+            <li>Present your campaign and get live feedback from Mia and your cohort</li>
+            <li>Earn your Certificate of Completion</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="curriculum-tools fade-in">
+        <p class="curriculum-tools-label">Industry-Leading AI Tools You'll Use</p>
+        <div class="curriculum-tools-row">
+          <div class="curriculum-tool"><img src="assets/logo-claude.svg" alt="Claude Pro"><span>Claude Pro</span></div>
+          <div class="curriculum-tool"><img src="assets/logo-canva.svg" alt="Canva Pro"><span>Canva Pro</span></div>
+          <div class="curriculum-tool"><img src="assets/logo-openart.png" alt="OpenArt"><span>OpenArt</span></div>
+          <div class="curriculum-tool"><img src="assets/logo-notebooklm.png" alt="NotebookLM" class="tool-logo-dark"><span>NotebookLM</span></div>
+          <div class="curriculum-tool"><img src="assets/logo-bytedance.png" alt="Seedance 2.0"><span>Seedance 2.0</span></div>
+          <div class="curriculum-tool"><img src="assets/logo-openai.svg" alt="GPT Image 2"><span>GPT Image 2</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====================================================
+       8. ABOUT MIA
+       ==================================================== -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-photo-wrapper fade-in">
+          <div class="about-photo">
+            <img src="assets/mia-stage.png" alt="Mia Liao speaking on stage">
+          </div>
+        </div>
+        <div class="about-content fade-in fade-in-delay-1">
+          <span class="section-label">Your Instructor</span>
+          <h2 class="about-name">Mia Liao</h2>
+          <p class="about-title">AI Creative Strategist / MBA, University of British Columbia</p>
+          <div class="about-bio">
+            <p>
+              I've spent 10+ years in digital marketing, helping brands figure out how to stand out in crowded spaces. When generative AI hit, I didn't just dabble. I went all in: testing every model, breaking every workflow, and building systems that actually produce usable marketing assets.
+            </p>
+            <p>
+              Today, I teach 23,000+ YouTube subscribers how to use AI for creative work through my channel <a href="https://youtube.com/@miameowai" target="_blank" rel="noopener">@miameowai</a>. I've partnered with leading AI creative platforms including OpenArt. I combine an MBA from UBC with real production experience across brand strategy, image generation, video creation, and competitive research.
+            </p>
+            <p>
+              This course is everything I wish someone had handed me when I started. No filler. No theory lectures. Just the workflows that actually work, taught live, with real feedback.
+            </p>
+          </div>
+          <div class="about-credentials">
+            <span class="credential-tag">MBA, UBC</span>
+            <span class="credential-tag">23K+ YouTube Subscribers</span>
+            <span class="credential-tag">Guest Host, OpenArt</span>
+            <span class="credential-tag">Partner, AI Creative Platforms</span>
+            <span class="credential-tag">10+ Years Digital Marketing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       10. SOCIAL EMBED
+       ==================================================== -->
+  <section class="social-embed" id="social">
+    <div class="container">
+      <div class="social-embed-header fade-in">
+        <span class="section-label">See It in Action</span>
+        <h2 class="section-title">See What Creative AI Can Do</h2>
+      </div>
+      <div class="ig-embed-carousel fade-in">
+        <button class="ig-carousel-btn prev" id="igPrev" aria-label="Previous">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="ig-carousel-btn next" id="igNext" aria-label="Next">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+        </button>
+        <div class="ig-embed-track" id="igGrid">
+          <div class="ig-embed-item">
+            <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DY3lqkdPASm/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:1px; max-width:350px; min-width:280px; padding:0; width:calc(100% - 2px);"><div style="padding:16px;"><a href="https://www.instagram.com/reel/DY3lqkdPASm/" style="background:#FFFFFF; line-height:0; padding:0; text-align:center; text-decoration:none; width:100%;" target="_blank"><div style="padding:19% 0;"></div><div style="padding-top:8px;"><div style="color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-weight:550; line-height:18px;">View this post on Instagram</div></div></a><p style="color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin:8px 0 0; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/DY3lqkdPASm/" style="color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; text-decoration:none;" target="_blank">A post shared by Mia Meow (@miameowai)</a></p></div></blockquote>
+          </div>
+          <div class="ig-embed-item">
+            <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DYYUgXwPpdd/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:1px; max-width:350px; min-width:280px; padding:0; width:calc(100% - 2px);"><div style="padding:16px;"><a href="https://www.instagram.com/reel/DYYUgXwPpdd/" style="background:#FFFFFF; line-height:0; padding:0; text-align:center; text-decoration:none; width:100%;" target="_blank"><div style="padding:19% 0;"></div><div style="padding-top:8px;"><div style="color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-weight:550; line-height:18px;">View this post on Instagram</div></div></a><p style="color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin:8px 0 0; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/DYYUgXwPpdd/" style="color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; text-decoration:none;" target="_blank">A post shared by Mia Meow (@miameowai)</a></p></div></blockquote>
+          </div>
+          <div class="ig-embed-item">
+            <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DXPEBrFBGic/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:1px; max-width:350px; min-width:280px; padding:0; width:calc(100% - 2px);"><div style="padding:16px;"><a href="https://www.instagram.com/reel/DXPEBrFBGic/" style="background:#FFFFFF; line-height:0; padding:0; text-align:center; text-decoration:none; width:100%;" target="_blank"><div style="padding:19% 0;"></div><div style="padding-top:8px;"><div style="color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-weight:550; line-height:18px;">View this post on Instagram</div></div></a><p style="color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin:8px 0 0; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/DXPEBrFBGic/" style="color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; text-decoration:none;" target="_blank">A post shared by Mia Meow (@miameowai)</a></p></div></blockquote>
+          </div>
+          <div class="ig-embed-item">
+            <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DW0F97JkQeS/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:1px; max-width:350px; min-width:280px; padding:0; width:calc(100% - 2px);"><div style="padding:16px;"><a href="https://www.instagram.com/reel/DW0F97JkQeS/" style="background:#FFFFFF; line-height:0; padding:0; text-align:center; text-decoration:none; width:100%;" target="_blank"><div style="padding:19% 0;"></div><div style="padding-top:8px;"><div style="color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-weight:550; line-height:18px;">View this post on Instagram</div></div></a><p style="color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin:8px 0 0; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/DW0F97JkQeS/" style="color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; text-decoration:none;" target="_blank">A post shared by Mia Meow (@miameowai)</a></p></div></blockquote>
+          </div>
+          <div class="ig-embed-item">
+            <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DWrk-1OD7qS/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:1px; max-width:350px; min-width:280px; padding:0; width:calc(100% - 2px);"><div style="padding:16px;"><a href="https://www.instagram.com/reel/DWrk-1OD7qS/" style="background:#FFFFFF; line-height:0; padding:0; text-align:center; text-decoration:none; width:100%;" target="_blank"><div style="padding:19% 0;"></div><div style="padding-top:8px;"><div style="color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-weight:550; line-height:18px;">View this post on Instagram</div></div></a><p style="color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin:8px 0 0; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/DWrk-1OD7qS/" style="color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; text-decoration:none;" target="_blank">A post shared by Mia Meow (@miameowai)</a></p></div></blockquote>
+          </div>
+          <div class="ig-embed-item">
+            <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DVBj5emEaq0/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:1px; max-width:350px; min-width:280px; padding:0; width:calc(100% - 2px);"><div style="padding:16px;"><a href="https://www.instagram.com/reel/DVBj5emEaq0/" style="background:#FFFFFF; line-height:0; padding:0; text-align:center; text-decoration:none; width:100%;" target="_blank"><div style="padding:19% 0;"></div><div style="padding-top:8px;"><div style="color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-weight:550; line-height:18px;">View this post on Instagram</div></div></a><p style="color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin:8px 0 0; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/DVBj5emEaq0/" style="color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; text-decoration:none;" target="_blank">A post shared by Mia Meow (@miameowai)</a></p></div></blockquote>
+          </div>
+          <div class="ig-embed-item">
+            <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DU2imG0EViq/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:1px; max-width:350px; min-width:280px; padding:0; width:calc(100% - 2px);"><div style="padding:16px;"><a href="https://www.instagram.com/reel/DU2imG0EViq/" style="background:#FFFFFF; line-height:0; padding:0; text-align:center; text-decoration:none; width:100%;" target="_blank"><div style="padding:19% 0;"></div><div style="padding-top:8px;"><div style="color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-weight:550; line-height:18px;">View this post on Instagram</div></div></a><p style="color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin:8px 0 0; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/DU2imG0EViq/" style="color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; text-decoration:none;" target="_blank">A post shared by Mia Meow (@miameowai)</a></p></div></blockquote>
+          </div>
+          <div class="ig-embed-item">
+            <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DUpzwnekXDE/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:1px; max-width:350px; min-width:280px; padding:0; width:calc(100% - 2px);"><div style="padding:16px;"><a href="https://www.instagram.com/reel/DUpzwnekXDE/" style="background:#FFFFFF; line-height:0; padding:0; text-align:center; text-decoration:none; width:100%;" target="_blank"><div style="padding:19% 0;"></div><div style="padding-top:8px;"><div style="color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-weight:550; line-height:18px;">View this post on Instagram</div></div></a><p style="color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin:8px 0 0; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/DUpzwnekXDE/" style="color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; text-decoration:none;" target="_blank">A post shared by Mia Meow (@miameowai)</a></p></div></blockquote>
+          </div>
+        </div>
+      </div>
+      <div class="ig-follow-link fade-in">
+        <a href="https://instagram.com/miameowai" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          Follow @miameowai on Instagram
+        </a>
+      </div>
+    </div>
+    <script async src="//www.instagram.com/embed.js"></script>
+  </section>
+
+  <!-- ====================================================
+       11. ETG SECTION
+       ==================================================== -->
+  <section class="etg" id="etg">
+    <div class="container">
+      <div class="etg-card fade-in">
+        <span class="section-label">BC Employers</span>
+        <h2 class="section-title">Get Up to 80% Back</h2>
+        <p class="etg-highlight">The BC Employer Training Grant could cover most of your investment.</p>
+        <p class="etg-body">
+          If you're a BC-based employer, the provincial Employer Training Grant (ETG) reimburses up to 80% of eligible training costs for current employees. That means this course could cost your company as little as:
+        </p>
+        <div class="etg-savings">
+          <span class="etg-savings-label">Your cost could be as low as</span>
+          <span class="etg-savings-amount">$830 CAD</span>
+        </div>
+        <p class="etg-body" style="margin-bottom: 40px;">
+          We've designed the curriculum to align with ETG eligibility requirements. We'll help you with the paperwork, too.
+        </p>
+        <div class="etg-ctas">
+          <a href="mailto:miadigitalstudio@gmail.com" class="btn-primary">Apply Now &rarr;</a>
+          <a href="https://www2.gov.bc.ca/gov/content/employment-business/economic-development/funding-and-grants/bc-employer-training-grant" class="btn-secondary" target="_blank" rel="noopener">Learn More on the BC Gov Site &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       12. PRICING
+       ==================================================== -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="pricing-header fade-in">
+        <span class="section-label">Investment</span>
+        <h2 class="section-title">Walk In with Questions. Walk Out with a Full Creative Arsenal.</h2>
+        <p class="section-subtitle centered">In 6 weeks, you'll have the workflows, the portfolio pieces, and the confidence to produce marketing content your competitors will think came from an agency.</p>
+      </div>
+      <div class="pricing-card fade-in">
+        <div class="pricing-tag">Limited to 16 Seats</div>
+        <div class="pricing-amount">
+          <span class="pricing-currency">$</span><span class="pricing-number">4,150</span>
+        </div>
+        <div class="pricing-cad">CAD per participant</div>
+        <div class="pricing-usd">Approximately $2,997 USD</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00c4cc" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> 24 hours of live, instructor-led training</li>
+          <li><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00c4cc" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> 6 weeks of structured implementation labs</li>
+          <li><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00c4cc" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Small cohort (16 max) for personalized feedback</li>
+          <li><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00c4cc" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> All course materials, templates, and prompt libraries</li>
+          <li><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00c4cc" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Certificate of Completion</li>
+          <li><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00c4cc" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Thursday live classes + Tuesday implementation labs</li>
+          <li><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00c4cc" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Session recordings for review (available during cohort)</li>
+          <li><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00c4cc" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> BC Employer Training Grant eligible (up to 80% back)</li>
+        </ul>
+        <div class="pricing-cta-area">
+          <a href="mailto:miadigitalstudio@gmail.com" class="btn-primary">Apply Now &rarr;</a>
+        </div>
+        <p class="pricing-note">Flexible payment plans available. Chat with us to find what works.</p>
+      </div>
+
+      <div class="fade-in" style="margin-top: 64px; text-align: center; margin-bottom: 32px;">
+        <h3 style="font-size: 1.5rem; color: var(--text-primary); margin-bottom: 8px;">Double Guarantee. Zero Risk for You.</h3>
+        <p style="color: var(--text-muted); font-size: 0.9375rem;">We stand behind this course with two guarantees so you can enroll with confidence.</p>
+      </div>
+      <div class="guarantee-grid fade-in">
+        <div class="guarantee-card">
+          <div class="guarantee-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00c4cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3 class="guarantee-name">14-Day Satisfaction Guarantee</h3>
+          <p class="guarantee-desc">
+            Attend the first two weeks. If you feel like this isn't the right fit, let us know and you'll get a full refund. No questions asked. No hoops to jump through.
+          </p>
+        </div>
+        <div class="guarantee-card">
+          <div class="guarantee-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00c4cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 9 7 12 7s5-3 7.5-3a2.5 2.5 0 0 1 0 5H18"/><path d="M18 15h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M6 15H4.5a2.5 2.5 0 0 1 0-5H6"/><line x1="12" y1="17" x2="12" y2="22"/><path d="M8 22h8"/><path d="M12 7v5"/><path d="m8 12 4 5 4-5"/></svg></div>
+          <h3 class="guarantee-name">Participation Guarantee</h3>
+          <p class="guarantee-desc">
+            Attend at least half the sessions, do the work, apply what you've learned, and if you can't demonstrate real results for your business, we'll refund the full amount. We stand behind what we teach.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====================================================
+       14. FAQ
+       ==================================================== -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="faq-header fade-in">
+        <span class="section-label">Questions?</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-list fade-in">
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Is this worth $4,150?
+            <span class="faq-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Consider what you're spending now. If you're paying an agency $3,000-$5,000/month for creative, this course pays for itself the first month you bring that work in-house. If you're doing everything manually, think about the hours your team spends on content creation. Even saving 10 hours/week at $50/hour, that's $2,000/month in recovered productivity. Plus, BC employers can get up to 80% back through the ETG, bringing your real cost down to $830.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            I'm not technical. Can I keep up?
+            <span class="faq-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Absolutely. This course requires zero coding or technical background. If you can use email and social media, you can do this. Module 0 starts with a guided setup session where we walk through every tool together. And the Tuesday implementation labs exist specifically so you can get hands-on help when you get stuck.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            What if I miss a session?
+            <span class="faq-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              All sessions are recorded and available for your review during the cohort. That said, the biggest value comes from the live interaction, real-time feedback, and working alongside your cohort. We recommend attending live whenever possible. Life happens, though, and missing a session here and there won't derail your progress.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            How is this different from free YouTube tutorials?
+            <span class="faq-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              YouTube gives you pieces. This course gives you the system. You'll get a structured 6-week curriculum designed to build on itself, live instructor feedback on your actual work, implementation labs where you apply what you've learned to your own business, and accountability from your cohort. The difference between watching tutorials and taking this course is the difference between reading about swimming and getting in the pool with a coach.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Can my employer pay for this?
+            <span class="faq-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Yes, and they probably should. Many employers cover professional development costs, and BC-based employers can apply for the Employer Training Grant to get up to 80% reimbursed. We provide all the documentation your employer needs to approve the expense and apply for the grant. <a href="#etg">Learn more about the ETG.</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            What tools do I need to buy?
+            <span class="faq-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              You'll need subscriptions to Claude Pro (~$20 USD/month) and Canva Pro (~$15 CAD/month). There are many ways to access AI image and video tools, but we've selected the best options that balance credits, quality, and ease of use. OpenArt starts at $12 USD/month. NotebookLM is free. Seedance 2.0 and GPT Image 2 are pay-per-use and typically come out to $5-$15 for the entire course. Total additional cost: roughly $50-$65/month during the 6 weeks.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       15. FINAL CTA
+       ==================================================== -->
+  <section class="final-cta" id="apply">
+    <div class="container">
+      <div class="fade-in">
+        <span class="section-label">Ready?</span>
+        <h2 class="section-title">Stop Watching from the Sideline.</h2>
+        <p class="final-cta-sub">
+          Let's make it happen.
+        </p>
+        <p class="final-cta-sub">
+          Next cohort starts September 2026. Only 16 seats per cohort.
+        </p>
+        <div class="final-cta-urgency">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f4d00a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Seats are filling. Don't wait until the next round.
+        </div>
+        <br>
+        <a href="mailto:miadigitalstudio@gmail.com" class="btn-primary">Apply Now &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       16. FOOTER
+       ==================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand"><span>Mia Meow</span></div>
+        <ul class="footer-links">
+          <li><a href="https://miameow.ai">Home</a></li>
+          <li><a href="https://youtube.com/@miameowai" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="https://instagram.com/miameowai" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="/privacy.html">Privacy</a></li>
+          <li><a href="mailto:miadigitalstudio@gmail.com">Contact</a></li>
+        </ul>
+      </div>
+      <p class="footer-copy">
+        &copy; 2026 Mia Meow. All rights reserved. This site is not affiliated with or endorsed by any of the AI tool providers mentioned.
+        Course pricing, curriculum, and availability subject to change. BC Employer Training Grant eligibility depends on provincial approval.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ====================================================
+       JAVASCRIPT
+       ==================================================== -->
+  <script>
+    // Intersection Observer for fade-in animations
+    (function() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      document.querySelectorAll('.fade-in').forEach(function(el) {
+        observer.observe(el);
+      });
+    })();
+
+    // Navbar scroll effect
+    (function() {
+      var navbar = document.getElementById('navbar');
+      var scrolled = false;
+      window.addEventListener('scroll', function() {
+        var shouldBeScrolled = window.scrollY > 50;
+        if (shouldBeScrolled !== scrolled) {
+          scrolled = shouldBeScrolled;
+          if (scrolled) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        }
+      }, { passive: true });
+    })();
+
+    // FAQ accordion
+    (function() {
+      document.querySelectorAll('.faq-question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var item = btn.closest('.faq-item');
+          var answer = item.querySelector('.faq-answer');
+          var isOpen = item.classList.contains('open');
+
+          // Close all other items
+          document.querySelectorAll('.faq-item.open').forEach(function(openItem) {
+            if (openItem !== item) {
+              openItem.classList.remove('open');
+              openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+              openItem.querySelector('.faq-answer').style.maxHeight = null;
+            }
+          });
+
+          // Toggle current item
+          if (isOpen) {
+            item.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+            answer.style.maxHeight = null;
+          } else {
+            item.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+          }
+        });
+      });
+    })();
+
+    // Smooth scroll for anchor links
+    (function() {
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          var target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            var navHeight = document.getElementById('navbar').offsetHeight;
+            var targetPos = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
+            window.scrollTo({ top: targetPos, behavior: 'smooth' });
+          }
+        });
+      });
+    })();
+
+    // Hero particle system
+    (function() {
+      var container = document.getElementById('heroParticles');
+      if (!container) return;
+      var count = 30;
+      for (var i = 0; i < count; i++) {
+        var p = document.createElement('div');
+        p.className = 'hero-particle';
+        p.style.left = Math.random() * 100 + '%';
+        p.style.bottom = -(Math.random() * 20) + '%';
+        p.style.animationDuration = (8 + Math.random() * 12) + 's';
+        p.style.animationDelay = (Math.random() * 10) + 's';
+        if (Math.random() > 0.6) {
+          p.style.width = '4px';
+          p.style.height = '4px';
+        }
+        container.appendChild(p);
+      }
+    })();
+
+    // Hero mouse-tracking glow
+    (function() {
+      var hero = document.getElementById('hero');
+      var glow = document.getElementById('heroMouseGlow');
+      if (!hero || !glow) return;
+      hero.addEventListener('mousemove', function(e) {
+        var rect = hero.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+        glow.style.setProperty('--mouse-x', x + 'px');
+        glow.style.setProperty('--mouse-y', y + 'px');
+      });
+    })();
+
+    // Stat counter animation
+    (function() {
+      var animated = false;
+      var statNumbers = document.querySelectorAll('.stat-number[data-target]');
+      if (!statNumbers.length) return;
+
+      function animateCountUp(el) {
+        var target = parseInt(el.getAttribute('data-target'), 10);
+        var duration = 1200;
+        var start = 0;
+        var startTime = null;
+
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          var current = Math.round(eased * target);
+          el.textContent = current;
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            el.textContent = target;
+          }
+        }
+        requestAnimationFrame(step);
+      }
+
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting && !animated) {
+            animated = true;
+            statNumbers.forEach(function(el) {
+              animateCountUp(el);
+            });
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.5 });
+
+      statNumbers.forEach(function(el) {
+        observer.observe(el);
+      });
+    })();
+
+    // Instagram embed carousel navigation
+    (function() {
+      var grid = document.getElementById('igGrid');
+      var prevBtn = document.getElementById('igPrev');
+      var nextBtn = document.getElementById('igNext');
+      if (!grid || !prevBtn || !nextBtn) return;
+
+      function getItemWidth() {
+        var item = grid.querySelector('.ig-embed-item');
+        if (!item) return 340;
+        var style = getComputedStyle(grid);
+        var gap = parseInt(style.gap) || 20;
+        return item.offsetWidth + gap;
+      }
+
+      prevBtn.addEventListener('click', function() {
+        grid.scrollBy({ left: -getItemWidth(), behavior: 'smooth' });
+      });
+      nextBtn.addEventListener('click', function() {
+        grid.scrollBy({ left: getItemWidth(), behavior: 'smooth' });
+      });
+    })();
+
+    // Testimonials carousel navigation
+    (function() {
+      var track = document.getElementById('testTrack');
+      var prevBtn = document.getElementById('testPrev');
+      var nextBtn = document.getElementById('testNext');
+      if (!track || !prevBtn || !nextBtn) return;
+
+      function getCardWidth() {
+        var card = track.querySelector('.testimonial-card-scroll');
+        if (!card) return 340;
+        var style = getComputedStyle(track);
+        var gap = parseInt(style.gap) || 20;
+        return card.offsetWidth + gap;
+      }
+
+      prevBtn.addEventListener('click', function() {
+        track.scrollBy({ left: -getCardWidth(), behavior: 'smooth' });
+      });
+      nextBtn.addEventListener('click', function() {
+        track.scrollBy({ left: getCardWidth(), behavior: 'smooth' });
+      });
+    })();
+  </script>
+
+</body>
+</html>
