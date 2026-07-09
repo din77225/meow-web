@@ -85,7 +85,7 @@ export default function App() {
         <nav className="hidden md:flex items-center gap-8 font-medium text-slate-600" aria-label="Main navigation">
           <a className="hover:text-[#7b54b3] transition-colors duration-200" href="#videos">videos</a>
           <a className="hover:text-[#7b54b3] transition-colors duration-200" href="#playbook">playbook</a>
-          <a className="hover:text-[#7b54b3] transition-colors duration-200" href="https://www.skool.com/ai-creator-labs" target="_blank" rel="noreferrer">community</a>
+          <a className="hover:text-[#7b54b3] transition-colors duration-200" href="https://www.skool.com/ai-creator-labs-2150" target="_blank" rel="noreferrer">community</a>
           <a className="hover:text-[#7b54b3] transition-colors duration-200" href="https://mia-meow.kit.com/0988b3b4b8" target="_blank" rel="noreferrer">newsletter</a>
         </nav>
         <a
@@ -239,7 +239,7 @@ export default function App() {
                   watch on youtube
                 </a>
                 <a
-                  href="https://www.skool.com/ai-creator-labs"
+                  href="https://www.skool.com/ai-creator-labs-2150"
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center gap-2 border border-[#7b54b3] text-[#7b54b3] px-6 py-3 font-semibold rounded-full hover:bg-purple-50 transition-colors duration-200 text-sm cursor-pointer"
@@ -544,7 +544,7 @@ export default function App() {
               900+ creators sharing workflows, resources, and feedback every day. Come build in public.
             </p>
             <a
-              href="https://www.skool.com/ai-creator-labs"
+              href="https://www.skool.com/ai-creator-labs-2150"
               target="_blank"
               rel="noreferrer"
               className="bg-[#1a1625] text-white px-8 py-4 text-sm font-bold uppercase tracking-widest rounded-lg hover:bg-[#2d2540] transition-colors duration-200 w-fit cursor-pointer"
@@ -649,7 +649,7 @@ export default function App() {
               </li>
               <li>
                 <a
-                  href="https://www.skool.com/ai-creator-labs"
+                  href="https://www.skool.com/ai-creator-labs-2150"
                   target="_blank"
                   rel="noreferrer"
                   className="hover:text-[#7b54b3] transition-colors duration-200 cursor-pointer"
