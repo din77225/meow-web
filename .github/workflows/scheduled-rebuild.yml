@@ -1,0 +1,32 @@
+name: Scheduled rebuild
+
+# Refreshes the live site on a timer so new uploads and new collab-playlist
+# entries appear WITHOUT a manual push. It just pings a Cloudflare Pages deploy
+# hook; Cloudflare then re-runs `npm run build`, which re-fetches videos +
+# collabs + links-data from YouTube.
+#
+# SETUP (one time):
+#   1. Cloudflare Pages > your project > Settings > Builds & deployments >
+#      Deploy hooks > "Add deploy hook" (name: scheduled, branch: main).
+#      Copy the hook URL.
+#   2. GitHub repo > Settings > Secrets and variables > Actions > New secret:
+#      Name  = CF_DEPLOY_HOOK
+#      Value = the hook URL from step 1
+#
+# You can also trigger it by hand from the Actions tab (Run workflow).
+
+on:
+  schedule:
+    - cron: '0 13 * * *'   # daily at 13:00 UTC (~6am PT / ~9am ET)
+  workflow_dispatch: {}
+
+jobs:
+  ping-cloudflare:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Cloudflare Pages deploy hook
+        run: |
+          if [ -z "${{ secrets.CF_DEPLOY_HOOK }}" ]; then
+            echo "CF_DEPLOY_HOOK secret is not set — skipping." && exit 0
+          fi
+          curl -fsS -X POST "${{ secrets.CF_DEPLOY_HOOK }}" && echo "Rebuild triggered."

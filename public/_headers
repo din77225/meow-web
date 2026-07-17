@@ -1,0 +1,10 @@
+# Cloudflare Pages headers.
+# Keep the build-generated data JSON fresh so new videos/collabs show up soon
+# after a scheduled rebuild (Cloudflare purges its edge cache on each deploy, so
+# this mainly controls the browser's own cache).
+/links-data.json
+  Cache-Control: public, max-age=600
+
+# Hashed JS/CSS bundles are content-addressed — cache them hard.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
