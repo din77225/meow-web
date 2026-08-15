@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Project Workbook · Concept and Shot List</title>
+<style>
+  :root{--purple:#7b54b3;--teal:#00897b;--ink:#1a1625;--body:#4a4a5a;--muted:#7a7a8a;--line:#e8e5e0;--warm:#f8f6f3;--warn:#9a6b32;--warnbg:#faf3e8}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:var(--body);background:var(--warm);line-height:1.6}
+  .wrap{max-width:920px;margin:0 auto;padding:0 22px 70px}
+  header{background:#fff;border-bottom:1px solid var(--line);padding:32px 0 24px;margin-bottom:22px}
+  .eyebrow{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--purple)}
+  h1{color:var(--ink);font-size:30px;margin:8px 0 6px}
+  .sub{font-size:16px;max-width:680px}
+  h2{color:var(--ink);font-size:21px;margin:36px 0 6px}
+  h2 .n{display:inline-block;width:26px;height:26px;border-radius:50%;background:var(--purple);color:#fff;font-size:14px;font-weight:800;text-align:center;line-height:26px;margin-right:9px;vertical-align:middle}
+  h3{color:var(--ink);font-size:16px;margin:18px 0 6px}
+  .lead{font-size:15px;color:var(--muted);margin-bottom:14px;max-width:720px}
+  p{margin-bottom:11px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;margin-bottom:14px}
+  label{display:block;font-size:12px;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+  input,textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:7px;font-size:15px;font-family:inherit;background:#fdfdfc;color:var(--ink)}
+  textarea{resize:vertical;min-height:62px;line-height:1.5}
+  input:focus,textarea:focus{outline:none;border-color:var(--purple)}
+  .fld{margin-bottom:16px}
+  .hint{font-size:12.5px;color:var(--muted);margin-top:5px}
+  .warn{background:var(--warnbg);border-left:4px solid var(--warn);border-radius:8px;padding:15px 17px;font-size:14px;margin:14px 0}
+  .warn b{color:var(--warn)}
+  .tip{background:#eef7f4;border-left:4px solid var(--teal);border-radius:8px;padding:15px 17px;font-size:14px;margin:14px 0}
+  .tip b{color:var(--teal)}
+  ol,ul{margin:0 0 11px 20px}li{font-size:15px;padding:2px 0}
+  table{width:100%;border-collapse:collapse;font-size:14px;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:10px 0}
+  th,td{padding:9px 11px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--ink);color:#fff;font-size:11.5px;letter-spacing:.03em}
+  tr:last-child td{border-bottom:0}
+  .shot{display:grid;grid-template-columns:34px 2fr 1.1fr 1.1fr 62px 30px;gap:9px;align-items:start;padding:10px 0;border-bottom:1px dashed var(--line)}
+  .shot:last-of-type{border-bottom:0}
+  .shot .num{font-weight:800;color:var(--purple);padding-top:9px;font-size:15px}
+  .shot input{padding:8px 10px;font-size:14px}
+  .shot .del{background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;padding-top:5px}
+  .shot .del:hover{color:#c0392b}
+  .shot-head{display:grid;grid-template-columns:34px 2fr 1.1fr 1.1fr 62px 30px;gap:9px;font-size:10.5px;font-weight:800;
+             letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding-bottom:6px;border-bottom:1px solid var(--line)}
+  .addbtn{margin-top:12px;background:#f6f4fb;border:1px dashed var(--purple);color:var(--purple);
+          font:inherit;font-weight:700;font-size:14px;padding:10px 16px;border-radius:8px;cursor:pointer}
+  .act{font:inherit;font-size:15px;font-weight:700;padding:12px 22px;border-radius:9px;border:none;cursor:pointer;background:var(--purple);color:#fff;margin-right:9px}
+  .act:hover{background:#6a47a0}
+  .act.alt{background:#fff;color:var(--purple);border:1px solid var(--purple)}
+  .out{background:var(--ink);color:#fff;border-radius:9px;padding:14px 16px;margin-top:14px;font-size:15px}
+  .out b{color:#8fd4c0;font-size:19px}
+  .kit{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-top:12px;font-size:14.5px}
+  .kit ul{margin-top:6px}
+  details{border:1px solid var(--line);border-radius:10px;background:#fff;padding:14px 18px;margin-bottom:10px}
+  summary{font-weight:700;color:var(--ink);cursor:pointer;font-size:15px}
+  details table{margin-top:12px}
+
+  /* print-only clean summary */
+  #printout{display:none}
+  @media print{
+    body{background:#fff;font-size:12pt}
+    .wrap > *:not(#printout){display:none !important}
+    header{display:block;padding:0 0 12px;border-bottom:2px solid #333;margin-bottom:18px}
+    header .sub{display:none}
+    #printout{display:block}
+    #printout h2{font-size:15pt;margin:20px 0 8px;padding-bottom:4px;border-bottom:1px solid #ccc;page-break-after:avoid}
+    #printout .pf{margin-bottom:12px;page-break-inside:avoid}
+    #printout .pl{font-size:9pt;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#666;margin-bottom:2px}
+    #printout .pv{font-size:12pt;color:#000;white-space:pre-wrap;min-height:1em}
+    #printout table{border:1px solid #999}
+    #printout th{background:#eee;color:#000;border-bottom:1px solid #999}
+    #printout td{border-bottom:1px solid #ddd}
+  }
+  @media(max-width:720px){.shot,.shot-head{grid-template-columns:28px 1fr 30px}.shot-head span:nth-child(n+3):nth-child(-n+5){display:none}}
+  footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="eyebrow">Course Workbook</div>
+  <h1>Your concept and your shot list</h1>
+  <p class="sub">A planning document, not a contract. Its job is to make you think before you act. You will change details all the way through as you learn what works, and that is expected. Start it in week one.</p>
+</div></header>
+
+<div class="wrap">
+
+  <div class="tip"><b>Why this exists</b> The hardest part of making an AI video is not the technology, it is deciding what you are making. People who skip this step tend to start something new every week and finish nothing, because there is always a more exciting idea one prompt away. Fifteen minutes here is what makes the rest of it possible.</div>
+
+  <!-- ============ 1. CONCEPT ============ -->
+  <h2><span class="n">1</span>What are you making?</h2>
+  <p class="lead">Five short answers. Do not write a treatment and do not be clever. Deciding roughly now beats deciding perfectly in week four.</p>
+
+  <div class="card">
+    <div class="fld">
+      <label for="c1">In one sentence, what is it?</label>
+      <input id="c1" type="text" placeholder="A 60 second...">
+      <div class="hint">Name the format and the subject. If you cannot say it in one sentence, it is not decided yet.</div>
+    </div>
+    <div class="fld">
+      <label for="c2">Who is it for, and where would they see it?</label>
+      <input id="c2" type="text" placeholder="">
+      <div class="hint">This is your brief. It decides your aspect ratio, your length and your tone, so it is worth a real answer.</div>
+    </div>
+    <div class="fld">
+      <label for="c3">What happens in it, start to finish?</label>
+      <textarea id="c3" rows="3" placeholder="It opens with... then... and ends with..."></textarea>
+      <div class="hint">As short or as long as is useful to you. This is a way of thinking your piece through, not a document anyone marks. A few sentences is plenty for most pieces.</div>
+    </div>
+    <div class="fld">
+      <label for="c4">How should it feel, and what does it look like?</label>
+      <textarea id="c4" rows="2" placeholder=""></textarea>
+      <div class="hint">Two or three adjectives plus any references. This becomes your look image in week two.</div>
+    </div>
+    <div class="fld" style="margin-bottom:0">
+      <label for="c5">Roughly how long</label>
+      <input id="c5" type="number" value="60" min="15" step="5" style="max-width:160px">
+      <div class="hint">30 to 90 seconds suits this course. You can make something longer if your idea needs it, but feedback and premiere night are built around 90 seconds, so anything beyond that gets reviewed up to the 90 second mark.</div>
+    </div>
+  </div>
+
+  <details>
+    <summary>Three worked examples, if a blank page is not helping</summary>
+    <table>
+      <tr><th></th><th>A short film</th><th>A music or mood piece</th><th>A brand or product piece</th></tr>
+      <tr><td><b>What is it</b></td>
+        <td>A 60 second piece about the last night of a corner bookshop.</td>
+        <td>A 45 second visual for an ambient track about a city waking up.</td>
+        <td>A 30 second launch film for a cold brew coffee brand.</td></tr>
+      <tr><td><b>Who for</b></td>
+        <td>My own portfolio, to show I can hold a character across shots. Goes on my website, landscape.</td>
+        <td>The musician who wrote it, for Instagram. Vertical.</td>
+        <td>The founder, for the website homepage and paid social. Landscape and square.</td></tr>
+      <tr><td><b>What happens</b></td>
+        <td>An old man locks up for the last time. He walks the empty aisles, touches one shelf, turns off the lights, steps into the rain. We stay on the dark window.</td>
+        <td>Dark empty streets. First light hits a rooftop. Shutters open, a bus passes, steam rises from a vent. A cyclist crosses an empty junction. The city is fully awake.</td>
+        <td>A bottle in low light. Ice cracks. Liquid pours in slow motion. A hand lifts it. Someone drinks on a sunlit balcony. End on the bottle and the logo.</td></tr>
+      <tr><td><b>How it feels</b></td>
+        <td>Warm, melancholy, unhurried. Amber practical lights against wet blue windows.</td>
+        <td>Cool, clean, gradually warming. Blue hour into golden hour, no people until the end.</td>
+        <td>Crisp, premium, high contrast. Hard light, deep shadows, one strong colour.</td></tr>
+    </table>
+  </details>
+
+  <!-- ============ 2. SHOT LIST ============ -->
+  <h2><span class="n">2</span>Breaking it into shots</h2>
+  <p class="lead">This is the part nobody teaches beginners, and it is the difference between a piece that gets finished and a folder of unrelated clips.</p>
+
+  <div class="card">
+    <p style="font-size:15.5px;color:var(--ink);margin-bottom:6px"><strong>This is where you plan your scenes according to the story.</strong> Go through your piece and imagine how many seconds each moment needs on screen. A glance is two seconds. A slow walk down an aisle might be ten. A held final image could be eight.</p>
+    <p style="margin-bottom:0">Do not plan around what the AI can generate. That gets worked out later, and it should not shape what you write here.</p>
+  </div>
+
+  <details>
+    <summary>More on writing a shot list, if you want it</summary>
+    <div style="margin-top:12px">
+      <p><strong>Why not plan around the model.</strong> Generation lengths keep changing, and they vary a lot between models. If you plan around today's limits you write a worse piece and it dates quickly. Give each moment the time it needs, then in week three you work out how to actually produce it. Some shots you will generate one at a time; a run of consecutive shots can often be batched into a single multi-shot generation instead. That is a production decision and it comes later.</p>
+      <p><strong>How many shots.</strong> However many the piece needs. As a rough sense of scale a 60 second piece often lands between six and twelve, but a slow held piece might be five and a fast montage twenty. Write the shots, add up the seconds, see where you are.</p>
+      <p><strong>One continuous moment per row.</strong> Plenty can happen at once inside a shot: someone walks while rain falls while a car passes. What makes something a <em>new</em> shot is a cut, meaning a change of angle, place or time. So the question for each row is not "is this one idea," it is "does the camera cut here."</p>
+      <p><strong>Vary your angles and distances.</strong> Ten shots from the same position at the same distance feels flat however good each one is. Move around: closer, further, higher, lower, from behind. The <a href="camera-and-light.html">camera and light reference</a> shows what each option looks like and when to use it.</p>
+      <p><strong>Give it a beginning, a middle and an end.</strong> Even in thirty seconds. Something establishes where we are, something happens, something concludes.</p>
+      <p><strong>A shortcut that works.</strong> Write the list as if describing the finished piece to a friend, one sentence at a time. "It opens on the empty street. Then the light comes on. Then closer, her hand on the switch." Those sentences already are your shots.</p>
+    </div>
+  </details>
+
+  <div class="tip" style="margin-bottom:14px"><b>How close, and from where</b> The <a href="camera-and-light.html">camera and light reference</a> has a card for every shot type with an example image, plus a quick guide for which shot suits which situation. Open it in another tab while you fill in the "how close" column. If you do not know the term for what you want, write it in plain words: "close on her hands", "from behind him, wide". That is a perfectly good answer.</div>
+
+  <div class="card">
+    <h3>Your shot list</h3>
+    <p class="hint" style="margin-bottom:14px">One line per shot. Seconds means <b>how long that moment needs on screen</b>, not how long a generation can be. This is a first pass and it will keep changing. Get something down.</p>
+    <div class="shot-head">
+      <span>#</span><span>What happens</span><span>Where</span><span>How close</span><span>Secs</span><span></span>
+    </div>
+    <div id="shots"></div>
+    <button class="addbtn" id="addShot">+ Add a shot</button>
+    <div class="out">
+      <span id="shotCount">0</span> shots &nbsp;·&nbsp; total <b id="totalSec">0s</b>
+      <span id="verdict" style="display:block;font-size:13.5px;opacity:.75;margin-top:6px"></span>
+    </div>
+  </div>
+
+  <details>
+    <summary>A worked shot list, for the bookshop example</summary>
+    <table>
+      <tr><th>#</th><th>What happens</th><th>Where</th><th>How close</th><th>Secs</th></tr>
+      <tr><td>1</td><td>Rain on the shop window at night, warm light inside</td><td>Street outside</td><td>Wide</td><td>6</td></tr>
+      <tr><td>2</td><td>He turns the sign from open to closed</td><td>Doorway</td><td>Medium</td><td>5</td></tr>
+      <tr><td>3</td><td>He walks slowly down an empty aisle</td><td>Shop interior</td><td>Wide</td><td>7</td></tr>
+      <tr><td>4</td><td>His hand runs along the spines of the books</td><td>Shop interior</td><td>Close</td><td>5</td></tr>
+      <tr><td>5</td><td>He stops, looks at one shelf, takes a breath</td><td>Shop interior</td><td>Medium</td><td>6</td></tr>
+      <tr><td>6</td><td>His finger on the light switch</td><td>By the door</td><td>Close</td><td>4</td></tr>
+      <tr><td>7</td><td>The shop goes dark, seen from inside</td><td>Shop interior</td><td>Wide</td><td>6</td></tr>
+      <tr><td>8</td><td>He steps out into the rain and pulls the door shut</td><td>Doorway</td><td>Medium</td><td>7</td></tr>
+      <tr><td>9</td><td>He walks away, out of frame</td><td>Street</td><td>Wide</td><td>6</td></tr>
+      <tr><td>10</td><td>The dark window, rain still falling</td><td>Street outside</td><td>Medium</td><td>8</td></tr>
+    </table>
+    <p style="margin-top:10px;font-size:14px">Ten shots, 60 seconds. Notice that it moves between wide, medium and close without any system, that each row is one continuous moment rather than one idea, and that there is a beginning, a middle and an end. Notice also that only two shots need his face clearly, which makes the whole thing far easier to generate consistently.</p>
+    <p style="font-size:14px">Nothing here was planned around generation lengths. Shots 3 to 7 all happen inside the shop, so in week three those might well be produced as one or two batched generations rather than five separate ones. That is a production decision made later, and it did not shape a single line of this list.</p>
+  </details>
+
+  <!-- ============ 3. KIT ============ -->
+  <h2><span class="n">3</span>What your shot list says you need to build</h2>
+  <p class="lead">Read down your own list and this writes itself. Anything appearing in more than one shot has to stay the same across all of them, which means it needs a reference image rather than a fresh description each time. That collection is your kit, and you build it in week two.</p>
+
+  <div class="card">
+    <div class="kit">
+      <p style="margin-bottom:10px"><strong>Go down your shot list and write down:</strong></p>
+      <ul>
+        <li><strong>People who appear more than once.</strong> Each needs a character sheet. Someone in a single shot does not.</li>
+        <li><strong>Places you return to.</strong> Each needs a location image. In the bookshop example that is three: the street, the shop interior, the doorway.</li>
+        <li><strong>Objects that are in focus, or that a character handles.</strong> A product held up to camera, a vehicle someone drives, a prop that gets picked up. Those need their own reference. Anything sitting in the background does not: the model regenerates background objects plausibly every time and nobody watching is tracking them.</li>
+        <li><strong>One look image.</strong> Everyone needs exactly one: the palette, the light and the mood of the whole piece in a single frame.</li>
+      </ul>
+    </div>
+    <div class="fld" style="margin-top:16px">
+      <label for="k1">Characters needing a sheet</label>
+      <input id="k1" type="text" placeholder="">
+    </div>
+    <div class="fld">
+      <label for="k2">Locations needing a reference</label>
+      <input id="k2" type="text" placeholder="">
+    </div>
+    <div class="fld">
+      <label for="k3">Objects needing a reference</label>
+      <input id="k3" type="text" placeholder="">
+    </div>
+    <div class="fld" style="margin-bottom:0">
+      <label for="k4">Your look, in a few words</label>
+      <input id="k4" type="text" placeholder="">
+    </div>
+  </div>
+
+  <!-- ============ 4. KEEP ============ -->
+  <h2><span class="n">4</span>Save it and send it</h2>
+  <div class="card">
+    <p style="margin-bottom:14px">Nothing here is stored anywhere, so save it before you close the tab.</p>
+    <div class="fld" style="max-width:340px">
+      <label for="email">Your email, so a copy comes back to you</label>
+      <input id="email" type="email" placeholder="you@example.com">
+    </div>
+    <button id="btnPrint" class="act">Save as PDF or print</button>
+    <button id="btnSend" class="act alt">Send it to Mia and to me</button>
+    <p class="hint" style="margin-top:11px">"Save as PDF" is inside your browser's print dialog, and prints a clean typed-up version rather than the form. "Send" opens your own mail app with everything written out, addressed to Mia and copied to you, so you can read it over before sending.</p>
+  </div>
+
+  <div class="warn"><b>One last thing.</b> This is a plan, not a contract. It will change, and that is normal. Its job is to make sure that when you sit down to generate, you already know what you are generating and why. And a note that applies from here to the very end: because generation depends partly on luck, a shot that is good enough is usually the right shot to keep. Holding out for perfect on any single shot is the most common way people run out of time and money before they run out of ideas.</div>
+
+  <footer>Course workbook · start in week one · finish by week two</footer>
+
+  <!-- ============ PRINT VIEW ============ -->
+  <div id="printout">
+    <h2>My concept</h2>
+    <div class="pf"><div class="pl">What it is</div><div class="pv" id="p1"></div></div>
+    <div class="pf"><div class="pl">Who it is for, and where</div><div class="pv" id="p2"></div></div>
+    <div class="pf"><div class="pl">What happens</div><div class="pv" id="p3"></div></div>
+    <div class="pf"><div class="pl">How it feels</div><div class="pv" id="p4"></div></div>
+    <div class="pf"><div class="pl">Target length</div><div class="pv" id="p5"></div></div>
+
+    <h2>My shot list</h2>
+    <table id="pshots"></table>
+    <div class="pf" style="margin-top:8px"><div class="pv" id="ptot"></div></div>
+
+    <h2>What I need to build</h2>
+    <div class="pf"><div class="pl">Characters</div><div class="pv" id="pk1"></div></div>
+    <div class="pf"><div class="pl">Locations</div><div class="pv" id="pk2"></div></div>
+    <div class="pf"><div class="pl">Objects</div><div class="pv" id="pk3"></div></div>
+    <div class="pf"><div class="pl">Look</div><div class="pv" id="pk4"></div></div>
+  </div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const MIA='miadigitalstudio@gmail.com';
+
+let SHOTS=[
+  {what:'',where:'',close:'',secs:6},
+  {what:'',where:'',close:'',secs:6},
+  {what:'',where:'',close:'',secs:6}
+];
+
+function esc(t){return String(t||'').replace(/"/g,'&quot;');}
+function html(t){return String(t||'').replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+
+function render(){
+  const box=$('shots'); box.innerHTML='';
+  SHOTS.forEach((s,i)=>{
+    const d=document.createElement('div');
+    d.className='shot';
+    d.innerHTML=
+      '<div class="num">'+(i+1)+'</div>'+
+      '<div><input data-i="'+i+'" data-k="what" type="text" value="'+esc(s.what)+'" placeholder="One sentence"></div>'+
+      '<div><input data-i="'+i+'" data-k="where" type="text" value="'+esc(s.where)+'" placeholder="Location"></div>'+
+      '<div><input data-i="'+i+'" data-k="close" type="text" value="'+esc(s.close)+'" placeholder="Wide / med / close"></div>'+
+      '<div><input data-i="'+i+'" data-k="secs" type="number" min="1" max="60" value="'+s.secs+'"></div>'+
+      '<button class="del" data-del="'+i+'" title="Remove">&times;</button>';
+    box.appendChild(d);
+  });
+  box.querySelectorAll('input').forEach(inp=>inp.addEventListener('input',e=>{
+    const i=+e.target.dataset.i,k=e.target.dataset.k;
+    SHOTS[i][k]=(k==='secs')?(+e.target.value||0):e.target.value;
+    calc();
+  }));
+  box.querySelectorAll('.del').forEach(b=>b.addEventListener('click',e=>{
+    if(SHOTS.length<2)return;
+    SHOTS.splice(+e.target.dataset.del,1); render(); calc();
+  }));
+}
+
+$('addShot').addEventListener('click',()=>{SHOTS.push({what:'',where:'',close:'',secs:6});render();calc();});
+['c1','c2','c3','c4','c5','k1','k2','k3','k4'].forEach(i=>$(i).addEventListener('input',calc));
+
+function calc(){
+  const total=SHOTS.reduce((a,s)=>a+(+s.secs||0),0);
+  const target=+$('c5').value||60;
+  $('shotCount').textContent=SHOTS.length;
+  $('totalSec').textContent=total+'s';
+  const v=$('verdict');
+  if(total===0){ v.textContent=''; }
+  else if(total>90){
+    v.textContent='Over 90 seconds. That is allowed, but feedback and premiere night are built around 90, so anything past that gets reviewed up to the 90 second mark.';
+  } else {
+    v.textContent='Your shots come to '+total+'s. Let the story decide the length rather than the other way round. How these get produced, one at a time or batched together, is a week three decision.';
+  }
+  fillPrint();
+}
+
+function fillPrint(){
+  const map={p1:'c1',p2:'c2',p3:'c3',p4:'c4',pk1:'k1',pk2:'k2',pk3:'k3',pk4:'k4'};
+  for(const p in map){ $(p).textContent=$(map[p]).value||'—'; }
+  $('p5').textContent=($('c5').value||'?')+' seconds';
+  let rows='<tr><th>#</th><th>What happens</th><th>Where</th><th>How close</th><th>Secs</th></tr>';
+  SHOTS.forEach((s,i)=>{
+    rows+='<tr><td>'+(i+1)+'</td><td>'+html(s.what)+'</td><td>'+html(s.where)+'</td><td>'+html(s.close)+'</td><td>'+s.secs+'</td></tr>';
+  });
+  $('pshots').innerHTML=rows;
+  const total=SHOTS.reduce((a,s)=>a+(+s.secs||0),0);
+  $('ptot').textContent=SHOTS.length+' shots, '+total+' seconds total.';
+}
+
+$('btnPrint').addEventListener('click',()=>{fillPrint();window.print();});
+
+$('btnSend').addEventListener('click',()=>{
+  const L=[];
+  L.push('MY PROJECT PLAN');
+  L.push('');
+  L.push('CONCEPT');
+  L.push('  What it is:      '+($('c1').value||'-'));
+  L.push('  Who it is for:   '+($('c2').value||'-'));
+  L.push('  Target length:   '+($('c5').value||'?')+' seconds');
+  L.push('');
+  L.push('  What happens:');
+  L.push('  '+($('c3').value||'-'));
+  L.push('');
+  L.push('  How it feels:');
+  L.push('  '+($('c4').value||'-'));
+  L.push('');
+  L.push('SHOT LIST');
+  SHOTS.forEach((s,i)=>{
+    L.push('  '+String(i+1).padStart(2,' ')+'. ['+(s.secs||0)+'s] '+(s.close||'?')+' | '+(s.where||'?'));
+    L.push('      '+(s.what||'-'));
+  });
+  const total=SHOTS.reduce((a,s)=>a+(+s.secs||0),0);
+  L.push('');
+  L.push('  '+SHOTS.length+' shots, '+total+' seconds total.');
+  L.push('');
+  L.push('WHAT I NEED TO BUILD');
+  L.push('  Characters: '+($('k1').value||'-'));
+  L.push('  Locations:  '+($('k2').value||'-'));
+  L.push('  Objects:    '+($('k3').value||'-'));
+  L.push('  Look:       '+($('k4').value||'-'));
+  L.push('');
+  const cc=$('email').value.trim();
+  const subj=encodeURIComponent('Project plan: '+($('c1').value||'my piece'));
+  let url='mailto:'+MIA+'?subject='+subj+'&body='+encodeURIComponent(L.join('\n'));
+  if(cc) url+='&cc='+encodeURIComponent(cc);
+  window.location.href=url;
+});
+
+render();
+calc();
+</script>
+</body>
+</html>

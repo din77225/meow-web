@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>What Will This Cost? · AI Video Budget Tool</title>
+<style>
+  :root{--purple:#7b54b3;--teal:#00897b;--ink:#1a1625;--body:#4a4a5a;--muted:#7a7a8a;--line:#e8e5e0;--warm:#f8f6f3;--warn:#9a6b32;--warnbg:#faf3e8}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:var(--body);background:var(--warm);line-height:1.55}
+  .wrap{max-width:900px;margin:0 auto;padding:0 22px 70px}
+  header{background:#fff;border-bottom:1px solid var(--line);padding:32px 0 24px;margin-bottom:22px}
+  .eyebrow{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--purple)}
+  h1{color:var(--ink);font-size:30px;margin:8px 0 6px}
+  .sub{font-size:16px;max-width:660px}
+  h2{color:var(--ink);font-size:20px;margin:34px 0 4px}
+  h2 .n{display:inline-block;width:26px;height:26px;border-radius:50%;background:var(--purple);color:#fff;font-size:14px;font-weight:800;text-align:center;line-height:26px;margin-right:9px;vertical-align:middle}
+  .lead{font-size:14.5px;color:var(--muted);margin-bottom:14px;max-width:700px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:14px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+  label{display:block;font-size:12px;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+  input{width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:7px;font-size:15px;font-family:inherit;background:#fdfdfc}
+  input:focus{outline:none;border-color:var(--purple)}
+  .hint{font-size:12px;color:var(--muted);margin-top:4px}
+  .mini{background:#f6f4fb;border-radius:9px;padding:14px 16px;margin-top:14px}
+  .mini h4{font-size:13px;color:var(--purple);margin-bottom:8px}
+  .out{background:var(--ink);color:#fff;border-radius:9px;padding:12px 15px;margin-top:12px;font-size:15px}
+  .out b{font-size:22px;color:#8fd4c0}
+  .res{background:var(--ink);color:#fff;border-radius:12px;padding:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:18px;margin-top:6px}
+  .res div span{display:block;font-size:11.5px;opacity:.65;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px}
+  .res div b{font-size:24px;font-weight:800}
+  .res div.big b{font-size:38px;color:#8fd4c0}
+  .warn{background:var(--warnbg);border-left:4px solid var(--warn);border-radius:8px;padding:15px 17px;font-size:13.5px;margin-bottom:14px}
+  .warn b{color:var(--warn)}
+  ol,ul{margin-left:19px}li{font-size:14.5px;padding:3px 0}
+  table{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden;font-size:14px}
+  th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--line)}
+  th{background:var(--ink);color:#fff;font-size:12.5px}
+  td:first-child{font-weight:600;color:var(--ink)}
+  /* shot group rows */
+  .row{display:grid;grid-template-columns:1.5fr .9fr .7fr .7fr .8fr 1fr 30px;gap:9px;align-items:end;
+       padding:12px 0;border-bottom:1px dashed var(--line)}
+  .row:last-of-type{border-bottom:0}
+  .row label{font-size:10px;margin-bottom:3px}
+  .row input{padding:7px 9px;font-size:14px}
+  .row .sub-t{font-weight:700;color:var(--ink);font-size:15px;padding-bottom:8px;font-variant-numeric:tabular-nums}
+  .row .del{background:none;border:none;color:var(--muted);font-size:19px;cursor:pointer;padding:0 0 6px}
+  .row .del:hover{color:#c0392b}
+  .addbtn{margin-top:12px;background:#f6f4fb;border:1px dashed var(--purple);color:var(--purple);
+          font:inherit;font-weight:700;font-size:14px;padding:10px 16px;border-radius:8px;cursor:pointer}
+  .act{font:inherit;font-size:15px;font-weight:700;padding:12px 22px;border-radius:9px;border:none;cursor:pointer;background:var(--purple);color:#fff}
+  .act:hover{background:#6a47a0}
+  @media print{
+    body{background:#fff}
+    .act,.addbtn,.del{display:none}
+    .card,.res,.out{break-inside:avoid}
+    .res{background:#fff;color:#1a1625;border:1px solid #ccc}
+    .res div.big b,.out b{color:#1a1625}
+    .out{background:#f4f4f4;color:#1a1625}
+    input{border:none;padding-left:0}
+    header{padding-top:0}
+  }
+  @media(max-width:700px){.row{grid-template-columns:1fr 1fr;gap:8px}}
+  footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="eyebrow">Course Tool</div>
+  <h1>What will this project cost?</h1>
+  <p class="sub">This tool does not contain a price list, because an accurate one is impossible. Instead it teaches you to read <em>one</em> number off your own platform, and turns that into a budget.</p>
+</div></header>
+
+<div class="wrap">
+
+  <div class="warn"><b>Why there's no full price table here.</b> Rates differ by platform, by model, by resolution, by clip length, and they move with promotions. Most platforms do not publish a full list at all, so you have to set up a generation in their interface and read the credit cost before you hit go. Any table I printed would be wrong within weeks and wrong for your platform today. <b>So the skill isn't knowing the price. It's knowing how to check it in 30 seconds, every time.</b><br><br>One illustration, so you can see the <em>shape</em>: on a single platform in August 2026, the same 5 second video ran from 50 credits on the cheapest model to 400 on the most expensive, an eight times spread, while images ran 10 to 40. One top-tier video generation cost about the same as forty draft images. Those proportions are the durable lesson. The exact numbers are not.</div>
+
+  <h2><span class="n">1</span>Find the cost of one generation</h2>
+  <p class="lead">Do this on the platform you actually use, with the exact settings you'll actually use. Repeat it for each model you plan to use.</p>
+  <div class="card">
+    <ol>
+      <li>Set up a generation the way you plan to work: <b>your model, your clip length, your resolution, audio on or off</b>.</li>
+      <li>Before clicking generate, look at the <b>credit cost shown</b> for that job. Every platform displays it.</li>
+      <li>Write it down. That is your cost per generation for that model, and it already includes duration, resolution and any audio surcharge.</li>
+      <li>Re-check it when you change any setting, and again after any promotion ends.</li>
+    </ol>
+
+    <div class="mini">
+      <h4>Credits into dollars (credits aren't comparable across platforms)</h4>
+      <div class="grid">
+        <div><label for="planCost">Your plan costs ($/month)</label><input id="planCost" type="number" value="44" min="0" step="1"></div>
+        <div><label for="planCred">Credits it gives you</label><input id="planCred" type="number" value="24000" min="1" step="100"></div>
+        <div><label for="genCred">Credits per generation</label><input id="genCred" type="number" value="400" min="0" step="10">
+          <div class="hint">The number you just read</div></div>
+      </div>
+      <div class="out">That generation costs <b id="perGen">&ndash;</b> <span id="perCred" style="opacity:.6;font-size:13px"></span></div>
+      <p class="hint" style="margin-top:9px">Copy that dollar figure into the matching row below. Change the credits and read it again for your next model.</p>
+    </div>
+  </div>
+
+  <h2><span class="n">2</span>Your shots, grouped by model</h2>
+  <p class="lead">Almost nobody uses one model for a whole piece, and you shouldn't. Add a row for each group of shots: the cheap model for simple shots, the expensive one for the two or three that carry the film.</p>
+  <div class="card">
+    <div id="rows"></div>
+    <button class="addbtn" id="addRow">+ Add another model or shot group</button>
+
+    <div class="grid" style="margin-top:18px">
+      <div><label for="imgs">Images you'll generate</label><input id="imgs" type="number" value="80" min="0">
+        <div class="hint">References, key frames, character sheets, retries</div></div>
+      <div><label for="imgRate">Cost per image ($)</label><input id="imgRate" type="number" value="0.04" step="0.005" min="0">
+        <div class="hint">Roughly a mid-tier image. Read your own.</div></div>
+      <div><label for="buffer">Safety buffer (%)</label><input id="buffer" type="number" value="30" min="0" max="200" step="5">
+        <div class="hint">For the shots that fight you</div></div>
+    </div>
+
+    <div class="res">
+      <div class="big"><span>Budget this much</span><b id="planned">&ndash;</b></div>
+      <div><span>Before buffer</span><b id="total">&ndash;</b></div>
+      <div><span>Video generations</span><b id="gens">&ndash;</b></div>
+      <div><span>Per keeper shot</span><b id="perShot">&ndash;</b></div>
+    </div>
+    <p class="hint" style="margin-top:11px"><b style="color:var(--ink)">Why the buffer.</b> Every estimate here assumes your attempts-per-keeper holds steady across every shot. It won't. One or two shots in any project turn out to be unexpectedly stubborn and eat five or ten times their share, usually the ones with a face, a hand, or text in them. A 30% buffer covers that without being pessimistic. Budget the higher number, expect to spend the lower one.</p>
+    <p class="hint" style="margin-top:9px"><b style="color:var(--ink)">Try this.</b> Put your premium model on three hero shots and a cheaper one on the rest, then compare the total against putting the premium model on everything. That difference is usually the largest single saving available to you, and it costs you almost nothing in quality where it doesn't show.</p>
+  </div>
+
+  <h2><span class="n">3</span>Find YOUR attempts-per-keeper</h2>
+  <p class="lead">This is the number nobody can give you, and it is usually the biggest single influence on what a project costs. It reflects your standards, your prompting and how well you prepared, not the model.</p>
+  <div class="card">
+    <div class="mini" style="margin-top:0;margin-bottom:16px">
+      <h4>Start here: you probably already know this number</h4>
+      <p style="font-size:14px;color:var(--body);margin:0">If you have generated anything before, <b>open your own history and count.</b> How many attempts did it take to get the last image or clip you actually kept? That is your number, already measured, and it cost you nothing to find. Do this before the method below, because the method below spends credits to learn something your own history can tell you for free.</p>
+    </div>
+    <p style="font-size:14.5px;margin-bottom:10px"><b style="color:var(--ink)">If you have nothing to look back on yet:</b></p>
+    <ol>
+      <li>Pick one shot from your storyboard.</li>
+      <li>Generate until you get one you would genuinely put in the final cut.</li>
+      <li>Count the generations. That's your ratio for that kind of shot.</li>
+      <li>Do it again for a harder shot, one with a character talking or complex motion. Plan with the harder number.</li>
+    </ol>
+    <p style="font-size:14.5px;margin-top:12px"><b style="color:var(--ink)">Rough ranges people report:</b> 2 to 3 attempts per keeper for simple shots, 3 to 5 for character work, 5 or more for complex motion or precise product detail. To be concrete: at 4 attempts per keeper, a 10 shot piece means 40 generations. Consistently above 10 attempts usually means the reference or the prompt is the problem, not the model.</p>
+  </div>
+
+  <h2><span class="n">4</span>Does clip length change the maths?</h2>
+  <div class="card">
+    <p style="font-size:14.5px;margin-bottom:10px">Yes, and in both directions, which is why you price the generation at the length you'll actually use rather than working from a per-second rate.</p>
+    <table>
+      <tr><th>Longer clips (15 to 30s)</th><th>Shorter clips (5s)</th></tr>
+      <tr>
+        <td>Fewer joins to manage, so continuity is easier. But more can go wrong in one take, so <b>attempts-per-keeper usually rises</b>, and each failed attempt costs more. Drift and morphing grow with length.</td>
+        <td>Cheaper per failure, so experimenting is less painful and your keeper rate is usually better. But you need more of them, and every join is a continuity problem to solve.</td>
+      </tr>
+    </table>
+  </div>
+
+  <h2><span class="n">5</span>Sanity check your number</h2>
+  <p class="lead">A bottom-up estimate is only trustworthy if it lands somewhere sensible. Four checks, in order of how much you should trust them.</p>
+  <div class="card">
+    <div class="out" style="margin-top:0">Your piece is <b id="dur">&ndash;</b> long, which works out at <b id="perMin">&ndash;</b> per finished minute.</div>
+
+    <p style="font-size:14.5px;margin-top:14px"><b style="color:var(--ink)">Check one, and the only one that is really trustworthy: your own last project.</b> If you have finished anything before, work out what it actually cost you and how long it ran, then compare. Your own history already accounts for your quality bar, your models and your habits, which is exactly what no external benchmark can do. Nothing below beats this.</p>
+
+    <p style="font-size:14.5px;margin-top:12px"><b style="color:var(--ink)">Check two, and treat it loosely: the published range.</b> Industry blogs and vendor pages in 2026 put AI video somewhere around <b>$20 to $220 per finished minute</b> at the generation layer. Be clear about what that figure is and isn't. It comes from marketing content published by companies selling AI video tools, not from independent research, and the range is so wide it is barely a constraint. More importantly, <b>it depends entirely on the quality standard being applied.</b> Someone accepting their second generation and someone insisting on broadcast-standard consistency will land at opposite ends of that band making the identical piece, and neither is doing it wrong.</p>
+    <p style="font-size:14.5px;margin-top:10px">So use it only as a rough smell test. Landing far below usually means you have underestimated attempts, or your quality bar is lower than you think. Landing far above usually means premium models on every shot. Neither is fatal, and if your own number is defensible, back yourself over a blog post.</p>
+
+    <p style="font-size:14.5px;margin-top:14px"><b style="color:var(--ink)">Check three: what you will actually be billed, which depends on how you buy.</b> There are two models and they behave completely differently, so work out which one you are on before you trust the total above.</p>
+    <table style="margin-top:10px">
+      <tr><th>If you pay per use</th><th>If you pay by subscription</th></tr>
+      <tr>
+        <td>Aggregators and most API access work this way. You are billed for what you generate and nothing else, so <b>the total above is close to your real bill.</b> Nothing expires, nothing is wasted, and stopping early genuinely costs you less.</td>
+        <td>Most apps work this way. You buy a plan by the month, so your real bill is <b>how many plan-months you need, rounded up.</b> A project needing 30,000 credits on a 24,000-a-month plan is two months, whether or not you use the second one fully.</td>
+      </tr>
+    </table>
+    <div class="mini">
+      <h4>The part of subscriptions that catches people out</h4>
+      <p style="font-size:14px;color:var(--body);margin:0">On most subscription plans, unused credits expire at the end of the month rather than rolling over. So if you buy a month to cover one intense weekend, the remainder is simply gone, and your true cost for that piece is the full month, not the credits you burned. Working steadily across six weeks, you will use most of what you paid for and the estimate above is close. Working in bursts, it understates. <b>Check your own platform's expiry and rollover terms</b>, because they vary a lot and are the most commonly misunderstood line in the small print. And if you are working in bursts, pay-per-use pricing may genuinely suit you better.</p>
+    </div>
+
+    <p style="font-size:14.5px;margin-top:14px"><b style="color:var(--ink)">Check four: the cost that dwarfs all of this.</b> If you are doing this for anyone other than yourself, your own time is the expensive part and it is not close. A project with $60 of credits and 25 hours of your work is not a $60 project. At most hourly rates the labour is many times the generation spend, which means <b>the number you quote a client is built from your time, not from this page.</b> The credits are a line item you barely notice.</p>
+    <p style="font-size:14.5px;margin-top:10px">It is worth being precise about one thing here, because it is easy to overclaim. Attempts-per-keeper is not a dial you can simply turn down. It is an outcome of how good your prompting and references are, and that improves with practice rather than with intention. Nobody gets to decide to need fewer attempts. What you <em>can</em> decide directly is which model each shot runs on, what resolution you draft at, and whether you settled the composition in cheap stills before moving to video. Those are choices. Your attempt rate is a result.</p>
+    <p style="font-size:14.5px;margin-top:10px">The reason it still matters is that every attempt costs you a generation <em>and</em> the minutes spent waiting for it, looking at it, and deciding. So as your attempt rate comes down with practice, both your spend and your schedule improve together. That is a reason to expect this to get easier, not a lever to pull today.</p>
+  </div>
+
+  <h2>The levers, ranked</h2>
+  <div class="card"><table>
+    <tr><th>Lever</th><th>Why it matters, and whether you actually control it</th></tr>
+    <tr><td>Which model, per shot</td><td>Same job on a cheap model versus a premium one can differ eight times over. Use the expensive one only where it shows.</td></tr>
+    <tr><td>Attempts per keeper</td><td>The biggest influence on the total, but an outcome of skill rather than a setting. Better references and clearer prompts bring it down over time. Not something you can decide on a given day.</td></tr>
+    <tr><td>Resolution</td><td>Draft low, finish high. Never render drafts at maximum.</td></tr>
+    <tr><td>Deciding in stills first</td><td>Images cost cents, video costs dollars. Make your decisions in the cheap medium.</td></tr>
+  </table></div>
+
+  <h2><span class="n">6</span>Keep a copy</h2>
+  <div class="card">
+    <p style="font-size:14.5px;margin-bottom:14px">Save this before you close the tab. Nothing is stored anywhere, so if you refresh, your numbers are gone.</p>
+    <button id="btnPrint" class="act">Save as PDF or print</button>
+    <p class="hint" style="margin-top:11px">"Save as PDF" is an option inside your browser's print dialog. Everything stays on your own machine. If you want to email it to yourself or send it to a client, save the PDF first and attach it yourself.</p>
+  </div>
+
+  <div class="warn" style="margin-top:22px"><b>Please read this before you rely on any of it.</b> This is a teaching tool, not a quotation. Every figure it produces is an estimate built entirely from numbers you typed in, and the accuracy of the result depends completely on the accuracy of what you entered. Model prices, credit rates, expiry rules and subscription terms change frequently and without notice, attempts-per-keeper varies enormously between people and between shots, and no calculator can predict how many times a particular shot will fight you. Always check the live cost on your own platform before you generate, and treat the total here as a planning aid only. Mia Meow and this course accept no responsibility for any spend, shortfall, overrun or commercial decision based on these figures. If you are quoting a client, add your own margin, account for your own time, and verify your own costs.</div>
+
+  <footer>Course tool · no prices printed on purpose · check yours, then do the arithmetic</footer>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+
+/* ---------- shot groups ---------- */
+let GROUPS=[
+  {label:'Main shots',      cost:0.35, shots:9, secs:5, tries:3},
+  {label:'Hero shots',      cost:0.80, shots:3, secs:5, tries:4}
+];
+
+function renderRows(){
+  const box=$('rows');
+  box.innerHTML='';
+  GROUPS.forEach((g,i)=>{
+    const d=document.createElement('div');
+    d.className='row';
+    d.innerHTML=
+      '<div><label>What these are</label><input data-i="'+i+'" data-k="label" type="text" value="'+g.label.replace(/"/g,'&quot;')+'"></div>'+
+      '<div><label>$ / generation</label><input data-i="'+i+'" data-k="cost" type="number" step="0.01" min="0" value="'+g.cost+'"></div>'+
+      '<div><label>Shots</label><input data-i="'+i+'" data-k="shots" type="number" min="0" value="'+g.shots+'"></div>'+
+      '<div><label>Secs</label><input data-i="'+i+'" data-k="secs" type="number" min="1" value="'+g.secs+'"></div>'+
+      '<div><label>Attempts</label><input data-i="'+i+'" data-k="tries" type="number" min="1" step="0.5" value="'+g.tries+'"></div>'+
+      '<div class="sub-t" id="sub'+i+'">&ndash;</div>'+
+      '<button class="del" data-del="'+i+'" title="Remove">&times;</button>';
+    box.appendChild(d);
+  });
+  box.querySelectorAll('input').forEach(inp=>inp.addEventListener('input',e=>{
+    const i=+e.target.dataset.i, k=e.target.dataset.k;
+    GROUPS[i][k] = (k==='label') ? e.target.value : (+e.target.value||0);
+    calc();
+  }));
+  box.querySelectorAll('.del').forEach(b=>b.addEventListener('click',e=>{
+    if(GROUPS.length<2) return;
+    GROUPS.splice(+e.target.dataset.del,1); renderRows(); calc();
+  }));
+}
+$('addRow').addEventListener('click',()=>{
+  GROUPS.push({label:'Another group',cost:0.35,shots:3,secs:5,tries:3});
+  renderRows(); calc();
+});
+
+['planCost','planCred','genCred','imgs','imgRate','buffer'].forEach(i=>$(i).addEventListener('input',calc));
+
+let LAST={};
+function money(n){return '$'+(n||0).toFixed(2);}
+
+function calc(){
+  const pc=+$('planCost').value||0, pcr=+$('planCred').value||0, gc=+$('genCred').value||0;
+  const perCredit = pcr? pc/pcr : 0;
+  const derived = perCredit*gc;
+  $('perGen').textContent = derived? money(derived) : '–';
+  $('perCred').textContent = perCredit? '(1 credit is about $'+perCredit.toFixed(5)+')' : '';
+
+  let vid=0, gens=0, shots=0, durSec=0;
+  GROUPS.forEach((g,i)=>{
+    const n=Math.ceil(g.shots*g.tries);
+    const sub=n*g.cost;
+    vid+=sub; gens+=n; shots+=g.shots; durSec+=g.shots*g.secs;
+    const el=$('sub'+i); if(el) el.textContent=money(sub);
+  });
+
+  const imgs=+$('imgs').value||0, ir=+$('imgRate').value||0;
+  const img=imgs*ir;
+  const total=vid+img;
+  const buf=+$('buffer').value||0;
+  const planned=total*(1+buf/100);
+  const mins=durSec/60;
+
+  $('gens').textContent=gens||'–';
+  $('total').textContent=total?money(total):'–';
+  $('planned').textContent=planned?money(planned):'–';
+  $('perShot').textContent=(shots&&planned)?money(planned/shots):'–';
+  $('dur').textContent = durSec? (durSec<60? durSec+' seconds' : Math.floor(mins)+'m '+Math.round(durSec%60)+'s') : '–';
+  $('perMin').textContent = (mins&&planned)? ('$'+(planned/mins).toFixed(0)) : '–';
+
+  LAST={vid:vid,img:img,total:total,planned:planned,gens:gens,shots:shots,
+        durSec:durSec,perMin:mins?planned/mins:0,buf:buf,imgs:imgs,
+        perShot:shots?planned/shots:0};
+}
+
+$('btnPrint').addEventListener('click',()=>window.print());
+
+renderRows();
+calc();
+</script>
+</body>
+</html>

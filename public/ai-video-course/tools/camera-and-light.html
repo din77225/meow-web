@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Camera and Light · Reference</title>
+<style>
+  :root{--purple:#7b54b3;--teal:#00897b;--ink:#1a1625;--body:#4a4a5a;--muted:#7a7a8a;--line:#e8e5e0;--warm:#f8f6f3}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:var(--body);background:var(--warm);line-height:1.6}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 22px 70px}
+  header{background:#fff;border-bottom:1px solid var(--line);padding:32px 0 24px;margin-bottom:22px}
+  .eyebrow{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--purple)}
+  h1{color:var(--ink);font-size:30px;margin:8px 0 6px}
+  .sub{font-size:16px;max-width:700px}
+  h2{color:var(--ink);font-size:21px;margin:38px 0 6px}
+  h3{color:var(--ink);font-size:16px;margin:20px 0 6px}
+  .lead{font-size:15px;color:var(--muted);margin-bottom:16px;max-width:740px}
+  p{margin-bottom:11px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;margin-bottom:14px}
+  .tip{background:#eef7f4;border-left:4px solid var(--teal);border-radius:8px;padding:15px 17px;font-size:14px;margin:14px 0}
+  .tip b{color:var(--teal)}
+  figure{margin:0 0 18px}
+  figure img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--line);background:#fff}
+  figcaption{font-size:13px;color:var(--muted);margin-top:7px}
+  .lightgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:16px}
+  .lightgrid figure img{border-radius:10px}
+  .lightgrid figcaption{font-size:13.5px;color:var(--ink);font-weight:600;margin-top:6px}
+  .lightgrid figcaption span{display:block;font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px}
+  table{width:100%;border-collapse:collapse;font-size:14.5px;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:12px 0}
+  th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--ink);color:#fff;font-size:12px}
+  tr:last-child td{border-bottom:0}
+  td:first-child{font-weight:600;color:var(--ink);white-space:nowrap}
+  .nav{position:sticky;top:0;background:rgba(248,246,243,.95);backdrop-filter:blur(8px);padding:11px 0;border-bottom:1px solid var(--line);z-index:10;margin-bottom:6px}
+  .nav a{color:var(--purple);text-decoration:none;font-size:13.5px;font-weight:700;margin-right:18px}
+  .nav a:hover{text-decoration:underline}
+  footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="eyebrow">Course Reference</div>
+  <h1>Camera and light</h1>
+  <p class="sub">The vocabulary that makes a shot look chosen rather than generated. Keep this open while you write your shot list, and again while you write your prompts.</p>
+</div></header>
+
+<div class="wrap">
+  <div class="nav"><a href="#why">Why it matters</a><a href="#quick">Quick guide</a><a href="#shots">Shot types</a><a href="#light">Lighting</a></div>
+
+  <div class="card" id="why">
+    <p>If you do not say how a shot is framed and lit, the model picks for you, and it picks the average: a medium shot, evenly lit, camera at eye level, subject in the middle. Do that ten times and you get ten shots that are individually fine and collectively lifeless, because nothing was chosen.</p>
+    <p>Everything on this page is film vocabulary, not AI vocabulary. It works on these models because they learned from film, which also means none of it goes out of date when the models change.</p>
+    <div class="tip"><b>If you are writing a shot list and do not know what to put</b> Write it in plain words. "Close on her hands." "From behind him, wide." That is enough, and you can come back and use the proper terms once they mean something to you. Never leave the column blank just because you do not know the jargon.</div>
+  </div>
+
+  <h2 id="quick">The quick guide</h2>
+  <p class="lead">If you read nothing else, read this. Which shot for which situation.</p>
+  <div class="card">
+    <table>
+      <tr><th>When you want to</th><th>Reach for</th><th>Why</th></tr>
+      <tr><td>Open, or re-establish where we are</td><td>Wide</td><td>Shows the place and the subject's relationship to it. Also the natural shot to end on.</td></tr>
+      <tr><td>Show what someone is doing</td><td>Medium</td><td>Body language plus enough context to read the action. Where most of a piece lives.</td></tr>
+      <tr><td>Show what something means</td><td>Close</td><td>Emotion, decision, reaction. Also the most reliable to generate, since less is in frame to go wrong.</td></tr>
+      <tr><td>Add a beat of rhythm cheaply</td><td>Extreme close</td><td>A hand, an object, a detail. Almost always generates cleanly and breaks up a run of similar shots.</td></tr>
+      <tr><td>Make someone feel powerful</td><td>Low angle</td><td>Camera below eye level looking up.</td></tr>
+      <tr><td>Make someone feel small or watched</td><td>High angle</td><td>Camera above looking down.</td></tr>
+      <tr><td>Put the viewer with them rather than watching them</td><td>Over the shoulder, or from behind</td><td>We follow rather than observe. Also hides the face, which makes consistency far easier.</td></tr>
+      <tr><td>Build tension</td><td>Slow push in</td><td>Camera moves toward the subject. Use sparingly, it is strong.</td></tr>
+      <tr><td>Reveal context</td><td>Pull out</td><td>Camera moves back to show more than you first understood.</td></tr>
+    </table>
+    <div class="tip"><b>The one rule underneath all of it</b> Vary your shots. Ten shots at the same distance and angle feels flat no matter how good each one is. You do not need a system, you just need to not do the same thing every time.</div>
+  </div>
+
+  <h2 id="shots">Shot types, one card each</h2>
+  <p class="lead">Each card has the description, the framing, what it is for, and a prompt pattern you can copy. The images are AI generated demonstrations.</p>
+
+  <figure><img src="assets/camera/page-01.png" alt="Shot types, title card" loading="lazy"></figure>
+  <figure><img src="assets/camera/page-02.png" alt="Shot type card" loading="lazy"></figure>
+  <figure><img src="assets/camera/page-03.png" alt="Shot type card" loading="lazy"></figure>
+  <figure><img src="assets/camera/page-04.png" alt="Shot type card" loading="lazy"></figure>
+  <figure><img src="assets/camera/page-05.png" alt="Shot type card" loading="lazy"></figure>
+  <figure><img src="assets/camera/page-06.png" alt="Shot type card" loading="lazy"></figure>
+  <figure><img src="assets/camera/page-07.png" alt="Shot type card" loading="lazy"></figure>
+  <figure><img src="assets/camera/page-08.png" alt="Shot type card" loading="lazy"></figure>
+  <figure><img src="assets/camera/page-09.png" alt="Shot type card" loading="lazy"></figure>
+  <figure><img src="assets/camera/page-10.png" alt="Shot type card" loading="lazy"></figure>
+  <figure><img src="assets/camera/page-11.png" alt="Shot type card" loading="lazy"></figure>
+  <figure><img src="assets/camera/page-12.png" alt="Shot type card" loading="lazy"></figure>
+  <figure><img src="assets/camera/page-13.png" alt="Shot type card" loading="lazy"></figure>
+  <figure><img src="assets/camera/page-14.png" alt="Shot type card" loading="lazy"></figure>
+  <figure><img src="assets/camera/page-15.png" alt="Shot type card" loading="lazy"></figure>
+  <figure><img src="assets/camera/page-16.png" alt="Shot type card" loading="lazy"></figure>
+
+  <h2 id="light">Lighting</h2>
+  <p class="lead">Two decisions do most of the work: where the light comes from, and how hard it is. Move the light and the same face becomes a different character.</p>
+
+  <div class="card">
+    <table>
+      <tr><th>Light</th><th>What it does</th><th>Good for</th></tr>
+      <tr><td>Soft</td><td>Diffused, gentle shadows, forgiving</td><td>Warmth, calm, anything flattering</td></tr>
+      <tr><td>Hard</td><td>Sharp shadows, high contrast, unforgiving</td><td>Drama, tension, premium product work</td></tr>
+      <tr><td>Side light</td><td>Sculpts the face, half in shadow</td><td>Conflict, character, seriousness</td></tr>
+      <tr><td>Top light</td><td>Shadows in the eye sockets</td><td>Unease. Use deliberately, it is unflattering</td></tr>
+      <tr><td>Backlight</td><td>Subject separated from background, rim of light</td><td>Silhouette, mystery, hiding a face</td></tr>
+      <tr><td>Rembrandt</td><td>Small triangle of light on the shadowed cheek</td><td>Classic portraiture, quiet intensity</td></tr>
+      <tr><td>Tyndall / shafts</td><td>Visible beams through dust or mist</td><td>Atmosphere, awe, a strong single source</td></tr>
+    </table>
+  </div>
+
+  <div class="lightgrid">
+    <figure><img src="assets/lighting/01-soft-light.png" alt="Soft light" loading="lazy"><figcaption>Soft light<span>Diffused and forgiving</span></figcaption></figure>
+    <figure><img src="assets/lighting/06-hard-light.png" alt="Hard light" loading="lazy"><figcaption>Hard light<span>Sharp shadows, high contrast</span></figcaption></figure>
+    <figure><img src="assets/lighting/03-side-light.png" alt="Side light" loading="lazy"><figcaption>Side light<span>Sculpts, half in shadow</span></figcaption></figure>
+    <figure><img src="assets/lighting/02-top-light.png" alt="Top light" loading="lazy"><figcaption>Top light<span>Shadowed eyes, uneasy</span></figcaption></figure>
+    <figure><img src="assets/lighting/05-backlight.png" alt="Backlight" loading="lazy"><figcaption>Backlight<span>Separation and silhouette</span></figcaption></figure>
+    <figure><img src="assets/lighting/04-rembrandt-light.png" alt="Rembrandt light" loading="lazy"><figcaption>Rembrandt<span>Triangle on the shadow cheek</span></figcaption></figure>
+    <figure><img src="assets/lighting/07-tyndall-light.png" alt="Tyndall light" loading="lazy"><figcaption>Tyndall<span>Visible shafts through the air</span></figcaption></figure>
+  </div>
+
+  <h3>The named setups worth knowing</h3>
+  <div class="card">
+    <p>You can get a long way with five words rather than a lighting diagram. <strong>Golden hour</strong> for warm, low, flattering sun. <strong>Blue hour</strong> for the cool minutes after sunset. <strong>Overcast</strong> for even, shadowless, honest. <strong>Single hard source</strong> for drama. <strong>Practical lights in frame</strong>, meaning lamps and signs that are visibly the source, for realism and warmth.</p>
+    <p>Naming one of those in a prompt is usually faster and more reliable than describing light physics.</p>
+  </div>
+
+  <figure style="margin-top:22px"><img src="assets/lighting/08-lighting-framework-mindmap.png" alt="Lighting framework overview" loading="lazy"><figcaption>The whole framework on one page.</figcaption></figure>
+
+  <footer>Course reference · camera and light · keep this open while you write</footer>
+</div>
+</body>
+</html>

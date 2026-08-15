@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# Student-only course materials. Not linked publicly, not for indexing.
+Disallow: /ai-video-course/tools/
+Disallow: /ai-video-course/thanks/
+
 Sitemap: https://miameow.ai/sitemap.xml
