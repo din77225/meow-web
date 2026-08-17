@@ -35,13 +35,13 @@
   th,td{padding:9px 11px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
   th{background:var(--ink);color:#fff;font-size:11.5px;letter-spacing:.03em}
   tr:last-child td{border-bottom:0}
-  .shot{display:grid;grid-template-columns:34px 2fr 1.1fr 1.1fr 62px 30px;gap:9px;align-items:start;padding:10px 0;border-bottom:1px dashed var(--line)}
+  .shot{display:grid;grid-template-columns:30px 1.9fr 1fr 1fr 1fr 1.2fr 56px 28px;gap:9px;align-items:start;padding:10px 0;border-bottom:1px dashed var(--line)}
   .shot:last-of-type{border-bottom:0}
   .shot .num{font-weight:800;color:var(--purple);padding-top:9px;font-size:15px}
   .shot input{padding:8px 10px;font-size:14px}
   .shot .del{background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;padding-top:5px}
   .shot .del:hover{color:#c0392b}
-  .shot-head{display:grid;grid-template-columns:34px 2fr 1.1fr 1.1fr 62px 30px;gap:9px;font-size:10.5px;font-weight:800;
+  .shot-head{display:grid;grid-template-columns:30px 1.9fr 1fr 1fr 1fr 1.2fr 56px 28px;gap:9px;font-size:10.5px;font-weight:800;
              letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding-bottom:6px;border-bottom:1px solid var(--line)}
   .addbtn{margin-top:12px;background:#f6f4fb;border:1px dashed var(--purple);color:var(--purple);
           font:inherit;font-weight:700;font-size:14px;padding:10px 16px;border-radius:8px;cursor:pointer}
@@ -72,7 +72,19 @@
     #printout th{background:#eee;color:#000;border-bottom:1px solid #999}
     #printout td{border-bottom:1px solid #ddd}
   }
-  @media(max-width:720px){.shot,.shot-head{grid-template-columns:28px 1fr 30px}.shot-head span:nth-child(n+3):nth-child(-n+5){display:none}}
+  @media(max-width:720px){.shot,.shot-head{grid-template-columns:28px 1fr 30px}.shot-head span:nth-child(n+3):nth-child(-n+7){display:none}}
+  .pbox{border:1px solid #ecdfb8;border-radius:9px;margin:12px 0;overflow:hidden;background:#fdf8e7}
+  .pbox .ph{display:flex;justify-content:space-between;align-items:center;gap:10px;
+    background:#f7edcd;border-bottom:1px solid #ecdfb8;padding:8px 14px;
+    font-size:11.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#8a6d1f}
+  .pbox .cp{background:#fff;border:1px solid #b99b3e;color:#8a6d1f;border-radius:5px;
+    padding:3px 11px;font:inherit;font-size:11px;font-weight:700;cursor:pointer;
+    text-transform:uppercase;letter-spacing:.04em}
+  .pbox .cp:hover{background:#b99b3e;color:#fff}
+  .pbox .cp.ok{background:var(--teal);border-color:var(--teal);color:#fff}
+  .pbox pre{margin:0;padding:13px 15px;font-family:ui-monospace,Menlo,Consolas,monospace;
+    font-size:12.5px;line-height:1.55;white-space:pre-wrap;color:var(--ink);background:#fdf8e7}
+  @media print{.pbox{display:none}}
   footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
 </style>
 </head>
@@ -142,8 +154,62 @@
     </table>
   </details>
 
+  <div class="pbox">
+    <div class="ph"><span>Stuck? Paste this into ChatGPT or Claude</span><button class="cp">Copy</button></div>
+<pre>I am making a [LENGTH] second AI video. Here is my idea:
+
+[YOUR IDEA IN A FEW SENTENCES]
+
+Help me answer these five questions, one short answer each. Ask me up to three
+questions first if anything important is undecided.
+
+1. In one sentence, what is it?
+2. Who is it for, and where would they see it?
+3. What happens in it, start to finish?
+4. How should it feel, and what does it look like?
+5. Roughly how long?
+
+Keep it ruthless about scope. It has to play in [LENGTH] seconds.</pre>
+  </div>
+
+  <!-- ============ 1B. PLANNING LEVEL ============ -->
+  <h2><span class="n">2</span>How much planning does your piece need?</h2>
+  <p class="lead">There is no single correct AI video workflow. There are three, and they suit different projects. Pick one now. You can move between them later.</p>
+
+  <div class="card">
+    <table>
+      <tr><th>Level</th><th>How it goes</th><th>Best for</th></tr>
+      <tr>
+        <td><b>Loose</b></td>
+        <td>Idea, then a rough list of scenes, then start generating and let what comes back shape the next shot.</td>
+        <td>Mood pieces, experimental work, abstract or surreal ideas, anything where a surprise is welcome.</td>
+      </tr>
+      <tr>
+        <td><b>Directed</b><br><span class="hint" style="margin:0">recommended</span></td>
+        <td>Concept, then a shot list, then key frames, then generate, then edit. You know what each shot is, but you stay open to better versions.</td>
+        <td>Most projects, and the default for this course. Enough structure to finish, enough slack to discover things.</td>
+      </tr>
+      <tr>
+        <td><b>Controlled</b></td>
+        <td>Script, full storyboard, approved asset kit, key frames for every shot, then generation to match.</td>
+        <td>Client work, anything with a character who must stay consistent across many shots, product work where the brief is fixed.</td>
+      </tr>
+    </table>
+    <div class="fld" style="margin-top:16px;margin-bottom:0">
+      <label for="plevel">Which one are you using?</label>
+      <select id="plevel" style="max-width:260px">
+        <option value="Directed">Directed (recommended)</option>
+        <option value="Loose">Loose</option>
+        <option value="Controlled">Controlled</option>
+      </select>
+      <div class="hint">If you are unsure, choose Directed. It is what the rest of this workbook assumes, and it is the one that most reliably ends in a finished piece.</div>
+    </div>
+  </div>
+
+  <div class="tip"><b>Why this matters more than it looks</b> Beginners often assume there is one professional pipeline and that they are doing it wrong. There isn't. Choosing a level up front means you stop worrying about whether you should have storyboarded, and get on with making the thing.</div>
+
   <!-- ============ 2. SHOT LIST ============ -->
-  <h2><span class="n">2</span>Breaking it into shots</h2>
+  <h2><span class="n">3</span>Breaking it into shots</h2>
   <p class="lead">This is the part nobody teaches beginners, and it is the difference between a piece that gets finished and a folder of unrelated clips.</p>
 
   <div class="card">
@@ -165,11 +231,33 @@
 
   <div class="tip" style="margin-bottom:14px"><b>How close, and from where</b> The <a href="camera-and-light.html">camera and light reference</a> has a card for every shot type with an example image, plus a quick guide for which shot suits which situation. Open it in another tab while you fill in the "how close" column. If you do not know the term for what you want, write it in plain words: "close on her hands", "from behind him, wide". That is a perfectly good answer.</div>
 
+  <div class="pbox">
+    <div class="ph"><span>Turn your concept into shots</span><button class="cp">Copy</button></div>
+<pre>Turn this concept into a shot list table with these columns:
+
+Shot | What happens | Where | Shot size | Camera | Sound | Seconds
+
+Rules:
+- One row per continuous moment. A cut starts a new row.
+- Shot size in plain words: wide, medium, close, extreme close.
+- Camera is either still, or one simple move. No move without a reason.
+- Sound is what we hear in that shot. Fill this in for every row, even if it is
+  only room tone. Do not leave it blank.
+- Seconds is how long the moment needs on screen for the story. Ignore what any
+  AI model can generate.
+- Vary the shot sizes. Do not give me ten mediums.
+- Total the seconds at the end.
+
+My concept:
+[PASTE YOUR ANSWERS FROM SECTION 1]</pre>
+  </div>
+
   <div class="card">
     <h3>Your shot list</h3>
-    <p class="hint" style="margin-bottom:14px">One line per shot. Seconds means <b>how long that moment needs on screen</b>, not how long a generation can be. This is a first pass and it will keep changing. Get something down.</p>
+    <p class="hint" style="margin-bottom:14px">One line per shot. Seconds means <b>how long that moment needs on screen</b>, not how long a generation can be. <b>Camera</b> is whether it holds still or moves. <b>Sound</b> is what you hear in that shot, and filling it in now is what makes week six easy. This is a first pass and it will keep changing.</p>
+    <div class="tip" style="margin-top:0"><b>Filling this in by hand is optional.</b> The faster route: use the prompt above to have ChatGPT or Claude draft the shot list and total the time for you, then put it in here and revise. Your job is the reviewing and revising, not the typing. This grid is for planning and adding up your seconds, however the rows get here.</div>
     <div class="shot-head">
-      <span>#</span><span>What happens</span><span>Where</span><span>How close</span><span>Secs</span><span></span>
+      <span>#</span><span>What happens</span><span>Where</span><span>How close</span><span>Camera</span><span>Sound</span><span>Secs</span><span></span>
     </div>
     <div id="shots"></div>
     <button class="addbtn" id="addShot">+ Add a shot</button>
@@ -199,8 +287,31 @@
   </details>
 
   <!-- ============ 3. KIT ============ -->
-  <h2><span class="n">3</span>What your shot list says you need to build</h2>
+  <h2><span class="n">4</span>What your shot list says you need to build</h2>
   <p class="lead">Read down your own list and this writes itself. Anything appearing in more than one shot has to stay the same across all of them, which means it needs a reference image rather than a fresh description each time. That collection is your kit, and you build it in week two.</p>
+
+  <div class="pbox">
+    <div class="ph"><span>Let it read your shot list and tell you what to build</span><button class="cp">Copy</button></div>
+<pre>From this shot list, tell me the asset kit I need to build before I generate
+anything. Four groups:
+
+CHARACTERS. Anyone appearing in more than one shot. For each: name, age, build,
+hair, distinguishing features, and every outfit they wear. Flag any character
+whose physical state changes during the piece (wet, bloodied, sweaty) so I can
+build a separate reference for that state.
+
+LOCATIONS. Every place we return to, with time of day and which shots use it.
+
+PROPS. Only objects in focus or handled by a character. Not background dressing.
+
+LOOK. One line on the palette, the light and the mood of the whole piece.
+
+Then tell me anything in this shot list that will be difficult or expensive to
+keep consistent, and suggest how to rewrite the shot to avoid it.
+
+My shot list:
+[PASTE YOUR SHOT LIST]</pre>
+  </div>
 
   <div class="card">
     <div class="kit">
@@ -231,7 +342,7 @@
   </div>
 
   <!-- ============ 4. KEEP ============ -->
-  <h2><span class="n">4</span>Save it and send it</h2>
+  <h2><span class="n">5</span>Save it and send it</h2>
   <div class="card">
     <p style="margin-bottom:14px">Nothing here is stored anywhere, so save it before you close the tab.</p>
     <div class="fld" style="max-width:340px">
@@ -255,6 +366,7 @@
     <div class="pf"><div class="pl">What happens</div><div class="pv" id="p3"></div></div>
     <div class="pf"><div class="pl">How it feels</div><div class="pv" id="p4"></div></div>
     <div class="pf"><div class="pl">Target length</div><div class="pv" id="p5"></div></div>
+    <div class="pf"><div class="pl">Planning level</div><div class="pv" id="pplevel"></div></div>
 
     <h2>My shot list</h2>
     <table id="pshots"></table>
@@ -273,9 +385,9 @@ const $=id=>document.getElementById(id);
 const MIA='miadigitalstudio@gmail.com';
 
 let SHOTS=[
-  {what:'',where:'',close:'',secs:6},
-  {what:'',where:'',close:'',secs:6},
-  {what:'',where:'',close:'',secs:6}
+  {what:'',where:'',close:'',cam:'',sound:'',secs:6},
+  {what:'',where:'',close:'',cam:'',sound:'',secs:6},
+  {what:'',where:'',close:'',cam:'',sound:'',secs:6}
 ];
 
 function esc(t){return String(t||'').replace(/"/g,'&quot;');}
@@ -291,6 +403,8 @@ function render(){
       '<div><input data-i="'+i+'" data-k="what" type="text" value="'+esc(s.what)+'" placeholder="One sentence"></div>'+
       '<div><input data-i="'+i+'" data-k="where" type="text" value="'+esc(s.where)+'" placeholder="Location"></div>'+
       '<div><input data-i="'+i+'" data-k="close" type="text" value="'+esc(s.close)+'" placeholder="Wide / med / close"></div>'+
+      '<div><input data-i="'+i+'" data-k="cam" type="text" value="'+esc(s.cam)+'" placeholder="Still / push in"></div>'+
+      '<div><input data-i="'+i+'" data-k="sound" type="text" value="'+esc(s.sound)+'" placeholder="What you hear"></div>'+
       '<div><input data-i="'+i+'" data-k="secs" type="number" min="1" max="60" value="'+s.secs+'"></div>'+
       '<button class="del" data-del="'+i+'" title="Remove">&times;</button>';
     box.appendChild(d);
@@ -306,8 +420,9 @@ function render(){
   }));
 }
 
-$('addShot').addEventListener('click',()=>{SHOTS.push({what:'',where:'',close:'',secs:6});render();calc();});
+$('addShot').addEventListener('click',()=>{SHOTS.push({what:'',where:'',close:'',cam:'',sound:'',secs:6});render();calc();});
 ['c1','c2','c3','c4','c5','k1','k2','k3','k4'].forEach(i=>$(i).addEventListener('input',calc));
+$('plevel').addEventListener('change',calc);
 
 function calc(){
   const total=SHOTS.reduce((a,s)=>a+(+s.secs||0),0);
@@ -328,9 +443,10 @@ function fillPrint(){
   const map={p1:'c1',p2:'c2',p3:'c3',p4:'c4',pk1:'k1',pk2:'k2',pk3:'k3',pk4:'k4'};
   for(const p in map){ $(p).textContent=$(map[p]).value||'—'; }
   $('p5').textContent=($('c5').value||'?')+' seconds';
-  let rows='<tr><th>#</th><th>What happens</th><th>Where</th><th>How close</th><th>Secs</th></tr>';
+  if($('pplevel')) $('pplevel').textContent=$('plevel').value;
+  let rows='<tr><th>#</th><th>What happens</th><th>Where</th><th>How close</th><th>Camera</th><th>Sound</th><th>Secs</th></tr>';
   SHOTS.forEach((s,i)=>{
-    rows+='<tr><td>'+(i+1)+'</td><td>'+html(s.what)+'</td><td>'+html(s.where)+'</td><td>'+html(s.close)+'</td><td>'+s.secs+'</td></tr>';
+    rows+='<tr><td>'+(i+1)+'</td><td>'+html(s.what)+'</td><td>'+html(s.where)+'</td><td>'+html(s.close)+'</td><td>'+html(s.cam)+'</td><td>'+html(s.sound)+'</td><td>'+s.secs+'</td></tr>';
   });
   $('pshots').innerHTML=rows;
   const total=SHOTS.reduce((a,s)=>a+(+s.secs||0),0);
@@ -347,6 +463,7 @@ $('btnSend').addEventListener('click',()=>{
   L.push('  What it is:      '+($('c1').value||'-'));
   L.push('  Who it is for:   '+($('c2').value||'-'));
   L.push('  Target length:   '+($('c5').value||'?')+' seconds');
+  L.push('  Planning level:  '+$('plevel').value);
   L.push('');
   L.push('  What happens:');
   L.push('  '+($('c3').value||'-'));
@@ -356,8 +473,9 @@ $('btnSend').addEventListener('click',()=>{
   L.push('');
   L.push('SHOT LIST');
   SHOTS.forEach((s,i)=>{
-    L.push('  '+String(i+1).padStart(2,' ')+'. ['+(s.secs||0)+'s] '+(s.close||'?')+' | '+(s.where||'?'));
+    L.push('  '+String(i+1).padStart(2,' ')+'. ['+(s.secs||0)+'s] '+(s.close||'?')+' | '+(s.where||'?')+' | camera: '+(s.cam||'-'));
     L.push('      '+(s.what||'-'));
+    L.push('      sound: '+(s.sound||'-'));
   });
   const total=SHOTS.reduce((a,s)=>a+(+s.secs||0),0);
   L.push('');
@@ -378,6 +496,16 @@ $('btnSend').addEventListener('click',()=>{
 
 render();
 calc();
+
+document.querySelectorAll('.pbox .cp').forEach(function(b){
+  b.addEventListener('click',function(){
+    var pre=b.closest('.pbox').querySelector('pre');
+    navigator.clipboard.writeText(pre.textContent).then(function(){
+      b.classList.add('ok');var t=b.textContent;b.textContent='Copied';
+      setTimeout(function(){b.classList.remove('ok');b.textContent=t;},1400);
+    });
+  });
+});
 </script>
 </body>
 </html>
