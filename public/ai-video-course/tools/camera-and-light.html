@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Camera and Light · Reference</title>
+<meta name="robots" content="noindex, nofollow">
 <style>
   :root{--purple:#7b54b3;--teal:#00897b;--ink:#1a1625;--body:#4a4a5a;--muted:#7a7a8a;--line:#e8e5e0;--warm:#f8f6f3}
   *{box-sizing:border-box;margin:0;padding:0}
@@ -28,6 +28,11 @@
   .lightgrid figure img{border-radius:10px}
   .lightgrid figcaption{font-size:13.5px;color:var(--ink);font-weight:600;margin-top:6px}
   .lightgrid figcaption span{display:block;font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px}
+  .movegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px;margin-bottom:22px}
+  .movegrid video{width:100%;border-radius:10px;display:block;background:#000;aspect-ratio:16/9}
+  .movegrid figcaption{font-size:13.5px;color:var(--ink);font-weight:600;margin-top:7px}
+  .movegrid figcaption span{display:block;font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px}
+  .movegrid figcaption span.feel{color:#0a7c6b;font-size:12px;margin-top:4px;font-style:italic}
   table{width:100%;border-collapse:collapse;font-size:14.5px;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:12px 0}
   th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
   th{background:var(--ink);color:#fff;font-size:12px}
@@ -47,7 +52,7 @@
 </div></header>
 
 <div class="wrap">
-  <div class="nav"><a href="#why">Why it matters</a><a href="#quick">Quick guide</a><a href="#shots">Shot types</a><a href="#light">Lighting</a><a href="#more">Going further</a></div>
+  <div class="nav"><a href="#why">Why it matters</a><a href="#quick">Quick guide</a><a href="#shots">Shot types</a><a href="#move">Movement</a><a href="#light">Lighting</a><a href="#more">Going further</a></div>
 
   <div class="card" id="why">
     <p>If you do not say how a shot is framed and lit, the model picks for you, and it picks the average: a medium shot, evenly lit, camera at eye level, subject in the middle. Do that ten times and you get ten shots that are individually fine and collectively lifeless, because nothing was chosen.</p>
@@ -93,6 +98,72 @@
   <figure><img src="assets/camera/page-14.png" alt="Shot type card" loading="lazy"></figure>
   <figure><img src="assets/camera/page-15.png" alt="Shot type card" loading="lazy"></figure>
   <figure><img src="assets/camera/page-16.png" alt="Shot type card" loading="lazy"></figure>
+
+  <h2 id="move">Camera movement</h2>
+  <p class="lead">Everything above is about where the camera <em>is</em>. This is about what it <em>does</em>, and it only exists in video. A still cannot show you a push in. These are the moves worth knowing, grouped the way they are actually used.</p>
+
+  <div class="card">
+    <table>
+      <tr><th>Move</th><th>What the camera does</th><th>What it does to the viewer</th></tr>
+      <tr><td><b>Push in</b><br>(dolly in)</td><td>Moves physically forward toward the subject</td><td>Builds tension, draws you closer to a realisation. The most useful move in the list.</td></tr>
+      <tr><td><b>Pull out</b><br>(dolly out)</td><td>Moves physically backward</td><td>Reveals context, or isolates someone by showing how much space is around them.</td></tr>
+      <tr><td><b>Pan</b></td><td>Rotates left or right from a fixed point</td><td>Follows action, or reveals what was beside you. The camera looks; it does not travel.</td></tr>
+      <tr><td><b>Tilt</b></td><td>Rotates up or down from a fixed point</td><td>Reveals height or scale. Tilt up a building, tilt down to what someone dropped.</td></tr>
+      <tr><td><b>Track</b><br>(follow)</td><td>Travels with the subject, matching their pace</td><td>Puts you alongside them rather than watching them pass.</td></tr>
+      <tr><td><b>Orbit</b><br>(arc)</td><td>Circles around the subject at a constant distance</td><td>Big, showy, and worth exactly one use per piece. Great for a reveal or a hero moment.</td></tr>
+      <tr><td><b>Handheld</b></td><td>Human-held, with natural sway and micro-corrections</td><td>Immediacy and unease. Documentary truth, or a scene that should feel unstable.</td></tr>
+      <tr><td><b>Crane / drone</b></td><td>Rises or descends through open space</td><td>Scale and geography. Opening and closing shots.</td></tr>
+      <tr><td><b>Static</b></td><td>Nothing. Locked off.</td><td>Lets the performance carry it. <b>Not a failure to choose a move.</b> Silence is a choice.</td></tr>
+    </table>
+
+    <div class="tip"><b>Push in versus zoom in, since people mix them up</b> A push physically moves the camera closer, so the background shifts and the space feels real. A zoom changes the lens, so the background compresses and it feels observed rather than approached. If you want intimacy, push. If you want surveillance, zoom.</div>
+
+    <div class="warn"><b>One rule worth keeping</b>
+      <p style="margin:8px 0 0"><b>One move per shot, on most models.</b> Asking for a push in that becomes an orbit that rises into a crane is how a generation falls apart. The newest models can handle more than one move, but if yours is struggling, this is the first thing to simplify. Chain moves across cuts instead.</p>
+    </div>
+  </div>
+
+  <h3>See the basic camera movements in action</h3>
+  <p class="lead">Same person, same studio, same light in every one, so the only thing changing is the camera. Click to play.</p>
+
+  <div class="movegrid">
+    <figure>
+      <video src="assets/moves/static.mp4" poster="assets/moves/static.jpg" controls loop muted playsinline preload="none"></video>
+      <figcaption>Static<span>Locked off. Nothing moves but her.</span><span class="feel">Lets the performance carry it</span></figcaption>
+    </figure>
+    <figure>
+      <video src="assets/moves/push-in.mp4" poster="assets/moves/push-in.jpg" controls loop muted playsinline preload="none"></video>
+      <figcaption>Push in<span>The camera travels forward. She grows in frame.</span><span class="feel">Builds tension, draws you in</span></figcaption>
+    </figure>
+    <figure>
+      <video src="assets/moves/pull-out.mp4" poster="assets/moves/pull-out.jpg" controls loop muted playsinline preload="none"></video>
+      <figcaption>Pull out<span>The camera travels backwards. She shrinks in frame.</span><span class="feel">Reveals context, or isolates her</span></figcaption>
+    </figure>
+    <figure>
+      <video src="assets/moves/pan.mp4" poster="assets/moves/pan.jpg" controls loop muted playsinline preload="none"></video>
+      <figcaption>Pan<span>The camera turns in place. It looks, it does not travel.</span><span class="feel">Follows action, or reveals what was beside you</span></figcaption>
+    </figure>
+    <figure>
+      <video src="assets/moves/tilt.mp4" poster="assets/moves/tilt.jpg" controls loop muted playsinline preload="none"></video>
+      <figcaption>Tilt up<span>The camera turns up in place, feet to face. It can tilt down too.</span><span class="feel">Reveals height and scale</span></figcaption>
+    </figure>
+    <figure>
+      <video src="assets/moves/track.mp4" poster="assets/moves/track.jpg" controls loop muted playsinline preload="none"></video>
+      <figcaption>Track<span>The camera travels with her, matching her pace.</span><span class="feel">Puts you alongside her, not watching her pass</span></figcaption>
+    </figure>
+    <figure>
+      <video src="assets/moves/orbit.mp4" poster="assets/moves/orbit.jpg" controls loop muted playsinline preload="none"></video>
+      <figcaption>Orbit<span>The camera circles her. She does not turn.</span><span class="feel">Big and showy. Worth one use per piece</span></figcaption>
+    </figure>
+    <figure>
+      <video src="assets/moves/crane-up.mp4" poster="assets/moves/crane-up.jpg" controls loop muted playsinline preload="none"></video>
+      <figcaption>Crane up<span>The camera rises above her and looks down.</span><span class="feel">Scale and geography. Opens or closes a piece</span></figcaption>
+    </figure>
+    <figure>
+      <video src="assets/moves/handheld-push-in.mp4" poster="assets/moves/handheld-push-in.jpg" controls loop muted playsinline preload="none"></video>
+      <figcaption>Handheld<span>Someone walking toward her, camera in hand.</span><span class="feel">Immediacy and unease. Documentary truth</span></figcaption>
+    </figure>
+  </div>
 
   <h2 id="light">Lighting</h2>
   <p class="lead">Two decisions do most of the work: where the light comes from, and how hard it is. Move the light and the same face becomes a different character. <strong>Not an exhaustive list</strong>, and as with the shot types, different models respond to these words differently depending on what they were trained on. Fuller reference linked at the bottom.</p>
@@ -206,8 +277,10 @@
       <tr><th>For</th><th>Go to</th></tr>
       <tr><td>Every shot size, angle, framing and movement, with film examples</td>
           <td><a href="https://www.studiobinder.com/blog/ultimate-guide-to-camera-shots/" target="_blank" rel="noopener">StudioBinder · 50+ Types of Camera Shots, Angles and Techniques</a></td></tr>
-      <tr><td>Camera movement specifically, one page per move</td>
-          <td><a href="https://www.studiobinder.com/camera-shots/camera-movements/" target="_blank" rel="noopener">StudioBinder · Camera Movements</a></td></tr>
+      <tr><td><b>Every camera move as a looping video</b>, 46 of them, with a copy-ready prompt for each</td>
+          <td><a href="https://aicameramovements.com/" target="_blank" rel="noopener">aicameramovements.com</a><br><span class="hint" style="margin-top:3px">Made by AI creator Dan Kift. I wish I had built this one. Maybe in the future.</span></td></tr>
+      <tr><td><b>Real film frames to pull your look from</b>, searchable by colour, shot type, lighting and composition</td>
+          <td><a href="https://stillslab.com/" target="_blank" rel="noopener">StillsLab</a><br><span class="hint" style="margin-top:3px">Free account covers browsing, search and downloads. Use it to find a frame you want to feel like, then run the look prompt on it.</span></td></tr>
       <tr><td>Lighting techniques with worked examples</td>
           <td><a href="https://nofilmschool.com/lighting-techniques-in-film" target="_blank" rel="noopener">No Film School · 13 Film Lighting Techniques</a></td></tr>
       <tr><td>Lighting setups and free lighting plots</td>
