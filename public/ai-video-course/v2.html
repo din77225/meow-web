@@ -63,6 +63,8 @@
   .pf-note{font-size:13.5px;color:var(--m);max-width:260px}
   .warm{background:var(--warm)}
   .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+  .cards.two{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:640px){.cards.two{grid-template-columns:1fr}}
   .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px;box-shadow:var(--sh)}
   .card h3{font-size:17px;margin-bottom:8px}
   .card p{font-size:14.5px}
@@ -113,14 +115,18 @@
   .social a:hover{background:var(--purple);border-color:var(--purple);color:#fff}
   .social svg{width:19px;height:19px;fill:currentColor;display:block}
   @media(max-width:640px){.hero h1{font-size:33px}h2{font-size:25px}.wk{flex-direction:column;gap:6px}.pf-stats{gap:18px}}
-  .path{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 4px;
-      margin:6px auto 30px;max-width:760px}
-  .path b{background:#fff;border:1px solid #e6ddd2;border-radius:100px;padding:9px 18px;
+  .pathbox{background:#fff;border:1px solid var(--line);border-radius:14px;
+      padding:30px 28px;box-shadow:var(--sh);margin:22px 0 30px}
+  .pathbox .ft-a{color:#8d8378;font-size:15px;margin:0}
+  .pathbox .ft-b{font-size:21px;font-weight:700;color:#2c2622;margin:4px 0 0;line-height:1.35}
+  .pathrule{height:1px;background:var(--line);margin:22px 0}
+  .path-lab{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+      color:#a0968a;margin:0 0 14px}
+  .path{display:flex;flex-wrap:wrap;align-items:center;gap:9px 5px;margin:0}
+  .path b{background:var(--warm);border:1px solid #e6ddd2;border-radius:100px;padding:9px 18px;
       font-size:15px;font-weight:700;color:#2c2622;white-space:nowrap}
-  .path i{color:#c78a3b;font-style:normal;font-weight:700;font-size:17px;padding:0 2px}
-  .fromto{text-align:center;max-width:640px;margin:0 auto 6px}
-  .fromto .ft-a{color:#8d8378;font-size:16px}
-  .fromto .ft-b{font-size:20px;font-weight:700;color:#2c2622;margin-top:4px}
+  .path i{color:#c78a3b;font-style:normal;font-weight:700;font-size:16px;padding:0 3px}
+  @media(max-width:560px){.path b{font-size:13.5px;padding:7px 14px}}
 </style>
 </head>
 <body>
@@ -166,10 +172,10 @@
   <h2>For creatives who want to use AI to make better work, faster.</h2>
   <p class="lead">Filmmakers, creators, photographers, marketers and business owners. You don't need to be technical and you don't need a film background. There are hundreds of tools, an enormous amount of hype, and a new model every week, and none of it tells you what order to work in.</p>
   <h3 style="font-size:22px;margin:34px 0 4px">Is this you?</h3>
-  <div class="cards">
-    <div class="card"><h3>Why am I spending money and still not finishing?</h3><p>Retry after retry on a shot that was never going to work, and no way to tell which part of the prompt was wrong.</p></div>
-    <div class="card"><h3>Why does my character keep changing?</h3><p>The same person in shot one, someone slightly different by shot four, and the whole thing stops holding together.</p></div>
-    <div class="card"><h3>Why is it all still in a folder called AI experiments?</h3><p>A few clips you genuinely like, surrounded by things you abandoned, and nothing you would call finished.</p></div>
+  <div class="cards two">
+    <div class="card"><h3>Why am I spending money and still not finishing?</h3><p>Retry after retry on a shot that still is not right, and no way to tell which part of the prompt to change.</p></div>
+    <div class="card"><h3>Why does my character keep changing?</h3><p>The same person drifts slowly from shot to shot, or the style suddenly changes, and the whole thing stops holding together.</p></div>
+    <div class="card"><h3>Why is it all still in a folder called AI experiments?</h3><p>Plenty of clips you genuinely like, but never a complete story with a beginning, a middle and an end.</p></div>
     <div class="card"><h3>What do I even do first?</h3><p>No idea which tool, which order, or which step you skipped, so every project starts from scratch.</p></div>
   </div>
 
@@ -179,8 +185,9 @@
 
 <section><div class="c">
   <span class="eb">Why this course</span>
-  <h2>Everything is already online. That is exactly the problem.</h2>
-  <p class="lead">You can learn all of this for free. But it is scattered, it contradicts itself, and it arrives in the order whoever posted last decided. This course is the same material put in the order you would actually build something in, with someone there the week it breaks. Not every tool, and not mastery in six weeks. <b>The structure that makes any of them work.</b></p>
+  <h2>One system that carries you from idea to finished film.</h2>
+  <p class="lead">You can learn all of this for free, but it is scattered, it contradicts itself, and it arrives in whatever order the internet decided. Worse, it moves: a rule that held a month ago may already be wrong, and every model wants to be handled differently.</p>
+  <p class="lead" style="margin-top:-6px">So this course is not a list of tools. It is <b>one system that survives the tools changing</b>, and someone in the room the week yours breaks. You stop guessing whether you are doing it right.</p>
   <div class="stack">
     <div class="st"><h4>One path, in order</h4><p>Concept, image, character, video, edit, sound, finish. Each week produces the thing the next week needs, so you're never stuck wondering what comes next.</p></div>
     <div class="st"><h4>You finish a real piece</h4><p>Not exercises. One video made to your own brief, done by week six and screened on premiere night. Something you can show a client or a boss.</p></div>
@@ -195,12 +202,14 @@
   <span class="eb">The six weeks</span>
   <h2>The path, and what you do each week</h2>
 
-  <div class="fromto">
+  <div class="pathbox">
     <p class="ft-a">From random tutorials and unfinished tests</p>
     <p class="ft-b">to a finished AI video you know how to make again.</p>
-  </div>
-  <div class="path">
-    <b>Idea</b><i>&rarr;</i><b>Assets</b><i>&rarr;</i><b>Create</b><i>&rarr;</i><b>Direct</b><i>&rarr;</i><b>Fix</b><i>&rarr;</i><b>Finish</b>
+    <div class="pathrule"></div>
+    <p class="path-lab">The path you follow</p>
+    <div class="path">
+      <b>Idea</b><i>&rarr;</i><b>Assets</b><i>&rarr;</i><b>Create</b><i>&rarr;</i><b>Direct</b><i>&rarr;</i><b>Fix</b><i>&rarr;</i><b>Finish</b>
+    </div>
   </div>
   <p class="lead"><b>Tuesdays, 4pm to 6pm Pacific / 7pm to 9pm Eastern:</b> the main class.<br>
   <b>Thursdays, same time:</b> a working session for your own project. Questions, problems, feedback, and going deeper on whatever the group needs.<br>
@@ -226,8 +235,8 @@
   </div></div>
 
   <div class="wk"><div class="wk-n">Week 4</div><div>
-    <h3>Directing the camera and the light</h3>
-    <p class="wk-sum">The video prompt in depth: camera and lighting language, carrying continuity from one shot to the next, and how to judge a new model on the day it launches.</p>
+    <h3>Directing like a director</h3>
+    <p class="wk-sum">The video prompt in depth: camera and lighting language, carrying continuity from one shot to the next, and which model to reach for depending on what the shot needs.</p>
     <span class="out">You leave with: the rest of your shots</span>
   </div></div>
 
@@ -239,7 +248,7 @@
 
   <div class="wk"><div class="wk-n">Week 6</div><div>
     <h3>Sound, finish, publish</h3>
-    <p class="wk-sum">Music and sound under your piece, then finishing and exporting it properly, ready for premiere night.</p>
+    <p class="wk-sum">Music, voice and sound where your piece still needs them, then finishing and exporting it properly, ready for premiere night.</p>
     <span class="out">You leave with: a finished video</span>
   </div></div>
 
@@ -281,9 +290,9 @@
   <div class="prose">
     <p><b>I teach AI video, and I use it for paying client work.</b> My YouTube channel breaks down how new tools actually work, step by step, for 23,000 subscribers and over a million views.</p>
     <!-- CONFIRM: exact name of the former host role before this goes live. -->
-    <p>I'm an official guest host for OpenArt, one of the platforms building this space, and AI creative platforms send me their models to test as they launch. That means you're learning the current tools from someone who often has them early, rather than someone summarising a release note.</p>
-    <p>My background is over a decade in marketing and creative content, which mostly means <b>I think in systems</b>. I look for the common thread in how these tools work instead of collecting tricks, which is why this course is built as one path rather than a pile of tutorials.</p>
-    <p>I also run a community of over a thousand people learning this alongside me. What I'm sharing is three years of experimenting and applying it to real work: exactly what I did, what it cost, and the generations that failed on the way, which is the part most tutorials quietly leave out.</p>
+    <p>I'm an official guest host for OpenArt, one of the platforms building this space, and AI creative platforms send me their models to test as they launch. That means you're learning the current tools from someone who often has them early.</p>
+    <p>My background is over a decade in marketing and creative content, and that experience taught me to <b>think in systems</b>. I look for the common thread in how these tools work instead of collecting tricks, which is why this course is built as one path rather than a pile of tutorials.</p>
+    <p>What I'm sharing is three years of experimenting and applying it to real work: exactly what I did, what it cost, and the generations that failed on the way.</p>
   </div>
 </div></section>
 
