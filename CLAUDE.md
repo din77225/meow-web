@@ -12,7 +12,15 @@ miameow.ai works HERE. Read this before editing.
 - **Build command:** `npm run build`  **Output dir:** `dist`
 - **Build env var:** `YOUTUBE_API_KEY` (set in Cloudflare Pages settings, and in
   root `.env` locally). Build-time only — it is NEVER shipped to the browser.
-- **To ship a change:** commit + push to `main`. Cloudflare rebuilds in ~2 min.
+- **To ship a change:** run the pre-ship check first, then commit + push to `main`.
+  Cloudflare rebuilds in ~2 min.
+  ```bash
+  python3 "$HOME/Documents/Mia's AI Agent/_skills/website-check/scripts/site_check.py" https://miameow.ai --repo . --brand "Mia Meow" --label miameow.ai
+  ```
+  Dashboard + JSON land in `site-check/` (committed, so scores are history not
+  memory). Anything touching `public/_headers` gets verified locally with
+  `npx wrangler pages dev dist` + a browser console pass BEFORE the push (the
+  `meow-web-headers` launch config in the workspace `.claude/launch.json` does this).
 - **History:** was on Netlify (retired, near plan limit). The link page was a
   separate Vercel project `din77225/mia-links` — now folded in here at `/links`.
 - Full first-time setup / domain / deploy-hook steps: `DEPLOY-CLOUDFLARE.md`.
@@ -56,6 +64,12 @@ Keep web images small. Source art is often huge (a 4.8MB 2048px cover and a
 don't break. Cover + avatar are already optimized; check any NEW image you add.
 
 ## Security
+- Security headers (HSTS, CSP, X-Frame-Options, Permissions-Policy) live in
+  `public/_headers` (added 2026-09-15). CSP keeps `script-src 'unsafe-inline'`
+  because the static pages under `public/` carry inline scripts; do not widen
+  it further without re-running website-check. Adding a new third-party script,
+  font, or embed host means adding it to the CSP in the same commit, or the
+  page silently breaks.
 - `YOUTUBE_API_KEY` is used only at build time to fetch public video data. It is
   not in the built `dist` output (verified). Keep it in Cloudflare env
   (encrypted) + root `.env`. In Google Cloud Console restrict it to the
@@ -72,11 +86,10 @@ conversational. See root `USER.md` / `SOUL.md`.
 - The `/links` page reads `/links-data.json` at runtime; it degrades to plain
   "Watch on YouTube" links if that file is missing, which means the build didn't
   run the scripts (usually a missing `YOUTUBE_API_KEY`).
-- One stray `public/flow-prompt/_STALE_DO_NOT_EDIT.md` got committed; the page
-  next to it is the REAL one. Safe to `git rm` the marker.
 
 ## Memory map
 - Deploy steps: `DEPLOY-CLOUDFLARE.md` (this repo).
 - Legacy link-page notes: `projects/client/link-in-bio/CLAUDE.md` (now a pointer here).
+- Pre-ship checklist history: `site-check/` (from `_skills/website-check/`).
 - Cross-session memory: auto-memory `reference_mia_links_page`.
 - Universal rules / voice: workspace root `CLAUDE.md`, `USER.md`, `SOUL.md`.

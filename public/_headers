@@ -15,3 +15,17 @@
   X-Robots-Tag: noindex, nofollow
 /ai-marketing-course/*
   X-Robots-Tag: noindex, nofollow
+
+# Security headers (added 2026-09-15 by _skills/website-check). Verify after any
+# change with: python3 _skills/website-check/scripts/site_check.py https://miameow.ai --repo .
+# CSP note: the static pages under public/ carry inline <script> blocks, so
+# script-src keeps 'unsafe-inline' for now. Everything else is locked down:
+# no framing, no plugins, no base-tag hijack, no http assets, fonts and styles
+# only from self + Google Fonts, scripts only from self + GTM.
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; media-src 'self' https:; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com; frame-src https://www.youtube.com https://www.youtube-nocookie.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://mia-meow.kit.com https://app.kit.com; upgrade-insecure-requests
