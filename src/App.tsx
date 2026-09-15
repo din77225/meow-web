@@ -10,6 +10,7 @@ import { WavePath } from './components/ui/wave-path';
 import videosData from './data/videos.json';
 import featuredData from './data/featured.json';
 import collabsData from './data/collabs.json';
+import channelData from './data/channel.json';
 
 // Physics tags — singular "I am a ___" concept
 const gravityTags = [
@@ -116,7 +117,7 @@ export default function App() {
                     style={{ borderRadius: '42% 58% 52% 48% / 46% 48% 52% 54%' }}
                   >
                     <img
-                      alt="Mia Meow — colour"
+                      alt="Mia Meow, colour portrait"
                       src="/profile-color.jpg"
                       className="absolute inset-0 w-full h-full object-cover object-top"
                     />
@@ -161,7 +162,7 @@ export default function App() {
                       onMouseLeave={() => setProfileHover(false)}
                     >
                       <img
-                        alt="Mia Meow — colour"
+                        alt="Mia Meow, colour portrait"
                         src="/profile-color.jpg"
                         className="absolute inset-0 w-full h-full object-cover object-top"
                       />
@@ -485,7 +486,7 @@ export default function App() {
               </div>
               <div className="flex flex-wrap gap-8 pt-8 border-t border-[#032b2e]/15">
                 <div>
-                  <p className="text-3xl font-black text-[#032b2e]">22K</p>
+                  <p className="text-3xl font-black text-[#032b2e]">{channelData.subscribers}</p>
                   <p className="text-xs uppercase tracking-widest text-[#7b54b3] font-bold mt-1">subscribers</p>
                 </div>
                 <div>
@@ -504,7 +505,7 @@ export default function App() {
               <div className="aspect-square rounded-full border-2 border-[#032b2e]/20 p-3">
                 <div className="group relative w-full h-full rounded-full overflow-hidden cursor-pointer">
                   <img
-                    alt="Mia Meow — colour"
+                    alt="Mia Meow, colour portrait"
                     src="/profile-color.jpg"
                     className="absolute inset-0 w-full h-full object-cover object-top"
                   />
@@ -655,6 +656,14 @@ export default function App() {
                   className="hover:text-[#7b54b3] transition-colors duration-200 cursor-pointer"
                 >
                   Skool Community
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/about/"
+                  className="hover:text-[#7b54b3] transition-colors duration-200 cursor-pointer"
+                >
+                  About Mia
                 </a>
               </li>
               <li>

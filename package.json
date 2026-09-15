@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "node scripts/fetch-videos.mjs ; node scripts/fetch-collabs.mjs ; node scripts/fetch-links-data.mjs ; vite --port=3000 --host=0.0.0.0",
-    "build": "node scripts/fetch-videos.mjs && node scripts/fetch-collabs.mjs && node scripts/fetch-links-data.mjs && vite build",
+    "build": "node scripts/fetch-videos.mjs && node scripts/fetch-collabs.mjs && node scripts/fetch-links-data.mjs && vite build && node scripts/prerender.mjs",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit"

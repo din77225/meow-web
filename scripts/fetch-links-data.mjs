@@ -73,6 +73,11 @@ async function run() {
 
   const payload = { videos: merged, subscribers: subs };
   writeFileSync(OUTPUT, JSON.stringify(payload, null, 2) + '\n');
+  // Same subscriber count for the homepage stats block, so the site never shows
+  // two different numbers (AI answers pick up inconsistent facts).
+  if (subs) {
+    writeFileSync(join(__dirname, '../src/data/channel.json'), JSON.stringify({ subscribers: subs, updated: new Date().toISOString().slice(0, 10) }, null, 2) + '\n');
+  }
   console.log(`  Done — ${merged.length} video(s)${subs ? `, ${subs} subscribers` : ' (subscribers unchanged)'} → public/links-data.json`);
   merged.forEach(v => console.log(`    ${v.publishedAt}  ${v.videoId}  ${(v.title || '').slice(0, 44)}`));
   console.log('');

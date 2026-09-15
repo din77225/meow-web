@@ -1,8 +1,29 @@
+# miameow.ai robots.txt
+# Search / citation crawlers (Google, Bing, ChatGPT search, Claude, Perplexity)
+# are allowed so AI answers can find and cite this site. Training crawlers are
+# not blocked for now. Course pages are not ready and stay off limits.
+# Test any change with: python3 _skills/aeo-optimizer/scripts/aeo_audit.py https://miameow.ai
+
 User-agent: *
 Allow: /
+# Course material: unconfirmed, not for crawling or indexing yet.
+Disallow: /ai-video-course/
+Disallow: /ai-marketing-course/
 
-# Student-only course materials. Not linked publicly, not for indexing.
-Disallow: /ai-video-course/tools/
-Disallow: /ai-video-course/thanks/
+# AI search and citation bots: explicitly allowed (same rules as above).
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: DuckAssistBot
+User-agent: Applebot
+Allow: /
+Disallow: /ai-video-course/
+Disallow: /ai-marketing-course/
 
 Sitemap: https://miameow.ai/sitemap.xml

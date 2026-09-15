@@ -6,6 +6,8 @@ import {defineConfig} from 'vite';
 export default defineConfig(() => {
   return {
     plugins: [react(), tailwindcss()],
+    // matter-js is CommonJS; bundle it for the build-time prerender (scripts/prerender.mjs)
+    ssr: {noExternal: ['matter-js'], optimizeDeps: {include: ['matter-js']}},
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),

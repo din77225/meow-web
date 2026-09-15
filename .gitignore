@@ -6,3 +6,6 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# FUSE junk from network mounts
+.fuse_hidden*

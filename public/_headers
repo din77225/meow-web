@@ -8,3 +8,10 @@
 # Hashed JS/CSS bundles are content-addressed — cache them hard.
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
+
+# Course pages are not ready: tell any crawler that reaches them not to index.
+# (robots.txt also disallows these paths; this is the belt to that brace.)
+/ai-video-course/*
+  X-Robots-Tag: noindex, nofollow
+/ai-marketing-course/*
+  X-Robots-Tag: noindex, nofollow
