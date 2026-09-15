@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Project Workbook · Concept and Shot List</title>
+<meta name="robots" content="noindex, nofollow">
 <style>
   :root{--purple:#7b54b3;--teal:#00897b;--ink:#1a1625;--body:#4a4a5a;--muted:#7a7a8a;--line:#e8e5e0;--warm:#f8f6f3;--warn:#9a6b32;--warnbg:#faf3e8}
   *{box-sizing:border-box;margin:0;padding:0}
@@ -208,8 +208,62 @@ Keep it ruthless about scope. It has to play in [LENGTH] seconds.</pre>
 
   <div class="tip"><b>Why this matters more than it looks</b> Beginners often assume there is one professional pipeline and that they are doing it wrong. There isn't. Choosing a level up front means you stop worrying about whether you should have storyboarded, and get on with making the thing.</div>
 
-  <!-- ============ 2. SHOT LIST ============ -->
-  <h2><span class="n">3</span>Breaking it into shots</h2>
+  <!-- ============ STORY ============ -->
+  <h2><span class="n">3</span>Your story</h2>
+  <p class="lead">You do not need to know anything about screenwriting for this. Two things go in: who is in it, and what happens. The model writes the script.</p>
+
+  <div class="card">
+    <p style="font-size:15.5px;color:var(--ink);margin-bottom:6px"><strong>Start with your characters, then list the events.</strong></p>
+    <p><strong>Characters</strong> is who is in it and what makes them look different from a default person. Not a biography. What they look like, what they wear, what they carry.</p>
+    <p style="margin-bottom:0"><strong>Events</strong> is what happens, in order, in plain words. No camera angles, no shot sizes, no cinematic language. Just what happens. If you want a specific moment to look a certain way, write that too, in the way you would say it to a friend.</p>
+  </div>
+
+  <div class="card">
+    <h3>Write it out</h3>
+    <div class="fld"><label for="chars">Who is in it</label><textarea id="chars" rows="3" placeholder="One per line. Name, then what they look like, what they wear, what they carry."></textarea></div>
+    <div class="fld" style="margin-bottom:0"><label for="events">What happens, in order</label><textarea id="events" rows="6" placeholder="One line per thing that happens. Plain words."></textarea></div>
+  </div>
+
+  <div class="pbox">
+    <div class="ph"><span>Turn your list into a script</span><button class="cp">Copy</button></div>
+<pre>Here is the outline for my next AI film. Turn it into a script.
+
+Length: [X] seconds
+Genre and tone: [e.g. warm documentary, dark comedy, sci-fi action]
+
+Characters:
+[NAME]: [what they look like, what they wear, what they carry]
+
+What happens:
+[YOUR EVENTS, ONE PER LINE, IN ORDER]
+
+Rules:
+- Keep my events. You can reorder them, or add a connecting moment if
+  something is missing, but do not replace what I wrote.
+- Give each scene an estimated length in seconds.
+- The last scene must be a real ending, not a fade out.
+- Do not add dialogue to fill a scene. If a moment plays in action,
+  nobody speaks.
+- Any lines must be short and easy to perform. No wordplay,
+  nothing literary.
+- Do not write camera angles or shot sizes yet.</pre>
+  </div>
+
+  <div class="tip"><b>Length and genre are not optional</b> They are the two inputs that decide everything else. Length is what lets the model work out how many scenes you get and how long each one runs. Genre sets the whole tone. Leave either one out and you get a script that is the average of every film ever made.</div>
+
+  <div class="tip"><b>Read the dialogue out loud before you go further</b> This is the one part of the output you should not trust. Models write too much dialogue, and they write jokes that are not funny. Cut any line that is there to fill silence, and cut anything you would not actually say. Too much talking is what makes an AI film boring.</div>
+
+  <details>
+    <summary>If it comes back flat</summary>
+    <div style="margin-top:12px">
+      <p><strong>Usually it is the events, not the model.</strong> A list where each thing simply follows the last will read as a list no matter how well it is written. Look at your lines and ask whether anything actually turns. Something we did not expect, a reveal, a change of scale, a different angle on the same thing. It does not have to be a problem or a conflict, and a product film or a mood piece can turn just by pulling back to show where you really were.</p>
+      <p><strong>Ask for options.</strong> Add "give me three different versions of the ending" to the prompt. It is much easier to recognise the right ending than to write it.</p>
+      <p><strong>You do not have to write the outline with AI at all.</strong> Some of the best AI films come from people who write this part by hand and let the model do everything downstream. A model given a blank page produces the average of everything it has seen. Given your idea, it produces yours.</p>
+    </div>
+  </details>
+
+  <!-- ============ SHOT LIST ============ -->
+  <h2><span class="n">4</span>Breaking it into shots</h2>
   <p class="lead">This is the part nobody teaches beginners, and it is the difference between a piece that gets finished and a folder of unrelated clips.</p>
 
   <div class="card">
@@ -229,27 +283,32 @@ Keep it ruthless about scope. It has to play in [LENGTH] seconds.</pre>
     </div>
   </details>
 
-  <div class="tip" style="margin-bottom:14px"><b>How close, and from where</b> The <a href="camera-and-light.html">camera and light reference</a> has a card for every shot type with an example image, plus a quick guide for which shot suits which situation. Open it in another tab while you fill in the "how close" column. If you do not know the term for what you want, write it in plain words: "close on her hands", "from behind him, wide". That is a perfectly good answer.</div>
+  <div class="tip" style="margin-bottom:14px"><b>You do not have to know the shot sizes yet</b> The prompt above asks the model to choose them <em>and</em> say in four words what each choice does for the viewer. Read those reasons and you will pick the language up inside your own story, which is faster than learning it from a list. When you want to see what a term actually looks like, the <a href="camera-and-light.html">camera and light reference</a> has an example image for every one. Overrule the model whenever you disagree. That is the point.</div>
 
   <div class="pbox">
     <div class="ph"><span>Turn your concept into shots</span><button class="cp">Copy</button></div>
-<pre>Turn this concept into a shot list table with these columns:
+<pre>Turn this into a shot list table with these columns:
 
-Shot | What happens | Where | Shot size | Camera | Sound | Seconds
+Shot | What happens | Where | Shot size | Why that size | Camera | Sound | Seconds
 
 Rules:
 - One row per continuous moment. A cut starts a new row.
-- Shot size in plain words: wide, medium, close, extreme close.
+- YOU choose the shot sizes. I am learning, so do not ask me.
+- "Why that size" is four or five words explaining what that choice does for
+  the viewer. Example: close, so we feel her hesitate. Wide, so she looks small.
+- Vary the sizes. Do not give me ten mediums.
 - Camera is either still, or one simple move. No move without a reason.
-- Sound is what we hear in that shot. Fill this in for every row, even if it is
-  only room tone. Do not leave it blank.
+- Sound is what we hear in that shot. Fill it in for every row, even if it is
+  only room tone. Never leave it blank.
 - Seconds is how long the moment needs on screen for the story. Ignore what any
   AI model can generate.
-- Vary the shot sizes. Do not give me ten mediums.
 - Total the seconds at the end.
 
 My concept:
-[PASTE YOUR ANSWERS FROM SECTION 1]</pre>
+[PASTE YOUR ANSWERS FROM SECTION 1]
+
+My story:
+[PASTE YOUR EVENTS FROM SECTION 3, OR THE SCRIPT IF YOU WROTE ONE]</pre>
   </div>
 
   <div class="card">
@@ -287,7 +346,7 @@ My concept:
   </details>
 
   <!-- ============ 3. KIT ============ -->
-  <h2><span class="n">4</span>What your shot list says you need to build</h2>
+  <h2><span class="n">5</span>What your shot list says you need to build</h2>
   <p class="lead">Read down your own list and this writes itself. Anything appearing in more than one shot has to stay the same across all of them, which means it needs a reference image rather than a fresh description each time. That collection is your kit, and you build it in week two.</p>
 
   <div class="pbox">
@@ -342,7 +401,7 @@ My shot list:
   </div>
 
   <!-- ============ 4. KEEP ============ -->
-  <h2><span class="n">5</span>Save it and send it</h2>
+  <h2><span class="n">6</span>Save it and send it</h2>
   <div class="card">
     <p style="margin-bottom:14px">Nothing here is stored anywhere, so save it before you close the tab.</p>
     <div class="fld" style="max-width:340px">
@@ -367,6 +426,10 @@ My shot list:
     <div class="pf"><div class="pl">How it feels</div><div class="pv" id="p4"></div></div>
     <div class="pf"><div class="pl">Target length</div><div class="pv" id="p5"></div></div>
     <div class="pf"><div class="pl">Planning level</div><div class="pv" id="pplevel"></div></div>
+
+    <h2>My story</h2>
+    <div class="pf"><div class="pl">Who is in it</div><div class="pv" id="pchars"></div></div>
+    <div class="pf"><div class="pl">What happens, in order</div><div class="pv" id="pevents"></div></div>
 
     <h2>My shot list</h2>
     <table id="pshots"></table>
@@ -421,7 +484,8 @@ function render(){
 }
 
 $('addShot').addEventListener('click',()=>{SHOTS.push({what:'',where:'',close:'',cam:'',sound:'',secs:6});render();calc();});
-['c1','c2','c3','c4','c5','k1','k2','k3','k4'].forEach(i=>$(i).addEventListener('input',calc));
+const BEATS=['chars','events'];
+['c1','c2','c3','c4','c5','k1','k2','k3','k4'].concat(BEATS).forEach(i=>$(i).addEventListener('input',calc));
 $('plevel').addEventListener('change',calc);
 
 function calc(){
@@ -441,6 +505,7 @@ function calc(){
 
 function fillPrint(){
   const map={p1:'c1',p2:'c2',p3:'c3',p4:'c4',pk1:'k1',pk2:'k2',pk3:'k3',pk4:'k4'};
+  BEATS.forEach(b=>{const t=$('p'+b); if(t) t.textContent=$(b).value||'';});
   for(const p in map){ $(p).textContent=$(map[p]).value||'—'; }
   $('p5').textContent=($('c5').value||'?')+' seconds';
   if($('pplevel')) $('pplevel').textContent=$('plevel').value;
@@ -470,6 +535,13 @@ $('btnSend').addEventListener('click',()=>{
   L.push('');
   L.push('  How it feels:');
   L.push('  '+($('c4').value||'-'));
+  L.push('');
+  L.push('STORY');
+  L.push('  Who is in it:');
+  ($('chars').value||'-').split('\n').forEach(t=>L.push('  '+t));
+  L.push('');
+  L.push('  What happens, in order:');
+  ($('events').value||'-').split('\n').forEach(t=>L.push('  '+t));
   L.push('');
   L.push('SHOT LIST');
   SHOTS.forEach((s,i)=>{
