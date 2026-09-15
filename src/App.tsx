@@ -4,6 +4,8 @@
  */
 
 import React from 'react';
+import { LogoMark } from './components/LogoMark'
+import { LogoMarkAmbient } from './components/LogoMarkAmbient'
 import { Youtube, Instagram, Play, ChevronLeft, ChevronRight, PlayCircle } from 'lucide-react';
 import { Gravity, MatterBody } from './components/ui/gravity';
 import { WavePath } from './components/ui/wave-path';
@@ -80,7 +82,8 @@ export default function App() {
 
       {/* ── Navigation ── */}
       <header className="flex items-center justify-between px-6 py-4 lg:px-12 border-b border-black/8 bg-[#f8f6f3]/90 backdrop-blur-sm sticky top-0 z-50">
-        <a href="#" className="text-2xl font-black tracking-tight text-[#1a1625] hover:text-[#7b54b3] transition-colors duration-200">
+        <a href="#" className="flex items-center gap-2.5 text-2xl font-black tracking-tight text-[#1a1625] hover:text-[#7b54b3] transition-colors duration-200">
+          <LogoMark className="h-7 w-auto text-[#00c4cc]" />
           mia meow
         </a>
         <nav className="hidden md:flex items-center gap-8 font-medium text-slate-600" aria-label="Main navigation">
@@ -211,9 +214,9 @@ export default function App() {
 
           {/* Right: Typography + CTAs */}
           <div className="relative flex flex-col justify-center p-8 lg:p-16">
-            {/* Ghost background word */}
-            <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 overflow-hidden pointer-events-none select-none" aria-hidden="true">
-              <span className="block text-[22vw] lg:text-[13rem] font-black text-black/[0.03] leading-none tracking-tighter text-center">MEOW</span>
+            {/* Ghost background mark: faint, tilted, blinks and twitches now and then */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none select-none" aria-hidden="true">
+              <LogoMarkAmbient className="absolute top-[34%] left-1/2 -translate-x-[18%] w-[104%] md:top-[43%] md:-translate-x-1/2 md:w-[96%] max-w-none text-[#00c4cc] opacity-[0.11]" />
             </div>
 
             <div className="relative z-10 max-w-xl">
@@ -575,6 +578,7 @@ export default function App() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
           {/* Brand */}
           <div className="lg:col-span-2 space-y-5">
+            <LogoMark className="h-9 w-auto text-[#00c4cc]" />
             <h2 className="text-2xl font-black uppercase tracking-tighter text-[#1a1625]">Mia Meow</h2>
             <p className="max-w-xs font-serif italic text-slate-500 leading-relaxed text-sm">
               AI workflows and creative systems for creators who want to put things into practical use.

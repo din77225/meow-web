@@ -62,6 +62,34 @@
   }
 }
 
+
+/* ── Ambient hero mark: faint, tilted, alive ───────────────────────────── */
+/* Opacity lives on the wrapper (one composited layer) so whiskers crossing the M do not stack darker. */
+.ambient-mark { transform-origin: 50% 55%; animation: ambient-drift 14s ease-in-out infinite; }
+.ambient-mark .eye { transform-box: fill-box; transform-origin: center; animation: ambient-blink 11s ease-in-out 0.9s infinite; }
+.ambient-mark .eye + .eye { animation-delay: 0.94s; }
+.ambient-mark .wl, .ambient-mark .wr { transform-box: fill-box; animation: ambient-twitch 13s ease-in-out infinite; }
+.ambient-mark .wl { transform-origin: right center; animation-delay: 3.5s; }
+.ambient-mark .wr { transform-origin: left center; animation-delay: 8.5s; animation-direction: reverse; }
+@keyframes ambient-drift {
+  0%, 100% { transform: rotate(8deg) translateY(0); }
+  50%      { transform: rotate(8.8deg) translateY(-5px); }
+}
+/* two quick blinks right after load (0.9 s in), then the eyes stay open for the rest of the 11 s cycle */
+@keyframes ambient-blink {
+  0%, 3.6%, 5.4%, 100% { transform: scaleY(1); }
+  1.4%  { transform: scaleY(0.06); }
+  2.6%  { transform: scaleY(1); }
+  4.4%  { transform: scaleY(0.06); }
+}
+@keyframes ambient-twitch {
+  0%, 40%, 100% { transform: rotate(0deg); }
+  43%  { transform: rotate(-2.2deg); }
+  46%  { transform: rotate(1.6deg); }
+  49%  { transform: rotate(-0.8deg); }
+  52%  { transform: rotate(0deg); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
