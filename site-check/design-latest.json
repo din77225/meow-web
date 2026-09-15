@@ -1,0 +1,876 @@
+{
+  "label": "miameow.ai",
+  "checked_at": "2026-09-15T10:06:29",
+  "thresholds": {
+    "colors": 14,
+    "fontSizes": 9,
+    "families": 3,
+    "weights": 5,
+    "radii": 5,
+    "buttons": 5,
+    "grade": 9,
+    "tap": 44
+  },
+  "pages": [
+    {
+      "url": "https://miameow.ai",
+      "slug": "home",
+      "status": 200,
+      "items": [
+        {
+          "key": "a11y-critical",
+          "title": "No critical or serious accessibility violations (axe-core)",
+          "status": "fail",
+          "detail": "[serious] Elements must meet minimum color contrast ratio thresholds (9 nodes: div:nth-child(1) > .tracking-widest.text-xs.mt-1; div:nth-child(2) > .tracking-widest.text-xs.mt-1)",
+          "fix": "Fix critical and serious first; they block real users (contrast, missing labels, missing alt). Each line names the selector.",
+          "weight": 3
+        },
+        {
+          "key": "a11y-minor",
+          "title": "2 moderate/minor accessibility notes",
+          "status": "warn",
+          "detail": "[moderate] Heading levels should only increase by one\n[minor] Alternative text of images should not be repeated as text",
+          "fix": "Worth a pass after the serious ones.",
+          "weight": 1
+        },
+        {
+          "key": "colors",
+          "title": "Colour count: 28 distinct text + background colours (target ≤ 14)",
+          "status": "fail",
+          "detail": "text: rgb(123, 84, 179) (20), rgb(26, 22, 37) (19), oklch(0.446 0.043 257.281) (12), rgb(255, 255, 255) (11), rgb(244, 208, 10) (9), oklab(0.999994 0.0000455677 0.0000200868 / 0.8) (4)\nbackgrounds: oklch(0.922 0 0) (8), rgb(26, 22, 37) (6), rgb(123, 84, 179) (5), rgb(244, 208, 10) (5), rgb(248, 246, 243) (3), rgba(123, 84, 179, 0.1) (3)",
+          "fix": "Collapse near-duplicates into tokens (one primary, one accent, 4 to 6 neutrals). Many similar greys read as 'something is off' even when nobody can name it.",
+          "weight": 2
+        },
+        {
+          "key": "font-sizes",
+          "title": "Type scale: 15 distinct font sizes (target ≤ 9)",
+          "status": "fail",
+          "detail": "14px (35), 16px (12), 12px (11), 10px (9), 18px (4), 60px (4), 20px (3), 30px (3), 11px (3), 24px (2)",
+          "fix": "Pick a scale (e.g. 12/14/16/18/24/32/48/64) and map every size to it.",
+          "weight": 2
+        },
+        {
+          "key": "families",
+          "title": "Font families: 2 (target ≤ 3)",
+          "status": "pass",
+          "detail": "Inter (87), Playfair Display (7)",
+          "fix": "",
+          "weight": 1
+        },
+        {
+          "key": "weights",
+          "title": "Font weights: 5 (target ≤ 5)",
+          "status": "pass",
+          "detail": "700 (32), 900 (30), 500 (14), 400 (11), 600 (7)",
+          "fix": "",
+          "weight": 1
+        },
+        {
+          "key": "radii",
+          "title": "Corner radii: 5 distinct (target ≤ 5)",
+          "status": "pass",
+          "detail": "pill (24), 12px (10), 8px (2), organic (1), 16px (1)",
+          "fix": "",
+          "weight": 1
+        },
+        {
+          "key": "buttons",
+          "title": "Button variants: 10 distinct styles (target ≤ 5)",
+          "status": "warn",
+          "detail": "7x \"YouTube Channel\" / \"Seedance Playbook\" [rgba(0, 0, 0, 0) oklch(0.446 0.043 257.281) 0px]\n4x \"videos\" / \"playbook\" [rgba(0, 0, 0, 0) oklch(0.446 0.043 257.281) 0px]\n2x \"subscribe\" / \"watch on youtube\" [rgb(123, 84, 179) rgb(255, 255, 255) 3.35544e+07px]\n2x \"JOIN ON SKOOL\" / \"SUBSCRIBE FREE\" [rgb(26, 22, 37) rgb(255, 255, 255) 8px]\n1x \"mia meow\" [rgba(0, 0, 0, 0) rgb(26, 22, 37) 0px]\n1x \"join community\" [rgba(0, 0, 0, 0) rgb(123, 84, 179) 3.35544e+07px]\n1x \"GET THE PLAYBOOK\" [rgb(244, 208, 10) rgb(26, 22, 37) 3.35544e+07px]\n1x \"preview on gumroad\" [rgba(0, 0, 0, 0) rgb(255, 255, 255) 3.35544e+07px]",
+          "fix": "Primary, secondary, ghost, and maybe one destructive. Everything else should be one of those.",
+          "weight": 2
+        },
+        {
+          "key": "readability",
+          "title": "Readability: grade 11.7, Flesch ease 44 (target grade ≤ 9)",
+          "status": "warn",
+          "detail": "355 words, 18.7 words per sentence. H1: \"AI in\npractice.\"",
+          "fix": "Shorter sentences, concrete nouns, one idea per paragraph. The headline and first paragraph matter most: can a stranger say what this site does after reading them?",
+          "weight": 2
+        },
+        {
+          "key": "h1",
+          "title": "Exactly one H1 (found 1)",
+          "status": "pass",
+          "detail": "\"AI in\npractice.\"",
+          "fix": "",
+          "weight": 1
+        },
+        {
+          "key": "heading-order",
+          "title": "Heading levels do not skip (3 skips in 17 headings)",
+          "status": "warn",
+          "detail": "",
+          "fix": "H2 under H1, H3 under H2. Style with CSS, not by picking a smaller heading tag.",
+          "weight": 1
+        },
+        {
+          "key": "alt",
+          "title": "Images with alt attribute (12/12)",
+          "status": "pass",
+          "detail": "",
+          "fix": "",
+          "weight": 1
+        },
+        {
+          "key": "viewport-meta",
+          "title": "Viewport meta present",
+          "status": "pass",
+          "detail": "",
+          "fix": "",
+          "weight": 2
+        },
+        {
+          "key": "overflow",
+          "title": "No horizontal overflow at 390px",
+          "status": "pass",
+          "detail": "",
+          "fix": "",
+          "weight": 2
+        },
+        {
+          "key": "tap-targets",
+          "title": "Tap targets under 44px at 390px: 14",
+          "status": "fail",
+          "detail": "",
+          "fix": "Give links and buttons at least 44x44px of hit area on mobile (padding counts).",
+          "weight": 1
+        },
+        {
+          "key": "above-fold",
+          "title": "Above the fold on a phone: 2 interactive element(s)",
+          "status": "info",
+          "detail": "\"mia meow\", \"subscribe\"",
+          "fix": "",
+          "weight": 0
+        }
+      ],
+      "metrics": {
+        "colors": 28,
+        "fontSizes": 15,
+        "families": 2,
+        "weights": 5,
+        "radii": 5,
+        "buttons": 10,
+        "elements": 262
+      },
+      "axe": {
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=playwright",
+            "nodes": 9,
+            "targets": [
+              "div:nth-child(1) > .tracking-widest.text-xs.mt-1",
+              "div:nth-child(2) > .tracking-widest.text-xs.mt-1",
+              "div:nth-child(3) > .tracking-widest.text-xs.mt-1",
+              ".text-\\[\\#1a1625\\]\\/60",
+              ".text-\\[\\#1a1625\\]\\/50"
+            ]
+          },
+          {
+            "id": "heading-order",
+            "impact": "moderate",
+            "help": "Heading levels should only increase by one",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/heading-order?application=playwright",
+            "nodes": 3,
+            "targets": [
+              "h3",
+              ".min-w-\\[260px\\].lg\\:min-w-0.snap-start:nth-child(1) > .group-hover\\:text-\\[\\#7b54b3\\]",
+              ".space-y-5:nth-child(2) > .tracking-widest"
+            ]
+          },
+          {
+            "id": "image-redundant-alt",
+            "impact": "minor",
+            "help": "Alternative text of images should not be repeated as text",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/image-redundant-alt?application=playwright",
+            "nodes": 1,
+            "targets": [
+              ".opacity-60"
+            ]
+          }
+        ]
+      },
+      "readability": {
+        "words": 355,
+        "sentences": 19,
+        "ease": 44,
+        "grade": 11.7,
+        "wordsPerSentence": 18.7
+      },
+      "mobile": {
+        "overflow": false,
+        "smallTargets": 14,
+        "aboveFold": [
+          "mia meow",
+          "subscribe"
+        ]
+      },
+      "h1": "AI in\npractice.",
+      "firstParagraph": "AI workflows and creative systems for creators who want to put things into practical use. New videos when there is something worth sharing.",
+      "title": "Mia Meow | AI Workflows for Creators",
+      "lang": "en",
+      "palette": {
+        "text": [
+          "rgb(26, 22, 37)",
+          "oklch(0.446 0.043 257.281)",
+          "rgb(255, 255, 255)",
+          "oklab(0 0 0 / 0.04)",
+          "rgb(123, 84, 179)",
+          "rgb(244, 208, 10)",
+          "oklch(0.554 0.046 257.417)",
+          "oklab(0.999994 0.0000455678 0.0000200868 / 0.03)",
+          "oklab(0.999994 0.0000455677 0.0000200868 / 0.7)",
+          "oklab(0.999994 0.0000455677 0.0000200868 / 0.8)",
+          "rgba(0, 0, 0, 0)",
+          "rgb(3, 43, 46)",
+          "rgba(3, 43, 46, 0.8)",
+          "rgba(26, 22, 37, 0.6)",
+          "rgba(26, 22, 37, 0.7)",
+          "rgba(26, 22, 37, 0.5)",
+          "oklch(0.704 0.04 256.788)"
+        ],
+        "background": [
+          "rgb(248, 246, 243)",
+          "rgba(248, 246, 243, 0.9)",
+          "rgb(123, 84, 179)",
+          "rgb(244, 208, 10)",
+          "rgb(0, 196, 204)",
+          "rgb(26, 22, 37)",
+          "rgb(255, 255, 255)",
+          "rgb(237, 232, 245)",
+          "rgb(255, 140, 90)",
+          "rgb(254, 249, 195)",
+          "rgb(232, 228, 240)",
+          "rgb(24, 21, 29)",
+          "oklab(0.999994 0.0000455678 0.0000200868 / 0.1)",
+          "oklch(0.922 0 0)",
+          "rgba(123, 84, 179, 0.1)"
+        ],
+        "fontSizes": [
+          "24px",
+          "16px",
+          "14px",
+          "96px",
+          "12px",
+          "88px",
+          "18px",
+          "48px",
+          "72px",
+          "10px",
+          "288px",
+          "60px",
+          "20px",
+          "30px",
+          "11px"
+        ],
+        "radii": [
+          "pill",
+          "organic",
+          "16px",
+          "12px",
+          "8px"
+        ],
+        "families": [
+          "Inter",
+          "Playfair Display"
+        ]
+      },
+      "shots": [
+        "design-shots/2026-09-15-miameow.ai/home-390.png",
+        "design-shots/2026-09-15-miameow.ai/home-768.png",
+        "design-shots/2026-09-15-miameow.ai/home-1440.png"
+      ],
+      "score": 52
+    },
+    {
+      "url": "https://miameow.ai/about/",
+      "slug": "about",
+      "status": 200,
+      "items": [
+        {
+          "key": "a11y-critical",
+          "title": "No critical or serious accessibility violations (axe-core)",
+          "status": "pass",
+          "detail": "No critical or serious violations (2 lower-severity notes below).",
+          "fix": "",
+          "weight": 3
+        },
+        {
+          "key": "a11y-minor",
+          "title": "2 moderate/minor accessibility notes",
+          "status": "warn",
+          "detail": "[moderate] Document should have one main landmark\n[moderate] All page content should be contained by landmarks",
+          "fix": "Worth a pass after the serious ones.",
+          "weight": 1
+        },
+        {
+          "key": "colors",
+          "title": "Colour count: 7 distinct text + background colours (target ≤ 14)",
+          "status": "pass",
+          "detail": "text: rgb(123, 84, 179) (12), rgb(71, 85, 105) (7), rgb(26, 22, 37) (6), rgb(3, 43, 46) (3), rgb(100, 116, 139) (2), rgb(255, 255, 255) (1)\nbackgrounds: rgb(248, 246, 243) (3), rgb(255, 255, 255) (1), rgb(26, 22, 37) (1)",
+          "fix": "",
+          "weight": 2
+        },
+        {
+          "key": "font-sizes",
+          "title": "Type scale: 7 distinct font sizes (target ≤ 9)",
+          "status": "pass",
+          "detail": "16px (16), 20px (6), 28px (3), 12px (3), 40px (1), 14px (1), 13.6px (1)",
+          "fix": "",
+          "weight": 2
+        },
+        {
+          "key": "families",
+          "title": "Font families: 1 (target ≤ 3)",
+          "status": "pass",
+          "detail": "-apple-system (31)",
+          "fix": "",
+          "weight": 1
+        },
+        {
+          "key": "weights",
+          "title": "Font weights: 5 (target ≤ 5)",
+          "status": "pass",
+          "detail": "600 (9), 400 (8), 800 (6), 700 (4), 900 (4)",
+          "fix": "",
+          "weight": 1
+        },
+        {
+          "key": "radii",
+          "title": "Corner radii: 3 distinct (target ≤ 5)",
+          "status": "pass",
+          "detail": "16px (3), pill (2), 24px (1)",
+          "fix": "",
+          "weight": 1
+        },
+        {
+          "key": "buttons",
+          "title": "Button variants: 1 distinct styles (target ≤ 5)",
+          "status": "pass",
+          "detail": "1x \"Back to miameow.ai\" [rgb(26, 22, 37) rgb(255, 255, 255) 999px]",
+          "fix": "",
+          "weight": 2
+        },
+        {
+          "key": "readability",
+          "title": "Readability: grade 6.9, Flesch ease 65 (target grade ≤ 9)",
+          "status": "pass",
+          "detail": "263 words, 11 words per sentence. H1: \"About Mia Meow\"",
+          "fix": "",
+          "weight": 2
+        },
+        {
+          "key": "h1",
+          "title": "Exactly one H1 (found 1)",
+          "status": "pass",
+          "detail": "\"About Mia Meow\"",
+          "fix": "",
+          "weight": 1
+        },
+        {
+          "key": "heading-order",
+          "title": "Heading levels do not skip (0 skips in 7 headings)",
+          "status": "pass",
+          "detail": "",
+          "fix": "",
+          "weight": 1
+        },
+        {
+          "key": "alt",
+          "title": "Images with alt attribute (1/1)",
+          "status": "pass",
+          "detail": "",
+          "fix": "",
+          "weight": 1
+        },
+        {
+          "key": "viewport-meta",
+          "title": "Viewport meta present",
+          "status": "pass",
+          "detail": "",
+          "fix": "",
+          "weight": 2
+        },
+        {
+          "key": "overflow",
+          "title": "No horizontal overflow at 390px",
+          "status": "pass",
+          "detail": "",
+          "fix": "",
+          "weight": 2
+        },
+        {
+          "key": "tap-targets",
+          "title": "Tap targets under 44px at 390px: 8",
+          "status": "fail",
+          "detail": "",
+          "fix": "Give links and buttons at least 44x44px of hit area on mobile (padding counts).",
+          "weight": 1
+        },
+        {
+          "key": "above-fold",
+          "title": "Above the fold on a phone: 0 interactive element(s)",
+          "status": "warn",
+          "detail": "Nothing clickable in the first screen on mobile.",
+          "fix": "Put the primary action inside the first screen on mobile; most visitors decide there.",
+          "weight": 0
+        }
+      ],
+      "metrics": {
+        "colors": 7,
+        "fontSizes": 7,
+        "families": 1,
+        "weights": 5,
+        "radii": 3,
+        "buttons": 1,
+        "elements": 38
+      },
+      "axe": {
+        "violations": [
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "help": "Document should have one main landmark",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-one-main?application=playwright",
+            "nodes": 1,
+            "targets": [
+              "html"
+            ]
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "help": "All page content should be contained by landmarks",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=playwright",
+            "nodes": 1,
+            "targets": [
+              ".container"
+            ]
+          }
+        ]
+      },
+      "readability": {
+        "words": 263,
+        "sentences": 24,
+        "ease": 65,
+        "grade": 6.9,
+        "wordsPerSentence": 11
+      },
+      "mobile": {
+        "overflow": false,
+        "smallTargets": 8,
+        "aboveFold": []
+      },
+      "h1": "About Mia Meow",
+      "firstParagraph": "FACTS ON THIS PAGE LAST REVIEWED SEPTEMBER 15, 2026",
+      "title": "About Mia Meow | AI Workflows for Creators",
+      "lang": "en",
+      "palette": {
+        "text": [
+          "rgb(123, 84, 179)",
+          "rgb(100, 116, 139)",
+          "rgb(71, 85, 105)",
+          "rgb(3, 43, 46)",
+          "rgb(26, 22, 37)",
+          "rgb(255, 255, 255)"
+        ],
+        "background": [
+          "rgb(255, 255, 255)",
+          "rgb(248, 246, 243)",
+          "rgb(26, 22, 37)"
+        ],
+        "fontSizes": [
+          "40px",
+          "14px",
+          "16px",
+          "28px",
+          "12px",
+          "13.6px",
+          "20px"
+        ],
+        "radii": [
+          "24px",
+          "pill",
+          "16px"
+        ],
+        "families": [
+          "-apple-system"
+        ]
+      },
+      "shots": [
+        "design-shots/2026-09-15-miameow.ai/about-390.png",
+        "design-shots/2026-09-15-miameow.ai/about-768.png",
+        "design-shots/2026-09-15-miameow.ai/about-1440.png"
+      ],
+      "score": 93
+    },
+    {
+      "url": "https://miameow.ai/links/",
+      "slug": "links",
+      "status": 200,
+      "items": [
+        {
+          "key": "a11y-critical",
+          "title": "No critical or serious accessibility violations (axe-core)",
+          "status": "fail",
+          "detail": "[serious] Elements must meet minimum color contrast ratio thresholds (13 nodes: .stat; #sub-count)",
+          "fix": "Fix critical and serious first; they block real users (contrast, missing labels, missing alt). Each line names the selector.",
+          "weight": 3
+        },
+        {
+          "key": "a11y-minor",
+          "title": "2 moderate/minor accessibility notes",
+          "status": "warn",
+          "detail": "[minor] ARIA role should be appropriate for the element\n[minor] Alternative text of images should not be repeated as text",
+          "fix": "Worth a pass after the serious ones.",
+          "weight": 1
+        },
+        {
+          "key": "colors",
+          "title": "Colour count: 17 distinct text + background colours (target ≤ 14)",
+          "status": "warn",
+          "detail": "text: rgb(144, 137, 168) (13), rgb(28, 22, 40) (10), rgba(255, 255, 255, 0.82) (4), rgb(74, 68, 96) (2), rgb(26, 22, 37) (2), rgb(244, 208, 10) (2)\nbackgrounds: rgb(245, 242, 238) (15), rgb(255, 255, 255) (10), rgba(28, 22, 40, 0.08) (4), rgba(255, 255, 255, 0.88) (4), rgb(244, 208, 10) (2), rgb(237, 230, 248) (1)",
+          "fix": "Collapse near-duplicates into tokens (one primary, one accent, 4 to 6 neutrals). Many similar greys read as 'something is off' even when nobody can name it.",
+          "weight": 2
+        },
+        {
+          "key": "font-sizes",
+          "title": "Type scale: 13 distinct font sizes (target ≤ 9)",
+          "status": "warn",
+          "detail": "12px (9), 12.5px (8), 10px (5), 14.5px (4), 10.5px (2), 22px (2), 16px (2), 11px (2), 25px (1), 14px (1)",
+          "fix": "Pick a scale (e.g. 12/14/16/18/24/32/48/64) and map every size to it.",
+          "weight": 2
+        },
+        {
+          "key": "families",
+          "title": "Font families: 2 (target ≤ 3)",
+          "status": "pass",
+          "detail": "Bricolage Grotesque (20), Outfit (19)",
+          "fix": "",
+          "weight": 1
+        },
+        {
+          "key": "weights",
+          "title": "Font weights: 6 (target ≤ 5)",
+          "status": "warn",
+          "detail": "700 (11), 300 (8), 400 (6), 800 (6), 600 (5), 500 (3)",
+          "fix": "",
+          "weight": 1
+        },
+        {
+          "key": "radii",
+          "title": "Corner radii: 10 distinct (target ≤ 5)",
+          "status": "warn",
+          "detail": "pill (13), 16px (5), 11px (4), 10px (4), 7px (4), 28px (1)",
+          "fix": "Two or three radii (small / card / pill). Mixed radii is the most common 'AI-generated' tell.",
+          "weight": 1
+        },
+        {
+          "key": "buttons",
+          "title": "Button variants: 2 distinct styles (target ≤ 5)",
+          "status": "pass",
+          "detail": "1x \"\" [rgb(245, 242, 238) rgb(0, 0, 0) 50%]\n1x \"23K+ subscribers\" [rgb(245, 242, 238) rgb(144, 137, 168) 100px]",
+          "fix": "",
+          "weight": 2
+        },
+        {
+          "key": "readability",
+          "title": "Readability: grade 13.8, Flesch ease 47 (target grade ≤ 9)",
+          "status": "fail",
+          "detail": "170 words, 28.3 words per sentence. H1: \"Mia Meow\"",
+          "fix": "Shorter sentences, concrete nouns, one idea per paragraph. The headline and first paragraph matter most: can a stranger say what this site does after reading them?",
+          "weight": 2
+        },
+        {
+          "key": "h1",
+          "title": "Exactly one H1 (found 1)",
+          "status": "pass",
+          "detail": "\"Mia Meow\"",
+          "fix": "",
+          "weight": 1
+        },
+        {
+          "key": "heading-order",
+          "title": "Heading levels do not skip (0 skips in 2 headings)",
+          "status": "pass",
+          "detail": "",
+          "fix": "",
+          "weight": 1
+        },
+        {
+          "key": "alt",
+          "title": "Images with alt attribute (7/7)",
+          "status": "pass",
+          "detail": "",
+          "fix": "",
+          "weight": 1
+        },
+        {
+          "key": "viewport-meta",
+          "title": "Viewport meta present",
+          "status": "pass",
+          "detail": "",
+          "fix": "",
+          "weight": 2
+        },
+        {
+          "key": "overflow",
+          "title": "No horizontal overflow at 390px",
+          "status": "pass",
+          "detail": "",
+          "fix": "",
+          "weight": 2
+        },
+        {
+          "key": "tap-targets",
+          "title": "Tap targets under 44px at 390px: 2",
+          "status": "warn",
+          "detail": "",
+          "fix": "Give links and buttons at least 44x44px of hit area on mobile (padding counts).",
+          "weight": 1
+        },
+        {
+          "key": "above-fold",
+          "title": "Above the fold on a phone: 3 interactive element(s)",
+          "status": "info",
+          "detail": "\"Share this page\", \"23K+ subscribers\", \"NEW DROP\n\nPROMPT PLAYBOOK\n\nThe Seedance 2.0\nPrompt Playbook.\n\nThe framework I use to control Seedance 2.0. Camera moves, beat-synced music videos, dialogue directing, multi-reference scenes. Built from weeks of testing and the official ByteDance manual.\n\nThe @Tag system and the golden rule\n16 camera terms with Chinese and English\nThe audio-locked MV workaround\nLive Prompt Library with 65+ examples\nGET THE PLAYBOOK\"",
+          "fix": "",
+          "weight": 0
+        }
+      ],
+      "metrics": {
+        "colors": 17,
+        "fontSizes": 13,
+        "families": 2,
+        "weights": 6,
+        "radii": 10,
+        "buttons": 2,
+        "elements": 164
+      },
+      "axe": {
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=playwright",
+            "nodes": 13,
+            "targets": [
+              ".stat",
+              "#sub-count",
+              ".oa-section > div > span",
+              "a[href$=\"flow-prompt/\"] > .link-body > .link-sub",
+              ".video-section > .section-head > .section-label"
+            ]
+          },
+          {
+            "id": "aria-allowed-role",
+            "impact": "minor",
+            "help": "ARIA role should be appropriate for the element",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-allowed-role?application=playwright",
+            "nodes": 4,
+            "targets": [
+              "#vid-1",
+              "#vid-2",
+              "#vid-3",
+              "#vid-4"
+            ]
+          },
+          {
+            "id": "image-redundant-alt",
+            "impact": "minor",
+            "help": "Alternative text of images should not be repeated as text",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/image-redundant-alt?application=playwright",
+            "nodes": 3,
+            "targets": [
+              "#img-1",
+              "#img-2",
+              "#img-3"
+            ]
+          }
+        ]
+      },
+      "readability": {
+        "words": 170,
+        "sentences": 6,
+        "ease": 47,
+        "grade": 13.8,
+        "wordsPerSentence": 28.3
+      },
+      "mobile": {
+        "overflow": false,
+        "smallTargets": 2,
+        "aboveFold": [
+          "Share this page",
+          "23K+ subscribers",
+          "NEW DROP\n\nPROMPT PLAYBOOK\n\nThe Seedance 2.0\nPrompt Playbook.\n\nThe framework I use to control Seedance 2.0. Camera moves, beat-synced music videos, dialogue directing, multi-reference scenes. Built from weeks of testing and the official ByteDance manual.\n\nThe @Tag system and the golden rule\n16 camera terms with Chinese and English\nThe audio-locked MV workaround\nLive Prompt Library with 65+ examples\nGET THE PLAYBOOK"
+        ]
+      },
+      "h1": "Mia Meow",
+      "firstParagraph": "The framework I use to control Seedance 2.0. Camera moves, beat-synced music videos, dialogue directing, multi-reference scenes. Built from weeks of testing and the official ByteDance manual.",
+      "title": "Mia Meow — AI Workflows for Creators",
+      "lang": "en",
+      "palette": {
+        "text": [
+          "rgb(28, 22, 40)",
+          "rgb(144, 137, 168)",
+          "rgb(74, 68, 96)",
+          "rgb(26, 22, 37)",
+          "rgb(244, 208, 10)",
+          "rgb(255, 255, 255)",
+          "rgba(255, 255, 255, 0.72)",
+          "rgba(255, 255, 255, 0.82)",
+          "rgb(123, 84, 179)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "background": [
+          "rgb(255, 255, 255)",
+          "rgb(245, 242, 238)",
+          "rgb(237, 230, 248)",
+          "rgb(26, 22, 37)",
+          "rgb(15, 13, 21)",
+          "rgb(244, 208, 10)",
+          "rgba(28, 22, 40, 0.08)",
+          "rgba(255, 255, 255, 0.92)",
+          "rgb(0, 196, 204)",
+          "rgba(255, 255, 255, 0.88)"
+        ],
+        "fontSizes": [
+          "25px",
+          "12px",
+          "14px",
+          "10px",
+          "10.5px",
+          "22px",
+          "13.5px",
+          "12.5px",
+          "13px",
+          "16px",
+          "14.5px",
+          "9px",
+          "11px"
+        ],
+        "radii": [
+          "28px",
+          "pill",
+          "22px",
+          "16px",
+          "12px",
+          "11px",
+          "20px",
+          "6px",
+          "10px",
+          "7px"
+        ],
+        "families": [
+          "Bricolage Grotesque",
+          "Outfit"
+        ]
+      },
+      "shots": [
+        "design-shots/2026-09-15-miameow.ai/links-390.png",
+        "design-shots/2026-09-15-miameow.ai/links-768.png",
+        "design-shots/2026-09-15-miameow.ai/links-1440.png"
+      ],
+      "score": 61
+    }
+  ],
+  "drift": [
+    {
+      "dim": "text",
+      "lonely": [
+        "oklch(0.446 0.043 257.281) (only on home)",
+        "oklab(0 0 0 / 0.04) (only on home)",
+        "oklch(0.554 0.046 257.417) (only on home)",
+        "oklab(0.999994 0.0000455678 0.0000200868 / 0.03) (only on home)",
+        "oklab(0.999994 0.0000455677 0.0000200868 / 0.7) (only on home)",
+        "oklab(0.999994 0.0000455677 0.0000200868 / 0.8) (only on home)",
+        "rgba(3, 43, 46, 0.8) (only on home)",
+        "rgba(26, 22, 37, 0.6) (only on home)",
+        "rgba(26, 22, 37, 0.7) (only on home)",
+        "rgba(26, 22, 37, 0.5) (only on home)",
+        "oklch(0.704 0.04 256.788) (only on home)",
+        "rgb(100, 116, 139) (only on about)"
+      ],
+      "count": 18
+    },
+    {
+      "dim": "background",
+      "lonely": [
+        "rgba(248, 246, 243, 0.9) (only on home)",
+        "rgb(123, 84, 179) (only on home)",
+        "rgb(237, 232, 245) (only on home)",
+        "rgb(255, 140, 90) (only on home)",
+        "rgb(254, 249, 195) (only on home)",
+        "rgb(232, 228, 240) (only on home)",
+        "rgb(24, 21, 29) (only on home)",
+        "oklab(0.999994 0.0000455678 0.0000200868 / 0.1) (only on home)",
+        "oklch(0.922 0 0) (only on home)",
+        "rgba(123, 84, 179, 0.1) (only on home)",
+        "rgb(245, 242, 238) (only on links)",
+        "rgb(237, 230, 248) (only on links)"
+      ],
+      "count": 16
+    },
+    {
+      "dim": "fontSizes",
+      "lonely": [
+        "24px (only on home)",
+        "96px (only on home)",
+        "88px (only on home)",
+        "18px (only on home)",
+        "48px (only on home)",
+        "72px (only on home)",
+        "288px (only on home)",
+        "60px (only on home)",
+        "30px (only on home)",
+        "40px (only on about)",
+        "28px (only on about)",
+        "13.6px (only on about)"
+      ],
+      "count": 20
+    },
+    {
+      "dim": "radii",
+      "lonely": [
+        "organic (only on home)",
+        "8px (only on home)",
+        "24px (only on about)",
+        "28px (only on links)",
+        "22px (only on links)",
+        "11px (only on links)",
+        "20px (only on links)",
+        "6px (only on links)",
+        "10px (only on links)",
+        "7px (only on links)"
+      ],
+      "count": 10
+    },
+    {
+      "dim": "families",
+      "lonely": [
+        "Inter (only on home)",
+        "Playfair Display (only on home)",
+        "-apple-system (only on about)",
+        "Bricolage Grotesque (only on links)",
+        "Outfit (only on links)"
+      ],
+      "count": 5
+    }
+  ],
+  "overall": 69,
+  "counts": {
+    "pages": 3,
+    "fail": 7,
+    "warn": 12
+  },
+  "delta": {
+    "previous": "2026-09-15",
+    "overall": 1
+  }
+}
