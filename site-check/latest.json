@@ -1,14 +1,14 @@
 {
   "url": "https://miameow.ai",
   "label": "miameow.ai",
-  "checked_at": "2026-09-15T01:08:41",
+  "checked_at": "2026-09-15T02:35:42",
   "repo": "/Users/chiainliao/Documents/Mia's AI Agent/projects/website/meow-web",
   "scores": {
     "safety": 96,
     "seo": 100,
     "aeo": 92,
-    "ux": 90,
-    "overall": 94
+    "ux": 92,
+    "overall": 95
   },
   "items": [
     {
@@ -196,7 +196,7 @@
       "key": "secrets",
       "title": "No API keys or tokens in build output or tracked source",
       "status": "pass",
-      "detail": "Scanned 85 files across dist, public.",
+      "detail": "Scanned 87 files across dist, public.",
       "fix": "",
       "weight": 4,
       "verify": "grep -rE 'AIza[0-9A-Za-z_-]{35}|sk-[A-Za-z0-9_-]{32,}' dist/"
@@ -336,7 +336,7 @@
       "key": "favicon",
       "title": "Favicon declared",
       "status": "pass",
-      "detail": "/favicon.png",
+      "detail": "/favicon.svg",
       "fix": "",
       "weight": 1,
       "verify": ""
@@ -416,7 +416,7 @@
       "key": "html-weight",
       "title": "HTML document under 150 KB",
       "status": "pass",
-      "detail": "35 KB",
+      "detail": "38 KB",
       "fix": "",
       "weight": 1,
       "verify": ""
@@ -474,7 +474,7 @@
     {
       "pillar": "ux",
       "key": "lh-performance",
-      "title": "Lighthouse performance: 97/100",
+      "title": "Lighthouse performance: 100/100",
       "status": "pass",
       "detail": "desktop preset, headless Chrome",
       "fix": "",
@@ -514,7 +514,7 @@
     {
       "pillar": "ux",
       "key": "lh-largest-contentful-paint",
-      "title": "LCP: 1.0 s",
+      "title": "LCP: 0.6 s",
       "status": "pass",
       "detail": "Largest Contentful Paint",
       "fix": "",
@@ -524,7 +524,7 @@
     {
       "pillar": "ux",
       "key": "lh-cumulative-layout-shift",
-      "title": "CLS: 0.002",
+      "title": "CLS: 0.001",
       "status": "pass",
       "detail": "Cumulative Layout Shift",
       "fix": "",
@@ -544,9 +544,9 @@
     {
       "pillar": "ux",
       "key": "lh-total-byte-weight",
-      "title": "Total page weight: Total size was 2,868 KiB",
-      "status": "warn",
-      "detail": "Avoid enormous network payloads",
+      "title": "Total page weight: Total size was 818 KiB",
+      "status": "pass",
+      "detail": "Avoids enormous network payloads",
       "fix": "",
       "weight": 1,
       "verify": ""
@@ -593,6 +593,16 @@
     },
     {
       "pillar": "ux",
+      "key": "lh-audit-unused-javascript",
+      "title": "Reduce unused JavaScript",
+      "status": "warn",
+      "detail": "Est savings of 45 KiB Reduce unused JavaScript and defer loading scripts until they are required to decrease bytes consumed by network activity. Learn how to reduce unused JavaScript.",
+      "fix": "",
+      "weight": 0,
+      "verify": ""
+    },
+    {
+      "pillar": "ux",
       "key": "lh-audit-modern-image-formats",
       "title": "Serve images in next-gen formats",
       "status": "warn",
@@ -606,7 +616,7 @@
       "key": "lh-audit-render-blocking-insight",
       "title": "Render blocking requests",
       "status": "warn",
-      "detail": "Est savings of 420 ms Requests are blocking the page's initial render, which may delay LCP. Deferring or inlining can move these network requests out of the critical path.",
+      "detail": "Est savings of 120 ms Requests are blocking the page's initial render, which may delay LCP. Deferring or inlining can move these network requests out of the critical path.",
       "fix": "",
       "weight": 0,
       "verify": ""
@@ -627,17 +637,17 @@
   },
   "lighthouse": {
     "scores": {
-      "performance": 97,
+      "performance": 100,
       "accessibility": 93,
       "best-practices": 100,
       "seo": 100
     },
-    "fetch_time": "2026-09-15T08:08:32.331Z"
+    "fetch_time": "2026-09-15T09:35:32.690Z"
   },
   "aeo": {
     "url": "https://miameow.ai",
     "brand": "Mia Meow",
-    "audited_at": "2026-09-15T08:08:28+00:00",
+    "audited_at": "2026-09-15T09:35:28+00:00",
     "robots": {
       "found": true,
       "search_bots": [
@@ -764,7 +774,7 @@
     },
     "home": {
       "status": 200,
-      "bytes": 35582,
+      "bytes": 38592,
       "title": "Mia Meow | AI Workflows for Creators",
       "lang": "en",
       "meta_description": "Mia Meow shares practical AI workflows for creators: YouTube tutorials, templates and a community for putting Creative AI into practice.",
@@ -773,7 +783,7 @@
       "canonical": "https://miameow.ai/",
       "modified_signal": "",
       "rss_linked": false,
-      "word_count": 385,
+      "word_count": 376,
       "headings": [
         [
           "h1",
@@ -847,7 +857,7 @@
       "h1_count": 1,
       "subheading_count": 7,
       "first_paragraph": "AI workflows and creative systems for creators who want to put things into practical use. New videos when there is something worth sharing.",
-      "numbers_found": 12,
+      "numbers_found": 11,
       "dates_found": 0,
       "jsonld_types": [
         "WebSite",
@@ -902,7 +912,7 @@
     ]
   },
   "counts": {
-    "pass": 45,
+    "pass": 46,
     "warn": 11,
     "fail": 0,
     "manual": 0,
@@ -911,15 +921,15 @@
   },
   "delta": {
     "previous_date": "2026-09-15",
-    "overall": 2,
+    "overall": 1,
     "pillars": {
       "safety": 0,
-      "seo": 9,
+      "seo": 0,
       "aeo": 0,
-      "ux": 0
+      "ux": 2
     },
     "fixed": [
-      "No broken internal links (sample of home page links)"
+      "Total page weight: Total size was 818 KiB"
     ],
     "regressed": []
   }
