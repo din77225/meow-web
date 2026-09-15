@@ -45,7 +45,9 @@ GENERATED. Editing them by hand is pointless; the next build overwrites them.
 |---|---|---|
 | `scripts/fetch-videos.mjs` | `src/data/videos.json`, `featured.json` | @miameowai RSS (her uploads) |
 | `scripts/fetch-collabs.mjs` | `src/data/collabs.json` | **Collaborations** playlist `PLLIkjseSwB2c` |
-| `scripts/fetch-links-data.mjs` | `public/links-data.json` | the above + subscriber count (for `/links`) |
+| `scripts/fetch-links-data.mjs` | `public/links-data.json`, `src/data/channel.json` | the above + subscriber count + total views (one YouTube channels.list call, floored so 1.19M shows as 1.1M+) + the Skool member count |
+
+**Skool member count is the one hand-set number.** Skool has no public API. Change `SKOOL_MEMBERS` at the top of `scripts/fetch-links-data.mjs` and the homepage stats block, the community blurb and `/links` all update on the next build. `/about/` is a dated brand-facts page: update its "as of" numbers by hand when you change the constant.
 
 **To add a collab video:** save it to the unlisted **Collaborations** playlist
 (`PLLIkjseSwB2c`) on the @miameowai account. ONLY videos hosted on OTHER

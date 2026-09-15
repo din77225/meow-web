@@ -448,10 +448,6 @@ export default function App() {
                   preview on gumroad
                 </a>
               </div>
-
-              <p className="text-xs text-white/50 pt-1">
-                Use code <span className="font-mono font-bold text-[#f4d00a]">EARLY</span> for 35% off at checkout.
-              </p>
             </div>
 
           </div>
@@ -490,11 +486,11 @@ export default function App() {
                   <p className="text-xs uppercase tracking-widest text-[#7b54b3] font-bold mt-1">subscribers</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-black text-[#032b2e]">900+</p>
+                  <p className="text-3xl font-black text-[#032b2e]">{channelData.members}</p>
                   <p className="text-xs uppercase tracking-widest text-[#7b54b3] font-bold mt-1">skool members</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-black text-[#032b2e]">1.1M+</p>
+                  <p className="text-3xl font-black text-[#032b2e]">{channelData.views}</p>
                   <p className="text-xs uppercase tracking-widest text-[#7b54b3] font-bold mt-1">total views</p>
                 </div>
               </div>
@@ -542,7 +538,7 @@ export default function App() {
             <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#7b54b3] mb-3">skool community</p>
             <h2 className="chunky-text text-4xl lg:text-6xl mb-6 tracking-tight">the<br/>community</h2>
             <p className="text-base lg:text-lg font-serif text-slate-500 italic max-w-sm mb-8 leading-relaxed">
-              900+ creators sharing workflows, resources, and feedback every day. Come build in public.
+              {channelData.members} creators sharing workflows, resources, and feedback every day. Come build in public.
             </p>
             <a
               href="https://www.skool.com/ai-creator-labs-2150"

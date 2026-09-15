@@ -742,9 +742,6 @@
             Get the playbook
             <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </span>
-          <span class="product-discount">
-            Use code <code>EARLY</code> for 25% off at checkout.
-          </span>
         </div>
       </a>
     </section>
@@ -896,7 +893,7 @@
           </div>
           <div class="link-body">
             <p class="link-title">AI Creator Labs</p>
-            <p class="link-sub">900+ members on Skool</p>
+            <p class="link-sub"><span id="member-count">1,000+</span> members on Skool</p>
           </div>
           <svg class="link-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
@@ -1019,7 +1016,7 @@
   }
 
   async function loadVideos() {
-    let videos = [], subscribers = null;
+    let videos = [], subscribers = null, members = null;
 
     try {
       const ac  = new AbortController();
@@ -1030,12 +1027,17 @@
         const d  = await r.json();
         videos      = d.videos      || [];
         subscribers = d.subscribers || null;
+        members     = d.members     || null;
       }
     } catch {}
 
     if (subscribers) {
       const el = document.getElementById('sub-count');
       if (el) el.textContent = subscribers;
+    }
+    if (members) {
+      const el = document.getElementById('member-count');
+      if (el) el.textContent = members;
     }
 
     if (!videos.length) {

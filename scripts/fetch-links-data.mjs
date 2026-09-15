@@ -32,21 +32,29 @@ function readJson(name, fallback) {
   try { return JSON.parse(readFileSync(p, 'utf8')); } catch { return fallback; }
 }
 
+// Skool has no public API, so the member count is hand-set here. This is the ONE
+// place to change it; the homepage, /links and channel.json all read from it.
+// (/about/ is a dated brand-facts page and is updated by hand on purpose.)
+const SKOOL_MEMBERS = '1,000+';
+
 function formatCount(n) {
   n = parseInt(n, 10);
   if (isNaN(n))       return null;
-  if (n >= 1_000_000) return (n / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'M+';
+  // Floor, never round up: 1,198,392 views is "1.1M+", not "1.2M+".
+  if (n >= 1_000_000) return (Math.floor(n / 100_000) / 10).toFixed(1).replace(/\.0$/, '') + 'M+';
   if (n >= 1_000)     return Math.floor(n / 1_000) + 'K+';
   return String(n);
 }
 
-async function subscribers() {
-  if (!KEY) return null;
+// One channels.list call (1 API unit) returns subscribers AND total views.
+async function channelStats() {
+  if (!KEY) return { subs: null, views: null };
   try {
     const res  = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${CHANNEL_ID}&key=${KEY}`);
     const data = await res.json();
-    return formatCount(data.items?.[0]?.statistics?.subscriberCount);
-  } catch { return null; }
+    const st = data.items?.[0]?.statistics || {};
+    return { subs: formatCount(st.subscriberCount), views: formatCount(st.viewCount) };
+  } catch { return { subs: null, views: null }; }
 }
 
 async function run() {
@@ -69,16 +77,24 @@ async function run() {
       publishedAt: v.publishedAt || '',
     }));
 
-  const subs = await subscribers();
+  const { subs, views } = await channelStats();
+  // If the API call failed (no key, quota), keep the last good numbers rather
+  // than blanking the stats block.
+  const channelPath = join(__dirname, '../src/data/channel.json');
+  const prev = existsSync(channelPath) ? JSON.parse(readFileSync(channelPath, 'utf8')) : {};
+  const channel = {
+    subscribers: subs   || prev.subscribers || null,
+    views:       views  || prev.views       || null,
+    members:     SKOOL_MEMBERS,
+    updated:     (subs || views) ? new Date().toISOString().slice(0, 10) : (prev.updated || null),
+  };
 
-  const payload = { videos: merged, subscribers: subs };
+  const payload = { videos: merged, subscribers: channel.subscribers, views: channel.views, members: channel.members };
   writeFileSync(OUTPUT, JSON.stringify(payload, null, 2) + '\n');
-  // Same subscriber count for the homepage stats block, so the site never shows
-  // two different numbers (AI answers pick up inconsistent facts).
-  if (subs) {
-    writeFileSync(join(__dirname, '../src/data/channel.json'), JSON.stringify({ subscribers: subs, updated: new Date().toISOString().slice(0, 10) }, null, 2) + '\n');
-  }
-  console.log(`  Done — ${merged.length} video(s)${subs ? `, ${subs} subscribers` : ' (subscribers unchanged)'} → public/links-data.json`);
+  // Same numbers for the homepage stats block, so the site never shows two
+  // different figures (AI answers pick up inconsistent facts).
+  writeFileSync(channelPath, JSON.stringify(channel, null, 2) + '\n');
+  console.log(`  Done — ${merged.length} video(s), ${channel.subscribers} subscribers, ${channel.views} views, ${channel.members} members → public/links-data.json`);
   merged.forEach(v => console.log(`    ${v.publishedAt}  ${v.videoId}  ${(v.title || '').slice(0, 44)}`));
   console.log('');
 }
