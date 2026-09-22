@@ -1,6 +1,12 @@
 {
   "videos": [
     {
+      "videoId": "KxGtaHUoKNM",
+      "title": "Direct Your AI Video Before Generation | Seedance 2.5 + Blender",
+      "url": "https://www.youtube.com/watch?v=KxGtaHUoKNM",
+      "publishedAt": "2026-09-22"
+    },
+    {
       "videoId": "UQFeYQgqKpA",
       "title": "I Made an AI Short Film Just By Chatting | OpenArt Director",
       "url": "https://www.youtube.com/watch?v=UQFeYQgqKpA",
@@ -17,12 +23,6 @@
       "title": "How to Put Yourself Into ANY AI World With This New VFX Workflow",
       "url": "https://www.youtube.com/watch?v=QRW9ywy-4lw",
       "publishedAt": "2026-06-22"
-    },
-    {
-      "videoId": "yg1_uC9QJPw",
-      "title": "This AI Combo Changed How I Make Ads (GPT Image 2 + Seedance 2.0)",
-      "url": "https://www.youtube.com/watch?v=yg1_uC9QJPw",
-      "publishedAt": "2026-05-15"
     }
   ],
   "subscribers": "23K+",
