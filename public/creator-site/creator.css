@@ -47,3 +47,7 @@
 .creator .nav nav>a{min-width:44px;justify-content:center}.business-inquiries a{display:inline-flex;align-items:center;min-height:44px}
 .creator a:focus-visible,.creator button:focus-visible,.creator input:focus-visible{outline:2px solid var(--teal,#00c4cc);outline-offset:5px}
 @media(max-width:600px){.creator main p,.creator .section-head>p,.creator .upcoming-course p,.creator .resource-feature p,.creator .stage-copy p{font-size:16px;line-height:1.65}.creator .btn,.creator .actions>.link{font-size:14px}.creator .portrait-content .actions .btn{font-size:14px}.creator .eyebrow{font-size:11px}.creator-proof small{font-size:11px}.creator .logo small{font-size:10px}}
+
+/* Give the community card its own space before the footer. */
+.creator .community-panel{margin-block:32px 80px}
+@media(max-width:600px){.creator .community-panel{margin-block:24px 48px}}
