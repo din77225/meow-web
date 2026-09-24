@@ -64,7 +64,7 @@
 
 .brand-logos img[src$="openart.webp"]{height:48px;max-width:170px}.brand-logos img[src$="dzine.svg"]{height:26px}.brand-logos img[src$="tripo.png"]{mix-blend-mode:screen}
 
-/* Four brands per slide; quiet controls retain comfortable hit targets. */
+/* Five brands visible; quiet controls retain comfortable hit targets. */
 .brand-heading{position:relative;display:flex;justify-content:center;align-items:center;margin-bottom:26px;min-height:44px}
 .creator .brand-heading h2{margin:0;padding-inline:130px}
 .brand-controls{position:absolute;right:0;display:flex;gap:0}.brand-controls[hidden]{display:none}
@@ -73,5 +73,5 @@
 .brand-controls svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .brand-banner.is-carousel .brand-window{overflow:hidden}
 .brand-banner.is-carousel .brand-logos{display:flex;gap:0;will-change:transform}
-.brand-banner.is-carousel .brand-logos li{flex:0 0 25%;min-width:0;min-height:58px;padding-inline:12px}
+.brand-banner.is-carousel .brand-logos li{flex:0 0 20%;min-width:0;min-height:58px;padding-inline:12px}
 @media(max-width:650px){.brand-heading{justify-content:space-between;margin-bottom:18px}.creator .brand-heading h2{padding:0;text-align:left;font-size:14px;max-width:calc(100% - 132px)}.brand-banner.is-carousel .brand-logos li{flex-basis:50%;padding-inline:8px}.brand-banner.is-carousel .brand-logos img[src$="openart.webp"]{max-width:150px}}
