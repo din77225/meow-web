@@ -28,11 +28,13 @@ miameow.ai works HERE. Read this before editing.
 ## Where each page lives (what file to edit)
 | URL | File | Type |
 |---|---|---|
-| `/` homepage | `src/App.tsx` | React (anchor-based single page) |
+| `/` homepage | `index.html`, `src/creator.js`, `public/creator-site/` | Static HTML with progressive enhancement |
 | `/links` | `public/links/index.html` | Static (folded-in link-in-bio) |
 | `/flow-prompt/` | `public/flow-prompt/index.html` | Static |
 | `/ai-marketing-course/` | `public/ai-marketing-course/` | Static, WIP, unlinked |
 | `/privacy.html`, `/404.html` | `public/` | Static |
+
+The homepage is the approved dark creator design with the personal footer (2026-09-24). Edit its markup in `index.html`, behavior in `src/creator.js`, and styles/media in `public/creator-site/`. `scripts/prerender.mjs` refreshes the ten-video rail and subscriber fallback after Vite. `src/App.tsx` is the retired React design and is no longer loaded. Local studies in `design-explorations/` are not deployed.
 
 No client-side router. Cloudflare serves static files first and falls back to
 `404.html` for unknown paths, so no `_redirects` file is needed.

@@ -89,7 +89,7 @@ async function run() {
     updated:     (subs || views) ? new Date().toISOString().slice(0, 10) : (prev.updated || null),
   };
 
-  const payload = { videos: merged, subscribers: channel.subscribers, views: channel.views, members: channel.members };
+  const payload = { videos: merged, subscribers: channel.subscribers, views: channel.views, members: channel.members, updated: channel.updated };
   writeFileSync(OUTPUT, JSON.stringify(payload, null, 2) + '\n');
   // Same numbers for the homepage stats block, so the site never shows two
   // different figures (AI answers pick up inconsistent facts).

@@ -1,0 +1,530 @@
+{
+  "page": null,
+  "width": "390",
+  "metrics": {
+    "title": "Mia Meow | AI Workflows for Creators",
+    "lang": "en",
+    "viewportMeta": true,
+    "text": "Skip to content\nmia meow\nAI workflows for creators\nMenu\n+\nAI WORKFLOWS FOR CREATORS\nCreative AI\nin practice.\n\nI’m Mia. I make YouTube tutorials on AI video, images, and creative workflows. Follow along with the tools, prompts, and steps I use in my own projects.\n\nWatch on YouTube\n↗\nBrowse tutorials\n↓\n23K+\nYouTube subscribers\n1,000+ creators\nSkool community\nFROM THE YOUTUBE CHANNEL\nWatch the\ntutorials.\n\nLearn how to make AI videos, create images, and put the tools together. Each video walks you through a project or technique.\n\n←\n→\n▷\n01 / TUTORIAL\nDirect Your AI Video Before Generation | Seedance 2.5 + Blender\n▷\n02 / WORKFLOW\nI Made an AI Short Film Just By Chatting | OpenArt Director\n▷\n03 / TUTORIAL\nStop Hiring Agencies - Make Ads Like This Instead\n▷\n04 / TUTORIAL\nHow to Put Yourself Into ANY AI World With This New VFX Workflow\n▷\n05 / TUTORIAL\nThis AI Combo Changed How I Make Ads (GPT Image 2 + Seedance 2.0)\n▷\n06 / WORKFLOW\nScript to Viral in One Prompt | Agent Opus Changes Everything\n▷\n07 / COLLAB\nMaster Seedance 2.0 in Minutes!\n▷\n08 / REVIEW\nBuild Your Own AI Film Set with One Image\n▷\n09 / USE CASE\nTransfer Human Motion to Any Avatar with AI (5 Use Cases)\n▷\n10 / TUTORIAL\nComplete Storyboard Generation in Minutes (No Drawing Skills Needed)\nKEEP EXPLORING\n↗\nSee the\nfull channel.\nMore videos on YouTube\nAI TIPS AND TRICKS\nPrompts\nand guides.\n\nExplore the prompts, guides, and AI tips from my videos. Find resources you can use in your own creative projects.\n\nBrowse the resources\n↗\nBEGINNER AI VIDEO COURSE\nCOMING SOON\nMake your first\nAI video.\n\nLearn to turn an idea into a finished video, from creating images and directing motion to editing and sound. Build your own video as you learn. No AI experience needed.\n\nSign up for course updates\n↗\nTHE PERSON BEHIND THE CHANNEL\nHi, I’m Mia.\n\nI’m a creator, marketer, and AI enthusiast. I test AI tools in my own projects, then share the steps, results, and things I’d change on YouTube.\n\nI also teach workshops and creative workflows. My goal is to help you understand the tools and use them to make something of your own.\n\nMia\nAI CREATOR LABS ON SKOOL\nJoin the\ncreator community.\n\nAsk questions, share what you’re making, and learn with 1,000+ creators in AI Creator Labs, my Skool community.\n\nJoin the Skool community\n↗\n1,000+\ncreators learning\ntogether on Skool.\nMia\nMORE ON YOUTUBE\nFind your next\nAI tutorial.\n\nPractical videos on AI images, video, and creative workflows.\n\nWatch on YouTube\nYouTube\nInstagram\nSkool\nBUSINESS INQUIRIES\nmia@miameow.ai\nmia meow\nPrompts & downloads\n© 2026 Mia Meow\nPrivacy policy",
+    "h1": "Creative AI\nin practice.",
+    "h1Count": 1,
+    "firstParagraph": "I’m Mia. I make YouTube tutorials on AI video, images, and creative workflows. Follow along with the tools, prompts, and steps I use in my own projects.",
+    "headingSkips": 0,
+    "headingCount": 18,
+    "images": 18,
+    "imagesNoAlt": 0,
+    "tally": {
+      "color": {
+        "rgb(248, 246, 243)": {
+          "n": 55,
+          "ex": [
+            "a.skip",
+            "span",
+            "button.menu"
+          ]
+        },
+        "rgb(189, 180, 198)": {
+          "n": 17,
+          "ex": [
+            "small",
+            "small",
+            "small"
+          ]
+        },
+        "rgb(201, 173, 235)": {
+          "n": 25,
+          "ex": [
+            "span.eyebrow",
+            "em",
+            "span.eyebrow"
+          ]
+        },
+        "rgb(217, 210, 223)": {
+          "n": 1,
+          "ex": [
+            "p"
+          ]
+        },
+        "rgb(32, 23, 40)": {
+          "n": 1,
+          "ex": [
+            "a.fo-button"
+          ]
+        }
+      },
+      "fontSize": {
+        "16px": {
+          "n": 11,
+          "ex": [
+            "a.skip",
+            "p",
+            "strong"
+          ]
+        },
+        "24px": {
+          "n": 1,
+          "ex": [
+            "span"
+          ]
+        },
+        "10px": {
+          "n": 3,
+          "ex": [
+            "small",
+            "span.course-status",
+            "span.fo-label"
+          ]
+        },
+        "13px": {
+          "n": 4,
+          "ex": [
+            "button.menu",
+            "span",
+            "span"
+          ]
+        },
+        "22px": {
+          "n": 18,
+          "ex": [
+            "span",
+            "span",
+            "span"
+          ]
+        },
+        "11px": {
+          "n": 23,
+          "ex": [
+            "span.eyebrow",
+            "small",
+            "small"
+          ]
+        },
+        "53.43px": {
+          "n": 2,
+          "ex": [
+            "h1",
+            "em"
+          ]
+        },
+        "14px": {
+          "n": 7,
+          "ex": [
+            "a.btn",
+            "a.link",
+            "a.btn"
+          ]
+        },
+        "17px": {
+          "n": 1,
+          "ex": [
+            "strong"
+          ]
+        },
+        "44px": {
+          "n": 4,
+          "ex": [
+            "h2",
+            "em",
+            "h2"
+          ]
+        },
+        "19px": {
+          "n": 10,
+          "ex": [
+            "h3",
+            "h3",
+            "h3"
+          ]
+        },
+        "58px": {
+          "n": 1,
+          "ex": [
+            "span.channel-arrow"
+          ]
+        },
+        "40px": {
+          "n": 1,
+          "ex": [
+            "h3"
+          ]
+        },
+        "12px": {
+          "n": 2,
+          "ex": [
+            "span",
+            "a.fo-button"
+          ]
+        },
+        "48px": {
+          "n": 2,
+          "ex": [
+            "h2",
+            "em"
+          ]
+        },
+        "49px": {
+          "n": 2,
+          "ex": [
+            "h2",
+            "strong"
+          ]
+        },
+        "52px": {
+          "n": 1,
+          "ex": [
+            "span.signature"
+          ]
+        },
+        "39px": {
+          "n": 2,
+          "ex": [
+            "h2",
+            "em"
+          ]
+        },
+        "30px": {
+          "n": 1,
+          "ex": [
+            "span.fo-signature"
+          ]
+        },
+        "34px": {
+          "n": 1,
+          "ex": [
+            "h2"
+          ]
+        },
+        "18px": {
+          "n": 1,
+          "ex": [
+            "a.fo-email"
+          ]
+        },
+        "32px": {
+          "n": 1,
+          "ex": [
+            "span"
+          ]
+        }
+      },
+      "fontFamily": {
+        "Inter": {
+          "n": 81,
+          "ex": [
+            "a.skip",
+            "small",
+            "button.menu"
+          ]
+        },
+        "Gilroy": {
+          "n": 11,
+          "ex": [
+            "span",
+            "h1",
+            "h2"
+          ]
+        },
+        "Iowan Old Style": {
+          "n": 5,
+          "ex": [
+            "em",
+            "em",
+            "em"
+          ]
+        },
+        "MiaHand": {
+          "n": 1,
+          "ex": [
+            "span.signature"
+          ]
+        },
+        "Caveat": {
+          "n": 1,
+          "ex": [
+            "span.fo-signature"
+          ]
+        }
+      },
+      "fontWeight": {
+        "400": {
+          "n": 44,
+          "ex": [
+            "a.skip",
+            "small",
+            "button.menu"
+          ]
+        },
+        "500": {
+          "n": 3,
+          "ex": [
+            "a.link",
+            "span",
+            "span.signature"
+          ]
+        },
+        "600": {
+          "n": 38,
+          "ex": [
+            "span.eyebrow",
+            "a.btn",
+            "span"
+          ]
+        },
+        "700": {
+          "n": 3,
+          "ex": [
+            "strong",
+            "strong",
+            "span"
+          ]
+        },
+        "900": {
+          "n": 11,
+          "ex": [
+            "span",
+            "h1",
+            "h2"
+          ]
+        }
+      },
+      "background": {
+        "rgb(123, 84, 179)": {
+          "n": 5,
+          "ex": [
+            "a.skip",
+            "a.btn",
+            "a.btn"
+          ]
+        },
+        "rgb(19, 16, 25)": {
+          "n": 1,
+          "ex": [
+            "section.portrait-hero"
+          ]
+        },
+        "rgb(20, 17, 24)": {
+          "n": 10,
+          "ex": [
+            "span",
+            "span",
+            "span"
+          ]
+        },
+        "rgb(32, 27, 39)": {
+          "n": 2,
+          "ex": [
+            "a.channel-end",
+            "section.community-panel.shell"
+          ]
+        },
+        "rgb(9, 8, 12)": {
+          "n": 1,
+          "ex": [
+            "video.course-loop"
+          ]
+        },
+        "rgb(38, 29, 50)": {
+          "n": 1,
+          "ex": [
+            "footer.fo.fo-personal"
+          ]
+        },
+        "rgb(201, 173, 235)": {
+          "n": 1,
+          "ex": [
+            "a.fo-button"
+          ]
+        },
+        "rgb(250, 247, 241)": {
+          "n": 1,
+          "ex": [
+            "span.fo-skool-crop"
+          ]
+        }
+      },
+      "radius": {
+        "4px": {
+          "n": 4,
+          "ex": [
+            "a.btn",
+            "a.btn",
+            "a.btn"
+          ]
+        },
+        "pill": {
+          "n": 4,
+          "ex": [
+            "img",
+            "button.rail-prev",
+            "button.rail-next"
+          ]
+        },
+        "3px": {
+          "n": 1,
+          "ex": [
+            "span.fo-skool-crop"
+          ]
+        }
+      }
+    },
+    "buttons": {
+      "rgb(123, 84, 179)|rgb(248, 246, 243)|0px|16px|400|12px": {
+        "n": 1,
+        "text": [
+          "Skip to content"
+        ]
+      },
+      "rgba(0, 0, 0, 0)|rgb(248, 246, 243)|0px|13px|400|12px": {
+        "n": 1,
+        "text": [
+          "Menu\n+"
+        ]
+      },
+      "rgb(123, 84, 179)|rgb(248, 246, 243)|4px|14px|600|16px": {
+        "n": 1,
+        "text": [
+          "Watch on YouTube\n↗"
+        ]
+      },
+      "rgba(0, 0, 0, 0)|rgb(248, 246, 243)|50%|22px|400|6px": {
+        "n": 2,
+        "text": [
+          "←",
+          "→"
+        ]
+      },
+      "rgb(123, 84, 179)|rgb(248, 246, 243)|4px|14px|600|24px": {
+        "n": 2,
+        "text": [
+          "Browse the resources\n↗",
+          "Sign up for course updates\n↗"
+        ]
+      },
+      "rgb(123, 84, 179)|rgb(248, 246, 243)|4px|14px|600|17px": {
+        "n": 1,
+        "text": [
+          "Join the Skool community\n↗"
+        ]
+      },
+      "rgb(201, 173, 235)|rgb(32, 23, 40)|0px|12px|600|12px": {
+        "n": 1,
+        "text": [
+          "Watch on YouTube"
+        ]
+      }
+    },
+    "aboveFold": [
+      "Skip to content",
+      "mia meow\nAI workflows for creators",
+      "Menu\n+",
+      "Watch on YouTube\n↗",
+      "Browse tutorials\n↓",
+      "23K+\nYouTube subscribers",
+      "1,000+ creators\nSkool community"
+    ],
+    "smallTargets": 0,
+    "overflow": false,
+    "elements": 212
+  },
+  "axe": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "targets": [
+          [
+            ".link > span[aria-hidden=\"true\"]"
+          ],
+          [
+            ".rail-next"
+          ],
+          [
+            ".video-card[target=\"_blank\"][rel=\"noopener\"]:nth-child(1) > .thumb > span[aria-hidden=\"true\"]"
+          ],
+          [
+            ".video-card[target=\"_blank\"][rel=\"noopener\"]:nth-child(2) > .thumb > span[aria-hidden=\"true\"]"
+          ],
+          [
+            ".video-card[target=\"_blank\"][rel=\"noopener\"]:nth-child(2) > .eyebrow"
+          ],
+          [
+            ".video-card[target=\"_blank\"][rel=\"noopener\"]:nth-child(2) > h3"
+          ],
+          [
+            ".video-card[target=\"_blank\"][rel=\"noopener\"]:nth-child(3) > .thumb > span[aria-hidden=\"true\"]"
+          ],
+          [
+            ".video-card[target=\"_blank\"][rel=\"noopener\"]:nth-child(3) > .eyebrow"
+          ],
+          [
+            ".video-card[target=\"_blank\"][rel=\"noopener\"]:nth-child(3) > h3"
+          ],
+          [
+            ".video-card[target=\"_blank\"][rel=\"noopener\"]:nth-child(4) > .thumb > span[aria-hidden=\"true\"]"
+          ],
+          [
+            ".video-card[target=\"_blank\"][rel=\"noopener\"]:nth-child(4) > .eyebrow"
+          ],
+          [
+            ".video-card[target=\"_blank\"][rel=\"noopener\"]:nth-child(4) > h3"
+          ],
+          [
+            ".video-card[target=\"_blank\"][rel=\"noopener\"]:nth-child(5) > .thumb > span[aria-hidden=\"true\"]"
+          ],
+          [
+            ".video-card[target=\"_blank\"][rel=\"noopener\"]:nth-child(5) > .eyebrow"
+          ],
+          [
+            ".video-card[target=\"_blank\"][rel=\"noopener\"]:nth-child(5) > h3"
+          ],
+          [
+            ".video-card[target=\"_blank\"][rel=\"noopener\"]:nth-child(6) > .thumb > span[aria-hidden=\"true\"]"
+          ],
+          [
+            ".video-card[target=\"_blank\"][rel=\"noopener\"]:nth-child(6) > .eyebrow"
+          ],
+          [
+            ".video-card[target=\"_blank\"][rel=\"noopener\"]:nth-child(6) > h3"
+          ],
+          [
+            ".video-card[target=\"_blank\"][rel=\"noopener\"]:nth-child(7) > .thumb > span[aria-hidden=\"true\"]"
+          ],
+          [
+            ".video-card[target=\"_blank\"][rel=\"noopener\"]:nth-child(7) > .eyebrow"
+          ],
+          [
+            ".video-card[target=\"_blank\"][rel=\"noopener\"]:nth-child(7) > h3"
+          ],
+          [
+            ".video-card[target=\"_blank\"][rel=\"noopener\"]:nth-child(8) > .thumb > span[aria-hidden=\"true\"]"
+          ],
+          [
+            ".video-card[target=\"_blank\"][rel=\"noopener\"]:nth-child(8) > .eyebrow"
+          ],
+          [
+            ".video-card[target=\"_blank\"][rel=\"noopener\"]:nth-child(8) > h3"
+          ],
+          [
+            ".video-card[target=\"_blank\"][rel=\"noopener\"]:nth-child(9) > .thumb > span[aria-hidden=\"true\"]"
+          ],
+          [
+            ".video-card[target=\"_blank\"][rel=\"noopener\"]:nth-child(9) > .eyebrow"
+          ],
+          [
+            ".video-card[target=\"_blank\"][rel=\"noopener\"]:nth-child(9) > h3"
+          ],
+          [
+            ".video-card[target=\"_blank\"][rel=\"noopener\"]:nth-child(10) > .thumb > span[aria-hidden=\"true\"]"
+          ],
+          [
+            ".video-card[target=\"_blank\"][rel=\"noopener\"]:nth-child(10) > .eyebrow"
+          ],
+          [
+            ".video-card[target=\"_blank\"][rel=\"noopener\"]:nth-child(10) > h3"
+          ]
+        ]
+      }
+    ],
+    "passes": 40
+  }
+}

@@ -16,7 +16,7 @@ const OUTPUT          = join(__dirname, '../src/data/videos.json');
 const OUTPUT_FEATURED = join(__dirname, '../src/data/featured.json');
 const TAG_OVERRIDES   = join(__dirname, '../src/data/tag-overrides.json');
 const HANDLE          = 'miameowai';
-const MAX             = 8;
+const MAX             = 10;
 
 const HEADERS = {
   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36',

@@ -1,37 +1,21 @@
-// Prerender the homepage into dist/index.html after `vite build`.
-//
-// Why: AEO. Answer engines' crawlers fetch HTML but most do not run JS. Before
-// this step a non-JS crawler saw ~70 words (the <noscript> block). After it,
-// they see the full page. The client then hydrates the same markup.
-//
-// Deterministic, $0, no network. Fails the build loudly if rendering throws,
-// so a broken prerender never ships an empty page silently.
-import {createServer} from 'vite';
-import {readFile, writeFile} from 'node:fs/promises';
-import path from 'node:path';
-
-const root = process.cwd();
-const distIndex = path.join(root, 'dist', 'index.html');
-
-const vite = await createServer({
-  root,
-  logLevel: 'error',
-  server: {middlewareMode: true},
-  appType: 'custom',
-});
-
-try {
-  const {render} = await vite.ssrLoadModule('/src/entry-prerender.tsx');
-  const appHtml = render();
-  const words = appHtml.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
-  if (words < 200) throw new Error(`prerender produced only ${words} words; refusing to ship`);
-
-  let html = await readFile(distIndex, 'utf8');
-  const marker = '<div id="root"></div>';
-  if (!html.includes(marker)) throw new Error('dist/index.html has no empty #root marker');
-  html = html.replace(marker, `<div id="root">${appHtml}</div>`);
-  await writeFile(distIndex, html);
-  console.log(`prerender: injected ${words} words into dist/index.html`);
-} finally {
-  await vite.close();
-}
+// Static HTML homepage: refresh public content after Vite, with no React hydration.
+import {readFile,writeFile} from 'node:fs/promises';
+const readJson=async name=>JSON.parse(await readFile(new URL(`../src/data/${name}`,import.meta.url),'utf8'));
+const [uploads,collabs,featured,channel]=await Promise.all(['videos.json','collabs.json','featured.json','channel.json'].map(readJson));
+const seen=new Set();
+const videos=[featured,...uploads,...collabs].filter(v=>v&&/^[A-Za-z0-9_-]{11}$/.test(v.id)&&!seen.has(v.id)&&seen.add(v.id)).sort((a,b)=>(b.publishedAt||'').localeCompare(a.publishedAt||'')).slice(0,10);
+if(videos.length<1)throw Error('No usable videos: refusing empty homepage');
+const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const cards=videos.map((v,i)=>`<a class="video-card" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener"><div class="thumb"><img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="" width="480" height="360" loading="lazy"><span aria-hidden="true">▷</span></div><span class="eyebrow">${String(i+1).padStart(2,'0')} / ${escape(v.tag||'Video')}</span><h3>${escape(v.title)}</h3></a>`).join('');
+const file=new URL('../dist/index.html',import.meta.url);
+let html=await readFile(file,'utf8');
+if(!html.includes('<!-- VIDEOS_START -->'))throw Error('Missing homepage video slot');
+html=html.replace(/<!-- VIDEOS_START -->[\s\S]*?<!-- VIDEOS_END -->/,`<!-- VIDEOS_START -->${cards}<!-- VIDEOS_END -->`);
+const subscribers=/^\d[\d,.]*(?:[KM])?\+?$/.test(channel.subscribers||'')?channel.subscribers:'YouTube';
+html=html.replace(/(<strong data-stat="subscribers"[^>]*>)[^<]*(<\/strong>)/,(_,open,close)=>open.replace('>',channel.updated?` title="YouTube count updated ${escape(channel.updated)}">`:'>')+escape(subscribers)+close);
+html=html.replace('Ten videos followed by the full YouTube channel',`${videos.length} videos followed by the full YouTube channel`);
+const words=html.replace(/<[^>]+>/g,' ').split(/\s+/).filter(Boolean).length;
+if(words<200)throw Error('Homepage content unexpectedly empty');
+if(/noindex|Footer options|Preview course section/.test(html))throw Error('Preview controls or noindex in production');
+await writeFile(file,html);
+console.log(`homepage: ${videos.length} videos, ${subscribers} subscribers, ${words} words of static HTML`);
