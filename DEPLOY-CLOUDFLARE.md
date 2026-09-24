@@ -71,7 +71,7 @@ Open `your-project.pages.dev/links` and `.../flow-prompt/` to confirm they work.
    - Name: `CF_DEPLOY_HOOK`
    - Value: the deploy-hook URL
 3. Done. The workflow in `.github/workflows/scheduled-rebuild.yml` pings that
-   hook every morning, so new uploads and new playlist collabs appear on their
+   hook every six hours, so new uploads and new playlist collabs appear on their
    own. You can also fire it manually from the repo's **Actions** tab.
 
 ## Step 5 — retire the old hosts **[you]**
@@ -87,7 +87,7 @@ Open `your-project.pages.dev/links` and `.../flow-prompt/` to confirm they work.
 
 1. Open the collab video on the OTHER channel.
 2. Save it to your **Collaborations** playlist (the unlisted one, `PLLIkjseSwB2c`).
-3. That's it. Next daily rebuild (or a manual Actions run) shows it on the site.
+3. That's it. Next scheduled rebuild (or a manual Actions run) shows it on the site.
    Do NOT add collabs that are uploaded to your own channel; those appear on
    their own.
 

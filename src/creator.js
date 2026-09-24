@@ -68,3 +68,27 @@ document.querySelectorAll('.course-loop,.resource-loop').forEach(loop=>{
  const observer=new IntersectionObserver(entries=>{nearViewport=entries[0].isIntersecting;syncMotion();},{rootMargin:'150px'});observer.observe(loop);
  syncMotion();updateMotionButton();
 });
+
+// Brand credits: advance a group, pause out of view, and honor reduced motion.
+const brandBanner=document.querySelector('.brand-banner');
+if(brandBanner){
+ const track=brandBanner.querySelector('.brand-logos'), viewport=brandBanner.querySelector('.brand-window'), controls=brandBanner.querySelector('.brand-controls');
+ const originals=[...track.children], count=originals.length, motion=matchMedia('(prefers-reduced-motion:reduce)');
+ let index=0,width=0,paused=motion.matches,hovered=false,focused=false,visible=false,moving=false,timer;
+ originals.forEach(item=>{const clone=item.cloneNode(true);clone.setAttribute('aria-hidden','true');track.append(clone);});
+ brandBanner.classList.add('is-carousel');controls.hidden=false;
+ const perPage=()=>matchMedia('(max-width:650px)').matches?2:4;
+ const paint=()=>track.style.transform=`translateX(${-index*width}px)`;
+ const pauseButton=controls.querySelector('[data-brand-pause]');
+ function updateButton(){pauseButton.setAttribute('aria-pressed',String(paused));pauseButton.setAttribute('aria-label',paused?'Play brand slideshow':'Pause brand slideshow');pauseButton.title=paused?'Play':'Pause';pauseButton.innerHTML=paused?'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 9 6-9 6Z"/></svg>':'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7v10M15 7v10"/></svg>';}
+ function schedule(){clearTimeout(timer);if(!paused&&!hovered&&!focused&&visible&&!document.hidden&&!moving)timer=setTimeout(()=>move(perPage()),5000);}
+ function move(amount){if(moving)return;clearTimeout(timer);if(index+amount<0){index+=count;track.style.transition='none';paint();track.getBoundingClientRect();}index+=amount;moving=true;track.style.transition=motion.matches?'none':'transform 750ms cubic-bezier(.22,1,.36,1)';paint();setTimeout(()=>{index=((index%count)+count)%count;track.style.transition='none';paint();moving=false;schedule();},motion.matches?0:780);}
+ controls.querySelector('[data-brand-prev]').addEventListener('click',()=>move(-perPage()));controls.querySelector('[data-brand-next]').addEventListener('click',()=>move(perPage()));
+ pauseButton.addEventListener('click',()=>{paused=!paused;updateButton();schedule();});
+ brandBanner.addEventListener('mouseenter',()=>{hovered=true;schedule();});brandBanner.addEventListener('mouseleave',()=>{hovered=false;schedule();});
+ brandBanner.addEventListener('focusin',()=>{focused=true;schedule();});brandBanner.addEventListener('focusout',e=>{focused=brandBanner.contains(e.relatedTarget);schedule();});
+ document.addEventListener('visibilitychange',schedule);motion.addEventListener('change',()=>{paused=motion.matches;updateButton();schedule();});
+ new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;schedule();}).observe(brandBanner);
+ new ResizeObserver(()=>{width=viewport.clientWidth/perPage();track.style.transition='none';paint();}).observe(viewport);
+ updateButton();
+}

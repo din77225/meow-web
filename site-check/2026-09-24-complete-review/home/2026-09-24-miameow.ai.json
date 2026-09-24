@@ -1,0 +1,790 @@
+{
+  "url": "https://miameow.ai",
+  "label": "miameow-home",
+  "checked_at": "2026-09-24T15:02:08",
+  "repo": "/Users/chiainliao/Documents/Mia's AI Agent/projects/website/meow-web",
+  "scores": {
+    "safety": 96,
+    "seo": 98,
+    "aeo": 86,
+    "ux": 100,
+    "overall": 95
+  },
+  "items": [
+    {
+      "pillar": "safety",
+      "key": "https",
+      "title": "HTTP redirects to HTTPS",
+      "status": "pass",
+      "detail": "http://miameow.ai/ -> 301 https://miameow.ai/",
+      "fix": "",
+      "weight": 3,
+      "verify": ""
+    },
+    {
+      "pillar": "safety",
+      "key": "hsts",
+      "title": "Strict-Transport-Security set (6+ months)",
+      "status": "pass",
+      "detail": "max-age=31536000; includeSubDomains",
+      "fix": "",
+      "weight": 2,
+      "verify": ""
+    },
+    {
+      "pillar": "safety",
+      "key": "csp",
+      "title": "Content-Security-Policy set",
+      "status": "warn",
+      "detail": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; media-src 'self' https:; connect-  |  weak: script-src allows 'unsafe-inline'",
+      "fix": "Tighten: script-src allows 'unsafe-inline'",
+      "weight": 3,
+      "verify": ""
+    },
+    {
+      "pillar": "safety",
+      "key": "framing",
+      "title": "Clickjacking protection (X-Frame-Options or frame-ancestors)",
+      "status": "pass",
+      "detail": "DENY",
+      "fix": "",
+      "weight": 2,
+      "verify": ""
+    },
+    {
+      "pillar": "safety",
+      "key": "nosniff",
+      "title": "X-Content-Type-Options: nosniff",
+      "status": "pass",
+      "detail": "nosniff",
+      "fix": "",
+      "weight": 1,
+      "verify": ""
+    },
+    {
+      "pillar": "safety",
+      "key": "referrer",
+      "title": "Referrer-Policy set",
+      "status": "pass",
+      "detail": "strict-origin-when-cross-origin",
+      "fix": "",
+      "weight": 1,
+      "verify": ""
+    },
+    {
+      "pillar": "safety",
+      "key": "permissions",
+      "title": "Permissions-Policy set",
+      "status": "pass",
+      "detail": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+      "fix": "",
+      "weight": 1,
+      "verify": ""
+    },
+    {
+      "pillar": "safety",
+      "key": "server-leak",
+      "title": "Server / X-Powered-By do not leak versions",
+      "status": "pass",
+      "detail": "cloudflare",
+      "fix": "",
+      "weight": 1,
+      "verify": ""
+    },
+    {
+      "pillar": "safety",
+      "key": "cookies",
+      "title": "Cookies carry Secure + HttpOnly + SameSite",
+      "status": "info",
+      "detail": "No cookies set on the home page.",
+      "fix": "",
+      "weight": 0,
+      "verify": ""
+    },
+    {
+      "pillar": "safety",
+      "key": "cors",
+      "title": "CORS wide open (Access-Control-Allow-Origin: *)",
+      "status": "info",
+      "detail": "Harmless on a public static site with no cookies (Cloudflare Pages default). Revisit if the site ever sets session cookies or serves private JSON.",
+      "fix": "",
+      "weight": 0,
+      "verify": ""
+    },
+    {
+      "pillar": "safety",
+      "key": "exposed",
+      "title": "No sensitive files reachable (.env, .git, package.json, configs)",
+      "status": "pass",
+      "detail": "Probed 10 paths; none served real content.",
+      "fix": "",
+      "weight": 3,
+      "verify": "curl -s <origin>/.env"
+    },
+    {
+      "pillar": "safety",
+      "key": "mixed",
+      "title": "No mixed content (http:// assets on an https page)",
+      "status": "pass",
+      "detail": "None found in scripts, images, iframes.",
+      "fix": "",
+      "weight": 2,
+      "verify": ""
+    },
+    {
+      "pillar": "safety",
+      "key": "third-party-js",
+      "title": "Third-party scripts inventoried",
+      "status": "pass",
+      "detail": "No cross-origin scripts on the home page.",
+      "fix": "",
+      "weight": 1,
+      "verify": ""
+    },
+    {
+      "pillar": "safety",
+      "key": "sourcemaps",
+      "title": "Production source maps not published",
+      "status": "pass",
+      "detail": "No .map next to the home page bundles.",
+      "fix": "",
+      "weight": 1,
+      "verify": ""
+    },
+    {
+      "pillar": "safety",
+      "key": "forms",
+      "title": "Forms inventoried",
+      "status": "info",
+      "detail": "No <form> on the home page.",
+      "fix": "",
+      "weight": 0,
+      "verify": ""
+    },
+    {
+      "pillar": "safety",
+      "key": "gitignore",
+      "title": ".gitignore excludes .env files",
+      "status": "pass",
+      "detail": "found .env rule",
+      "fix": "",
+      "weight": 2,
+      "verify": ""
+    },
+    {
+      "pillar": "safety",
+      "key": "env-tracked",
+      "title": "No .env file committed to git",
+      "status": "pass",
+      "detail": "none tracked",
+      "fix": "",
+      "weight": 3,
+      "verify": ""
+    },
+    {
+      "pillar": "safety",
+      "key": "precommit",
+      "title": "Secret-blocking pre-commit hook installed",
+      "status": "pass",
+      "detail": "/Users/chiainliao/Documents/Mia's AI Agent/projects/website/meow-web/.git/hooks/pre-commit",
+      "fix": "",
+      "weight": 1,
+      "verify": ""
+    },
+    {
+      "pillar": "safety",
+      "key": "secrets",
+      "title": "No API keys or tokens in build output or tracked source",
+      "status": "pass",
+      "detail": "Scanned 111 files across dist, public.",
+      "fix": "",
+      "weight": 4,
+      "verify": "grep -rE 'AIza[0-9A-Za-z_-]{35}|sk-[A-Za-z0-9_-]{32,}' dist/"
+    },
+    {
+      "pillar": "safety",
+      "key": "npm-audit",
+      "title": "npm audit (production deps): no high or critical advisories",
+      "status": "pass",
+      "detail": "critical 0, high 0, moderate 0, low 1",
+      "fix": "",
+      "weight": 2,
+      "verify": "npm audit --omit=dev"
+    },
+    {
+      "pillar": "safety",
+      "key": "unused-deps",
+      "title": "No unused production dependencies",
+      "status": "pass",
+      "detail": "All 8 deps referenced.",
+      "fix": "",
+      "weight": 1,
+      "verify": ""
+    },
+    {
+      "pillar": "safety",
+      "key": "backend",
+      "title": "Backend / server code detected",
+      "status": "info",
+      "detail": "No server signals found (static site). Auth, brute-force, IDOR, business-logic and prompt-injection abuse cases do not apply until a backend, login, or AI feature is added.",
+      "fix": "",
+      "weight": 0,
+      "verify": ""
+    },
+    {
+      "pillar": "seo",
+      "key": "title",
+      "title": "Title tag present, 30 to 60 chars",
+      "status": "pass",
+      "detail": "36 chars: Mia Meow | AI Workflows for Creators",
+      "fix": "",
+      "weight": 2,
+      "verify": ""
+    },
+    {
+      "pillar": "seo",
+      "key": "description",
+      "title": "Meta description present, 70 to 160 chars",
+      "status": "pass",
+      "detail": "143 chars: Learn creative AI with Mia Meow: YouTube tutorials on AI video, images, and workflows, plus practica",
+      "fix": "",
+      "weight": 2,
+      "verify": ""
+    },
+    {
+      "pillar": "seo",
+      "key": "h1",
+      "title": "Exactly one H1",
+      "status": "pass",
+      "detail": "1 H1 tag(s) in server HTML",
+      "fix": "",
+      "weight": 1,
+      "verify": ""
+    },
+    {
+      "pillar": "seo",
+      "key": "canonical",
+      "title": "Canonical present and self-referencing",
+      "status": "pass",
+      "detail": "https://miameow.ai/",
+      "fix": "",
+      "weight": 2,
+      "verify": ""
+    },
+    {
+      "pillar": "seo",
+      "key": "robots-meta",
+      "title": "Page is indexable (no noindex)",
+      "status": "pass",
+      "detail": "index,follow",
+      "fix": "",
+      "weight": 3,
+      "verify": ""
+    },
+    {
+      "pillar": "seo",
+      "key": "og",
+      "title": "Open Graph tags complete",
+      "status": "pass",
+      "detail": "og:title, og:description, og:image, og:url, og:type all set",
+      "fix": "",
+      "weight": 1,
+      "verify": ""
+    },
+    {
+      "pillar": "seo",
+      "key": "twitter",
+      "title": "Twitter card set",
+      "status": "pass",
+      "detail": "summary_large_image",
+      "fix": "",
+      "weight": 1,
+      "verify": ""
+    },
+    {
+      "pillar": "seo",
+      "key": "og-image",
+      "title": "OG image loads",
+      "status": "pass",
+      "detail": "200 https://miameow.ai/og-image.jpg",
+      "fix": "",
+      "weight": 1,
+      "verify": ""
+    },
+    {
+      "pillar": "seo",
+      "key": "lang",
+      "title": "<html lang> set",
+      "status": "pass",
+      "detail": "en",
+      "fix": "",
+      "weight": 1,
+      "verify": ""
+    },
+    {
+      "pillar": "seo",
+      "key": "viewport",
+      "title": "Viewport meta set",
+      "status": "pass",
+      "detail": "width=device-width,initial-scale=1",
+      "fix": "",
+      "weight": 1,
+      "verify": ""
+    },
+    {
+      "pillar": "seo",
+      "key": "favicon",
+      "title": "Favicon declared",
+      "status": "pass",
+      "detail": "/creator-site/assets/logo-teal.svg",
+      "fix": "",
+      "weight": 1,
+      "verify": ""
+    },
+    {
+      "pillar": "seo",
+      "key": "alt",
+      "title": "Images have alt text",
+      "status": "warn",
+      "detail": "30 img, 19 without alt: /creator-site/assets/logo-white.svg, /creator-site/assets/skool-logo.webp, https://i.ytimg.com/vi/KxGtaHUoKNM/hqdefault.jpg, https://i.ytimg.com/vi/UQFeYQgqKpA/hqdefault.jpg",
+      "fix": "Add descriptive alt text; use alt=\"\" only for decorative images.",
+      "weight": 1,
+      "verify": ""
+    },
+    {
+      "pillar": "seo",
+      "key": "robots-txt",
+      "title": "robots.txt present and does not block everything",
+      "status": "pass",
+      "detail": "HTTP 200",
+      "fix": "",
+      "weight": 2,
+      "verify": ""
+    },
+    {
+      "pillar": "seo",
+      "key": "sitemap",
+      "title": "sitemap.xml present and listed in robots.txt",
+      "status": "pass",
+      "detail": "HTTP 200, 3 URLs",
+      "fix": "",
+      "weight": 2,
+      "verify": ""
+    },
+    {
+      "pillar": "seo",
+      "key": "links",
+      "title": "No broken internal links (sample of home page links)",
+      "status": "pass",
+      "detail": "2 internal links checked, all OK.",
+      "fix": "",
+      "weight": 2,
+      "verify": ""
+    },
+    {
+      "pillar": "aeo",
+      "key": "aeo-score",
+      "title": "AEO score (aeo-optimizer rubric): 93/100",
+      "status": "pass",
+      "detail": "Full detail in the aeo-optimizer JSON below. Run `/aeo` for the fix plan and content passes.",
+      "fix": "",
+      "weight": 3,
+      "verify": ""
+    },
+    {
+      "pillar": "aeo",
+      "key": "aeo-only-2-sameas-links",
+      "title": "Only 2 sameAs links",
+      "status": "warn",
+      "detail": "[P2 entity]",
+      "fix": "Add YouTube, Instagram, LinkedIn, Skool/community, Wikidata if any. This is how AI disambiguates the brand.",
+      "weight": 1,
+      "verify": ""
+    },
+    {
+      "pillar": "aeo",
+      "key": "aeo-numbers-present-but-no-dates",
+      "title": "Numbers present but no dates",
+      "status": "warn",
+      "detail": "[P2 evidence]",
+      "fix": "Attach a date to every figure that can change (price, subscriber count, version). Undated numbers get paraphrased wrong.",
+      "weight": 1,
+      "verify": ""
+    },
+    {
+      "pillar": "aeo",
+      "key": "ai-crawlers",
+      "title": "AI search / citation crawlers allowed in robots.txt",
+      "status": "pass",
+      "detail": "OAI-SearchBot, ClaudeBot, PerplexityBot, Googlebot, Bingbot all allowed.",
+      "fix": "",
+      "weight": 2,
+      "verify": ""
+    },
+    {
+      "pillar": "ux",
+      "key": "html-weight",
+      "title": "HTML document under 150 KB",
+      "status": "pass",
+      "detail": "18 KB",
+      "fix": "",
+      "weight": 1,
+      "verify": ""
+    },
+    {
+      "pillar": "ux",
+      "key": "compression",
+      "title": "Text compressed (gzip/br)",
+      "status": "pass",
+      "detail": "br",
+      "fix": "",
+      "weight": 1,
+      "verify": ""
+    },
+    {
+      "pillar": "ux",
+      "key": "script-count",
+      "title": "Fewer than 10 external scripts on the home page",
+      "status": "pass",
+      "detail": "2 script tags with src",
+      "fix": "",
+      "weight": 1,
+      "verify": ""
+    },
+    {
+      "pillar": "ux",
+      "key": "fonts",
+      "title": "Web fonts kept to a few files",
+      "status": "pass",
+      "detail": "0 font-related links",
+      "fix": "",
+      "weight": 1,
+      "verify": ""
+    },
+    {
+      "pillar": "ux",
+      "key": "image-weight",
+      "title": "No image over 300 KB on the home page",
+      "status": "pass",
+      "detail": "14 images, 420 KB total",
+      "fix": "",
+      "weight": 2,
+      "verify": ""
+    },
+    {
+      "pillar": "ux",
+      "key": "image-dims",
+      "title": "Images declare width/height (CLS)",
+      "status": "pass",
+      "detail": "0 of 30 without dimensions",
+      "fix": "",
+      "weight": 1,
+      "verify": ""
+    },
+    {
+      "pillar": "ux",
+      "key": "lighthouse",
+      "title": "Lighthouse",
+      "status": "skipped",
+      "detail": "--no-lighthouse",
+      "fix": "",
+      "weight": 0,
+      "verify": ""
+    }
+  ],
+  "repo_info": {
+    "repo": "/Users/chiainliao/Documents/Mia's AI Agent/projects/website/meow-web",
+    "npm_audit": {
+      "info": 0,
+      "low": 1,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 1
+    },
+    "unused_deps": [],
+    "backend_signals": []
+  },
+  "lighthouse": null,
+  "aeo": {
+    "url": "https://miameow.ai",
+    "brand": "Mia Meow",
+    "audited_at": "2026-09-24T22:02:01+00:00",
+    "robots": {
+      "found": true,
+      "search_bots": [
+        [
+          "OAI-SearchBot",
+          true,
+          "rules from User-agent: OAI-SearchBot"
+        ],
+        [
+          "ChatGPT-User",
+          true,
+          "rules from User-agent: ChatGPT-User"
+        ],
+        [
+          "ClaudeBot",
+          true,
+          "rules from User-agent: ClaudeBot"
+        ],
+        [
+          "Claude-SearchBot",
+          true,
+          "rules from User-agent: Claude-SearchBot"
+        ],
+        [
+          "Claude-User",
+          true,
+          "rules from User-agent: Claude-User"
+        ],
+        [
+          "PerplexityBot",
+          true,
+          "rules from User-agent: PerplexityBot"
+        ],
+        [
+          "Perplexity-User",
+          true,
+          "rules from User-agent: Perplexity-User"
+        ],
+        [
+          "Googlebot",
+          true,
+          "rules from User-agent: Googlebot"
+        ],
+        [
+          "Bingbot",
+          true,
+          "rules from User-agent: Bingbot"
+        ],
+        [
+          "DuckAssistBot",
+          true,
+          "rules from User-agent: DuckAssistBot"
+        ],
+        [
+          "Applebot",
+          true,
+          "rules from User-agent: Applebot"
+        ]
+      ],
+      "training_bots": [
+        [
+          "GPTBot",
+          true,
+          "rules from User-agent: *"
+        ],
+        [
+          "Google-Extended",
+          true,
+          "rules from User-agent: *"
+        ],
+        [
+          "anthropic-ai",
+          true,
+          "rules from User-agent: *"
+        ],
+        [
+          "CCBot",
+          true,
+          "rules from User-agent: *"
+        ],
+        [
+          "Applebot-Extended",
+          true,
+          "rules from User-agent: *"
+        ],
+        [
+          "Bytespider",
+          true,
+          "rules from User-agent: *"
+        ],
+        [
+          "meta-externalagent",
+          true,
+          "rules from User-agent: *"
+        ],
+        [
+          "Amazonbot",
+          true,
+          "rules from User-agent: *"
+        ],
+        [
+          "cohere-ai",
+          true,
+          "rules from User-agent: *"
+        ]
+      ],
+      "sitemap_lines": [
+        "https://miameow.ai/sitemap.xml"
+      ],
+      "explicit_groups": [
+        "*",
+        "applebot",
+        "bingbot",
+        "chatgpt-user",
+        "claude-searchbot",
+        "claude-user",
+        "claudebot",
+        "duckassistbot",
+        "googlebot",
+        "oai-searchbot",
+        "perplexity-user",
+        "perplexitybot"
+      ]
+    },
+    "home": {
+      "status": 200,
+      "bytes": 18849,
+      "title": "Mia Meow | AI Workflows for Creators",
+      "lang": "en",
+      "meta_description": "Learn creative AI with Mia Meow: YouTube tutorials on AI video, images, and workflows, plus practical prompts, guides, and a creator community.",
+      "og_site_name": "Mia Meow",
+      "meta_author": "Mia Meow",
+      "canonical": "https://miameow.ai/",
+      "modified_signal": "",
+      "rss_linked": false,
+      "word_count": 489,
+      "headings": [
+        [
+          "h1",
+          "Creative AI in practice."
+        ],
+        [
+          "h2",
+          "Watch the tutorials."
+        ],
+        [
+          "h3",
+          "Direct Your AI Video Before Generation | Seedance 2.5 + Blender"
+        ],
+        [
+          "h3",
+          "I Made an AI Short Film Just By Chatting | OpenArt Director"
+        ],
+        [
+          "h3",
+          "Stop Hiring Agencies - Make Ads Like This Instead"
+        ],
+        [
+          "h3",
+          "How to Put Yourself Into ANY AI World With This New VFX Workflow"
+        ],
+        [
+          "h3",
+          "This AI Combo Changed How I Make Ads (GPT Image 2 + Seedance 2.0)"
+        ],
+        [
+          "h3",
+          "Script to Viral in One Prompt | Agent Opus Changes Everything"
+        ],
+        [
+          "h3",
+          "Master Seedance 2.0 in Minutes!"
+        ],
+        [
+          "h3",
+          "Build Your Own AI Film Set with One Image"
+        ],
+        [
+          "h3",
+          "Transfer Human Motion to Any Avatar with AI (5 Use Cases)"
+        ],
+        [
+          "h3",
+          "Complete Storyboard Generation in Minutes (No Drawing Skills Needed)"
+        ],
+        [
+          "h3",
+          "See the full channel."
+        ],
+        [
+          "h2",
+          "Brands I’ve worked with"
+        ],
+        [
+          "h2",
+          "Prompts and guides."
+        ],
+        [
+          "h2",
+          "Make your first AI video."
+        ],
+        [
+          "h2",
+          "Hi, I’m Mia."
+        ],
+        [
+          "h2",
+          "Join the creator community."
+        ],
+        [
+          "h2",
+          "Find your next AI tutorial."
+        ]
+      ],
+      "h1_count": 1,
+      "subheading_count": 18,
+      "first_paragraph": "I’m Mia. I make YouTube tutorials on AI video, images, and creative workflows. Follow along with the tools, prompts, and steps I use in my own projects.",
+      "numbers_found": 19,
+      "dates_found": 0,
+      "jsonld_types": [
+        "Person",
+        "WebSite",
+        "WebPage"
+      ],
+      "jsonld_entity_names": [
+        "Mia Meow",
+        "Mia Meow"
+      ],
+      "jsonld_sameas": [
+        "https://www.youtube.com/@miameowai",
+        "https://www.instagram.com/miameowai/"
+      ],
+      "jsonld_has_dateModified": true,
+      "jsonld_parse_errors": 0
+    },
+    "sitemap": {
+      "url": "https://miameow.ai/sitemap.xml",
+      "status": 200,
+      "listed_in_robots": true,
+      "url_count": 3,
+      "has_lastmod": true
+    },
+    "info": {
+      "/llms.txt": {
+        "status": 404,
+        "note": "llms.txt (no vendor support; optional)"
+      },
+      "/.well-known/ai.txt": {
+        "status": 404,
+        "note": "ai.txt (nonstandard)"
+      },
+      "indexnow_mentioned_in_robots": false
+    },
+    "aeo_score": 93,
+    "fixes": [
+      {
+        "priority": "P2",
+        "area": "entity",
+        "issue": "Only 2 sameAs links",
+        "fix": "Add YouTube, Instagram, LinkedIn, Skool/community, Wikidata if any. This is how AI disambiguates the brand."
+      },
+      {
+        "priority": "P2",
+        "area": "evidence",
+        "issue": "Numbers present but no dates",
+        "fix": "Attach a date to every figure that can change (price, subscriber count, version). Undated numbers get paraphrased wrong."
+      }
+    ]
+  },
+  "counts": {
+    "pass": 39,
+    "warn": 4,
+    "fail": 0,
+    "manual": 0,
+    "info": 4,
+    "skipped": 1
+  }
+}

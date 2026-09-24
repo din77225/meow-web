@@ -17,7 +17,7 @@ name: Scheduled rebuild
 
 on:
   schedule:
-    - cron: '0 13 * * *'   # daily at 13:00 UTC (~6am PT / ~9am ET)
+    - cron: '17 */6 * * *'  # every six hours; refresh both tutorial lists
   workflow_dispatch: {}
 
 jobs:
@@ -27,6 +27,6 @@ jobs:
       - name: Trigger Cloudflare Pages deploy hook
         run: |
           if [ -z "${{ secrets.CF_DEPLOY_HOOK }}" ]; then
-            echo "CF_DEPLOY_HOOK secret is not set — skipping." && exit 0
+            echo "::error::CF_DEPLOY_HOOK secret is missing; video refresh cannot run." && exit 1
           fi
           curl -fsS -X POST "${{ secrets.CF_DEPLOY_HOOK }}" && echo "Rebuild triggered."

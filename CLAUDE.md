@@ -58,7 +58,7 @@ already appear through her uploads. Next build shows it. Never edit
 `collabs.json` by hand.
 
 **Auto-refresh without a push:** `.github/workflows/scheduled-rebuild.yml` pings
-a Cloudflare deploy hook daily (GitHub secret `CF_DEPLOY_HOOK`), so new uploads
+a Cloudflare deploy hook every six hours (GitHub secret `CF_DEPLOY_HOOK`), so new uploads
 and new playlist collabs appear on their own.
 
 ## Image rule (learned 2026-07-17)

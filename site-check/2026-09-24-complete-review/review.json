@@ -1,0 +1,42 @@
+{
+  "date": "2026-09-24",
+  "scope": "Homepage and link-in-bio live baseline before carousel and paper-loop deployment; repository security checks; local updated UI functional checks",
+  "lighthouse": {
+    "home": {
+      "mobile": {
+        "performance": 63,
+        "accessibility": 100,
+        "bestPractices": 100,
+        "seo": 100,
+        "LCPSeconds": 7.2
+      },
+      "desktop": {
+        "performance": 97
+      },
+      "report": "https://pagespeed.web.dev/analysis/https-miameow-ai/0hehyuf5x0"
+    },
+    "links": {
+      "mobile": {
+        "performance": 70,
+        "accessibility": 100,
+        "bestPractices": 100,
+        "seo": 100,
+        "LCPSeconds": 5.9
+      },
+      "desktop": {
+        "performance": 98
+      },
+      "report": "https://pagespeed.web.dev/analysis/https-miameow-ai-links/hurswrrzgi"
+    }
+  },
+  "security": "No high or critical production dependency advisories. One low. CSP still allows inline scripts for legacy static pages. Automated read-only audit, not a penetration test.",
+  "aeo": "Homepage 86, link page 75. sameAs/freshness signals can improve. Link-page short-text failure is a word-count heuristic; actual links and video content are prerendered. Decorative images intentionally have empty alt when adjacent copy supplies meaning.",
+  "verification": [
+    "Actual RSS refresh fetched the updated newest video title",
+    "Fixture future upload appears first on both pages and in static fallback; counts 10 and 5",
+    "Scheduled rebuild secret exists and recent logs confirm Rebuild triggered",
+    "Build and TypeScript checks pass",
+    "Carousel desktop 4/mobile 2; requested order; arrows and pause; no mobile overflow; 44px targets"
+  ],
+  "refresh": "Every six hours after deployment, plus each Cloudflare build. Not instant. GitHub scheduled runs may be delayed; RSS/network failures retain last good content."
+}
