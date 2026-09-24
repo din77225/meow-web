@@ -9,3 +9,5 @@ footer{border-top:1px solid var(--line);padding:26px 0 24px}.footer-top{display:
 @media(min-width:800px){.page{padding-top:16px}}
 @media(max-width:380px){.page{padding-inline:18px}.community{gap:12px;padding:20px 14px}.video-row img{width:94px;height:56px}.footer-home{font-size:22px}.resource-list .link-row{padding:13px;gap:12px}.link-copy>strong,.book .link-copy>strong{font-size:14px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;scroll-behavior:auto!important}}
+
+.openart-tile img{width:36px;height:36px;object-fit:contain;filter:invert(1);mix-blend-mode:screen}

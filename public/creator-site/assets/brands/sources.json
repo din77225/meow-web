@@ -10,7 +10,8 @@
     "Fish Audio": "Existing sponsor asset: Fish Audio S2-Pro/assets/Fish Logo White.png",
     "Lovart": "https://www.lovart.ai (header SVG)",
     "Tripo Studio": "https://www.3daistudio.com/ComparisonLogos/tripo.png",
-    "3D AI Studio": "https://www.3daistudio.com/ComparisonLogos/3daistudio.png"
+    "3D AI Studio": "https://www.3daistudio.com/ComparisonLogos/3daistudio.png",
+    "OpenArt icon": "https://openart.ai/pageforge-assets/favicon/favicon-96x96.png"
   },
   "notes": "Original logo geometry retained. CurrentColor wordmarks exported in white for dark background. Icon-only logos paired with plain brand names."
 }
