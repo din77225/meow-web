@@ -5,7 +5,7 @@
  * The /links page is static HTML (no serverless function on Cloudflare). It fetches
  * /links-data.json at load and fills in the "latest videos" cards + subscriber count.
  * This script rebuilds that JSON every build from the data the other two fetchers
- * already produced (featured.json + videos.json = uploads, collabs.json = collabs),
+ * already produced (featured.json + videos.json = channel uploads),
  * so /links auto-updates on the same cadence as the main site with no manual edits.
  *
  * Run AFTER fetch-videos.mjs and fetch-collabs.mjs (see package.json build chain).
@@ -23,7 +23,7 @@ const DATA      = join(__dirname, '../src/data');
 const OUTPUT    = join(__dirname, '../public/links-data.json');
 
 const CHANNEL_ID = 'UCbeTqbTXZgokTvLN2KDK3uw'; // @miameowai
-const COUNT      = 4;
+const COUNT      = 5;
 const KEY        = process.env.YOUTUBE_API_KEY;
 
 function readJson(name, fallback) {
@@ -62,11 +62,11 @@ async function run() {
 
   const featured = readJson('featured.json', null);
   const uploads  = readJson('videos.json', []);
-  const collabs  = readJson('collabs.json', []);
 
-  // Merge uploads (featured + grid) with collabs, dedupe by id, newest first.
+  // Show the five latest channel uploads, deduplicated and newest first.
+  // Collaborations on other channels remain in the homepage rail.
   const seen = new Set();
-  const merged = [...(featured ? [featured] : []), ...uploads, ...collabs]
+  const merged = [...(featured ? [featured] : []), ...uploads]
     .filter(v => v && v.id && !seen.has(v.id) && seen.add(v.id))
     .sort((a, b) => (b.publishedAt || '').localeCompare(a.publishedAt || ''))
     .slice(0, COUNT)
@@ -91,6 +91,14 @@ async function run() {
 
   const payload = { videos: merged, subscribers: channel.subscribers, views: channel.views, members: channel.members, updated: channel.updated };
   writeFileSync(OUTPUT, JSON.stringify(payload, null, 2) + '\n');
+  // Keep the initial HTML useful when JavaScript or the data request is unavailable.
+  const linksPath = join(__dirname, '../public/links/index.html');
+  if (merged.length && existsSync(linksPath)) {
+    const escape = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+    const cards = merged.map(v => `<a class="video-row" href="${escape(v.url)}" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/${escape(v.videoId)}/hqdefault.jpg" width="480" height="360" alt="" loading="lazy"><span>${escape(v.title)}</span><span class="arrow" aria-hidden="true">↗</span></a>`).join('');
+    const source = readFileSync(linksPath, 'utf8');
+    writeFileSync(linksPath, source.replace(/<!-- LINKS_VIDEOS_START -->[\s\S]*?<!-- LINKS_VIDEOS_END -->/, `<!-- LINKS_VIDEOS_START -->${cards}<!-- LINKS_VIDEOS_END -->`));
+  }
   // Same numbers for the homepage stats block, so the site never shows two
   // different figures (AI answers pick up inconsistent facts).
   writeFileSync(channelPath, JSON.stringify(channel, null, 2) + '\n');
