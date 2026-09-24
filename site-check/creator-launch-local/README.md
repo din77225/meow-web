@@ -3,7 +3,7 @@ tags: [website, qa, launch]
 ---
 # Mia Meow Creator Launch Verification 2026-09-24
 
-Approved dark creator homepage, personal footer option 2. Skool logo slot increased from 42px to 126px, with a tight CSS crop of the source image's internal whitespace. Course signup uses the dedicated published Google Form. Business email is mia@miameow.ai.
+Approved dark creator homepage, personal footer option 2. Final Skool wordmark uses a tightly cropped 58×24px slot, matching the visual height of the neighboring social icons. Mia requested this smaller size after viewing the enlarged version. Community card has 32px/80px top/bottom margins on desktop and 24px/48px on mobile. Course signup uses the dedicated published Google Form. Business email is mia@miameow.ai.
 
 Validation:
 - Production build and TypeScript check pass.
