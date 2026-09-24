@@ -1,0 +1,16 @@
+{
+  "retrieved": "2026-09-24",
+  "sources": {
+    "OpenArt": "https://openart.ai",
+    "Envato": "Existing sponsor asset: Seedance 2.5 tutorial assets/envato-logo.svg",
+    "HeyGen": "https://www.heygen.com/brand-kit",
+    "Agent Opus": "https://www.opus.pro/agent (header SVG)",
+    "Artlist": "https://artlist.io (header SVG)",
+    "Dzine": "https://staticglobal.dzine.ai/static/blog/images/logo_home.svg",
+    "Fish Audio": "Existing sponsor asset: Fish Audio S2-Pro/assets/Fish Logo White.png",
+    "Lovart": "https://www.lovart.ai (header SVG)",
+    "Tripo Studio": "https://www.3daistudio.com/ComparisonLogos/tripo.png",
+    "3D AI Studio": "https://www.3daistudio.com/ComparisonLogos/3daistudio.png"
+  },
+  "notes": "Original logo geometry retained. CurrentColor wordmarks exported in white for dark background. Icon-only logos paired with plain brand names."
+}

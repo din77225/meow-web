@@ -51,3 +51,15 @@
 /* Give the community card its own space before the footer. */
 .creator .community-panel{margin-block:32px 80px}
 @media(max-width:600px){.creator .community-panel{margin-block:24px 48px}}
+
+/* A quiet credit strip for past brand collaborations. */
+.brand-banner{padding-block:36px 42px;border-top:1px solid var(--line,#ffffff26);margin-bottom:0}
+.creator .brand-banner h2{font:500 16px/1.5 var(--body);letter-spacing:.01em;text-align:center;color:var(--muted);margin:0 0 30px}
+.brand-logos{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:26px 32px}
+.brand-logos li{display:flex;align-items:center;justify-content:center;gap:10px;min-height:44px;color:#f6f4f8;white-space:nowrap;font:600 18px/1.2 var(--body)}
+.brand-logos img{width:auto;max-width:150px;height:30px;object-fit:contain}
+.brand-logos img.brand-symbol{width:36px;height:32px;flex:none}
+@media(max-width:900px){.brand-logos{gap:24px 16px}.brand-logos img{max-width:120px;height:26px}.brand-logos li{font-size:15px;gap:7px}.brand-logos img.brand-symbol{width:28px;height:28px}}
+@media(max-width:650px){.brand-banner{padding-block:28px 32px;margin-bottom:16px}.brand-logos{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 20px}.creator .brand-banner h2{margin-bottom:24px}.brand-logos img{height:28px;max-width:135px}.brand-logos li{font-size:16px}}
+
+.brand-logos img[src$="openart.webp"]{height:48px;max-width:170px}.brand-logos img[src$="dzine.svg"]{height:26px}.brand-logos img[src$="tripo.png"]{mix-blend-mode:screen}
