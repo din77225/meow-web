@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Motion Graphics Kit</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Mia Meow's motion graphics kit: one-paste setup for Claude Code, 12 style templates and the prompts from the tutorial.">
+
+<style>
+@font-face{font-family:Gilroy;src:url(assets/Gilroy.woff) format("woff");font-weight:800;font-display:swap}
+@font-face{font-family:Inter;src:url(assets/Inter.ttf) format("truetype");font-weight:100 900;font-display:swap}
+:root{--bg:#171020;--paper:#241a31;--ink:#fbf7ff;--soft:#c8bdd2;--line:rgba(255,255,255,.12);--pink:#f4d00a;--pink-soft:rgba(123,84,179,.28);--butter:#00c4cc;--plum:#171020;--code:#2d203d;--purple:#7b54b3;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 84% 7%,rgba(123,84,179,.38),transparent 34%),radial-gradient(circle at 8% 38%,rgba(0,196,204,.10),transparent 24%),var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:Gilroy,Inter,sans-serif;font-weight:800;letter-spacing:-.02em;line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.2rem,5vw,3.6rem)} h2{font-size:clamp(1.6rem,3vw,2.2rem)} h3{font-size:1.2rem}
+p{margin:0;max-width:65ch} a{color:var(--pink)}
+.eyebrow{font:600 .75rem/1 Inter;letter-spacing:.14em;text-transform:uppercase;color:var(--pink)}
+section{padding-block:56px;border-top:1px solid var(--line)}
+.stack{display:flex;flex-direction:column;gap:14px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.pill{display:inline-block;align-self:flex-start;font:600 .72rem/1 Inter;padding:6px 10px;border-radius:99px;background:var(--pink-soft);color:var(--ink)}
+.new{background:var(--butter);color:#171020}
+.btn{display:inline-flex;align-items:center;gap:8px;font:700 .95rem Inter;padding:12px 18px;border-radius:12px;border:0;background:var(--pink);color:#171020;cursor:pointer;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--pink);border:1.5px solid var(--pink)}
+.btn.small{padding:8px 12px;font-size:.85rem}
+header{padding-block:64px 40px}
+.hero{display:grid;gap:28px;grid-template-columns:1.3fr 1fr;align-items:center}
+@media (max-width:760px){.hero{grid-template-columns:1fr}}
+.hero video,.hero img{width:100%;border-radius:18px;border:1px solid var(--line);display:block}
+.steps{counter-reset:s;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.step{counter-increment:s}.step h3::before{content:counter(s);display:inline-grid;place-items:center;width:30px;height:30px;margin-right:10px;border-radius:50%;background:var(--pink);color:#171020;font:600 .9rem Inter;vertical-align:2px}
+pre{margin:0;background:var(--code);border:1px solid var(--line);border-radius:12px;padding:16px;overflow-x:auto;font:13px/1.55 "JetBrains Mono",ui-monospace,monospace;white-space:pre-wrap}
+.tpl video{width:100%;aspect-ratio:16/9;object-fit:contain;border-radius:10px;background:#0f0a16;display:block}
+.tpl .meta{font-size:.85rem;color:var(--soft)}
+.compare{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.compare .card b{font-family:Gilroy,Inter,sans-serif;font-size:1.25rem}
+table{width:100%;border-collapse:collapse;font-size:.95rem} td,th{text-align:left;padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl{overflow-x:auto}
+details{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+summary{cursor:pointer;font-weight:600}
+.muted{color:var(--soft)} .small{font-size:.85rem}
+.toast{position:fixed;bottom:max(20px,env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--yellow,#f4d00a);color:#171020;font-weight:600;padding:10px 16px;border-radius:10px;font-size:.9rem;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+@media (max-width:760px){.install td:first-child{white-space:normal!important;width:38%}}
+#guideGrid{grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr))}
+nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+nav.toc a{font-size:.85rem;padding:6px 12px;border-radius:99px;border:1px solid var(--line);color:var(--ink);text-decoration:none;background:var(--paper)}
+
+.nav{display:flex;align-items:center;justify-content:space-between;padding-block:22px 0}.brand{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none}.brand img{width:48px;height:34px}.brand b{font:800 21px/1 Gilroy,Inter,sans-serif}
+code{background:var(--code);padding:2px 6px;border-radius:6px;font-size:.9em}
+.install td:first-child{font-weight:600;white-space:nowrap}
+.ee{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.navlink{color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:10px 15px;font-weight:700;font-size:.9rem}
+.footer{border-top:1px solid var(--line);padding-block:32px 48px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;color:var(--soft);font-size:13px}
+.socials{display:flex;gap:10px}.socials a{width:40px;height:40px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;color:var(--ink);transition:.22s}.socials a:hover{background:var(--purple);transform:translateY(-3px)}.socials svg{width:19px;height:19px}
+.libgrid{display:grid;gap:16px}.libgrid.h{grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr))}.libgrid.v{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}@media (max-width:760px){.libgrid.v{grid-template-columns:1fr 1fr}.libgrid.v .tpl h3{font-size:1rem}}
+.libgrid.v .tpl video{aspect-ratio:9/16;object-fit:cover}
+.libhead{font:800 1.1rem Gilroy,Inter,sans-serif;margin-top:8px}
+.wf{gap:14px}.wfsteps{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:16px}.wfsteps li::marker{color:var(--pink);font-weight:800}.wfsteps b{font-family:Gilroy,Inter,sans-serif;font-size:1.05rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="nav"><a class="brand" href="https://miameow.ai/" target="_blank" rel="noopener"><img src="assets/logo.svg" alt=""><b>mia meow</b></a><a class="navlink" href="#start">Jump to setup</a></header>
+
+<header>
+  <div class="hero">
+    <div class="stack">
+      <span class="eyebrow">Tutorial resources · motion graphics with Claude</span>
+      <h1>Make motion graphics by talking to Claude</h1>
+      <p>Everything from the video in one place: the one-paste setup, my style library and the prompts I used. Bring a picture or a clip (you can make them on OpenArt), and Claude builds the motion in code. Changing a word is one line, not a new generation.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px">
+        <a class="btn" href="#start">Start here</a>
+        <a class="btn ghost" href="#library">Browse the styles</a>
+      </div>
+      <nav class="toc" aria-label="On this page">
+        <a href="#need">What you need</a><a href="#start">Setup</a><a href="#installs">What gets installed</a><a href="#words">Skill vs template vs prompt</a><a href="#library">Style library</a><a href="#workflows">The 3 workflows</a><a href="#guide">More prompts</a><a href="#help">Help</a><a href="#terms">Usage</a>
+      </nav>
+    </div>
+    <video src="assets/templates/code-doodle/preview.mp4" poster="assets/templates/code-doodle/poster.jpg" autoplay muted loop playsinline aria-label="A crayon cat chef drawn entirely in code"></video>
+  </div>
+</header>
+
+<section id="need" class="stack">
+  <span class="eyebrow">Before you start</span>
+  <h2>What you need</h2>
+  <div class="grid">
+    <div class="card"><span class="pill">Required</span><h3>Claude desktop app</h3><p>Use the <b>Code</b> tab, not the regular chat, and pick Opus 5.5 or a newer model. Works on any paid Claude plan. On a Team or Enterprise plan, an owner may need to allow the OpenArt connector first.</p><a href="https://claude.com/download">claude.com/download</a></div>
+    <div class="card"><span class="pill">Required</span><h3>The Remotion plugin</h3><p>In Claude Code, go to Customize, Plugins, search "remotion" and hit Add. (In the video I went through Settings, same thing.) Remotion is what turns the code into a video.</p></div>
+    <div class="card"><span class="pill">Optional</span><h3>Pictures to animate</h3><p>Your own images and clips work. I make mine on <a href="https://openart.ai/home/?ref=miameow" target="_blank" rel="noopener">OpenArt</a> (images, Extract Layers, voiceovers), and you can connect it to Claude so it pulls the files in for you. <a href="https://www.youtube.com/watch?v=0KXXC0UAdQc" target="_blank" rel="noopener">OpenArt's video on connecting OpenArt to Claude</a>.</p><a href="https://openart.ai/home/?ref=miameow" target="_blank" rel="noopener">openart.ai</a></div>
+    <div class="card"><span class="pill new">Handled for you</span><h3>Node.js, Git, FFmpeg</h3><p>The setup prompt checks for Node.js (plus Git on Windows, or Apple's Command Line Tools on a Mac) and installs what's missing, after asking you. Remotion brings its own FFmpeg. And no After Effects.</p></div>
+  </div>
+</section>
+
+<section id="start" class="stack">
+  <span class="eyebrow">Set up once, about 10 minutes</span>
+  <h2>Three steps, then you just talk to Claude</h2>
+  <div class="steps">
+    <div class="card step"><h3>Download the kit</h3><p>One ZIP: the skill, 12 style templates with previews and prompts, and the setup guide. Leave it in your Downloads folder, the setup finds it there.</p><a class="btn small" href="mia-motion-graphics-kit.zip" download>Download the kit (ZIP, 25 MB)</a></div>
+    <div class="card step"><h3>Make a project folder</h3><p>Make a new empty folder, for example <i>my-motion-studio</i>. Open it in the Code tab and allow access. Pick <b>Accept edits</b> so Claude doesn't ask before every file.</p><p class="small muted">Accept edits lets Claude create and change files in this folder without asking each time. It still asks before running other commands. Have a quick read of what each mode allows: <a href="https://code.claude.com/docs/en/permission-modes" target="_blank" rel="noopener">Claude's guide to permission modes</a>.</p></div>
+    <div class="card step"><h3>Paste the setup prompt</h3><p>It installs what's missing, unpacks the kit, builds your folders and rules, and renders a 3 second test, so you know it all works.</p><button class="btn small" data-copy="setup">Copy setup prompt</button></div>
+  </div>
+  <details><summary>Read the setup prompt</summary><pre id="setup">Set up a motion graphics workspace for me in this folder. I'm a beginner, so before each step tell me in one short sentence what you're doing and why. Ask me before you install anything outside this folder.
+
+1. Check which computer I'm on. Check that Node.js 20.19 or newer is installed (node -v). If it isn't, install the current LTS version for me: on Windows with winget (winget install OpenJS.NodeJS.LTS), on a Mac with Homebrew if I have it, otherwise the official LTS installer from https://nodejs.org/en/download. On Windows, also check Git for Windows (git --version) and install it if it's missing (winget install Git.Git). On a Mac, check the Xcode Command Line Tools (xcode-select -p) and if they're missing, run xcode-select --install and tell me to click Install in the window that pops up (the local Whisper needs them). Tell me before each install. If an install needs my password, give me the exact command to paste into the Terminal app myself, because you can't type it for me. If an install needs a new terminal, tell me to reopen Claude Code, then check again.
+
+2. Create a Remotion project in this folder with the official starter: npx create-video@latest --yes --blank . (if the folder isn't empty, scaffold into a temporary subfolder, move everything up, and set the name in package.json to this folder's name). In remotion.config.ts, set Config.setOverwriteOutput(false) so a render never replaces an older one. Check that the Remotion plugin is active. If it isn't, run: npx remotion skills add
+
+3. Find the kit I downloaded: look in my Downloads folder for mia-motion-graphics-kit (it may have a number added, or already be unzipped). If there are several, show me their names and dates so I can choose. If you can't reach Downloads, tell me how to give you access, or I'll move the ZIP into this folder. Unzip it here without overwriting anything. You should now see mia-motion-graphics/ (the skill), templates/ (12 styles) and KIT-README.md.
+
+4. Make these folders: inputs (my images, layers and clips), references (style images and videos I like), audio (voice, music, sound effects), renders (finished videos), notes, notes/frames. Then show me the whole folder as a simple tree.
+
+5. Create CLAUDE.md with these working rules and follow them in every chat here:
+   - Read mia-motion-graphics/SKILL.md before any motion graphics work.
+   - Before building, ask me what it's for, the format and length, the exact words, the feeling, and whether there's sound.
+   - Suggest one to three templates from templates/ that fit, with a one-line reason each. Reuse their build notes and specs instead of starting from scratch.
+   - From a style reference, take its grammar (type, colours, pacing, how text enters and exits), never its content, logos or characters. Rebuild everything in code.
+   - Plan the video second by second, then show me three still frames before rendering the full video.
+   - Keep all words, colours, fonts and timings in one config file, so a headline change is one line.
+   - Copy files into public/ before using them. Never move or edit my originals.
+   - When I give you a video, give yourself eyes and ears first. Eyes: make a folder notes/frames/&lt;clip name&gt;/ and pull frames into it with npx remotion ffmpeg -i &lt;video&gt; -r 2 notes/frames/&lt;clip name&gt;/f_%03d.jpg, then look at them. Ears: if it has sound, pull the audio (npx remotion ffmpeg -i &lt;video&gt; -vn -ac 1 -ar 16000 notes/frames/&lt;clip name&gt;/audio.wav) and transcribe it with Remotion's local Whisper (@remotion/install-whisper-cpp) with word timestamps. Never ask me to install FFmpeg.
+   - If I make images, layers or voiceovers on OpenArt, pull them through the OpenArt connector into inputs/ or audio/ when I say they're ready. Otherwise I'll drop files there myself.
+   - Never overwrite a render. Save v2, v3 and so on.
+   - After every render, check frames from the whole video, score it out of 10 for layout, timing, readability and polish, fix anything under 8, and tell me what's wrong before you say it's done.
+   - If I ask for an overlay to use in CapCut, Premiere or DaVinci, render it with a transparent background: --codec=prores --prores-profile=4444 --pixel-format=yuva444p10le --image-format=png, as a .mov.
+   - When I correct something, add it to notes/checks.md as a DO or DON'T line and read that file before every render.
+   - Never generate paid images, video or audio without asking me first.
+
+6. Ask me if I want to connect OpenArt (optional). If yes, walk me through it: Customize, Connectors, add a custom connector named OpenArt with the URL https://mcp.openart.ai/mcp, then Connect and sign in (no API key needed). Test it by listing my recent OpenArt creations.
+
+7. Make a 3 second test video that says "Ready" on a pink background and render it to renders/test.mp4. Test your eyes: pull one frame from it and tell me what you see. Test your ears: set up the local Whisper with whisper.cpp version 1.5.5 (ask me before downloading the model, the base English one is enough) and transcribe mia-motion-graphics/sample-voice.wav, then show me the words with their timings. Then start the preview (npm run dev) in the background so it doesn't block you, and give me the link to Remotion Studio.
+
+If the test render times out, try again and point Remotion at my system Chrome with --browser-executable. When you're done, tell me in a few lines what's set up and what to try first.</pre></details>
+  <div class="card" style="background:var(--pink-soft);border-color:transparent">
+    <h3>Your first try</h3>
+    <p>Put any picture in your inputs folder, then paste something like this. Just say in plain words what you want to see:</p>
+    <pre id="first">Here's my image: inputs/[FILE NAME]. Add motion graphics and the headline LIGHTEN UP. 6 seconds, 1080 by 1350. Airy and playful. Ask me questions before you build anything.</pre>
+    <div><button class="btn small" data-copy="first">Copy</button></div>
+  </div>
+</section>
+
+
+<section id="installs" class="stack">
+  <span class="eyebrow">No surprises</span>
+  <h2>What the setup prompt installs, and why</h2>
+  <p class="muted">You paste one prompt. Here's what it sets up. It asks before anything goes outside your project folder.</p>
+  <div class="card"><div class="tbl"><table class="install">
+    <tr><th>What</th><th>Why you need it</th></tr>
+    <tr><td>Node.js 20.19 or newer (and Git on Windows)</td><td>Remotion runs on Node.js. Git gives Claude Code a proper terminal on Windows. Skipped if you already have them.</td></tr>
+    <tr><td>Apple's Command Line Tools (Mac only)</td><td>The local Whisper is built on your Mac, and that needs Apple's free developer tools. A small Apple window pops up, you click Install. Skipped if you already have them.</td></tr>
+    <tr><td>The kit</td><td>Unzipped into your folder: <code>mia-motion-graphics/</code> (the skill) and <code>templates/</code> (12 styles).</td></tr>
+    <tr><td>A Remotion project</td><td>Remotion turns code into video. It's free for individuals and small teams and brings its own video tools and browser.</td></tr>
+    <tr><td>Remotion's agent skills</td><td>Teach Claude how Remotion works: timing, smooth springs and easing, captions and rendering. Already there if you added the Remotion plugin.</td></tr>
+    <tr><td>Your folders</td><td><code>inputs</code> for pictures and clips, <code>references</code> for styles you like, <code>audio</code>, <code>renders</code>, <code>notes</code>.</td></tr>
+    <tr><td>CLAUDE.md</td><td>The working rules Claude reads in every chat: ask first, three stills before a render, never overwrite, check its own work.</td></tr>
+    <tr><td>Local Whisper (the base English model)</td><td>So Claude can hear. Runs on your computer, free, no account. It asks before downloading.</td></tr>
+    <tr><td>OpenArt connector (optional)</td><td>Lets Claude make images on OpenArt and fetch your layers and voiceovers. Skip it if you bring your own files.</td></tr>
+    <tr><td>A 3 second test</td><td>Renders "Ready", reads a frame back, transcribes a 2 second voice sample from the kit and opens Remotion Studio in your browser. If that works, everything works.</td></tr>
+  </table></div>
+  <p class="small muted">Want the official links? <a href="https://nodejs.org" target="_blank" rel="noopener">Node.js</a> · <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">Git for Windows</a> · <a href="https://www.remotion.dev" target="_blank" rel="noopener">Remotion</a> (<a href="https://www.remotion.dev/docs/ai/claude-code" target="_blank" rel="noopener">with Claude Code</a>, <a href="https://www.remotion.dev/license" target="_blank" rel="noopener">licence</a>) · <a href="https://www.remotion.dev/docs/install-whisper-cpp" target="_blank" rel="noopener">Remotion's local Whisper</a> · <a href="https://openart.ai/home/?ref=miameow" target="_blank" rel="noopener">OpenArt</a> · <a href="https://code.claude.com/docs/en/desktop-quickstart" target="_blank" rel="noopener">Claude desktop app</a></p></div>
+  <div class="ee">
+    <div class="card"><h3>👀 Eyes</h3><p>Claude can see images but can't play a video. So for any clip you give it, it pulls frames (two per second) with Remotion's built-in FFmpeg and looks at them first. That's how it knows when the product turns, when a cut happens, and where a label can go without covering a face. You never install FFmpeg yourself.</p></div>
+    <div class="card"><h3>👂 Ears</h3><p>If the clip has sound, Claude pulls the audio and transcribes it with the local Whisper, word by word with timestamps. That's how a headline lands exactly on the word you say, and how it catches where the music hits when you show it a style you like.</p></div>
+  </div>
+</section>
+
+<section id="words" class="stack">
+  <span class="eyebrow">Plain English</span>
+  <h2>Skill, template, prompt: what's the difference?</h2>
+  <div class="compare">
+    <div class="card"><b>The skill</b><p>My <i>how I work</i> rules: ask first, show three stills, build in code, check the render. Claude reads it every time, so you just ask for what you want, like "make my product photo move".</p></div>
+    <div class="card"><b>A template</b><p>In this kit, a template is one <i>look</i>: a preview, a short description of the style, build notes and known pitfalls. Pick one, and Claude rebuilds that look with your own pictures and words. It's not a fill-in file like a Canva or CapCut template.</p></div>
+    <div class="card"><b>A prompt</b><p>Anything you type to Claude is a prompt, and plain English works. In this kit, each template also comes with a ready-made prompt you can copy. Fill in the [brackets] with your files and words, or leave them and Claude will ask.</p></div>
+  </div>
+  <div class="card"><h3>How to use it</h3><p>Open your project folder in the Code tab and describe what you want in plain English. To pick a look, name a template ("use the Paper cut template") or paste its prompt from the library below. To fix something, give the time and what you see ("at 0:03 the headline covers her face, move it up").</p></div>
+  <div class="card">
+    <h3>What the skill can do for you</h3>
+    <div class="tbl"><table>
+      <tr><th>You give Claude</th><th>You get</th></tr>
+      <tr><td>A picture or OpenArt layers</td><td>A moving carousel or post, text behind the subject, 1080×1350 or any size</td></tr>
+      <tr><td>A clip (AI video or your footage)</td><td>Labels, arrows and headlines that follow what's on screen, cut by cut</td></tr>
+      <tr><td>A script or voiceover</td><td>An explainer where each graphic lands on its word</td></tr>
+      <tr><td>A video you like</td><td>The style described back to you, rebuilt with your content, saved as a new template</td></tr>
+      <tr><td>Nothing at all</td><td>Charts, checklists, UI demos or a hand-drawn doodle, all drawn in code</td></tr>
+      <tr><td>"Change the headline"</td><td>One line changed, new render, nothing regenerated</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<section id="library" class="stack">
+  <span class="eyebrow">My style library</span>
+  <h2>12 templates to start from</h2>
+  <p class="muted">Hover or tap a preview to play it. Copy a prompt, swap the [brackets] for your files and words, and paste it into the same Code session. When you make a look you love, save it as your own template (see "Save it to your library" below).</p>
+  <div class="libhead">Wide, for YouTube and ads (16:9)</div>
+  <div class="libgrid h" id="libH"></div>
+  <div class="libhead">Tall, for Reels, Shorts and TikTok (9:16)</div>
+  <div class="libgrid v" id="libV"></div>
+</section>
+
+<section id="workflows" class="stack">
+  <span class="eyebrow">The three workflows from the video</span>
+  <h2>How I made each part</h2>
+  <p class="muted">Short versions, step by step. Swap the [brackets] for your own files and words. If you don't use OpenArt, skip those steps and put your own files in inputs/.</p>
+  <div class="card wf"><span class="pill">1 · Image + motion</span><h3>A picture that moves: the moving carousel (video 1:10)</h3><ol class="wfsteps">
+      <li><b>Make the image</b><p class="muted">Talk through the product and the vibe first, then let Claude write the image prompt and make it with an image model on OpenArt (I used GPT Image 2.5). Any image of your own works too.</p><pre id="wf1p1">I&#x27;m making an Instagram carousel for [PRODUCT]. Here&#x27;s the product photo inputs/[FILE] and a photo of me inputs/[FILE]. The vibe: [VIBE]. Write an image prompt and make one 4:5 image on OpenArt (for example with GPT Image 2.5). Leave clear space for a headline. Show me the prompt before you generate.</pre><div><button class="btn small" data-copy="wf1p1">Copy</button></div></li>
+      <li><b>Split it into layers (optional)</b><p class="muted">On OpenArt, open Image Tools, then Extract Layers. Upload the image, pick how many layers (I picked six), and save them. This is what lets text sit behind you. With the OpenArt connector, Claude can pull them in. Without it, download them into inputs/.</p></li>
+      <li><b>Animate it</b><p class="muted">Tell Claude how it should move. Ask it to rebuild the words in code, so you can change them later.</p><pre id="wf1p2">My layers are saved on OpenArt: [LAYER NAMES]. Pull them in through the OpenArt connector (or use my files in inputs/). Make a 6 second slide, 1080 by 1350. Skip the text layer and rebuild the headline [WORDS] in code, as close to the original style and font as you can. Movement: [HOW IT SHOULD MOVE]. Ask me questions before you build anything.</pre><div><button class="btn small" data-copy="wf1p2">Copy</button></div></li>
+      <li><b>Change it anytime</b><p class="muted">One line, no new image.</p><pre id="wf1p3">Change the word behind me to [NEW WORD]. Then make a second version with the same image and layers but a new layout: [DESCRIBE IT].</pre><div><button class="btn small" data-copy="wf1p3">Copy</button></div></li>
+    </ol></div>
+  <div class="card wf"><span class="pill">2 · Graphics on an AI video</span><h3>Labels and headlines on a product clip (video 4:09)</h3><ol class="wfsteps">
+      <li><b>Make a clean clip</b><p class="muted">Keep it simple and ask for no text, so the video model has less to get right. I used Seedance 2.5 on OpenArt.</p><pre id="wf2p4">Slow turn of [PRODUCT] on a soft [COLOUR] studio backdrop, then three gentle close-ups: [DETAIL 1], [DETAIL 2], [DETAIL 3]. Smooth camera, soft even light. No text, no logos, no words on screen.</pre><div><button class="btn small" data-copy="wf2p4">Copy</button></div></li>
+      <li><b>Decide the look first</b><p class="muted">Pick the design before any motion. One clear frame becomes three style references.</p><pre id="wf2p5">Pull one clear frame from inputs/[CLIP]. Use it as the base and make three style references with an image model on OpenArt (for example GPT Image 2.5): a fashion editorial, a game-style heads-up display, and a hand-drawn doodle. Keep the product exactly as it is.</pre><div><button class="btn small" data-copy="wf2p5">Copy</button></div></li>
+      <li><b>Build it</b><p class="muted">Give Claude the clip and the still you like, plus a rough shot plan in plain words.</p><pre id="wf2p6">Here&#x27;s the clip inputs/[CLIP] and the style I like references/[STILL]. The clip is the base, the still is how the graphics should look. Rebuild every letter in code. Shot 1 shows [WHAT], shot 2 [WHAT], shot 3 [WHAT], shot 4 [WHAT]. Turn my words into short marketing copy, show me the shot plan, then build it.</pre><div><button class="btn small" data-copy="wf2p6">Copy</button></div></li>
+      <li><b>Test headlines</b><p class="muted">Same footage, only the words change. See the A/B prompt below.</p></li>
+    </ol></div>
+  <div class="card wf"><span class="pill">3 · Animated with code</span><h3>The cozy cooking game, or a music video (video 6:32)</h3><ol class="wfsteps">
+      <li><b>Story and style first</b><p class="muted">Describe a story and a look. Claude plans the scenes and works out which characters, poses and backgrounds the story actually needs. More actions, more poses.</p><pre id="wf3s1">Here&#x27;s my story: [STORY, e.g. a cat who can&#x27;t cook and an AI helper, told like a cozy old Japanese RPG with text boxes and a mini game, or a music video for my song]. Length: [LENGTH]. Plan it scene by scene. Then list the characters, the poses each one needs for the actions in the story, and the backgrounds. Keep the number of poses as small as the story allows.</pre><div><button class="btn small" data-copy="wf3s1">Copy</button></div></li>
+      <li><b>Characters and backgrounds</b><p class="muted">Claude makes the art from its own list with an image model on OpenArt (I made mine with GPT Image 2.5).<br>No connector? Make them on OpenArt yourself and drop them into inputs/.</p><pre id="wf3s2">Make the art from your list with an image model on OpenArt (for example GPT Image 2.5): one sheet per character with every pose you listed, on a plain flat background with space between the drawings, and each background as its own image. Show me the cost before you generate.</pre><div><button class="btn small" data-copy="wf3s2">Copy</button></div></li>
+      <li><b>Voices</b><p class="muted">Make the voice lines with OpenArt&#x27;s voiceover tool. If the OpenArt connector is set up, Claude can pull them in for you. If not, download them into audio/.</p></li>
+      <li><b>Animate it</b><p class="muted">The look is cut-out stop motion: drawings cut from the sheets, moved over painted backgrounds. It's the same style for a game, a music video or any story. Your story goes in the bracket, the prompt describes the style.</p><pre id="wf3s4">Here&#x27;s my story: [STORY, or &quot;the plan we made&quot;]. The art sheets and backgrounds are in inputs/ and the voice or song is in audio/.
+Build it in this style: cut-out stop motion. Cut each drawing out of the sheets and lay the characters and props over the painted backgrounds. Animate on twos: swap poses with a small springy settle, add a little squash and stretch and follow-through on hair, tails and clothes, and a subtle hand-drawn boil on everything so the cut-outs and backgrounds feel like one layer. Time it to the audio first (word timings for voices, a beat grid for a song). Build any text, menus or screens in code, never over a face. Make a deliberate transition at every scene change. If I don&#x27;t give you sound, write the sound effects and music in code, and keep them quiet wherever someone is talking.
+Show me three stills before the full render.</pre><div><button class="btn small" data-copy="wf3s4">Copy</button></div></li>
+    </ol><p class="small muted">This workflow works best for styles where characters don't have to move smoothly, like paper stop motion or pixel art. For a simple hand-drawn look with no artwork at all, try the Code doodle template.</p></div>
+</section>
+<section id="guide" class="stack">
+  <span class="eyebrow">More prompts</span>
+  <h2>Batch, test and fix</h2>
+  <div class="grid" id="guideGrid"></div>
+</section>
+
+
+<section id="help" class="stack">
+  <span class="eyebrow">If you get stuck</span>
+  <h2>Help</h2>
+  <details><summary>Claude only shows me code and doesn't make files</summary><p>You're in the regular chat. Switch to the Code tab and open your project folder.</p></details>
+  <details><summary>It can't find the ZIP</summary><p>Tell Claude where it is, or move the ZIP into your project folder and say "the kit is in this folder".</p></details>
+  <details><summary>It keeps asking permission</summary><p>Pick Accept edits for this folder. Claude will still ask before installing anything or spending credits.</p></details>
+  <details><summary>The text covers the face or the product</summary><p>Give the timestamp and what should move, for example: "At 0:03 the headline covers her face. Move it to the top third."</p></details>
+  <details><summary>The Whisper step fails on my Mac</summary><p>It usually means Apple's Command Line Tools are missing. Tell Claude: "Run xcode-select --install, I'll click Install, then try Whisper again."</p></details>
+  <details><summary>I need frame-exact word timing</summary><p>For lip sync or word-by-word captions, <a href="https://elevenlabs.io/speech-to-text" target="_blank" rel="noopener">ElevenLabs' Scribe</a> gives more precise word timestamps than the local Whisper. It needs an ElevenLabs account and API key, so only ask Claude to use it if you have one.</p></details>
+  <details><summary>Does this cost money?</summary><p>Remotion is free for individuals and small teams (bigger companies need a <a href="https://www.remotion.dev/license" target="_blank" rel="noopener">licence</a>). Claude usage counts toward your plan. OpenArt images use your OpenArt credits, and Claude asks before generating anything paid.</p></details>
+</section>
+
+<section id="terms" class="stack">
+  <span class="eyebrow">Using the kit</span>
+  <h2>Make anything with it</h2>
+  <p>If you share something you made with the kit, I'd really appreciate a credit or a tag <a href="https://www.instagram.com/miameowai/" target="_blank" rel="noopener">@miameowai</a>. The full usage terms are in the ZIP.</p>
+</section>
+
+<footer class="footer">
+    <div class="stack" style="gap:8px"><a class="brand" href="https://miameow.ai/" target="_blank" rel="noopener"><img src="assets/logo.svg" alt=""><b>mia meow</b></a><div>© 2026 Mia Meow. All rights reserved.</div><div class="small muted">OpenArt links on this page are affiliate links. If you sign up through them, I may earn a small commission at no extra cost to you.</div></div>
+    <nav class="socials" aria-label="Follow Mia Meow">
+      <a href="https://www.youtube.com/@miameowai" target="_blank" rel="noopener" aria-label="Mia Meow on YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.4-.4-5c-.2-1.3-1.2-2.3-2.5-2.5C18.3 4 12 4 12 4s-6.3 0-8.1.5C2.6 4.7 1.6 5.7 1.4 7 1 8.6 1 12 1 12s0 3.4.4 5c.2 1.3 1.2 2.3 2.5 2.5 1.8.5 8.1.5 8.1.5s6.3 0 8.1-.5c1.3-.2 2.3-1.2 2.5-2.5.4-1.6.4-5 .4-5ZM9.8 15.5v-7l6 3.5-6 3.5Z"/></svg></a>
+      <a href="https://www.instagram.com/miameowai/" target="_blank" rel="noopener" aria-label="Mia Meow on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="https://www.skool.com/ai-creator-labs-2150" target="_blank" rel="noopener" aria-label="Mia Meow community on Skool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2"/><path d="M3 20c0-4 2.5-6 6-6s6 2 6 6M15 15c3 0 5 1.7 5 5"/></svg></a>
+    </nav>
+  </footer>
+</div>
+<div class="toast" id="toast">Copied</div>
+
+<script>
+const KIT='assets/templates/';
+const T=[
+ ['product-editorial','Product editorial','Product ads','Oversized fashion-editorial type, a serif headline behind the product, an italic tagline and flowing lines.','Oversized fashion-editorial typography, a refined serif headline paired with small sans-serif details, restrained leader lines and generous negative space. Where a valid subject mask exists, place the large headline behind the product.','In the video · 4:09'],
+ ['product-hud','Product HUD','Product features','Soft mauve heads-up display: crosshair targets, thin arcs and small labels tracking the product.','A game-inspired heads-up display over the product: dark translucent panels, readable feature labels, thin technical lines, corner brackets and tracking targets, with leader lines connecting panels to visible features.','In the video · 4:09'],
+ ['product-doodle','Product doodle','Product ads','Charcoal brush lettering, tape labels with white handwriting, arrows and little stars around the product.','Handwritten feature copy, white arrows, rose accents and small stars that guide attention to the product.','In the video · 4:09'],
+ ['code-doodle','Code doodle','No artwork needed','A crayon character drawn entirely in code: outlines draw on, colour scribbles in, then it comes alive.','',"New · in the video · 7:33"],
+ ['fx-cover-story','Cover story','Carousels','A big magazine masthead behind your head, a yellow cover line and a barcode.','A large magazine masthead behind a cut-out person, smaller cover lines and restrained issue details.','From my library'],
+ ['fx-paper-cut','Paper cut','Explainers','A paper collage background, mixed-colour letter tiles and a purple wavy scribble.','Torn cream and kraft paper, cut-out lettering, a white sticker edge and a short hand-drawn accent.','From my library'],
+ ['tm-neo-brutalism','Slam blocks','Headlines','Bold type, flat colour, thick borders. One block lands per beat.','Bold type, flat colour, thick borders and offset shadows. One block lands per spoken beat, or per planned visual beat when silent; reserve the biggest landing for the final message.','From my library'],
+ ['tm-pixel','Pixel celebration','Milestones','A pixel character collects tokens, a counter ticks up and a banner drops.','A small pixel character collects tokens, a counter updates and a banner drops into place.','From my library'],
+ ['fx-checklist','Checklist','Steps','A compact dark card above your head, ticks arriving one at a time.','A dark card with large task text and ticks that arrive one at a time.','From my library'],
+ ['fx-chart-grow','Chart grow','Results','A line draws above your head, points pop in and a tilted yellow label lands on the result.','A line draws across a chart, points appear and the final value settles into a pill.','From my library'],
+ ['fx-ui-world','UI world','Demos','Your footage shrinks into a card, then a prompt types into the window above it.','A prompt types into a clean window while the footage settles into a rounded card below it.','From my library'],
+ ['sg-dot-hop','Dot hop','Titles','One or two bold words above your head. A dot hops letter to letter and ends as the full stop.','','In the video · end card']
+];
+const WIDE=['product-editorial','product-hud','product-doodle','code-doodle'];
+const PT={"code-doodle": "Read mia-motion-graphics/SKILL.md and templates/code-doodle/code-doodle.md in this project, and use templates/code-doodle/Doodle.tsx as the working example.\nDraw this scene entirely in code, no image files and no image model: [WHAT TO DRAW, e.g. a cat chef flipping an omelet in a cosy kitchen].\nMain character and its one action: [CHARACTER → ACTION, e.g. blinks, then waves].\nColours: [PALETTE OR \"use the template's pastels\"].\nOutput: [ASPECT RATIO OR DIMENSIONS], [DURATION], [FPS OR SUGGEST ONE].\nAudio: [VOICE FILE TO TIME IT TO / SILENT].\nKeep it simple and hand-drawn. Ask only for missing decisions, then give a three-line plan. Show me three still frames (outline, coloured, final pose) before the full animation.\nKeep colours and timing editable, and check the exported result.\nIf you can't find these files in this folder, search the project for them, or download the kit again from https://miameow.ai/motion-graphics-kit/ and unzip it here.", "fx-chart-grow": "Read mia-motion-graphics/SKILL.md and templates/fx-chart-grow/fx-chart-grow.md in this project.\nUse the image, video or other files I supply: [FILES; NONE FOR A CODE-ONLY GRAPHIC].\nCreate the Chart grow effect: A glowing yellow line draws across the empty space above the head, white dots pop on at each data point, and the final value pops in as a yellow label (heavy rounded sans like Nunito Black, or Gilroy if I own it) above the last point. Follow the Specs section for colours, sizes and timing.\nData points, axis labels and units: [DATA]. Final result label: [WORDS].\nOutput: [ASPECT RATIO OR DIMENSIONS], [DURATION], [FPS OR SUGGEST ONE].\nAudio: [FILE / KEEP SOURCE AUDIO / SILENT]. Where this effect goes: [WHOLE CLIP OR TIME RANGE].\nUse a supplied style reference if present; otherwise propose the design in code. If I want new images, I can make them on OpenArt. Never generate paid media without asking me.\nAsk only for missing decisions, then give a three-line plan. Analyse actual visuals and any speech before assigning timing. Show design frames before the full animation.\nKeep text, colour and timing editable, preserve original files, and check the exported result.\nIf you can't find these files in this folder, search the project for them, or download the kit again from https://miameow.ai/motion-graphics-kit/ and unzip it here.", "fx-checklist": "Read mia-motion-graphics/SKILL.md and templates/fx-checklist/fx-checklist.md in this project.\nUse the image, video or other files I supply: [FILES; NONE FOR A CODE-ONLY GRAPHIC].\nCreate the Checklist effect: A compact dark card above the head with a small grey header (like \"MIA MEOW · EDIT RUN\") and short task rows that snap from a grey circle to a teal tick, one at a time. Follow the Specs section for colours, sizes and timing.\nCard header: [HEADER TEXT OR NONE]. Checklist items in order: [ITEMS]. Completion timing: [TIMES OR FOLLOW NARRATION].\nOutput: [ASPECT RATIO OR DIMENSIONS], [DURATION], [FPS OR SUGGEST ONE].\nAudio: [FILE / KEEP SOURCE AUDIO / SILENT]. Where this effect goes: [WHOLE CLIP OR TIME RANGE].\nUse a supplied style reference if present; otherwise propose the design in code. If I want new images, I can make them on OpenArt. Never generate paid media without asking me.\nAsk only for missing decisions, then give a three-line plan. Analyse actual visuals and any speech before assigning timing. Show design frames before the full animation.\nKeep text, colour and timing editable, preserve original files, and check the exported result.\nIf you can't find these files in this folder, search the project for them, or download the kit again from https://miameow.ai/motion-graphics-kit/ and unzip it here.", "fx-cover-story": "Read mia-motion-graphics/SKILL.md and templates/fx-cover-story/fx-cover-story.md in this project.\nUse the image, video or other files I supply: [FILES; NONE FOR A CODE-ONLY GRAPHIC].\nCreate the Cover story effect: A huge off-white serif masthead (like Playfair Display) across the middle of the frame, behind the person's head, with a small issue line above it, a yellow sans cover line plus a white italic serif line at the left, and a small barcode at the right. Follow the Specs section for colours, sizes and timing.\nMasthead: [TITLE]. Cover lines: [COPY]. Subject/background layers: [FILES OR NOT AVAILABLE].\nOutput: [ASPECT RATIO OR DIMENSIONS], [DURATION], [FPS OR SUGGEST ONE].\nAudio: [FILE / KEEP SOURCE AUDIO / SILENT]. Where this effect goes: [WHOLE CLIP OR TIME RANGE].\nUse a supplied style reference if present; otherwise propose the design in code. If I want new images, I can make them on OpenArt. Never generate paid media without asking me.\nAsk only for missing decisions, then give a three-line plan. Analyse actual visuals and any speech before assigning timing. Show design frames before the full animation.\nKeep text, colour and timing editable, preserve original files, and check the exported result.\nIf you can't find these files in this folder, search the project for them, or download the kit again from https://miameow.ai/motion-graphics-kit/ and unzip it here.", "fx-paper-cut": "Read mia-motion-graphics/SKILL.md and templates/fx-paper-cut/fx-paper-cut.md in this project.\nUse the image, video or other files I supply: [FILES; NONE FOR A CODE-ONLY GRAPHIC].\nCreate the Paper cut effect: The person, cut out with a white sticker edge, on a collage of flat cream, kraft and yellow paper. Ransom-note letter tiles in mixed colours (heavy sans like Montserrat Black) spell the headline above the head, then a purple wavy scribble draws in above the hair. Follow the Specs section for colours, sizes and timing.\nHeadline and paper pieces to reveal: [WORDS / OBJECTS]. Cut-out: [FILE OR NONE].\nOutput: [ASPECT RATIO OR DIMENSIONS], [DURATION], [FPS OR SUGGEST ONE].\nAudio: [FILE / KEEP SOURCE AUDIO / SILENT]. Where this effect goes: [WHOLE CLIP OR TIME RANGE].\nUse a supplied style reference if present; otherwise propose the design in code. If I want new images, I can make them on OpenArt. Never generate paid media without asking me.\nAsk only for missing decisions, then give a three-line plan. Analyse actual visuals and any speech before assigning timing. Show design frames before the full animation.\nKeep text, colour and timing editable, preserve original files, and check the exported result.\nIf you can't find these files in this folder, search the project for them, or download the kit again from https://miameow.ai/motion-graphics-kit/ and unzip it here.", "fx-ui-world": "Read mia-motion-graphics/SKILL.md and templates/fx-ui-world/fx-ui-world.md in this project.\nUse the image, video or other files I supply: [FILES; NONE FOR A CODE-ONLY GRAPHIC].\nCreate the UI world effect: On a light grey page, the footage shrinks into a rounded card while a white prompt box (Inter SemiBold, purple send button) sits above it, then the prompt types in with a blinking cursor. Follow the Specs section for colours, sizes and timing.\nPrompt to type: [EXACT TEXT]. Output card media: [FILE]. Generic UI or supplied UI reference: [CHOICE].\nOutput: [ASPECT RATIO OR DIMENSIONS], [DURATION], [FPS OR SUGGEST ONE].\nAudio: [FILE / KEEP SOURCE AUDIO / SILENT]. Where this effect goes: [WHOLE CLIP OR TIME RANGE].\nUse a supplied style reference if present; otherwise propose the design in code. If I want new images, I can make them on OpenArt. Never generate paid media without asking me.\nAsk only for missing decisions, then give a three-line plan. Analyse actual visuals and any speech before assigning timing. Show design frames before the full animation.\nKeep text, colour and timing editable, preserve original files, and check the exported result.\nIf you can't find these files in this folder, search the project for them, or download the kit again from https://miameow.ai/motion-graphics-kit/ and unzip it here.", "product-doodle": "Read mia-motion-graphics/SKILL.md and templates/product-doodle/product-doodle.md in this project.\nUse the image, video or other files I supply: [FILES; NONE FOR A CODE-ONLY GRAPHIC].\nCreate the Product doodle effect: Rough charcoal brush lettering for the product name (like Permanent Marker), feature notes in white handwriting (like Kalam) on charcoal tape labels, thin white hand-drawn arrows, rose underlines and small rose stars that guide attention to the product. Follow the Specs section for colours, sizes and timing.\nHandwritten words and details to point at: [WORDS → FEATURE].\nOutput: [ASPECT RATIO OR DIMENSIONS], [DURATION], [FPS OR SUGGEST ONE].\nAudio: [FILE / KEEP SOURCE AUDIO / SILENT]. Where this effect goes: [WHOLE CLIP OR TIME RANGE].\nUse a supplied style reference if present; otherwise propose the design in code. If I want new images, I can make them on OpenArt. Never generate paid media without asking me.\nAsk only for missing decisions, then give a three-line plan. Analyse actual visuals and any speech before assigning timing. Show design frames before the full animation.\nKeep text, colour and timing editable, preserve original files, and check the exported result.\nIf you can't find these files in this folder, search the project for them, or download the kit again from https://miameow.ai/motion-graphics-kit/ and unzip it here.", "product-editorial": "Read mia-motion-graphics/SKILL.md and templates/product-editorial/product-editorial.md in this project.\nUse the image, video or other files I supply: [FILES; NONE FOR A CODE-ONLY GRAPHIC].\nCreate the Product editorial effect: Oversized fashion-editorial typography, a refined serif headline paired with small sans-serif details, restrained leader lines and generous negative space. Where a valid subject mask exists, place the large headline behind the product. Use a clear feature headline for each relevant beat. A small italic serif tagline sits bottom right and thin white flowing lines sweep behind the product. Use a condensed serif like Instrument Serif in dusty rose for the masthead and Montserrat for the small details, and follow the Specs section for colours, sizes and timing.\nFeature headlines: [FEATURES]. Optional design reference: [FILE OR NONE].\nOutput: [ASPECT RATIO OR DIMENSIONS], [DURATION], [FPS OR SUGGEST ONE].\nAudio: [FILE / KEEP SOURCE AUDIO / SILENT]. Where this effect goes: [WHOLE CLIP OR TIME RANGE].\nUse a supplied style reference if present; otherwise propose the design in code. If I want new images, I can make them on OpenArt. Never generate paid media without asking me.\nAsk only for missing decisions, then give a three-line plan. Analyse actual visuals and any speech before assigning timing. Show design frames before the full animation.\nKeep text, colour and timing editable, preserve original files, and check the exported result.\nIf you can't find these files in this folder, search the project for them, or download the kit again from https://miameow.ai/motion-graphics-kit/ and unzip it here.", "product-hud": "Read mia-motion-graphics/SKILL.md and templates/product-hud/product-hud.md in this project.\nUse the image, video or other files I supply: [FILES; NONE FOR A CODE-ONLY GRAPHIC].\nCreate the Product HUD effect: A soft, premium heads-up display over the supplied product image or video: dark mauve translucent label panels with a pink accent bar, readable feature labels, thin white leader lines ending in small crosshair targets, plus-sign registration marks and faint thin arcs around the product, and a light condensed title. It is HUD interface styling in the product's own colours, not a neon gaming look and not gameplay footage. Follow the Specs section for colours, fonts (Oswald and Montserrat), sizes and timing.\nPanel labels and feature targets: [FEATURE → LABEL]. Optional technical data: [VERIFIED VALUES OR NONE].\nOutput: [ASPECT RATIO OR DIMENSIONS], [DURATION], [FPS OR SUGGEST ONE].\nAudio: [FILE / KEEP SOURCE AUDIO / SILENT]. Where this effect goes: [WHOLE CLIP OR TIME RANGE].\nUse a supplied style reference if present; otherwise propose the design in code. If I want new images, I can make them on OpenArt. Never generate paid media without asking me.\nAsk only for missing decisions, then give a three-line plan. Analyse actual visuals and any speech before assigning timing. Show design frames before the full animation.\nKeep text, colour and timing editable, preserve original files, and check the exported result.\nIf you can't find these files in this folder, search the project for them, or download the kit again from https://miameow.ai/motion-graphics-kit/ and unzip it here.", "sg-dot-hop": "Read mia-motion-graphics/SKILL.md and templates/sg-dot-hop/sg-dot-hop.md in this project.\nAdd a \"Dot hop\" title to my video: [FILE in inputs/].\nThe look: one or two short words (heavy rounded sans like Nunito Black, or Gilroy ExtraBold if I own it, about 170 px on a 1080x1920 frame, yellow #f4d00a with a soft dark shadow) in the empty space above my head, with an optional small white line above it. Follow the Specs section for sizes, layout and timing.\nThe motion: a dot hops from letter to letter, each landing pops a letter up, and it ends as the full stop. Measure every letter with measureText from @remotion/layout-utils (never fixed widths) and land the dot on each measured letter centre. It lands within the first 2 seconds, then holds.\nThe words: [ONE OR TWO SHORT WORDS]\nSmall line above it: [e.g. \"add this\", or none]\nWhen it lands: [THE SPOKEN LINE OR TIMESTAMP]\nKeep it clear of my face. Look at the actual frames and any speech before timing it.\nAsk me up to 5 quick questions (look, pacing, colours, length), then give me a three-line plan.\nIf you can't find these files in this folder, search the project for them, or download the kit again from https://miameow.ai/motion-graphics-kit/ and unzip it here.", "tm-neo-brutalism": "Read mia-motion-graphics/SKILL.md and templates/tm-neo-brutalism/tm-neo-brutalism.md in this project.\nUse the image, video or other files I supply: [FILES; NONE FOR A CODE-ONLY GRAPHIC].\nCreate the Slam blocks effect: Bold type (like Montserrat ExtraBold, or Gilroy if I own it), flat colour, thick black borders and hard offset shadows, each block slightly tilted, on a cream dotted-grid page or over my footage. One block lands per spoken beat, or per planned visual beat when silent; reserve the biggest landing (and the only shake) for the final message. Follow the Specs section for colours, sizes and timing.\nWords in reveal order: [WORDS]. Final call to action: [COPY OR NONE].\nOutput: [ASPECT RATIO OR DIMENSIONS], [DURATION], [FPS OR SUGGEST ONE].\nAudio: [FILE / KEEP SOURCE AUDIO / SILENT]. Where this effect goes: [WHOLE CLIP OR TIME RANGE].\nUse a supplied style reference if present; otherwise propose the design in code. If I want new images, I can make them on OpenArt. Never generate paid media without asking me.\nAsk only for missing decisions, then give a three-line plan. Analyse actual visuals and any speech before assigning timing. Show design frames before the full animation.\nKeep text, colour and timing editable, preserve original files, and check the exported result.\nIf you can't find these files in this folder, search the project for them, or download the kit again from https://miameow.ai/motion-graphics-kit/ and unzip it here.", "tm-pixel": "Read mia-motion-graphics/SKILL.md and templates/tm-pixel/tm-pixel.md in this project.\nUse the image, video or other files I supply: [FILES; NONE FOR A CODE-ONLY GRAPHIC].\nCreate the Pixel celebration effect: A side-scrolling pixel world where a small pixel character runs and collects coins, a top-left counter ticks up, then a purple banner (pixel font like Pixelify Sans) drops into place and an optional brand badge dissolves in. Follow the Specs section for colours, sizes and timing.\nCharacter: [FILE OR DESCRIBE ONE]. Milestone and counter values: [VALUES]. Final banner: [WORDS]. Brand badge: [FILE OR NONE].\nOutput: [ASPECT RATIO OR DIMENSIONS], [DURATION], [FPS OR SUGGEST ONE].\nAudio: [FILE / KEEP SOURCE AUDIO / SILENT]. Where this effect goes: [WHOLE CLIP OR TIME RANGE].\nUse a supplied style reference if present; otherwise propose the design in code. If I want new images, I can make them on OpenArt. Never generate paid media without asking me.\nAsk only for missing decisions, then give a three-line plan. Analyse actual visuals and any speech before assigning timing. Show design frames before the full animation.\nKeep text, colour and timing editable, preserve original files, and check the exported result.\nIf you can't find these files in this folder, search the project for them, or download the kit again from https://miameow.ai/motion-graphics-kit/ and unzip it here."};
+const promptFor=(id)=>PT[id];
+const PROMPTS={};
+const libH=document.getElementById('libH'),libV=document.getElementById('libV');
+T.forEach(([id,name,use,blurb,desc,where])=>{
+  const src=KIT+id+'/';
+  PROMPTS[id]=promptFor(id,name,desc);
+  const c=document.createElement('div');c.className='card tpl';
+  c.innerHTML=`<video src="${src}preview.mp4" poster="${src}poster.jpg" muted loop playsinline preload="none"></video>
+   <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="pill${id==='code-doodle'?' new':''}">${use}</span></div>
+   <h3>${name}</h3><p>${blurb}</p><span class="meta">${where}</span>
+   <div><button class="btn small" data-copy-p="${id}">Copy prompt</button></div>`;
+  const v=c.querySelector('video');
+  c.addEventListener('mouseenter',()=>v.play().catch(()=>{}));c.addEventListener('mouseleave',()=>v.pause());
+  v.addEventListener('click',()=>{if(matchMedia('(hover:hover)').matches){v.currentTime=0;v.play().catch(()=>{})}else{v.paused?v.play().catch(()=>{}):v.pause()}});
+  (WIDE.includes(id)?libH:libV).appendChild(c);
+});
+const G=[
+ ['A/B test headlines','Same video, different words, no new generation (video 6:18).',`Make two versions of the last render: A with the headline [HEADLINE A], B with [HEADLINE B]. Only change the words in the config. Render both as v-A and v-B and show me the same frame from each side by side.`],
+ ['Batch every size','One design, all the formats you post.',`Render this design in three sizes: 1080x1350 for the feed, 1080x1920 for Reels and Stories, 1920x1080 for YouTube. Re-lay out the text for each size instead of cropping, keep it clear of the app buttons, and check a frame from each.`],
+ ['Batch a series','Five posts that look like a set.',`Make five slides in the same template, one per row of [FILE OR LIST: headline, image]. Same fonts, colours and timing for all five. Show me a still of each before rendering, then render them all.`],
+ ['Copy a style you like','Turn any video you like into your own template (video 3:19).',`Here's a video whose style I like: references/[FILE]. Pull frames and listen to it, then describe the style back to me: colours, type, layout, motion, transitions, pacing. Recreate it in code with my content: [WHAT]. If I like it, save it to templates/ as a new style called [NAME].`],
+ ['Save it to your library','Nailed a look? Keep it for next time (video 3:19).',`Save what we just made as a new template in templates/[NAME]/, in the same format as the others: a short description of the look, the build notes and reusable code, known pitfalls, a prompt.txt and a short preview.mp4. Next time I'll just say "use the [NAME] template".`],
+ ['Change one thing','Small edits without starting over.',`At [TIMESTAMP], [WHAT YOU SEE] should be [WHAT YOU WANT]. Change only that, keep everything else, save it as the next version and show me that moment.`]
+];
+const gg=document.getElementById('guideGrid');
+G.forEach(([t,d,p],i)=>{PROMPTS['g'+i]=p;const c=document.createElement('div');c.className='card';
+ c.innerHTML=`<h3>${t}</h3><p class="muted">${d}</p><pre>${p.replace(/</g,'&lt;')}</pre><div><button class="btn small" data-copy-p="g${i}">Copy</button></div>`;gg.appendChild(c);});
+const toast=document.getElementById('toast');
+function copy(text){
+  const done=()=>{toast.classList.add('on');setTimeout(()=>toast.classList.remove('on'),1200)};
+  try{navigator.clipboard.writeText(text).then(done,()=>fallback(text,done))}catch(e){fallback(text,done)}
+}
+function fallback(text,done){const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();try{document.execCommand('copy');done()}catch(e){}t.remove()}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-copy],[data-copy-p]');if(!b)return;
+  copy(b.dataset.copy?document.getElementById(b.dataset.copy).textContent:PROMPTS[b.dataset.copyP]);
+});
+</script>
+</body>
+</html>

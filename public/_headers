@@ -15,6 +15,9 @@
   X-Robots-Tag: noindex, nofollow
 /ai-marketing-course/*
   X-Robots-Tag: noindex, nofollow
+# Link-only kit page (shared from the video description and Gumroad), keep it out of search.
+/motion-graphics-kit/*
+  X-Robots-Tag: noindex, nofollow
 
 # Security headers (added 2026-09-15 by _skills/website-check). Verify after any
 # change with: python3 _skills/website-check/scripts/site_check.py https://miameow.ai --repo .
