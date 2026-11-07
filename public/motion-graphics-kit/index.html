@@ -130,6 +130,9 @@ code{background:var(--code);padding:2px 6px;border-radius:6px;font-size:.9em}
    - Never overwrite a render. Save v2, v3 and so on.
    - After every render, check frames from the whole video, score it out of 10 for layout, timing, readability and polish, fix anything under 8, and tell me what's wrong before you say it's done.
    - If I ask for an overlay to use in CapCut, Premiere or DaVinci, render it with a transparent background: --codec=prores --prores-profile=4444 --pixel-format=yuva444p10le --image-format=png, as a .mov.
+   - For vertical videos made for Reels, TikTok or Shorts, keep words and key visuals out of the bottom fifth and the right edge, where the app's buttons and caption sit.
+   - If you add sound, aim for about -14 LUFS so it isn't quieter or louder than other videos in the feed.
+   - In captions, use my exact words. If you're not sure what I said, ask me instead of guessing.
    - When I correct something, add it to notes/checks.md as a DO or DON'T line and read that file before every render.
    - Never generate paid images, video or audio without asking me first.
 
@@ -247,6 +250,9 @@ Show me three stills before the full render.</pre><div><button class="btn small"
   <details><summary>The text covers the face or the product</summary><p>Give the timestamp and what should move, for example: "At 0:03 the headline covers her face. Move it to the top third."</p></details>
   <details><summary>The Whisper step fails on my Mac</summary><p>It usually means Apple's Command Line Tools are missing. Tell Claude: "Run xcode-select --install, I'll click Install, then try Whisper again."</p></details>
   <details><summary>I need frame-exact word timing</summary><p>For lip sync or word-by-word captions, <a href="https://elevenlabs.io/speech-to-text" target="_blank" rel="noopener">ElevenLabs' Scribe</a> gives more precise word timestamps than the local Whisper. It needs an ElevenLabs account and API key, so only ask Claude to use it if you have one.</p></details>
+  <details><summary>The first video isn't quite right</summary><p>That's normal, it's a first draft, not a one-click button. Give notes with timestamps, for example "At 0:02 the title comes in too fast". Claude saves every correction to notes/checks.md and reads it before the next render, so the same mistake doesn't come back.</p></details>
+  <details><summary>Should I turn on Bypass permissions?</summary><p>I wouldn't. Bypass lets Claude run any command without asking, and that's where accidents happen. Accept edits is enough for this. Also: keep the project in its own folder, keep a copy of your original images and clips somewhere else, and only add skills or plugins from people you trust.</p></details>
+  <details><summary>Has all of this actually been tested?</summary><p>Yes, but here's exactly how. I ran the setup prompt on my own Mac for the video, all the way to the "Ready" test render. Then Claude tested it again like a brand new user on a clean computer, three rounds: the install, the test render, looking at frames, and transcribing the sample voice all worked. The three workflows were rendered with stand-in images and scored against the previews. What hasn't been tested is a fresh Windows PC, so if something breaks there, tell me. Last checked November 2026. Apps change fast, so if a button has moved, the <a href="https://code.claude.com/docs" target="_blank" rel="noopener">Claude Code docs</a> and <a href="https://www.remotion.dev/docs" target="_blank" rel="noopener">Remotion docs</a> have the current version.</p></details>
   <details><summary>Does this cost money?</summary><p>Remotion is free for individuals and small teams (bigger companies need a <a href="https://www.remotion.dev/license" target="_blank" rel="noopener">licence</a>). Claude usage counts toward your plan. OpenArt images use your OpenArt credits, and Claude asks before generating anything paid.</p></details>
 </section>
 
