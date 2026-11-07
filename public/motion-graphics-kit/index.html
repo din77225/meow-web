@@ -81,7 +81,7 @@ code{background:var(--code);padding:2px 6px;border-radius:6px;font-size:.9em}
         <a href="#need">What you need</a><a href="#start">Setup</a><a href="#installs">What gets installed</a><a href="#words">Skill vs template vs prompt</a><a href="#library">Style library</a><a href="#workflows">The 3 workflows</a><a href="#guide">More prompts</a><a href="#help">Help</a><a href="#terms">Usage</a>
       </nav>
     </div>
-    <video src="assets/templates/code-doodle/preview.mp4" poster="assets/templates/code-doodle/poster.jpg" autoplay muted loop playsinline aria-label="A crayon cat chef drawn entirely in code"></video>
+    <video src="assets/templates/code-doodle/preview.mp4?v=1106b" poster="assets/templates/code-doodle/poster.jpg?v=1106b" autoplay muted loop playsinline aria-label="A crayon cat chef drawn entirely in code"></video>
   </div>
 </header>
 
@@ -305,7 +305,7 @@ T.forEach(([id,name,use,blurb,desc,where])=>{
   const src=KIT+id+'/';
   PROMPTS[id]=promptFor(id,name,desc);
   const c=document.createElement('div');c.className='card tpl';
-  c.innerHTML=`<video src="${src}preview.mp4" poster="${src}poster.jpg" muted loop playsinline preload="none"></video>
+  c.innerHTML=`<video src="${src}preview.mp4?v=1106b" poster="${src}poster.jpg?v=1106b" muted loop playsinline preload="none"></video>
    <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="pill${id==='code-doodle'?' new':''}">${use}</span></div>
    <h3>${name}</h3><p>${blurb}</p><span class="meta">${where}</span>
    <div><button class="btn small" data-copy-p="${id}">Copy prompt</button></div>`;
