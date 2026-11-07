@@ -45,6 +45,9 @@ summary{cursor:pointer;font-weight:600}
 .muted{color:var(--soft)} .small{font-size:.85rem}
 .toast{position:fixed;bottom:max(20px,env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--yellow,#f4d00a);color:#171020;font-weight:600;padding:10px 16px;border-radius:10px;font-size:.9rem;opacity:0;transition:opacity .2s;pointer-events:none}
 .toast.on{opacity:1}
+details.fold>summary{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:10px 16px;margin-block:4px}
+details.fold[open]>summary{margin-bottom:16px}
+.oslist{display:grid;gap:14px;padding-left:20px;margin:0;max-width:72ch}.oslist code{word-break:break-word}
 @media (max-width:760px){.install td:first-child{white-space:normal!important;width:38%}}
 #guideGrid{grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr))}
 nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
@@ -147,6 +150,7 @@ If the test render times out, try again and point Remotion at my system Chrome w
 <section id="installs" class="stack">
   <span class="eyebrow">No surprises</span>
   <h2>What the setup prompt installs, and why</h2>
+  <details class="fold"><summary>See everything it installs, and why</summary>
   <p class="muted">You paste one prompt. Here's what it sets up. It asks before anything goes outside your project folder.</p>
   <div class="card"><div class="tbl"><table class="install">
     <tr><th>What</th><th>Why you need it</th></tr>
@@ -167,31 +171,20 @@ If the test render times out, try again and point Remotion at my system Chrome w
     <div class="card"><h3>👀 Eyes</h3><p>Claude can see images but can't play a video. So for any clip you give it, it pulls frames (two per second) with Remotion's built-in FFmpeg and looks at them first. That's how it knows when the product turns, when a cut happens, and where a label can go without covering a face. You never install FFmpeg yourself.</p></div>
     <div class="card"><h3>👂 Ears</h3><p>If the clip has sound, Claude pulls the audio and transcribes it with the local Whisper, word by word with timestamps. That's how a headline lands exactly on the word you say, and how it catches where the music hits when you show it a style you like.</p></div>
   </div>
+  </details>
 </section>
 
 <section id="words" class="stack">
   <span class="eyebrow">Plain English</span>
   <h2>Skill, template, prompt: what's the difference?</h2>
+  <details class="fold"><summary>Read the short explanation</summary>
   <div class="compare">
     <div class="card"><b>The skill</b><p>My <i>how I work</i> rules: ask first, show three stills, build in code, check the render. Claude reads it every time, so you just ask for what you want, like "make my product photo move".</p></div>
     <div class="card"><b>A template</b><p>In this kit, a template is one <i>look</i>: a preview, a short description of the style, build notes and known pitfalls. Pick one, and Claude rebuilds that look with your own pictures and words. It's not a fill-in file like a Canva or CapCut template.</p></div>
     <div class="card"><b>A prompt</b><p>Anything you type to Claude is a prompt, and plain English works. In this kit, each template also comes with a ready-made prompt you can copy. Fill in the [brackets] with your files and words, or leave them and Claude will ask.</p></div>
   </div>
   <div class="card"><h3>How to use it</h3><p>Open your project folder in the Code tab and describe what you want in plain English. To pick a look, name a template ("use the Paper cut template") or paste its prompt from the library below. To fix something, give the time and what you see ("at 0:03 the headline covers her face, move it up").</p></div>
-  <div class="card">
-    <h3>What the skill can do for you</h3>
-    <div class="tbl"><table>
-      <tr><th>You give Claude</th><th>You get</th></tr>
-      <tr><td>A picture or OpenArt layers</td><td>A moving carousel or post, text behind the subject, 1080×1350 or any size</td></tr>
-      <tr><td>A clip (AI video or your footage)</td><td>Labels, arrows and headlines that follow what's on screen, cut by cut</td></tr>
-      <tr><td>A script or voiceover</td><td>An explainer where each graphic lands on its word</td></tr>
-      <tr><td>A video you like</td><td>The style described back to you, rebuilt with your content, saved as a new template</td></tr>
-      <tr><td>Nothing at all</td><td>Charts, checklists, UI demos or a hand-drawn doodle, all drawn in code</td></tr>
-      <tr><td>Your talking head</td><td>Captions that pop on the right words, and words that tuck behind you (on a Mac it cuts you out for free)</td></tr>
-      <tr><td>A screen recording</td><td>Big, clean 16:9 walkthroughs: zoom to the button, private stuff blurred, nothing cropped off</td></tr>
-      <tr><td>"Change the headline"</td><td>One line changed, new render, nothing regenerated</td></tr>
-    </table></div>
-  </div>
+  </details>
 </section>
 
 <section id="library" class="stack">
@@ -202,23 +195,6 @@ If the test render times out, try again and point Remotion at my system Chrome w
   <div class="libgrid h" id="libH"></div>
   <div class="libhead">Tall, for Reels, Shorts and TikTok (9:16)</div>
   <div class="libgrid v" id="libV"></div>
-</section>
-
-<section id="open-source" class="stack">
-  <span class="eyebrow">Free libraries from other creators</span>
-  <h2>Want your videos to look different from everyone else's?</h2>
-  <p class="muted">These open-source projects are full of styles made in code with Claude. Browse them, pick one, and either install it or describe it to Claude in your project.</p>
-  <div class="libgrid h">
-    <div class="tpl card"><video src="assets/open-source/lemo-opuscar.mp4" poster="assets/open-source/lemo-opuscar.jpg" muted loop autoplay playsinline preload="metadata" style="width:100%;aspect-ratio:16/9;border-radius:12px;background:#000;object-fit:cover"></video>
-      <span class="pill">66 film styles</span><h3>Lemo-Opuscar</h3><p>A toolbox of film styles, each with a short film made entirely in code by Claude Opus 5.5: kinetic type, product exploded views, documentary looks and more.</p>
-      <p class="small muted">Install: tell Claude <code>claude plugin marketplace add lemomo-ai/lemo-opuscar</code>, then <code>claude plugin install lemo-opuscar@lemolab</code>.</p>
-      <p class="small"><a href="https://lemomo-ai.github.io/lemo-opuscar/" target="_blank" rel="noopener">Watch the gallery</a> · <a href="https://github.com/lemomo-ai/lemo-opuscar" target="_blank" rel="noopener">GitHub</a></p>
-      <p class="small muted">Demo film by LemoLab (lemo-opuscar), CC BY 4.0, trimmed.</p></div>
-    <div class="tpl card"><div style="aspect-ratio:16/9;border-radius:12px;background:linear-gradient(135deg,#2a1840,#120a18);display:grid;place-items:center;text-align:center;padding:16px"><div><div style="font-family:Gilroy,Inter,sans-serif;font-weight:800;font-size:clamp(28px,4vw,44px);color:var(--ink)">124 shot recipes</div><div class="small muted">openings · typography · UI entrances · camera · transitions</div></div></div>
-      <span class="pill">Product films</span><h3>video-shotcraft</h3><p>A library of shot-recipe cards with motion samples for product and launch films. Pick cards by name and Claude builds those shots in Remotion with your own screenshots.</p>
-      <p class="small muted">Install: tell Claude <code>Install this skill for me: https://github.com/Vincentwei1021/video-shotcraft</code></p>
-      <p class="small"><a href="https://vincentwei1021.github.io/video-shotcraft/library.html" target="_blank" rel="noopener">Browse the shot library</a> · <a href="https://github.com/Vincentwei1021/video-shotcraft" target="_blank" rel="noopener">GitHub</a></p></div>
-  </div>
 </section>
 
 <section id="workflows" class="stack">
@@ -252,6 +228,15 @@ Show me three stills before the full render.</pre><div><button class="btn small"
   <div class="grid" id="guideGrid"></div>
 </section>
 
+
+<section id="open-source" class="stack">
+  <span class="eyebrow">Want more?</span>
+  <h2>Free libraries from other creators</h2>
+  <ul class="oslist">
+    <li><a href="https://lemomo-ai.github.io/lemo-opuscar/" target="_blank" rel="noopener"><b>Lemo-Opuscar</b></a> by LemoLab: 66 film styles, each with a short film made entirely in code with Claude. Install it by telling Claude <code>claude plugin marketplace add lemomo-ai/lemo-opuscar</code>, then <code>claude plugin install lemo-opuscar@lemolab</code>.</li>
+    <li><a href="https://vincentwei1021.github.io/video-shotcraft/library.html" target="_blank" rel="noopener"><b>video-shotcraft</b></a>: 124 shot recipes for product and launch films. Tell Claude <code>Install this skill for me: https://github.com/Vincentwei1021/video-shotcraft</code>, then pick shots by name.</li>
+  </ul>
+</section>
 
 <section id="help" class="stack">
   <span class="eyebrow">If you get stuck</span>
