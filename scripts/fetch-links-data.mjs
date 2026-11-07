@@ -5,7 +5,7 @@
  * The /links page is static HTML (no serverless function on Cloudflare). It fetches
  * /links-data.json at load and fills in the "latest videos" cards + subscriber count.
  * This script rebuilds that JSON every build from the data the other two fetchers
- * already produced (featured.json + videos.json = channel uploads),
+ * already produced (featured.json + videos.json = channel uploads, collabs.json = collabs),
  * so /links auto-updates on the same cadence as the main site with no manual edits.
  *
  * Run AFTER fetch-videos.mjs and fetch-collabs.mjs (see package.json build chain).
@@ -62,11 +62,13 @@ async function run() {
 
   const featured = readJson('featured.json', null);
   const uploads  = readJson('videos.json', []);
+  const collabs  = readJson('collabs.json', []);
 
-  // Show the five latest channel uploads, deduplicated and newest first.
-  // Collaborations on other channels remain in the homepage rail.
+  // Show the five latest videos, deduplicated and newest first. Collabs on other
+  // channels (the Collaborations playlist) count too, so a new OpenArt video
+  // shows up here as well as in the homepage rail (Mia, 2026-11-07).
   const seen = new Set();
-  const merged = [...(featured ? [featured] : []), ...uploads]
+  const merged = [...(featured ? [featured] : []), ...uploads, ...collabs]
     .filter(v => v && v.id && !seen.has(v.id) && seen.add(v.id))
     .sort((a, b) => (b.publishedAt || '').localeCompare(a.publishedAt || ''))
     .slice(0, COUNT)
