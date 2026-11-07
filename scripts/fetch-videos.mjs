@@ -16,6 +16,7 @@ const OUTPUT          = join(__dirname, '../src/data/videos.json');
 const OUTPUT_FEATURED = join(__dirname, '../src/data/featured.json');
 const TAG_OVERRIDES   = join(__dirname, '../src/data/tag-overrides.json');
 const HANDLE          = 'miameowai';
+const CHANNEL_ID      = 'UCbeTqbTXZgokTvLN2KDK3uw'; // @miameowai, for the API fallback
 const MAX             = 10;
 
 const HEADERS = {
@@ -91,32 +92,66 @@ async function getChannelId() {
   throw new Error('Channel ID not found in page HTML — YouTube may have changed its structure.');
 }
 
+async function fromRss() {
+  const channelId = await getChannelId();
+  console.log(`  Channel ID: ${channelId}`);
+
+  const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
+  console.log(`  Fetching RSS: ${rssUrl}`);
+  const res = await fetch(rssUrl, { headers: HEADERS });
+  if (!res.ok) throw new Error(`RSS request failed: ${res.status}`);
+  const xml = await res.text();
+
+  const entries = [...xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)];
+  return entries
+    .map(([, entry]) => {
+      const id          = entry.match(/<yt:videoId>([^<]+)<\/yt:videoId>/)?.[1];
+      const title       = entry.match(/<title>([^<]+)<\/title>/)?.[1];
+      const desc        = entry.match(/<media:description>([\s\S]*?)<\/media:description>/)?.[1] ?? '';
+      const published   = entry.match(/<published>([^<]+)<\/published>/)?.[1]?.slice(0, 10) ?? '';
+      if (!id || !title) return null;
+      return { id, title: decodeHtml(title), tag: getTag(id, title, desc), publishedAt: published };
+    })
+    .filter(Boolean);
+}
+
+/** Fallback when the RSS feed is down (it returned 404/500 for days in Nov 2026):
+ *  the channel's uploads playlist through the Data API, 1 quota unit per build. */
+async function fromApi() {
+  const key = process.env.YOUTUBE_API_KEY;
+  if (!key) throw new Error('No YOUTUBE_API_KEY for the API fallback.');
+  const uploads = CHANNEL_ID.replace(/^UC/, 'UU');
+  const res  = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&maxResults=50&playlistId=${uploads}&key=${key}`);
+  const data = await res.json();
+  if (data.error) throw new Error(data.error.message || `YouTube API error ${res.status}`);
+  return (data.items || [])
+    .map(it => {
+      const id    = it.contentDetails?.videoId;
+      const title = it.snippet?.title;
+      if (!id || !title || title === 'Private video' || title === 'Deleted video') return null;
+      const desc  = it.snippet.description || '';
+      const published = (it.contentDetails.videoPublishedAt || it.snippet.publishedAt || '').slice(0, 10);
+      return { id, title, tag: getTag(id, title, desc), publishedAt: published };
+    })
+    .filter(Boolean)
+    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+}
+
 async function run() {
   console.log('\n[fetch-videos] Updating video list from YouTube RSS...');
 
   try {
-    const channelId = await getChannelId();
-    console.log(`  Channel ID: ${channelId}`);
+    let candidates;
+    try {
+      candidates = await fromRss();
+      if (candidates.length === 0) throw new Error('No videos parsed from RSS — check feed format.');
+    } catch (rssErr) {
+      console.warn(`  ${rssErr.message} — trying the YouTube Data API instead.`);
+      candidates = await fromApi();
+      console.log(`  Got ${candidates.length} uploads from the API.`);
+    }
 
-    const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
-    console.log(`  Fetching RSS: ${rssUrl}`);
-    const res = await fetch(rssUrl, { headers: HEADERS });
-    if (!res.ok) throw new Error(`RSS request failed: ${res.status}`);
-    const xml = await res.text();
-
-    const entries = [...xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)];
-    const candidates = entries
-      .map(([, entry]) => {
-        const id          = entry.match(/<yt:videoId>([^<]+)<\/yt:videoId>/)?.[1];
-        const title       = entry.match(/<title>([^<]+)<\/title>/)?.[1];
-        const desc        = entry.match(/<media:description>([\s\S]*?)<\/media:description>/)?.[1] ?? '';
-        const published   = entry.match(/<published>([^<]+)<\/published>/)?.[1]?.slice(0, 10) ?? '';
-        if (!id || !title) return null;
-        return { id, title: decodeHtml(title), tag: getTag(id, title, desc), publishedAt: published };
-      })
-      .filter(Boolean);
-
-    if (candidates.length === 0) throw new Error('No videos parsed from RSS — check feed format.');
+    if (candidates.length === 0) throw new Error('No videos found in RSS or API.');
 
     // Filter out Shorts — if /shorts/VIDEO_ID redirects back to /shorts/, it's a Short
     console.log(`  Checking ${candidates.length} videos for Shorts...`);

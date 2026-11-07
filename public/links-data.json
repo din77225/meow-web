@@ -1,38 +1,38 @@
 {
   "videos": [
     {
+      "videoId": "qb9amMasb64",
+      "title": "Create Professional Motion Graphics in Minutes (No Skills Needed)",
+      "url": "https://www.youtube.com/watch?v=qb9amMasb64",
+      "publishedAt": "2026-11-07"
+    },
+    {
+      "videoId": "GApYgYnvYh8",
+      "title": "GPT Image 2.5 vs Nano Banana 2.1: Which Should You Use?",
+      "url": "https://www.youtube.com/watch?v=GApYgYnvYh8",
+      "publishedAt": "2026-10-17"
+    },
+    {
       "videoId": "KxGtaHUoKNM",
-      "title": "Direct Your AI Video Before Generation | Seedance 2.5 + Blender",
+      "title": "Control Who Talks and Where the Camera Goes | Blender + Seedance 2.5",
       "url": "https://www.youtube.com/watch?v=KxGtaHUoKNM",
       "publishedAt": "2026-09-22"
     },
     {
       "videoId": "UQFeYQgqKpA",
-      "title": "I Made an AI Short Film Just By Chatting | OpenArt Director",
+      "title": "I Made an AI Short Film in One Day Just By Chatting",
       "url": "https://www.youtube.com/watch?v=UQFeYQgqKpA",
       "publishedAt": "2026-08-08"
     },
     {
-      "videoId": "QRW9ywy-4lw",
-      "title": "How to Put Yourself Into ANY AI World With This New VFX Workflow",
-      "url": "https://www.youtube.com/watch?v=QRW9ywy-4lw",
-      "publishedAt": "2026-06-22"
-    },
-    {
-      "videoId": "yg1_uC9QJPw",
-      "title": "This AI Combo Changed How I Make Ads (GPT Image 2 + Seedance 2.0)",
-      "url": "https://www.youtube.com/watch?v=yg1_uC9QJPw",
-      "publishedAt": "2026-05-15"
-    },
-    {
-      "videoId": "uYqQyJw1cgA",
-      "title": "Script to Viral in One Prompt | Agent Opus Changes Everything",
-      "url": "https://www.youtube.com/watch?v=uYqQyJw1cgA",
-      "publishedAt": "2026-05-09"
+      "videoId": "oFxmLoQPBhA",
+      "title": "Stop Hiring Agencies - Make Ads Like This Instead",
+      "url": "https://www.youtube.com/watch?v=oFxmLoQPBhA",
+      "publishedAt": "2026-07-16"
     }
   ],
   "subscribers": "23K+",
-  "views": "1.1M+",
+  "views": "1.2M+",
   "members": "1,000+",
-  "updated": "2026-09-15"
+  "updated": "2026-11-07"
 }
